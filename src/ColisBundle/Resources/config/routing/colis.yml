@@ -1,0 +1,41 @@
+colis_show:
+    path:     /{idC}/show
+    defaults: { _controller: "ColisBundle:Colis:show" }
+    methods:  GET
+colis_index:
+    path:     /
+    defaults: { _controller: "ColisBundle:Colis:index" }
+    methods:  GET
+colis_new:
+    path:     /new
+    defaults: { _controller: "ColisBundle:Colis:new" }
+    methods:  [GET, POST]
+colis_afficher:
+    path:     /afficher
+    defaults: { _controller: "ColisBundle:Colis:AfficherParUser" }
+    methods:  GET
+colis_edit:
+    path:     /{idC}/edit
+    defaults: { _controller: "ColisBundle:Colis:edit" }
+    methods:  [GET, POST]
+
+colis_delete:
+    path:     /{idC}/delete
+    defaults: { _controller: "ColisBundle:Colis:delete" }
+    methods:  DELETE
+rendez_map:
+    path:     /map
+    defaults: { _controller: "ColisBundle:Colis:map" }
+    methods:  GET
+colis_stat:
+    path:     /stat
+    defaults: { _controller: "ColisBundle:Colis:stat" }
+    methods:  GET
+map:
+    path:     /map
+    defaults: { _controller: "ColisBundle:Colis:map" }
+    methods:  GET
+colis_weather:
+    path:     /weather
+    defaults: { _controller: "ColisBundle:Colis:weather" }
+    methods:  GET

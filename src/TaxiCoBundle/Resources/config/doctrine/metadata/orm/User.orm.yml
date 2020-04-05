@@ -1,0 +1,193 @@
+User:
+    type: entity
+    table: user
+    indexes:
+        id_eventfk:
+            columns:
+                - nom_event
+        ptfidid:
+            columns:
+                - point_fidelite
+    uniqueConstraints:
+        mail:
+            columns:
+                - mail
+    id:
+        idU:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_u
+            generator:
+                strategy: IDENTITY
+    fields:
+        nom:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        prenom:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        tel:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        mail:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        mdp:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        naissance:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        creation:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        active:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        image:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        cin:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        permis:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        nomCompte:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+            column: nom_compte
+        ribCompte:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: rib_compte
+        experience:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        nbrCourse:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: nbr_course
+        pointFidelite:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+            column: point_fidelite
+        nomEvent:
+            type: string
+            nullable: true
+            length: 11
+            options:
+                fixed: false
+            column: nom_event
+        username:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        usernameCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: username_canonical
+        email:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+        emailCanonical:
+            type: string
+            nullable: false
+            length: 180
+            options:
+                fixed: false
+            column: email_canonical
+        enabled:
+            type: boolean
+            nullable: false
+        salt:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+        password:
+            type: string
+            nullable: false
+            length: 255
+            options:
+                fixed: false
+        lastLogin:
+            type: datetime
+            nullable: true
+            column: last_login
+        confirmationToken:
+            type: string
+            nullable: true
+            length: 180
+            options:
+                fixed: false
+            column: confirmation_token
+        passwordRequestedAt:
+            type: datetime
+            nullable: true
+            column: password_requested_at
+        roles:
+            type: array
+            nullable: false
+            length: null
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

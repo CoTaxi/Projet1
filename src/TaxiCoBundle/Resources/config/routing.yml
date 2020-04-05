@@ -1,0 +1,5 @@
+
+
+taxi_co_homepage:
+    path:     /
+    defaults: { _controller: TaxiCoBundle:Default:index }

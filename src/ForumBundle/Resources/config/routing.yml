@@ -1,0 +1,6 @@
+forum_homepage:
+    path:     /forum
+    defaults: { _controller: ForumBundle:Forum:show }
+forum_add:
+    path:     /add
+    defaults: { _controller: ForumBundle:Forum:addForum }

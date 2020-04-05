@@ -1,0 +1,52 @@
+Reclamation:
+    type: entity
+    table: reclamation
+    indexes:
+        fkuser:
+            columns:
+                - idch
+    id:
+        idR:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_r
+            generator:
+                strategy: IDENTITY
+    fields:
+        message:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+        etat:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        dateRec:
+            type: datetime
+            nullable: false
+            column: date_rec
+        reponse:
+            type: text
+            nullable: false
+            length: 65535
+            options:
+                fixed: false
+    manyToOne:
+        idch:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                idch:
+                    referencedColumnName: id_u
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

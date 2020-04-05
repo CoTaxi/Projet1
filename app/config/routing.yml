@@ -1,0 +1,21 @@
+forum:
+    resource: "@ForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
+colis:
+    resource: "@ColisBundle/Resources/config/routing.yml"
+    prefix:   /C
+Evenement:
+    resource: "@EvenementBundle/Resources/config/routing.yml"
+    prefix:   /event
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+taxi_co:
+    resource: "@TaxiCoBundle/Resources/config/routing.yml"
+    prefix:   /T
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation

@@ -1,0 +1,68 @@
+{% extends'layout.html.twig' %}
+{% block title %} Forum {% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+{% block contents %}
+    <section id="slider-area">
+        {{ form_start(form) }}
+        <!--== slide Item One ==-->
+        <div class="single-slide-item overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="book-a-car">
+                            <div>
+                                <!--== Pick Up Location ==-->
+
+                                <!--== Pick Up Location ==-->
+
+                                <!--== Pick Up Date ==-->
+                                <div class="pick-up-date book-item">
+                                    <h4>PICK-UP DATE:</h4>
+                                    <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group" style="width: 334px;">
+                                        {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+
+                                    <div class="return-car">
+                                        <h4>Return DATE:</h4>
+                                        <div role="wrapper" class="gj-datepicker gj-datepicker-bootstrap gj-unselectable input-group" style="width: 334px;">
+                                            {{ form_widget(form.content, {'attr': {'class': 'form-control'}}) }}
+                                        </div>
+                                    </div>
+                                </div>
+                                <!--== Pick Up Location ==-->
+
+                                <!--== Car Choose ==-->
+
+                                <!--== Car Choose ==-->
+
+                                <div class="book-button text-center">
+                                    {{ form_widget(form.Add,{'attr': {'class': 'book-now-btn'}})}}
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-7 text-right">
+                        <div class="display-table">
+                            <div class="display-table-cell">
+                                <div class="slider-right-text">
+                                    <h1>BOOK A CAR TODAY!</h1>
+                                    <p>FOR AS LOW AS $10 A DAY PLUS 15% DISCOUNT <br> FOR OUR RETURNING CUSTOMERS</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {{ form_end(form) }}
+        <!--== slide Item One ==-->
+    </section>
+
+
+{% endblock %}
+{% endblock %}

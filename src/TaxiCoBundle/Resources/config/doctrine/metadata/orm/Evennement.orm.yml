@@ -1,0 +1,49 @@
+Evennement:
+    type: entity
+    table: evennement
+    id:
+        idEvent:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_event
+            generator:
+                strategy: IDENTITY
+    fields:
+        nomEvent:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+            column: nom_event
+        dateEvent:
+            type: date
+            nullable: false
+            column: date_event
+        dureeEvent:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: duree_event
+        capacite:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        emplacement:
+            type: string
+            nullable: false
+            length: 50
+            options:
+                fixed: false
+        etat:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

@@ -1,0 +1,106 @@
+Vehicule:
+    type: entity
+    table: vehicule
+    id: {  }
+    fields:
+        matricule:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        marque:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        modele:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        cartegrise:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        couleur:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        type:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        dispo:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        position:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        destination:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+        etat:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+        places:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+                default: '0'
+        dateco:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        archive:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        zone:
+            type: string
+            nullable: true
+            length: 250
+            options:
+                fixed: false
+        acceptC:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+                default: '0'
+            column: accept_c
+    oneToOne:
+        idV:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_v:
+                    referencedColumnName: id_u
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

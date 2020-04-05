@@ -1,0 +1,47 @@
+<?php
+
+namespace TaxiCoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Garage
+ *
+ * @ORM\Table(name="garage", indexes={@ORM\Index(name="id_service_fk", columns={"id_service"})})
+ * @ORM\Entity
+ */
+class Garage
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_garage", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idGarage;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="name", type="string", length=50, nullable=true)
+     */
+    private $name;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=50, nullable=true)
+     */
+    private $address;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_service", type="integer", nullable=true)
+     */
+    private $idService;
+
+
+}
+

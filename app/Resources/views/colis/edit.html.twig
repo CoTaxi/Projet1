@@ -1,0 +1,44 @@
+{% extends 'default/acceuil.html.twig' %}
+
+{% block contents %}
+    <h1>Coli edit</h1>
+<section id="slider-area">
+    <!--== slide Item One ==-->
+    <div class="single-slide-item overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5 col-lg-6">
+
+                    <div class="book-a-car">
+
+                            <!--== Pick Up Location ==-->
+                            <div class="pickup-location book-item">
+                          {{ form_start(edit_form) }}
+
+        {{ form_widget(edit_form) }}
+        <input type="submit" class="readmore-btn" value="Edit" />
+    {{ form_end(edit_form) }}
+
+    <ul>
+
+        <li>
+            {{ form_start(delete_form) }}
+
+                <input type="submit" class="readmore-btn" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+
+        <li>
+            <a href="{{ path('colis_index') }}">Back to the list</a>
+        </li>
+    </ul>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+{% endblock %}

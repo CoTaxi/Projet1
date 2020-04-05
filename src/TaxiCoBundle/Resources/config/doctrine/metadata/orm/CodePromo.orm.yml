@@ -1,0 +1,19 @@
+CodePromo:
+    type: entity
+    table: code_promo
+    id:
+        code:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        balance:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+    lifecycleCallbacks: {  }

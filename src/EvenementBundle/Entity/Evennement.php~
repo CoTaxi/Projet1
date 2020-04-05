@@ -1,0 +1,75 @@
+<?php
+
+namespace EvenementBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Evennement
+ *
+ * @ORM\Table(name="evennement")
+ * @ORM\Entity
+ */
+class Evennement
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_event", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idEvent;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_event", type="string", length=250, nullable=false)
+     */
+    private $nomEvent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_event", type="datetime", nullable=false)
+     */
+    private $dateEvent;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date_event_fin", type="datetime", nullable=false)
+     */
+    private $dateEventFin;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="duree_event", type="integer", nullable=false)
+     */
+    private $dureeEvent;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="capacite", type="integer", nullable=false)
+     */
+    private $capacite;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="emplacement", type="string", length=50, nullable=false)
+     */
+    private $emplacement;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="etat", type="string", length=250, nullable=false)
+     */
+    private $etat;
+
+
+}
+

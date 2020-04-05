@@ -1,0 +1,24 @@
+Category:
+    type: entity
+    table: category
+    uniqueConstraints:
+        categorie:
+            columns:
+                - categorie
+    id:
+        idcatergory:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        categorie:
+            type: string
+            nullable: false
+            length: 250
+            options:
+                fixed: false
+    lifecycleCallbacks: {  }

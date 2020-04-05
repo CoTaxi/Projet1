@@ -1,0 +1,12 @@
+evenement_homepage:
+    path:     /
+    defaults: { _controller: EvenementBundle:Default:index }
+
+Event_Back:
+    path:     /showBack
+    defaults: { _controller: EvenementBundle:Evenement:showback }
+
+LoadEvent:
+    path:     /load
+    defaults: { _controller: EvenementBundle:Evenement:load }
+

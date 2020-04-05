@@ -1,0 +1,10 @@
+colis_colis:
+    resource: "@ColisBundle/Resources/config/routing/colis.yml"
+    prefix:   /colis
+
+colis_category:
+    resource: "@ColisBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+taxi_back:
+    path:     /back
+    defaults: { _controller: ColisBundle:Default:index }

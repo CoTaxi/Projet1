@@ -1,0 +1,58 @@
+{% extends 'default/acceuil.html.twig' %}
+
+
+
+{% block contents %}
+
+
+<section id="slider-area">
+
+    <!--== slide Item One ==-->
+    <div class="single-slide-item overlay">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-5">
+                    <div class="book-a-car">
+
+                        <!--== Pick Up Location ==-->
+                        <div class="pickup-location book-item">
+    {% form_theme form 'bootstrap_4_layout.html.twig' %}
+    {{ form_start(form) }}
+    <br>
+                            {{ form_row(form.depart) }}
+                            {{ form_row(form.destination) }}
+                            {{ form_row(form.nomExpediteur) }}
+                            {{ form_row(form.mailExpediteur) }}
+                            {{ form_row(form.poids) }}
+
+
+
+                            {{ form_row(form.nomDestinataire) }}
+                            {{ form_row(form.telDestinataire) }}
+                            {{ form_row(form.mailDestinataire) }}
+
+                            {{ form_widget(form) }}
+        <input type="submit"  class="book-now-btn" value="Create" />
+    {{ form_end(form) }}
+
+    <ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+              </section>
+        <li>
+            <a href="{{ path('colis_index') }}">Back to the list</a>
+        </li>
+    </ul>
+
+
+
+
+
+{% endblock %}

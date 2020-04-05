@@ -1,0 +1,33 @@
+<?php
+
+namespace TaxiCoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Category
+ *
+ * @ORM\Table(name="category", uniqueConstraints={@ORM\UniqueConstraint(name="categorie", columns={"categorie"})})
+ * @ORM\Entity
+ */
+class Category
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcatergory", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idcatergory;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="categorie", type="string", length=250, nullable=false)
+     */
+    private $categorie;
+
+
+}
+

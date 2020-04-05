@@ -1,0 +1,92 @@
+
+{% extends 'default/acceuil.html.twig' %}
+
+{% block contents %}
+    <br>
+    <br>
+    <br>
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">liste des colis </strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered sortable " >
+                                <thead>
+
+                                <tr>
+                                    <th>Idc</th>
+                                    <th>Depart</th>
+                                    <th>Destination</th>
+                                    <th>Nomexpediteur</th>
+                                    <th>Nomdestinataire</th>
+                                    <th>Poids</th>
+                                    <th>Teldestinataire</th>
+                                    <th>Mailexpediteur</th>
+                                    <th>Maildestinataire</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for coli in colis %}
+                                    <tr>
+                                        <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a></td>
+                                        <td>{{ coli.depart }}</td>
+                                        <td>{{ coli.destination }}</td>
+                                        <td>{{ coli.nomExpediteur }}</td>
+                                        <td>{{ coli.nomDestinataire }}</td>
+                                        <td>{{ coli.poids }}</td>
+                                        <td>{{ coli.telDestinataire }}</td>
+                                        <td>{{ coli.mailExpediteur }}</td>
+                                        <td>{{ coli.mailDestinataire }}</td>
+                                        <td>
+                                            <ul>
+
+<li>
+                                                {% if (coli.etat==0) %}
+                                                <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
+                                                {% endif %}
+
+</li> <li>
+                                                <a href="{{ path('colis_show', { 'idC': coli.idC }) }}" class="btn btn-danger">afficher colis </a>
+                                                </li>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <ul>
+
+
+    </ul>
+
+    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="btn btn-warning">  &nbsp    IMPRIMER  </a>
+
+    <br>
+
+
+{% endblock %}
+                    {% block javascripts %}
+                        <script src="{{ asset('m.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script><script src="{{ asset('sufee-admin-dashboard-master/vendors/jszip/dist/jszip.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master-admin-dashboard-mastervendors/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+                        <script src="{{ asset('sufee-admin-dashboard-master/assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
+                    {% endblock %}

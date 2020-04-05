@@ -1,0 +1,27 @@
+Fidelite:
+    type: entity
+    table: fidelite
+    id:
+        idFid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            column: id_fid
+            generator:
+                strategy: IDENTITY
+    fields:
+        pointFid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: point_fid
+        codeFid:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: code_fid
+    lifecycleCallbacks: {  }

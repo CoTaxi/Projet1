@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block contents %}
+<br>
+&nbsp  <section class="content"  >
+    &nbsp <div class="row" align="center" >
+        &nbsp  <div class="col-xs-12">
+            &nbsp   <div class="box" style="width:1900px; border: 1px ">
+                <br>
+                <br>
+                <div class="box-header"><center>
+                        <h3 class="box-title" > &nbsp &nbsp &nbsp  category </h3></center>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    &nbsp &nbsp &nbsp &nbsp    &nbsp  &nbsp <table id="example2"  class="table table-bordered table-hover"  >
+                        <thead>
+                        <tr>
+
+                            &nbsp &nbsp &nbsp   &nbsp  <tbody align="center">
+
+
+
+                        <div class="col-lg-12">
+
+                        </div>
+                        <tr>
+                <th>Idcatergory</th>
+                <td>{{ category.idcatergory }}</td>
+            </tr>
+            <tr>
+                <th>Categorie</th>
+                <td>{{ category.categorie }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('category_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('category_edit', { 'idcatergory': category.idcatergory }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

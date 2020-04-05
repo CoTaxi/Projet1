@@ -1,0 +1,78 @@
+
+{% extends 'default/acceuil.html.twig' %}
+
+{% block contents %}
+<br>
+&nbsp  <section class="content"  >
+    &nbsp <div class="row" align="center" >
+        &nbsp  <div class="col-xs-12">
+            &nbsp   <div class="box" style="width:1900px; border: 1px ">
+                <br>
+                <br>
+                <div class="box-header"><center>
+                        <h3 class="box-title" > &nbsp &nbsp &nbsp  Colis </h3></center>
+                </div><!-- /.box-header -->
+                <div class="box-body table-responsive">
+                    &nbsp &nbsp &nbsp &nbsp    &nbsp  &nbsp <table id="example2"  class="table table-bordered table-hover"  >
+                        <thead>
+                        <tr>
+
+                            &nbsp &nbsp &nbsp   &nbsp  <tbody align="center">
+
+
+
+                        <div class="col-lg-12">
+
+                        </div>
+            <tr>
+                <th>Depart</th>
+                <td>{{ coli.depart }}</td>
+            </tr>
+            <tr>
+                <th>Destination</th>
+                <td>{{ coli.destination }}</td>
+            </tr>
+            <tr>
+                <th>Nomexpediteur</th>
+                <td>{{ coli.nomExpediteur }}</td>
+            </tr>
+            <tr>
+                <th>Nomdestinataire</th>
+                <td>{{ coli.nomDestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Poids</th>
+                <td>{{ coli.poids }}</td>
+            </tr>
+
+
+
+            <tr>
+                <th>Teldestinataire</th>
+                <td>{{ coli.telDestinataire }}</td>
+            </tr>
+            <tr>
+                <th>Mailexpediteur</th>
+                <td>{{ coli.mailExpediteur }}</td>
+            </tr>
+            <tr>
+                <th>Maildestinataire</th>
+                <td>{{ coli.mailDestinataire }}</td>
+            </tr>
+                        <tr>
+                            <th>categorie</th>
+                            <td>{{ coli.nomcategorie }}</td>
+                        </tr>
+        </tbody>
+    </table>
+
+    <ul>
+
+        <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger"> modifier </a>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit"  class="readmore-btn" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

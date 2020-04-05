@@ -1,0 +1,116 @@
+<?php
+
+namespace TaxiCoBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Colis
+ *
+ * @ORM\Table(name="colis", indexes={@ORM\Index(name="ckcolis", columns={"nomcategorie"}), @ORM\Index(name="fkcolisuser", columns={"id_expediteur"})})
+ * @ORM\Entity
+ */
+class Colis
+{
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_c", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $idC;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="depart", type="string", length=250, nullable=false)
+     */
+    private $depart;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="destination", type="string", length=250, nullable=false)
+     */
+    private $destination;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_expediteur", type="string", length=250, nullable=false)
+     */
+    private $nomExpediteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nom_destinataire", type="string", length=250, nullable=false)
+     */
+    private $nomDestinataire;
+
+    /**
+     * @var float
+     *
+     * @ORM\Column(name="poids", type="float", precision=10, scale=0, nullable=false)
+     */
+    private $poids;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="etat", type="integer", nullable=false)
+     */
+    private $etat = '0';
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_karhba", type="integer", nullable=true)
+     */
+    private $idKarhba;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="tel_destinataire", type="integer", nullable=false)
+     */
+    private $telDestinataire;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail_expediteur", type="string", length=250, nullable=false)
+     */
+    private $mailExpediteur;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mail_destinataire", type="string", length=250, nullable=true)
+     */
+    private $mailDestinataire;
+
+    /**
+     * @var \Category
+     *
+     * @ORM\ManyToOne(targetEntity="Category")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="nomcategorie", referencedColumnName="idcatergory")
+     * })
+     */
+    private $nomcategorie;
+
+    /**
+     * @var \User
+     *
+     * @ORM\ManyToOne(targetEntity="User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_expediteur", referencedColumnName="id_u")
+     * })
+     */
+    private $idExpediteur;
+
+
+}
+
