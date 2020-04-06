@@ -64,16 +64,6 @@ class Commande
     private $time;
 
     /**
-     * @var \Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicule", referencedColumnName="id_v")
-     * })
-     */
-    private $vehicule;
-
-    /**
      * @var \User
      *
      * @ORM\ManyToOne(targetEntity="User")
@@ -82,6 +72,16 @@ class Commande
      * })
      */
     private $client;
+
+    /**
+     * @var \Vehicule
+     *
+     * @ORM\ManyToOne(targetEntity="Vehicule")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vehicule", referencedColumnName="id_v")
+     * })
+     */
+    private $vehicule;
 
 
 }

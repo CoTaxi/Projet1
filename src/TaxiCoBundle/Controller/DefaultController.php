@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('default/acceuil.html.twig');
+        return $this->render('TaxiCoBundle:Default:index.html.twig');
     }
 }

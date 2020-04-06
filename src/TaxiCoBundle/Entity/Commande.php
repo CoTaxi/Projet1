@@ -64,16 +64,6 @@ class Commande
     private $time;
 
     /**
-     * @var \Vehicule
-     *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicule", referencedColumnName="id_v")
-     * })
-     */
-    private $vehicule;
-
-    /**
      * @var \User
      *
      * @ORM\ManyToOne(targetEntity="User")
@@ -82,6 +72,16 @@ class Commande
      * })
      */
     private $client;
+
+    /**
+     * @var \Vehicule
+     *
+     * @ORM\ManyToOne(targetEntity="Vehicule")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="vehicule", referencedColumnName="id_v")
+     * })
+     */
+    private $vehicule;
 
 
 
@@ -240,30 +240,6 @@ class Commande
     }
 
     /**
-     * Set vehicule
-     *
-     * @param \TaxiCoBundle\Entity\Vehicule $vehicule
-     *
-     * @return Commande
-     */
-    public function setVehicule(\TaxiCoBundle\Entity\Vehicule $vehicule = null)
-    {
-        $this->vehicule = $vehicule;
-
-        return $this;
-    }
-
-    /**
-     * Get vehicule
-     *
-     * @return \TaxiCoBundle\Entity\Vehicule
-     */
-    public function getVehicule()
-    {
-        return $this->vehicule;
-    }
-
-    /**
      * Set client
      *
      * @param \TaxiCoBundle\Entity\User $client
@@ -285,5 +261,29 @@ class Commande
     public function getClient()
     {
         return $this->client;
+    }
+
+    /**
+     * Set vehicule
+     *
+     * @param \TaxiCoBundle\Entity\Vehicule $vehicule
+     *
+     * @return Commande
+     */
+    public function setVehicule(\TaxiCoBundle\Entity\Vehicule $vehicule = null)
+    {
+        $this->vehicule = $vehicule;
+
+        return $this;
+    }
+
+    /**
+     * Get vehicule
+     *
+     * @return \TaxiCoBundle\Entity\Vehicule
+     */
+    public function getVehicule()
+    {
+        return $this->vehicule;
     }
 }

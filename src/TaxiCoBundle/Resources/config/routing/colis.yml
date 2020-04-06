@@ -1,0 +1,24 @@
+colis_index:
+    path:     /
+    defaults: { _controller: "TaxiCoBundle:colis:index" }
+    methods:  GET
+
+colis_show:
+    path:     /{idC}/show
+    defaults: { _controller: "TaxiCoBundle:colis:show" }
+    methods:  GET
+
+colis_new:
+    path:     /new
+    defaults: { _controller: "TaxiCoBundle:colis:new" }
+    methods:  [GET, POST]
+
+colis_edit:
+    path:     /{idC}/edit
+    defaults: { _controller: "TaxiCoBundle:colis:edit" }
+    methods:  [GET, POST]
+
+colis_delete:
+    path:     /{idC}/delete
+    defaults: { _controller: "TaxiCoBundle:colis:delete" }
+    methods:  DELETE

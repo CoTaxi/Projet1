@@ -42,13 +42,13 @@ User:
                 unsigned: false
         mail:
             type: string
-            nullable: true
+            nullable: false
             length: 250
             options:
                 fixed: false
         mdp:
             type: string
-            nullable: true
+            nullable: false
             length: 250
             options:
                 fixed: false
@@ -86,29 +86,34 @@ User:
             nullable: true
             options:
                 unsigned: false
+                default: '0'
         permis:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
+                default: '0'
         nomCompte:
             type: string
-            nullable: true
+            nullable: false
             length: 250
             options:
                 fixed: false
+                default: none
             column: nom_compte
         ribCompte:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
+                default: '0'
             column: rib_compte
         experience:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
+                default: '0'
         nbrCourse:
             type: integer
             nullable: true
@@ -117,77 +122,17 @@ User:
             column: nbr_course
         pointFidelite:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
+                default: '0'
             column: point_fidelite
         nomEvent:
             type: string
-            nullable: true
+            nullable: false
             length: 11
             options:
                 fixed: false
+                default: none
             column: nom_event
-        username:
-            type: string
-            nullable: false
-            length: 180
-            options:
-                fixed: false
-        usernameCanonical:
-            type: string
-            nullable: false
-            length: 180
-            options:
-                fixed: false
-            column: username_canonical
-        email:
-            type: string
-            nullable: false
-            length: 180
-            options:
-                fixed: false
-        emailCanonical:
-            type: string
-            nullable: false
-            length: 180
-            options:
-                fixed: false
-            column: email_canonical
-        enabled:
-            type: boolean
-            nullable: false
-        salt:
-            type: string
-            nullable: true
-            length: 255
-            options:
-                fixed: false
-        password:
-            type: string
-            nullable: false
-            length: 255
-            options:
-                fixed: false
-        lastLogin:
-            type: datetime
-            nullable: true
-            column: last_login
-        confirmationToken:
-            type: string
-            nullable: true
-            length: 180
-            options:
-                fixed: false
-            column: confirmation_token
-        passwordRequestedAt:
-            type: datetime
-            nullable: true
-            column: password_requested_at
-        roles:
-            type: array
-            nullable: false
-            length: null
-            options:
-                fixed: false
     lifecycleCallbacks: {  }

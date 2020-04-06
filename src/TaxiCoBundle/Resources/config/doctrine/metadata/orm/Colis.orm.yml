@@ -2,10 +2,7 @@ Colis:
     type: entity
     table: colis
     indexes:
-        ckcolis:
-            columns:
-                - nomcategorie
-        fkcolisuser:
+        ckuser:
             columns:
                 - id_expediteur
     id:
@@ -55,13 +52,19 @@ Colis:
             nullable: false
             options:
                 unsigned: false
-                default: '0'
         idKarhba:
             type: integer
-            nullable: true
+            nullable: false
             options:
                 unsigned: false
+                default: '0'
             column: id_karhba
+        idExpediteur:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            column: id_expediteur
         telDestinataire:
             type: integer
             nullable: false
@@ -82,25 +85,4 @@ Colis:
             options:
                 fixed: false
             column: mail_destinataire
-    manyToOne:
-        nomcategorie:
-            targetEntity: Category
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                nomcategorie:
-                    referencedColumnName: idcatergory
-            orphanRemoval: false
-        idExpediteur:
-            targetEntity: User
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                id_expediteur:
-                    referencedColumnName: id_u
-            orphanRemoval: false
     lifecycleCallbacks: {  }
