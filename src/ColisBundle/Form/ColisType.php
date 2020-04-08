@@ -22,11 +22,11 @@ class ColisType extends AbstractType
             ->add('nomcategorie',EntityType::class,array('class'=>'ColisBundle:Category','choice_label'=>'categorie'))
             ->add('depart',ChoiceType::class,array('choices'=> array(
 
-            'Bizerte'=> 'bizerte' ,
-            'Tunis'=> 'Tunis' ,
-            'ariana'=> 'ariana' ,
-            'Zaghwen'=> 'zaghwen' ,
-        )))
+                'Bizerte'=> 'bizerte' ,
+                'Tunis'=> 'Tunis' ,
+                'ariana'=> 'ariana' ,
+                'Zaghwen'=> 'zaghwen' ,
+            )))
             ->add('destination',ChoiceType::class,array('choices'=> array(
 
                 'Bizerte'=> 'bizerte' ,
@@ -39,17 +39,17 @@ class ColisType extends AbstractType
             ->add('mailExpediteur')
             ->add('poids')
             ->add('etat' ,HiddenType::class, [
-        'data' => 0,
-    ])
+                'data' => 0,
+            ])
 
-        ->add('nomDestinataire')
+            ->add('nomDestinataire')
             ->add('telDestinataire')
             ->add('mailDestinataire')
             ->add('captcha', CaptchaType::class);
-           ;
+        ;
     }/**
-     * {@inheritdoc}
-     */
+ * {@inheritdoc}
+ */
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
