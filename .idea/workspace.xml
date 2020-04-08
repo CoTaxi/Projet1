@@ -90,7 +90,7 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet" />
     <property name="php.override.implement.member.chooser.php.doc" value="NONE" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -183,7 +183,7 @@
       <workItem from="1585692890045" duration="3957000" />
       <workItem from="1585727119888" duration="2224000" />
       <workItem from="1586114387879" duration="4048000" />
-      <workItem from="1586367179081" duration="2606000" />
+      <workItem from="1586367179081" duration="2723000" />
     </task>
     <servers />
   </component>
@@ -220,30 +220,30 @@
     </state>
     <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1586369051961" />
     <state x="649" y="151" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585595550118" />
-    <state width="661" height="178" key="GridCell.Tab.0.bottom" timestamp="1586369170592">
+    <state width="418" height="178" key="GridCell.Tab.0.bottom" timestamp="1586369905246">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586369170592" />
+    <state width="418" height="178" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1586369905246" />
     <state width="1563" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1585604072266" />
-    <state width="661" height="178" key="GridCell.Tab.0.center" timestamp="1586369170592">
+    <state width="418" height="178" key="GridCell.Tab.0.center" timestamp="1586369905245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586369170592" />
+    <state width="418" height="178" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1586369905245" />
     <state width="1563" height="279" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1585604072266" />
-    <state width="661" height="178" key="GridCell.Tab.0.left" timestamp="1586369170592">
+    <state width="418" height="178" key="GridCell.Tab.0.left" timestamp="1586369905245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586369170592" />
+    <state width="418" height="178" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1586369905245" />
     <state width="1563" height="279" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1585604072266" />
-    <state width="661" height="178" key="GridCell.Tab.0.right" timestamp="1586369170592">
+    <state width="418" height="178" key="GridCell.Tab.0.right" timestamp="1586369905245">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="661" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586369170592" />
+    <state width="418" height="178" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1586369905245" />
     <state width="1563" height="279" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1585604072266" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1586367844107">
+    <state x="184" y="7" key="SettingsEditor" timestamp="1586369889657">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586367844107" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1586369889657" />
     <state x="259" y="10" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584980423120" />
     <state x="450" y="267" key="SymfonyPathDialog" timestamp="1586367709180">
       <screen x="0" y="0" width="1366" height="728" />
