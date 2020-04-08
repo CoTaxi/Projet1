@@ -2,9 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_29_03_2020_15_23_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_04_2020_7_18_PM_c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_29_03_2020_15_23_s.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projet.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_04_2020_7_18_PM_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_08_04_2020_7_18_PM_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/composerJson.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/colis/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/colis/index.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ColisBundle/Form/ColisType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColisBundle/Form/ColisType.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/User.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +200,7 @@
       <workItem from="1586368350999" duration="1335000" />
       <workItem from="1586369782485" duration="494000" />
       <workItem from="1586370359512" duration="704000" />
+      <workItem from="1586374140478" duration="792000" />
     </task>
     <servers />
   </component>
