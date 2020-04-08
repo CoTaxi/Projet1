@@ -1,6 +1,3 @@
-taxi_co_colis:
-    resource: "@TaxiCoBundle/Resources/config/routing/colis.yml"
-    prefix:   /colis
 
 taxi_co_homepage:
     path:     /

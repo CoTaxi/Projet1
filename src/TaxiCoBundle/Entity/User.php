@@ -2,14 +2,21 @@
 
 namespace TaxiCoBundle\Entity;
 
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\GroupInterface;
 use FOS\UserBundle\Model\User as BaseUser;
-
 /**
  * User
  *
  * @ORM\Table(name="user", uniqueConstraints={@ORM\UniqueConstraint(name="mail", columns={"mail"})}, indexes={@ORM\Index(name="id_eventfk", columns={"nom_event"}), @ORM\Index(name="ptfidid", columns={"point_fidelite"})})
  * @ORM\Entity
+ * * @ORM\DiscriminatorMap({
+ *     "Admin"="Admin",
+ *     "chauffeur"="chauffeur",
+ *     "client"="client",
+ *     "User"="User"
+ * })
  */
 class User extends BaseUser
 {
@@ -20,7 +27,8 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    protected $id;
+    protected $id
+    ;
 
     /**
      * @var string
@@ -46,14 +54,14 @@ class User extends BaseUser
     /**
      * @var string
      *
-     * @ORM\Column(name="mail", type="string", length=250, nullable=false)
+     * @ORM\Column(name="mail", type="string", length=250, nullable=true)
      */
     private $mail;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="mdp", type="string", length=250, nullable=false)
+     * @ORM\Column(name="mdp", type="string", length=250, nullable=true)
      */
     private $mdp;
 
@@ -102,28 +110,28 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="permis", type="integer", nullable=false)
+     * @ORM\Column(name="permis", type="integer", nullable=true)
      */
     private $permis = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_compte", type="string", length=250, nullable=false)
+     * @ORM\Column(name="nom_compte", type="string", length=250, nullable=true)
      */
     private $nomCompte = 'none';
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="rib_compte", type="integer", nullable=false)
+     * @ORM\Column(name="rib_compte", type="integer", nullable=true)
      */
     private $ribCompte = '0';
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="experience", type="integer", nullable=false)
+     * @ORM\Column(name="experience", type="integer", nullable=true)
      */
     private $experience = '0';
 
@@ -153,14 +161,14 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="point_fidelite", type="integer", nullable=false)
+     * @ORM\Column(name="point_fidelite", type="integer", nullable=true)
      */
     private $pointFidelite = '0';
 
     /**
      * @var string
      *
-     * @ORM\Column(name="nom_event", type="string", length=11, nullable=false)
+     * @ORM\Column(name="nom_event", type="string", length=11, nullable=true)
      */
     private $nomEvent = 'none';
 
@@ -607,4 +615,7 @@ class User extends BaseUser
     {
         return $this->nomEvent;
     }
+
 }
+
+
