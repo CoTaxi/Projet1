@@ -1,77 +1,80 @@
 {% extends 'base.html.twig' %}
 
 {% block contents %}
-<div class="content mt-3">
-            <div class="animated fadeIn">
-                <div class="row">
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
 
-                    <div class="col-md-12">
-                        <div class="card">
-                       
-                            <div class="card-header">
-                                <strong class="card-title">liste des colis </strong>
-                            </div>
-                            
-                            <div class="card-body">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered " >
-                                    <thead>
+                <div class="col-md-12">
+                    <div class="card">
 
-                       <tr>
-                <th>Idc</th>
-                <th>Depart</th>
-                <th>Destination</th>
-                <th>Nomexpediteur</th>
-                <th>Nomdestinataire</th>
-                <th>Poids</th>
-                <th>Teldestinataire</th>
-                <th>Mailexpediteur</th>
-                <th>Maildestinataire</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for coli in colis %}
-            <tr>
-                <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a></td>
-                <td>{{ coli.depart }}</td>
-                <td>{{ coli.destination }}</td>
-                <td>{{ coli.nomExpediteur }}</td>
-                <td>{{ coli.nomDestinataire }}</td>
-                <td>{{ coli.poids }}</td>
-                <td>{{ coli.telDestinataire }}</td>
-                <td>{{ coli.mailExpediteur }}</td>
-                <td>{{ coli.mailDestinataire }}</td>
-                <td>
-                    <ul>
+                        <div class="card-header">
+                            <strong class="card-title">liste des colis </strong>
+                        </div>
+
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered ">
+                                <thead>
+
+                                <tr>
+                                    <th>Idc</th>
+                                    <th>Depart</th>
+                                    <th>Destination</th>
+                                    <th>Nomexpediteur</th>
+                                    <th>Nomdestinataire</th>
+                                    <th>Poids</th>
+                                    <th>Teldestinataire</th>
+                                    <th>Mailexpediteur</th>
+                                    <th>Maildestinataire</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for coli in colis %}
+                                    <tr>
+                                        <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a>
+                                        </td>
+                                        <td>{{ coli.depart }}</td>
+                                        <td>{{ coli.destination }}</td>
+                                        <td>{{ coli.nomExpediteur }}</td>
+                                        <td>{{ coli.nomDestinataire }}</td>
+                                        <td>{{ coli.poids }}</td>
+                                        <td>{{ coli.telDestinataire }}</td>
+                                        <td>{{ coli.mailExpediteur }}</td>
+                                        <td>{{ coli.mailDestinataire }}</td>
+                                        <td>
+                                            <ul>
 
 
-                            <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">affecter colis </a>
+                                                <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}"
+                                                   class="btn btn-danger">affecter colis </a>
 
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
-</div>
-</div>
+                                            </ul>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <ul>
 
 
     </ul>
 
-    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="btn btn-warning">  &nbsp    IMPRIMER  </a>
+    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank"
+                                     style="cursor:pointer;" class="btn btn-warning"> &nbsp IMPRIMER </a>
 
     <br>
 
 
 {% endblock %}
                     {% block javascripts %}
-                    <script src="{{ asset('m.js') }}"></script>
+                        <script src="{{ asset('m.js') }}"></script>
                         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
                         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
                         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
