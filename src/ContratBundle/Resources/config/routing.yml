@@ -1,0 +1,25 @@
+contrat_homepage:
+    path:     /f
+    defaults: { _controller: ContratBundle:Default:index }
+contrat_add:
+    path:     /add
+    defaults: { _controller: ContratBundle:Contrat:AjoutContrat }
+contrat_list:
+    path:     /list
+    defaults: { _controller: ContratBundle:Contrat:afficherContrat }
+contrat_delete:
+        path:     /deletecontrat/{id}
+        defaults: { _controller: ContratBundle:Contrat:deleteContrat }
+contrat_update:
+         path:     /updatetaxi/{id}
+         defaults: { _controller: ContratBundle:Contrat:updatecontrat }
+contrat_rechercher:
+           path:     /rechercher
+           defaults: { _controller: ContratBundle:Contrat:recherchebyniveau }
+contrat_mail:
+             path:     /mail/{name}
+             defaults: { _controller: ContratBundle:Contrat:Mail }
+contrat_pdf:
+               path:     /pdf/{nom}/{prenom}/{typecontrat}/{duree}
+               defaults: { _controller: ContratBundle:Contrat:pdf }
+
