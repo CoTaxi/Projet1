@@ -1,3 +1,6 @@
+taxi_co_colis:
+    resource: "@TaxiCoBundle/Resources/config/routing/colis.yml"
+    prefix:   /colis
 
 taxi_co_homepage:
     path:     /
@@ -22,3 +25,25 @@ taxi_co_updateRec:
 taxi_co__mailRec:
     path:     /mail
     defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
+
+# For Admin :
+
+taxi_co__backListRec:
+    path:     /adminList
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistRec }
+
+taxi_co__backListCardRec:
+    path:     /adminListCard
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistCardRec }
+
+taxi_co__backDeleteRec:
+    path:     /adminDelete/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRec }
+
+taxi_co__backDeleteCardRec:
+    path:     /adminDeleteCard/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRecCard }
+
+taxi_co__backupdateRec:
+    path:     /adminUpdate/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminupdateRec }
