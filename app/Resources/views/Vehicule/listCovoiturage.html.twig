@@ -1,0 +1,51 @@
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+
+    <section id="pricing-area"   class="section-padding overlay">
+
+        <div class="container">
+            <div class="row">
+                <!-- Section Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Liste des vehicules de covoiturage</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                    </div>
+                </div>
+                <button class="btn btn-outline-warning btn-block"
+                        id="center" style="color:white">
+                    <a href="{{ path('vehicule_ajoutvehicule') }}" >Ajouter</a>
+                </button>
+                <!-- Section Title End -->
+                {% for vehicule in vehicule %}
+                    {% if vehicule.type =="covoiturage" %}
+                    <div class="card-group">
+                        <div class="card " style="width: 18rem;">
+                            <div class="card-body">
+                                <div class="card-img-top" ><img src="{{ asset('uploads/images/' ~ vehicule.matricule) }}" alt=""class="img-thumbnail"></div>
+                            </div>
+                            <div class="card-footer text-center">
+
+
+                                <button class="btn btn-warning btn-sm"
+                                        id="center" style="color:white">
+                                    <a href="{{ path('vehicule_updatetaxi',{'id':vehicule.id}) }}" >modifier</a>
+                                </button>
+
+                                <button class="btn btn-danger btn-sm float-right"
+                                        id="right" style="color:white">
+                                    <a href="{{ path('vehicule_deletetaxi',{'id':vehicule.id}) }}" >supprimer</a>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+                    {% endif %}
+                {% endfor %}
+
+
+
+    </section>
+
+{% endblock %}

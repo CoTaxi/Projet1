@@ -69,6 +69,7 @@
     <ul>
 
         <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger"> modifier </a>
+        <a href="{{ path('colis_affecter', { 'idC': coli.idC }) }}" class="btn btn-danger"> affecter </a>
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit"  class="readmore-btn" value="Delete">

@@ -13,11 +13,40 @@ use Doctrine\ORM\Mapping as ORM;
 class Vehicule
 {
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="id_v", type="integer", nullable=false)
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="IDENTITY")
+     */
+    private $id;
+
+    /**
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+
+
+    /**
      * @var string
      *
      * @ORM\Column(name="matricule", type="string", length=250, nullable=false)
      */
     private $matricule;
+
 
     /**
      * @var string
@@ -118,19 +147,18 @@ class Vehicule
     private $acceptC = '0';
 
     /**
-     * @var \User
+     * @var integer
      *
-     * @ORM\Id
-     * @ORM\GeneratedValue(strategy="NONE")
-     * @ORM\OneToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_v", referencedColumnName="id_u")
-     * })
+     * @ORM\Column(name="user", type="integer", nullable=true)
      */
-    private $idV;
+    private $user;
 
-
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="poidsmax", type="integer", nullable=true)
+     */
+    private $poidsmax;
     /**
      * Set matricule
      *
@@ -492,26 +520,20 @@ class Vehicule
     }
 
     /**
-     * Set idV
-     *
-     * @param \TaxiCoBundle\Entity\User $idV
-     *
-     * @return Vehicule
+     * @return int
      */
-    public function setIdV(\TaxiCoBundle\Entity\User $idV)
+    public function getUser()
     {
-        $this->idV = $idV;
-
-        return $this;
+        return $this->user;
     }
 
     /**
-     * Get idV
-     *
-     * @return \TaxiCoBundle\Entity\User
+     * @param int $user
      */
-    public function getIdV()
+    public function setUser($user)
     {
-        return $this->idV;
+        $this->user = $user;
     }
+
+
 }

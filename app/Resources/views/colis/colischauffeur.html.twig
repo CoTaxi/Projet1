@@ -1,0 +1,100 @@
+{% extends 'default/acceuil.html.twig' %}
+
+
+
+{% block contents %}
+
+    <section id="slider-area">
+
+        <!--== slide Item One ==-->
+        <div class="single-slide-item overlay">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-lg-5">
+                        <div class="book-a-car">
+
+                            <!--== Pick Up Location ==-->
+                            <div class="pickup-location book-item">
+                                {% form_theme Form 'bootstrap_4_layout.html.twig' %}
+                                {{ form_start(Form) }}
+                                <br>
+                                {{ form_row(Form.etat) }}
+                                {{ form_row(Form.acceptC) }}
+
+                                {{ form_widget(Form) }}
+                                <input type="submit"  class="book-now-btn" value="Valider" />
+                                {{ form_end(Form) }}
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                {% set pourcent = 0 %}
+                <div class="row" style="position: relative;left: 700px;top: -460px">
+
+                    <div class="col-lg-5">
+
+                        <div class="book-a-car">
+
+                            <div class="pickup-location book-item">
+
+                                <h2>Liste Des Demandes</h2>
+                                <div class="row">
+                                        <div class="testimonial-content">
+                                            {% for demandes in demande %}
+                                                {% set pourcent = 0 %}
+                                                    <div class="about-feature-item active">
+                                                        <i class="fa fa-car"></i>
+                                                        <h3>{{ demandes.depart }} ---> {{ demandes.destination }}</h3>
+                                                        <p>Poids : {{ demandes.poids }}</p>
+                                                        {% set pourcent = demandes.poids %}
+                                                        <p>Categorie : Categorie Lourd</p>
+                                                        <!-- Button trigger modal -->
+
+                                                        <div   type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter" data-whatever="{{ demandes.idC }}>
+                                                            Launch demo modal
+                                                        </button>
+                                                    </div>
+
+                                            {% endfor %}
+                                         </div>
+                                    </div>
+                                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <br>pourcent3 : {{ pourcent }}<br>
+                    <input type="text" name="id" class="modal-body input"/>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+{% endblock %}

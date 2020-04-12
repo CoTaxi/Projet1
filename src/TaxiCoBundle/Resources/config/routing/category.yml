@@ -1,0 +1,24 @@
+category_index:
+    path:     /
+    defaults: { _controller: "TaxiCoBundle:Category:index" }
+    methods:  GET
+
+category_show:
+    path:     /{idcatergory}/show
+    defaults: { _controller: "TaxiCoBundle:Category:show" }
+    methods:  GET
+
+category_new:
+    path:     /new
+    defaults: { _controller: "TaxiCoBundle:Category:new" }
+    methods:  [GET, POST]
+
+category_edit:
+    path:     /{idcatergory}/edit
+    defaults: { _controller: "TaxiCoBundle:Category:edit" }
+    methods:  [GET, POST]
+
+category_delete:
+    path:     /{idcatergory}/delete
+    defaults: { _controller: "TaxiCoBundle:Category:delete" }
+    methods:  DELETE

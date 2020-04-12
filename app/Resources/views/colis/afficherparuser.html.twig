@@ -5,6 +5,12 @@
     <br>
     <br>
     <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -28,6 +34,7 @@
                                     <th>Teldestinataire</th>
                                     <th>Mailexpediteur</th>
                                     <th>Maildestinataire</th>
+                                    <th>Etat Colis</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
@@ -43,12 +50,27 @@
                                         <td>{{ coli.telDestinataire }}</td>
                                         <td>{{ coli.mailExpediteur }}</td>
                                         <td>{{ coli.mailDestinataire }}</td>
+                                        {% if (coli.etat==0) %}
+                                        <td>Non Affecté</td>
+                                        {% endif %}
+                                        {% if (coli.etat==1) %}
+                                            <td>En attente de confirmation</td>
+                                        {% endif %}
+                                        {% if (coli.etat==2) %}
+                                            <td>Affecté</td>
+                                        {% endif %}
+                                        {% if (coli.etat==3) %}
+                                            <td>Livré</td>
+                                        {% endif %}
                                         <td>
                                             <ul>
 
 <li>
                                                 {% if (coli.etat==0) %}
                                                 <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
+                                                {% endif %}
+                                                {% if (coli.etat==1) %}
+                                                 <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
                                                 {% endif %}
 
 </li> <li>

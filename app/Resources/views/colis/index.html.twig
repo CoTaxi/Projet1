@@ -7,11 +7,9 @@
 
                     <div class="col-md-12">
                         <div class="card">
-                       
                             <div class="card-header">
                                 <strong class="card-title">liste des colis </strong>
                             </div>
-                            
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export" class="table table-striped table-bordered " >
                                     <thead>
@@ -44,9 +42,9 @@
                 <td>
                     <ul>
 
-
+                        {% if (coli.etat==0) %}
                             <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">affecter colis </a>
-
+                        {% endif %}
                     </ul>
                 </td>
             </tr>
