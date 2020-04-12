@@ -20,10 +20,13 @@ class VehiculeForm extends AbstractType
             'choices'=>array(
                 'Accepte La Livraison Des Colis'=>'1',
                 'N\'accepte Pas La Livraison Des Colis'=>'0',)))
+            ->add('poidsmax')
             ->add('acceptC',ChoiceType::class,array(
                 'choices'=>array(
                     'Categorie Lourd'=>"Categorie Lourd",
-                    'Categorie Liquide'=>"Categorie Liquide",)));
+                    'Categorie Liquide'=>"Categorie Liquide",
+                    'Categorie Leger'=>"Categorie Leger",)));
+
     }/**
  * {@inheritdoc}
  */

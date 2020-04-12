@@ -535,5 +535,21 @@ class Vehicule
         $this->user = $user;
     }
 
+    /**
+     * @return int
+     */
+    public function getPoidsmax()
+    {
+        return $this->poidsmax;
+    }
+
+    /**
+     * @param int $poidsmax
+     */
+    public function setPoidsmax($poidsmax)
+    {
+        $this->poidsmax = $poidsmax;
+    }
+
 
 }

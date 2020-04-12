@@ -10,6 +10,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TaxiCoBundle\Form\VehiculeForm;
 use Twilio\Rest\Client;
+use TaxiCoBundle\Entity\User;
 
 /**
  * Coli controller.
@@ -74,7 +75,16 @@ class ColisController extends Controller
     public function showModalAction($idC)
     {
         $colis=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
-      return $this->render('colis/colischauffeur.html.twig', array('colis' => $colis));
+        $user=$colis->getIdExpediteur();
+        $find=$this->getDoctrine()->getRepository(User::class)->find($user);
+        $category=$colis->getnomcategorie();
+        $findc=$this->getDoctrine()->getRepository(Category::class)->find($category);
+        $nomcat=$findc->getcategorie();
+      return $this->render('colis/details.html.twig', array(
+          'colis' => $colis,
+          'cat'=>$nomcat,
+          'user'=>$find,
+      ));
     }
     /**
      * Displays a form to edit an existing coli entity.
@@ -199,6 +209,7 @@ class ColisController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $find=$this->getDoctrine()->getRepository(Vehicule::class)->find($idV);
+        $categorie=$find->getAcceptC();
         $form = $this->createForm(VehiculeForm::class,$find);
         $demande=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV));
         $form->handleRequest($request);
@@ -210,7 +221,9 @@ class ColisController extends Controller
         }
         return $this->render('colis/colischauffeur.html.twig', array(
             'Form'=>$form->createView(),
-            'demande'=>$demande
+            'demande'=>$demande,
+            'cat'=>$categorie,
+            'idV'=>$idV,
         ));
     }
 
@@ -251,5 +264,29 @@ class ColisController extends Controller
         'from' => '+19382009454',
         'body' => "you have a meeting "
         ));
+    }
+    public function AcceptAction($idC)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
+        $find->setetat('2') ;
+        $em->persist($find);
+        $em->flush();
+        return $this->render('colis/afficheracceptee.html.twig',array( 'colis'=>$find) );
+    }
+    public function RefuseeAction($idC)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
+        $find->setetat('0') ;
+        $em->persist($find);
+        $em->flush();
+        return $this->redirectToRoute('acceptercolis');
+    }
+    public function AfficheEtatAction($idV)
+    {
+        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV));
+        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('etat'=>'2'));
+        return $this->render('colis/afficheracceptee.html.twig',array( 'etat'=>$etat) );
     }
 }

@@ -49,8 +49,17 @@ choix_voiture:
 colis_showModal:
     path:     /showModal/{idC}
     defaults: { _controller: "TaxiCoBundle:Colis:showModal" }
-    methods:  GET
+    methods:  [GET, POST]
 sms:
     path:     /sms
     defaults: { _controller: "TaxiCoBundle:Colis:sms" }
     methods:  GET
+Accept:
+    path:     /Accept/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:Accept" }
+Refusee:
+    path:     /Refusee/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:Refusee" }
+AfficheEtat:
+    path:     /AfficheEtat/{idV}
+    defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }

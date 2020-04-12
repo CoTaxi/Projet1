@@ -4,8 +4,10 @@ namespace ColisBundle\Controller;
 
 use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use ColisBundle\Entity\Colis;
+use Proxies\__CG__\TaxiCoBundle\Entity\Vehicule;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use VehiculeBundle\Form\Vehiculeform;
 
 /**
  * Coli controller.
@@ -34,9 +36,9 @@ class ColisController extends Controller
      */
     public function newAction(Request $request)
     {
-        $usrId= $this->get('security.token_storage')->getToken()->getUser()->getId() ;
-        $usrNom= $this->get('security.token_storage')->getToken()->getUser()->getUsername() ;
-        $usrEmail= $this->get('security.token_storage')->getToken()->getUser()->getEmail() ;
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $usrNom = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+        $usrEmail = $this->get('security.token_storage')->getToken()->getUser()->getEmail();
         $coli = new Colis();
         $coli->setIdExpediteur($usrId);
         $coli->setNomExpediteur($usrNom);
@@ -109,6 +111,7 @@ class ColisController extends Controller
         return $this->redirectToRoute('colis_afficher');
     }
 
+
     /**
      * Creates a form to delete a coli entity.
      *
@@ -121,8 +124,7 @@ class ColisController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('colis_delete', array('idC' => $coli->getIdc())))
             ->setMethod('DELETE')
-            ->getForm()
-        ;
+            ->getForm();
     }
     public function mapAction()
     {
@@ -187,4 +189,5 @@ class ColisController extends Controller
         $colis=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idExpediteur'=> $usr));
         return $this->render('colis/afficherparuser.html.twig',array('colis'=>$colis));
     }
+
 }
