@@ -63,3 +63,9 @@ Refusee:
 AfficheEtat:
     path:     /AfficheEtat/{idV}
     defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }
+details:
+    path:     /details/{idV}
+    defaults: { _controller: "TaxiCoBundle:Colis:details" }
+MiseAjour:
+    path:     /MiseAjour/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }

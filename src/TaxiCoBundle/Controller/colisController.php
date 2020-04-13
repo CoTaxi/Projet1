@@ -72,6 +72,16 @@ class ColisController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
+    public function detailsAction($idV)
+    {
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find('8');
+        $user=$vehicule->getUser();
+        $find=$this->getDoctrine()->getRepository(User::class)->find($user);
+      return $this->render('colis/detailsclient.html.twig', array(
+          'vehicule' => $vehicule,
+          'user'=>$find,
+      ));
+    }
     public function showModalAction($idC)
     {
         $colis=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
@@ -80,11 +90,11 @@ class ColisController extends Controller
         $category=$colis->getnomcategorie();
         $findc=$this->getDoctrine()->getRepository(Category::class)->find($category);
         $nomcat=$findc->getcategorie();
-      return $this->render('colis/details.html.twig', array(
-          'colis' => $colis,
-          'cat'=>$nomcat,
-          'user'=>$find,
-      ));
+        return $this->render('colis/details.html.twig', array(
+            'colis' => $colis,
+            'cat'=>$nomcat,
+            'user'=>$find,
+        ));
     }
     /**
      * Displays a form to edit an existing coli entity.
@@ -278,15 +288,38 @@ class ColisController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
+        $category=$find->getnomcategorie();
+        $findc=$this->getDoctrine()->getRepository(Category::class)->find($category);
+        $nomcat=$findc->getcategorie();
+        $user=$find->getIdExpediteur();
+        $findu=$this->getDoctrine()->getRepository(User::class)->find($user);
         $find->setetat('0') ;
+        $find->setIdkarhba('0') ;
         $em->persist($find);
         $em->flush();
-        return $this->redirectToRoute('acceptercolis');
+        return $this->render('colis/details.html.twig',array(
+            'colis'=>$find,
+            'cat'=>$nomcat,
+            'user'=>$findu,
+        ) );
     }
     public function AfficheEtatAction($idV)
     {
-        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV));
-        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('etat'=>'2'));
-        return $this->render('colis/afficheracceptee.html.twig',array( 'etat'=>$etat) );
+        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV,'etat'=>'2'));
+        $findc=$this->getDoctrine()->getRepository(Vehicule::class)->find($idV);
+        $nomcat=$findc->getacceptC();
+        return $this->render('colis/afficheracceptee.html.twig',array(
+            'colis'=>$etat,
+            'cat'=>$nomcat,
+        ) );
+    }
+    public function MiseAjourAction($idC)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
+        $find->setetat('3') ;
+        $em->persist($find);
+        $em->flush();
+        return $this->render('colis/afficheracceptee.html.twig',array( 'colis'=>$find) );
     }
 }
