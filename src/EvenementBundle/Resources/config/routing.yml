@@ -9,4 +9,7 @@ Event_Back:
 LoadEvent:
     path:     /load
     defaults: { _controller: EvenementBundle:Evenement:load }
+addEvent:
+    path:     /add
+    defaults: { _controller: EvenementBundle:Evenement:add }
 

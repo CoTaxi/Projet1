@@ -4,3 +4,20 @@ forum_homepage:
 forum_add:
     path:     /add
     defaults: { _controller: ForumBundle:Forum:addForum }
+
+forum_homepage_back:
+    path:     /forumBack
+    defaults: { _controller: ForumBundle:Forum:showback }
+forum_one:
+    path:     /article/{f}
+    defaults: { _controller: ForumBundle:Forum:article }
+comment:
+    path:     /comment/{f}
+    defaults: { _controller: ForumBundle:Forum:comment }
+archiver:
+    path:     /archiver/{id}
+    defaults: { _controller: ForumBundle:Forum:archiver }
+desarchiver:
+    path:     /desarchiver/{id}
+    defaults: { _controller: ForumBundle:Forum:desarchiver }
+
