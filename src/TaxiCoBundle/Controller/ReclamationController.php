@@ -105,7 +105,7 @@ class ReclamationController extends Controller
     {
         $message = \Swift_Message::newInstance()
             ->setSubject('Réclamation')
-            ->setFrom('rmilissou@zohomail.com')
+            ->setFrom('rmilioussama70@gmail.com')
             ->setTo('rmilissou@gmail.com')
             ->setBody('Bonjour monsieur,\n  Veuillez traiter la réclamation que j\'ai envoyé et de laisser une réponse. \n ');
         $this->get('mailer')->send($message);

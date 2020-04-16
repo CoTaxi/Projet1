@@ -2,66 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/Vehicule/Vehicule.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/Vehicule/listCovoiturage.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/Vehicule/listTaxi.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/Vehicule/listVehicule.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/Vehicule/updateTaxi.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/colis/affectation.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/colis/colischauffeur.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/colis/smstest.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/comment.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Form/commentType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Repository/commentRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Back/index.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Front/article.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/CategoryController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/VehiculeController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Form/CategoryType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Form/VehiculeForm.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Form/VehiculeType.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Repository/CategroyColisRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Repository/VehiculeRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Repository/categoryRepository.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing/category.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/fullcalendar.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/fullcalendar.min.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/fullcalendar.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/fullcalendar.print.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/jquery-ui.custom.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/jquery.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/fullCalendar/lib/moment.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/uploads/media/inscription.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/category/edit.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/category/edit.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/colis/afficherparuser.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/colis/afficherparuser.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Composer_16_04_2020_18_41_c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_16_04_2020_7_19_PM_c.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_16_04_2020_18_42_s.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_16_04_2020_18_42_s.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Resources/views/colis/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/colis/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/colis/new.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/colis/new.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/colis/show.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/colis/show.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ColisBundle/Controller/ColisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColisBundle/Controller/ColisController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ColisBundle/Form/ColisType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ColisBundle/Form/ColisType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Controller/EvenementController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Controller/EvenementController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EvenementBundle/Resources/views/Back/IndexB.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/EvenementBundle/Resources/views/Back/IndexB.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Controller/ForumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Controller/ForumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Entity/Forum.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Entity/Forum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Form/ForumType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Form/ForumType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Front/add.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Front/add.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Front/index.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/ForumBundle/Resources/views/Front/index.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/DefaultController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/DefaultController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/colisController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/colisController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Commande.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Commande.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Reclamation.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Reclamation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Vehicule.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Vehicule.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Form/UserType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Form/UserType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Form/colisType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Form/colisType.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/Colis.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/Colis.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/Commande.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/Commande.orm.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/User.orm.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/doctrine/metadata/orm/User.orm.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/config/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/config.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/ReclamationController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/ReclamationController.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing/colis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing/colis.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -135,6 +85,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
@@ -142,6 +93,7 @@
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="c dump-autoload" />
+      <command value="composer install" />
       <command value="s server:run" />
     </option>
   </component>
@@ -174,42 +126,57 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="407" y="243" key="ComposerCompositePathDialog" timestamp="1587058928687">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="171" y="0" key="CommitChangelistDialog2" timestamp="1587062899431">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="171" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1587062899431" />
+    <state x="381" y="227" key="ComposerCompositePathDialog" timestamp="1587061174127">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="381" y="227" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1587061174127" />
     <state x="407" y="243" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1587058928687" />
-    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1587058947571">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="433" y="99" key="FileChooserDialogImpl" timestamp="1587061168917">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="433" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587061168917" />
     <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587058947571" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1587059394233">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom" timestamp="1587062899803">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
     <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587059394233" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1587059394232">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="157" key="GridCell.Tab.0.center" timestamp="1587062899803">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
     <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587059394232" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1587059394232">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="157" key="GridCell.Tab.0.left" timestamp="1587062899803">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
     <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587059394232" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1587059394233">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state width="1237" height="157" key="GridCell.Tab.0.right" timestamp="1587062899803">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
     <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587059394233" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1587058957001">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="172" y="0" key="SettingsEditor" timestamp="1587062231850">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="172" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587062231850" />
     <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587058957001" />
     <state x="450" y="267" key="SymfonyPathDialog" timestamp="1587058948545">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="267" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1587058948545" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1587059394257">
-      <screen x="0" y="0" width="1366" height="728" />
+    <state x="318" y="151" width="672" height="633" key="run.anything.popup" timestamp="1587061771116">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="318" y="151" width="672" height="633" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587061771116" />
     <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1587059394257" />
   </component>
 </project>
