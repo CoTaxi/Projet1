@@ -1,0 +1,45 @@
+{#{% extends "::base.html.twig" %}#}
+
+{#{% block title %}TaxiCoBundle:Maintenance:Update{% endblock %}#}
+
+{#{% block body %}#}
+{#<h1>Welcome to the Maintenance:Update page</h1>#}
+{#{% endblock %}#}
+{#<html>#}
+{#<head>#}
+{#    <title>Modifier un Service</title>#}
+
+{#</head>#}
+{#<body>#}
+{#<center><h1>Welcome to the Service:update page</h1>#}
+{#    <fieldset style="width: 50%">#}
+{#        <form method="POST">#}
+{#            Nom: <input type="text" name="nom" value="{{ service.name }}"><br/>#}
+
+
+{#            <input type="submit" value="Enregistrer">#}
+{#        </form>#}
+{#    </fieldset>#}
+{#</center>#}
+{#</body>#}
+
+{#</html>#}
+<html>
+<head>
+    <title>
+        Ajout des Garages
+    </title>
+</head>
+<body>
+<center>
+    <h1>Ajouter un Garage</h1>
+    <fieldset style="width: 50%">
+        {{ form_start(garage) }}
+        {#        Nom:* {{ form_widget(form.name) }}</br>#}
+
+        {#                {{ form_widget(form.ajouter) }}</br>#}
+        {{ form_end(garage) }}
+    </fieldset>
+</center>
+</body>
+</html>

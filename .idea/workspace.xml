@@ -1,28 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/Projet1.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Composer_4_16_20__8_36_PM_c.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/Symfony_4_16_20__8_36_PM_s.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/commandlinetools/schemas/frameworkDescriptionVersion1.1.4.xsd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/Resources/views/DashboardRec.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/GarageController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/MaintenanceController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/RdvController.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/ServiceController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Rdv.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Rdv.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
-    </list>
+    <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -98,7 +77,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -106,6 +85,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet1\web" />
+      <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Repository" />
+      <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Form" />
       <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Controller" />
       <recent name="C:\wamp64\www\Projet1\app\Resources\views" />
     </key>
@@ -140,7 +122,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587058326583</updated>
       <workItem from="1587058328362" duration="1037000" />
-      <workItem from="1587064909469" duration="1160000" />
+      <workItem from="1587064909469" duration="1441000" />
     </task>
     <servers />
   </component>
