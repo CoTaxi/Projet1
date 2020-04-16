@@ -1,24 +1,41 @@
-colis_index:
-    path:     /
-    defaults: { _controller: "TaxiCoBundle:colis:index" }
-    methods:  GET
-
 colis_show:
     path:     /{idC}/show
-    defaults: { _controller: "TaxiCoBundle:colis:show" }
+    defaults: { _controller: "TaxiCoBundle:Colis:show" }
     methods:  GET
-
+colis_index:
+    path:     /
+    defaults: { _controller: "TaxiCoBundle:Colis:index" }
+    methods:  GET
 colis_new:
     path:     /new
-    defaults: { _controller: "TaxiCoBundle:colis:new" }
+    defaults: { _controller: "TaxiCoBundle:Colis:new" }
     methods:  [GET, POST]
-
+colis_afficher:
+    path:     /afficher
+    defaults: { _controller: "TaxiCoBundle:Colis:AfficherParUser" }
+    methods:  GET
 colis_edit:
     path:     /{idC}/edit
-    defaults: { _controller: "TaxiCoBundle:colis:edit" }
+    defaults: { _controller: "TaxiCoBundle:Colis:edit" }
     methods:  [GET, POST]
 
 colis_delete:
     path:     /{idC}/delete
-    defaults: { _controller: "TaxiCoBundle:colis:delete" }
+    defaults: { _controller: "TaxiCoBundle:Colis:delete" }
     methods:  DELETE
+rendez_map:
+    path:     /map
+    defaults: { _controller: "TaxiCoBundle:Colis:map" }
+    methods:  GET
+colis_stat:
+    path:     /stat
+    defaults: { _controller: "TaxiCoBundle:Colis:stat" }
+    methods:  GET
+map:
+    path:     /map
+    defaults: { _controller: "TaxiCoBundle:Colis:map" }
+    methods:  GET
+colis_weather:
+    path:     /weather
+    defaults: { _controller: "TaxiCoBundle:Colis:weather" }
+    methods:  GET

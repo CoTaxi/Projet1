@@ -37,7 +37,7 @@
         <!-- Articles Thumbnail Start -->
         <div class="col-lg-5">
             <div class="article-thumb">
-                <img src={{asset('assets/img/article/arti-thumb-1.jpg')}} alt="JSOFT">
+                <img src="{{asset('uploads/media/'~f.image)}}" alt="JSOFT">
             </div>
         </div>
         <!-- Articles Thumbnail End -->
@@ -55,9 +55,9 @@
 
                         <div class="article-date">{{ f.created |date('Y-m-d H:i:s')}}</div>
 
-                        <p>{{ f.content }}</p>
+                        <p>{{ f.content|raw }}</p>
 
-                        <a href="article-details.html" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                        <a href="{{ path('forum_one', { 'f': f.id}) }}" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -67,6 +67,8 @@
           </article>
           </div>
     {% endfor %}
+        <div class="text-center">{{ knp_pagination_render(f) }}</div>
+
 
     </div>
     </div>
