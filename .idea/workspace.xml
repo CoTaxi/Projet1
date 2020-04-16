@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="" />
+    <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/composer_2.phar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/sufee-admin-dashboard-master/vendors/jquery/src/.jshintrc" beforeDir="false" afterPath="$PROJECT_DIR$/web/sufee-admin-dashboard-master/vendors/jquery/src/.jshintrc" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,7 +19,7 @@
   <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
     <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
     <execution>
-      <executable />
+      <phar pharPath="$PROJECT_DIR$/composer_2.phar" interpreterId="587a176e-d3b0-4ad9-9c8a-9d9051cacea6" />
     </execution>
   </component>
   <component name="Git.Settings">
@@ -73,11 +82,12 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/plugins/jquery/core.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -85,11 +95,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Resources\views" />
       <recent name="C:\wamp64\www\Projet1\web" />
       <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Repository" />
       <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Form" />
       <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Controller" />
-      <recent name="C:\wamp64\www\Projet1\app\Resources\views" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -98,6 +108,12 @@
       <command value="s server:run" />
       <command value="c dump-autoload" />
     </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="phpunit.xml.dist" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner scope="XML" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -122,7 +138,7 @@
       <option name="presentableId" value="Default" />
       <updated>1587058326583</updated>
       <workItem from="1587058328362" duration="1037000" />
-      <workItem from="1587064909469" duration="1441000" />
+      <workItem from="1587064909469" duration="5821000" />
     </task>
     <servers />
   </component>
@@ -130,13 +146,18 @@
     <option name="version" value="1" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <option name="LAST_COMMIT_MESSAGE" value="" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="275" y="23" key="#JSHint" timestamp="1587066240128">
+    <state x="275" y="23" key="#Inspections" timestamp="1587068383812">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="275" y="23" key="#JSHint/0.0.1366.728@0.0.1366.728" timestamp="1587066240128" />
+    <state x="275" y="23" key="#Inspections/0.0.1366.728@0.0.1366.728" timestamp="1587068383812" />
+    <state x="275" y="23" key="#JSHint" timestamp="1587069734660">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="275" y="23" key="#JSHint/0.0.1366.728@0.0.1366.728" timestamp="1587069734660" />
     <state x="171" y="0" key="CommitChangelistDialog2" timestamp="1587062899431">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -146,11 +167,15 @@
     </state>
     <state x="381" y="227" key="ComposerCompositePathDialog/0.0.1280.680@0.0.1280.680" timestamp="1587061174127" />
     <state x="407" y="243" key="ComposerCompositePathDialog/0.0.1366.728@0.0.1366.728" timestamp="1587065804883" />
-    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1587065817899">
+    <state x="460" y="277" width="446" height="262" key="ComposerInitDialogKey" timestamp="1587069010339">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="460" y="277" width="446" height="262" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1587069010339" />
+    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1587069719980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="433" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587061168917" />
-    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587065817899" />
+    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587069719980" />
     <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1587065845204">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -171,11 +196,11 @@
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
     <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587065845204" />
-    <state x="184" y="7" key="SettingsEditor" timestamp="1587065828040">
+    <state x="184" y="7" key="SettingsEditor" timestamp="1587068434020">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="172" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587062231850" />
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587065828040" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587068434020" />
     <state x="450" y="267" key="SymfonyPathDialog" timestamp="1587065819641">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
