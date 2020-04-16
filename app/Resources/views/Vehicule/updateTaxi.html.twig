@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+
+    <section id="pricing-area"   class="section-padding overlay">
+
+        <div class="container">
+            <div class="row">
+                <!-- Section Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Modifier Votre Vehicule</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                    </div>
+                    <div class="card text-white bg-warning mb-3 align-items-center " style="max-width: 33rem;">
+                        <img class="img-fluid" src="{{ asset('uploads/images/backcard.jfif') }}" alt="">
+                        <div class="card-img-overlay">
+
+                            {{ form_start (Form) }}
+                            {{ form_end (Form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </section>
+
+{% endblock %}

@@ -10,13 +10,12 @@
                 <form action="" method="post" class="form-horizontal">
                     <div class="row form-group">
     {{ form_start(edit_form) }}
-        {{ form_widget(edit_form) }}
-        <input type="submit" class="btn btn-primary btn-sm "  value="Edit" />
+      {{ form_widget(edit_form) }}
+<input type="submit" class="btn btn-primary btn-sm "  value="Edit" />
+        {{ form_end(edit_form) }}
                         {{ form_start(delete_form) }}
-
-                        <input type="submit" class="btn btn-danger btn-sm" value="Delete">
+<input type="submit" class="btn btn-danger btn-sm" value="Delete">
                         {{ form_end(delete_form) }}
-    {{ form_end(edit_form) }}
                     </div>
                 </form>
             </div>

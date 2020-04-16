@@ -52,16 +52,6 @@ Commande:
             type: time
             nullable: false
     manyToOne:
-        client:
-            targetEntity: User
-            cascade: {  }
-            fetch: LAZY
-            mappedBy: null
-            inversedBy: null
-            joinColumns:
-                client:
-                    referencedColumnName: id_u
-            orphanRemoval: false
         vehicule:
             targetEntity: Vehicule
             cascade: {  }
@@ -71,5 +61,15 @@ Commande:
             joinColumns:
                 vehicule:
                     referencedColumnName: id_v
+            orphanRemoval: false
+        client:
+            targetEntity: User
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                client:
+                    referencedColumnName: id_u
             orphanRemoval: false
     lifecycleCallbacks: {  }

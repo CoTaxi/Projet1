@@ -61,16 +61,10 @@ class Forum
     /**
      * @var string
      *
-     * @ORM\Column(name="filename", type="string", length=255)
+     * @ORM\Column(name="image", type="string", length=255)
      */
-    private $filename;
+    private $image;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="filepath", type="string", length=255)
-     */
-    private $filepath;
 
     /**
      * @var \DateTime
@@ -86,12 +80,7 @@ class Forum
      */
     private $etat;
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="filetype", type="string", length=255)
-     */
-    private $filetype;
+
 
 
     /**
@@ -176,53 +165,6 @@ class Forum
         return $this->content;
     }
 
-    /**
-     * Set filename
-     *
-     * @param string $filename
-     *
-     * @return Forum
-     */
-    public function setFilename($filename)
-    {
-        $this->filename = $filename;
-
-        return $this;
-    }
-
-    /**
-     * Get filename
-     *
-     * @return string
-     */
-    public function getFilename()
-    {
-        return $this->filename;
-    }
-
-    /**
-     * Set filepath
-     *
-     * @param string $filepath
-     *
-     * @return Forum
-     */
-    public function setFilepath($filepath)
-    {
-        $this->filepath = $filepath;
-
-        return $this;
-    }
-
-    /**
-     * Get filepath
-     *
-     * @return string
-     */
-    public function getFilepath()
-    {
-        return $this->filepath;
-    }
 
 
     /**
@@ -250,27 +192,21 @@ class Forum
     }
 
     /**
-     * Set filetype
-     *
-     * @param string $filetype
-     *
-     * @return Forum
+     * @return string
      */
-    public function setFiletype($filetype)
+    public function getImage()
     {
-        $this->filetype = $filetype;
-
-        return $this;
+        return $this->image;
     }
 
     /**
-     * Get filetype
-     *
-     * @return string
+     * @param string $image
      */
-    public function getFiletype()
+    public function setImage($image)
     {
-        return $this->filetype;
+        $this->image = $image;
     }
+
+
 }
 

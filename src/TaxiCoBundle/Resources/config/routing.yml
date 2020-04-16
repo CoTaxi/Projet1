@@ -1,24 +1,71 @@
 
+
 taxi_co_homepage:
     path:     /
     defaults: { _controller: TaxiCoBundle:Default:index }
+vehicule_homepage:
+    path:     /
+    defaults: { _controller: TaxiCoBundle:Default:index }
+vehicule_ajoutvehicule:
+    path:     /ajoutvehicule
+    defaults: { _controller: TaxiCoBundle:Vehicule:ajoutvehicule }
+vehicule_listVehicule:
+    path:     /listvehicule
+    defaults: { _controller: TaxiCoBundle:Vehicule:listVehicule }
+vehicule_taxi:
+    path:     /listtaxi
+    defaults: { _controller: TaxiCoBundle:Vehicule:taxi }
+vehicule_covoiturage:
+    path:     /listcovoiturage
+    defaults: { _controller: TaxiCoBundle:Vehicule:covoiturage }
+vehicule_updatetaxi:
+    path:     /updatetaxi/{id}
+    defaults: { _controller: TaxiCoBundle:Vehicule:updateTaxi }
+acceptercolis:
+    path:     /acceptercolis/{idV}
+    defaults: { _controller: "TaxiCoBundle:Colis:ColisChauffeur" }
+vehicule_deletetaxi  :
+    path:     /deletetaxi/{id}
+    defaults: { _controller: TaxiCoBundle:Vehicule:deleteVehicule }
+colis_colis:
+    resource: "@ColisBundle/Resources/config/routing/colis.yml"
+    prefix:   /colis
 
-taxi_co_addRec:
-    path:     /add
-    defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
+colis_category:
+    resource: "@ColisBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+taxi_back:
+    path:     /back
+    defaults: { _controller: ColisBundle:Default:index }
 
-taxi_co_listRec:
-    path:     /list
-    defaults: { _controller: TaxiCoBundle:Reclamation:afficherReclamation }
-
-taxi_co_deletetRec:
-    path:     /delete/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:supprimerReclamation }
-
-taxi_co_updateRec:
-    path:     /update/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:modifierReclamation }
-
-taxi_co__mailRec:
-    path:     /mail
-    defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
+colis_affecter:
+    path:     /affectation/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:AffecterColis" }
+    methods:  GET
+choix_voiture:
+    path:     /choix/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:choixvoiture" }
+    methods:  GET
+colis_showModal:
+    path:     /showModal/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:showModal" }
+    methods:  [GET, POST]
+sms:
+    path:     /sms
+    defaults: { _controller: "TaxiCoBundle:Colis:sms" }
+    methods:  GET
+Accept:
+    path:     /Accept/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:Accept" }
+Refusee:
+    path:     /Refusee/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:Refusee" }
+AfficheEtat:
+    path:     /AfficheEtat/{idV}
+    defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }
+details:
+    path:     /details/{idV}
+    defaults: { _controller: "TaxiCoBundle:Colis:details" }
+MiseAjour:
+    path:     /MiseAjour/{idC}
+    defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }

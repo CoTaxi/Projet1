@@ -1,28 +1,20 @@
 
-
-
-
-
 {% extends'layoutback.html.twig' %}
-{% block title %} Acceuil {% endblock %}
-{% block css %}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css" />
-
-{% endblock %}
+{% block title %} Forum {% endblock %}
 {% block head %}
     {{ parent() }}
 {% endblock %}
 {% block body %}
-{% block contents %}
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.4.0/fullcalendar.min.js"></script>
-
+{% block content %}
+    <link href='{{ asset('fullCalendar/lib/fullcalendar.min.css') }}' rel='stylesheet'/>
+    <link href='{{ asset('fullCalendar/lib/fullcalendar.print.css') }}' rel='stylesheet' media='print'/>
+    <script src='{{ asset('fullCalendar/lib/jquery.min.js') }}'></script>
+    <script src='{{ asset('fullCalendar/lib/moment.min.js') }}'></script>
+    <script src='{{ asset('fullCalendar/lib/jquery-ui.custom.min.js') }}'></script>
+    <script src='{{ asset('fullCalendar/lib/fullcalendar.min.js') }}'></script>
+<div>
 <script>
-
+    console.log('a');
     $(document).ready(function() {
         var calendar = $('#calendar').fullCalendar({
             editable:true,
@@ -39,11 +31,11 @@
                 var title = prompt("Enter Event Title");
                 if(title)
                 {
-                    var start = $.fullCalendar.formatDate(start, "Y-MM-DD HH:mm:ss");
-                    var end = $.fullCalendar.formatDate(end, "Y-MM-DD HH:mm:ss");
+                    var start =moment(start, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
+                    var end = moment(end, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
                     $.ajax({
 
-                        url:"insert.php",
+                        url:"add",
                         type:"POST",
                         data:{title:title, start:start, end:end},
                         success:function()
@@ -112,8 +104,7 @@
     });
     </script>
 
-<div class="container">
-    <div id="calendar"></div>
 </div>
+    <div id="calendar"  style="width: 1000px ; margin-left: 100px" ></div>
 {% endblock %}
 {% endblock %}
