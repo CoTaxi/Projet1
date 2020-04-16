@@ -4,6 +4,7 @@ namespace TaxiCoBundle\Controller;
 
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
@@ -111,17 +112,71 @@ class ReclamationController extends Controller
         return $this->redirectToRoute('taxi_co_listRec');
     }
 
-//    public function mailAction()
-//    {
-//        $message = (new \Swift_Message('Hello Email'))
-//            ->setFrom('rmilioussama70@gmail.com')
-//            ->setTo('rmilissou@gmail.com')
-//            ->setBody('Hello');
-//        $this->get('mailer')->send($message);
-//
-//        // or, you can also fetch the mailer service this way
-//        // $this->get('mailer')->send($message);
-//
-//        return $this->render('@TaxiCo/ReclamationViews/ok.html.twig');
-//    }
+    public function adminlistRecAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findAll();
+        return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamation));
+    }
+
+    public function adminlistCardRecAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findAll();
+        return $this->render("@TaxiCo/ReclamationViews/CardViewRec.html.twig", array('rec' => $reclamation));
+    }
+
+    public function admindeleteRecAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->find($id);
+        $em->remove($reclamation);
+        $em->flush();
+        return $this->redirectToRoute("taxi_co__backListRec");
+    }
+
+    public function admindeleteRecCardAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->find($id);
+        $em->remove($reclamation);
+        $em->flush();
+        return $this->redirectToRoute("taxi_co__backListCardRec");
+    }
+
+    public function adminupdateRecAction(Request $request, $id)
+    {
+       // $reclamation = new Reclamation();
+        $em = $this->getDoctrine()->getManager();
+        $find = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
+        $form = $this->createFormBuilder($find)
+            ->add('reponse', TextareaType::class, array(
+                'attr' => ['class' => 'form-control form-control-lg',
+                    'placeholder' => 'Votre réponse ici...',
+                    'cols' => '3',
+                    'rows' => '7'],
+            ))
+            ->add('etat', ChoiceType::class, array(
+                'choices'  => [
+                    'Non traitée' => 'Non traitée',
+                    'En cours de traitement' => 'En cours de traitement',
+                    'Traitée' => 'Traitée',
+                ],
+                'attr' => ['class' => 'form-control-lg form-control',
+                    'id' => 'selectLg',
+                    'name' => 'selectLg',
+                ],
+            ))
+            ->getForm();
+        $form->handleRequest($request);
+        if ($form->isSubmitted()) {
+            $find->setDateRec(new \DateTime());
+            $em->persist($find);
+            $em->flush();
+            return $this->redirectToRoute('taxi_co__backListRec');
+        }
+        return $this->render('@TaxiCo/ReclamationViews/DashboardUpdateRec.html.twig', array('form' => $form->createView()
+        ));
+
+    }
 }

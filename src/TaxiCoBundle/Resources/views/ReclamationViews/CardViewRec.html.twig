@@ -1,0 +1,70 @@
+{% extends "//DashboardRec.html.twig" %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block contents %}
+    <div class="breadcrumbs">
+        <div class="col-sm-4">
+            <div class="page-header float-left">
+                <div class="page-title">
+                    <h1>Tableau de bord<a
+                                href="{{ path('taxi_co__backListRec') }}">
+                            <button type="button" class="btn btn-outline-success btn-sm" id="card"><i
+                                        class="fa fa-desktop"></i> TAB
+                            </button>
+                        </a></h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-8">
+            <div class="page-header float-right">
+                <div class="page-title">
+                    <ol class="breadcrumb text-right">
+                        <li><a href="#">Dashboard</a></li>
+                        <li><a href="#">Card</a></li>
+                        <li class="active">Data Card</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="right-panel" class="right-panel">
+        <div class="content mt-3">
+            <div class="animated fadeIn">
+
+                <div class="row">
+                    {% for entity in rec %}
+                        <div class="col-md-4">
+                            <div class="card">
+                                <div class="card-header">
+                                    <i class="fa fa-user"></i><strong class="card-title pl-2">Profile Card - <span class="badge badge-primary">{{ entity.idR }}</span></strong>
+                                    <br><span class="badge badge-secondary"> {{ entity.dateRec|date('Y-m-d H:i:s') }}</span>
+                                   <br> <span class="badge badge-info"> {{ entity.etat }}</span>
+                                </div>
+                                <div class="card-body">
+                                    <div class="mx-auto d-block">
+                                        <img class="rounded-circle mx-auto d-block"
+                                             src="{{ asset('sufee-admin-dashboard-master/images/admin.jpg') }}"
+                                             alt="Card image cap">
+                                        <h5 class="text-sm-center mt-2 mb-1">{{ entity.Objet.titre }}</h5>
+                                        <div class="location text-sm-center"><i
+                                                    class="fa fa-comment"></i> {{ entity.message }}</div>
+                                        <div class="location text-sm-center"><i
+                                                    class="fa fa-mail-reply"></i> {{ entity.reponse }}</div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="card-text text-sm-center">
+                                        <a href="{{ path('taxi_co__backDeleteCardRec', {id: entity.idR}) }}"><i class="fa fa-trash-o text-danger"></i></a>
+                                        <a href="{{ path('taxi_co__backupdateRec', {id: entity.idR}) }}"><i class="fa fa-edit text-warning"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
