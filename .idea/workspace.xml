@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Garage.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Garage.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Service.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Entity/Service.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,7 +82,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/web/plugins/jquery/core.js" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projet" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -133,6 +134,7 @@
       <updated>1587058326583</updated>
       <workItem from="1587058328362" duration="1037000" />
       <workItem from="1587064909469" duration="7190000" />
+      <workItem from="1587154736969" duration="942000" />
     </task>
     <servers />
   </component>
@@ -165,11 +167,11 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="460" y="277" width="446" height="262" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1587069010339" />
-    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1587069719980">
+    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1587156481111">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="433" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587061168917" />
-    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587069719980" />
+    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587156481111" />
     <state width="1323" height="176" key="GridCell.Tab.0.bottom" timestamp="1587074639096">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -199,6 +201,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="450" y="267" key="SymfonyPathDialog/0.0.1366.728@0.0.1366.728" timestamp="1587065819641" />
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog" timestamp="1587155847351">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587155847351" />
     <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1587065831574">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
