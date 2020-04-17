@@ -86,7 +86,7 @@ fos_user:
     service:                               # this lines
         mailer: fos_user.mailer.twig_swift
     from_email:
-        address: "rmilissou@zohomail.com"
+        address: "rmilioussama70@gmail.com"
         sender_name: "Oussama RMILI"
     registration:
         form:

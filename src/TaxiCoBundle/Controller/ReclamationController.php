@@ -146,7 +146,7 @@ class ReclamationController extends Controller
 
     public function adminupdateRecAction(Request $request, $id)
     {
-       // $reclamation = new Reclamation();
+        // $reclamation = new Reclamation();
         $em = $this->getDoctrine()->getManager();
         $find = $this->getDoctrine()->getRepository(Reclamation::class)->find($id);
         $form = $this->createFormBuilder($find)
@@ -161,6 +161,7 @@ class ReclamationController extends Controller
                     'Non traitée' => 'Non traitée',
                     'En cours de traitement' => 'En cours de traitement',
                     'Traitée' => 'Traitée',
+                    'Archivée' => 'Archivée',
                 ],
                 'attr' => ['class' => 'form-control-lg form-control',
                     'id' => 'selectLg',
@@ -178,5 +179,33 @@ class ReclamationController extends Controller
         return $this->render('@TaxiCo/ReclamationViews/DashboardUpdateRec.html.twig', array('form' => $form->createView()
         ));
 
+    }
+
+    public function findNonTrRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLNT();
+        return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findTrRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLT();
+        return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findCTRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLCT();
+        return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findArchRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLArch();
+        return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamations));
     }
 }
