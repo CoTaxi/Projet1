@@ -14,7 +14,7 @@
 
     <!-- favicon
           ============================================ -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}"/>
     <!-- Google Fonts
 		============================================ -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
@@ -68,27 +68,27 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="{{ asset('kiaalap-master/kiaalap-master/js/vendor/modernizr-2.8.3.min.js') }}"></script>
-    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}"/>
     <!--=== Bootstrap CSS ===-->
-    <link href="{{asset('cardoor/assets/css/bootstrap.min.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/bootstrap.min.css') }}" rel="stylesheet">
     <!--=== Vegas Min CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/vegas.min.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/vegas.min.css') }}" rel="stylesheet">
     <!--=== Slicknav CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/slicknav.min.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/slicknav.min.css') }}" rel="stylesheet">
     <!--=== Magnific Popup CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/magnific-popup.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/magnific-popup.css') }}" rel="stylesheet">
     <!--=== Owl Carousel CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/owl.carousel.min.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/owl.carousel.min.css') }}" rel="stylesheet">
     <!--=== Gijgo CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/gijgo.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/gijgo.css') }}" rel="stylesheet">
     <!--=== FontAwesome CSS ===-->
-    <link href="{{asset('cardoor/assets/css/plugins/font-awesome.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/plugins/font-awesome.css') }}" rel="stylesheet">
     <!--=== Theme Reset CSS ===-->
-    <link href="{{asset('cardoor/assets/css/reset.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/reset.css') }}" rel="stylesheet">
     <!--=== Main Style CSS ===-->
-    <link href="{{asset('cardoor/style.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/style.css') }}" rel="stylesheet">
     <!--=== Responsive CSS ===-->
-    <link href="{{asset('cardoor/assets/css/responsive.css')  }}" rel="stylesheet">
+    <link href="{{ asset('cardoor/assets/css/responsive.css') }}" rel="stylesheet">
 
 
     <!--[if lt IE 9]>
@@ -172,35 +172,35 @@
                                 </ul>
                             </li> {% if ((is_granted('ROLE_CLIENT'))) %}
                                 <li><a href="{{ path('colis_afficher') }}">Afficher mes colis </a></li>
-                             <li><a href="{{ path('colis_new') }}">ajouter un colis </a></li>
+                                <li><a href="{{ path('colis_new') }}">ajouter un colis </a></li>
 
                             {% endif %}
                             {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                            <li><a href="{{ path('fos_user_registration_register') }}">register</a>
+                                <li><a href="{{ path('fos_user_registration_register') }}">register</a>
 
-                            </li>
- {% endif %}
+                                </li>
+                            {% endif %}
                             <li>
                                 {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                                   <li><a href="{{ path('fos_user_security_login') }}">log in</a></li>
+                            <li><a href="{{ path('fos_user_security_login') }}">log in</a></li>
 
                             </a>
                             {% endif %}
                             {% if (is_granted('IS_AUTHENTICATED_FULLY')) %}
-                            <a href="{{ path('fos_user_security_logout') }}" >
+                                <a href="{{ path('fos_user_security_logout') }}">
 
-                                logout
-                            </a>
+                                    logout
+                                </a>
 
-                                    {% endif %}
+                            {% endif %}
                             <li>
                                 {% if(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                                <a href="{{ path('taxi_back') }}" >
+                                <a href="{{ path('taxi_back') }}">
 
-                                     dashboard
+                                    dashboard
                                 </a>
-                                </li>
-{% endif %}
+                            </li>
+                            {% endif %}
                         </ul>
                     </nav>
                 </div>
@@ -212,7 +212,7 @@
 </header>
 <!--== Header Area End ==-->
 {% block contents %}
- {% endblock %}
+{% endblock %}
 <section id="footer-area">
     <!-- Footer Widget Start -->
     <div class="footer-widget-area">
@@ -223,8 +223,9 @@
                     <div class="single-footer-widget">
                         <h2>About Us</h2>
                         <div class="widget-body">
-                            <img src="{{ asset('cardoor/assets/img/logo.png')}}">
-                            <p>Lorem ipsum dolored is a sit ameted consectetur adipisicing elit. Nobis magni assumenda distinctio debitis, eum fuga fugiat error reiciendis.</p>
+                            <img src="{{ asset('cardoor/assets/img/logo.png') }}">
+                            <p>Lorem ipsum dolored is a sit ameted consectetur adipisicing elit. Nobis magni assumenda
+                                distinctio debitis, eum fuga fugiat error reiciendis.</p>
 
                             <div class="newsletter-area">
                                 <form action="index.html">
@@ -279,14 +280,16 @@
                     <div class="single-footer-widget">
                         <h2>get touch</h2>
                         <div class="widget-body">
-                            <p>Lorem ipsum doloer sited amet, consectetur adipisicing elit. nibh auguea, scelerisque sed</p>
+                            <p>Lorem ipsum doloer sited amet, consectetur adipisicing elit. nibh auguea, scelerisque
+                                sed</p>
 
                             <ul class="get-touch">
                                 <li><i class="fa fa-map-marker"></i> 800/8, Kazipara, Dhaka</li>
                                 <li><i class="fa fa-mobile"></i> +880 01 86 25 72 43</li>
                                 <li><i class="fa fa-envelope"></i> kazukamdu83@gmail.com</li>
                             </ul>
-                            <a href="https://goo.gl/maps/b5mt45MCaPB2" class="map-show" target="_blank">Show Location</a>
+                            <a href="https://goo.gl/maps/b5mt45MCaPB2" class="map-show" target="_blank">Show
+                                Location</a>
                         </div>
                     </div>
                 </div>
@@ -302,7 +305,10 @@
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                        All rights reserved | This template is made with <i class="fa fa-heart-o"
+                                                                            aria-hidden="true"></i> by <a
+                                href="https://colorlib.com" target="_blank">Colorlib</a>
                         <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
                 </div>
             </div>
@@ -314,14 +320,14 @@
 
 <!--== Scroll Top Area Start ==-->
 <div class="scroll-top">
-    <img src="{{ asset('cardoor/assets/img/scroll-top.png"')}}'>
+    <img src="{{ asset('cardoor/assets/img/scroll-top.png"') }}'>
 </div>
 <!--== Scroll Top Area End ==-->
 {% block javascripts %}
 {% endblock %}
 <!--=======================Javascript============================-->
-<div class="scroll-top" style="display: block;">
-    <img src="{{asset('cardoor/assets/img/scroll-top.png')}}" alt="JSOFT">
+<div class=" scroll-top" style="display: block;">
+    <img src="{{ asset('cardoor/assets/img/scroll-top.png') }}" alt="JSOFT">
 </div>
 <!--=== Jquery Min Js ===-->
 <script src="{{ asset('cardoor/assets/js/jquery-3.2.1.min.js') }}"></script>
@@ -351,7 +357,7 @@
 <script src="{{ asset('cardoor/assets/js/plugins/slicknav.min.js') }}"></script>
 
 <!--=== Mian Js ===-->
-<script src="{{  asset('cardoor/assets/js/main.js')}}"></script>
+<script src="{{ asset('cardoor/assets/js/main.js') }}"></script>
 
 
 <!-- jquery
