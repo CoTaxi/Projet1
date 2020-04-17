@@ -1,0 +1,185 @@
+{#{% extends "::base.html.twig" %}#}
+
+{#{% block title %}TaxiCoBundle:Maintenance:Display{% endblock %}#}
+
+{#{% block body %}#}
+{#<h1>Welcome to the Maintenance:Display page</h1>#}
+{#{% endblock %}#}
+{% extends "//DashboardRec.html.twig" %}
+{% block title %} Acceuil {% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+{% block body %}
+{% block contents %}
+    <div class="content mt-3">
+        <div class="animated fadeIn">
+            <div class="row">
+
+                <div class="col-md-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <strong class="card-title">Data Table</strong>
+                        </div>
+                        <div class="card-body">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                                <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>DateRdv</th>
+                                    <th>Garage</th>
+                                    <th>Status</th>
+                                    <th>Service</th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for s in rdvs %}
+                                <tr>
+                                    <td>{{ s.idRdv }}</td>
+                                    <td>{{ s.dateRdv|date("m/d/Y") }}</td>
+                                    <td>{{ s.garage.name }}</td>
+                                    <td>{{ s.status }}</td>
+                                    <td>{{ s.service.name }}</td>
+
+                                    <td> <a href="{{ path('updaterdv',{'id':s.idRdv}) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
+                                    <td> <a href="{{ path('deleterdv',{'id':s.idRdv}) }}"><button type="button" class="btn btn-primary">Spprimer</button></a></td>
+
+                                    {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <a href="{{ path('createrdv') }}"><button type="button" class="btn btn-primary">Pour crée un Rendez-vous</button></a>
+
+                </div>
+
+
+            </div>
+        </div><!-- .animated -->
+    </div><!-- .content -->
+
+    <!-- Content Wrapper. Contains page content -->
+{#<div class="content-wrapper">#}
+{#    <!-- Content Header (Page header) -->#}
+{#    <section class="content-header">#}
+{#        <div class="container-fluid">#}
+{#            <div class="row mb-2">#}
+{#                <div class="col-sm-6">#}
+{#                    <h1>Liste des Rendez-vous</h1>#}
+{#                </div>#}
+{#                <div class="col-sm-6">#}
+{#                    <ol class="breadcrumb float-sm-right">#}
+{#                        <li class="breadcrumb-item"><a href="#">Home</a></li>#}
+{#                        <li class="breadcrumb-item active">DataTables</li>#}
+{#                    </ol>#}
+{#                </div>#}
+{#            </div>#}
+{#        </div><!-- /.container-fluid -->#}
+{#    </section>#}
+
+{#    <!-- Main content -->#}
+{#    <section class="content">#}
+{#        <div class="row">#}
+{#            <div class="col-12">#}
+{#                <div class="card">#}
+{#                    <div class="card-header">#}
+{#                        <h3 class="card-title">DataTable with minimal features & hover style</h3>#}
+{#                    </div>#}
+{#                    <!-- /.card-header -->#}
+{#                    <div class="card-body">#}
+{#                        <table id="example2" class="table table-bordered table-hover">#}
+{#                            <thead>#}
+{#                            <tr>#}
+{#                                <th>Id</th>#}
+{#                                <th>DateRdv</th>#}
+{#                                <th>Garage</th>#}
+{#                                <th>Status</th>#}
+{#                                <th>Service</th>#}
+{#                                <th></th>#}
+{#                                <th></th>#}
+
+
+
+{#                            </tr>#}
+{#                            {% for s in rdvs %}#}
+{#                                <tr>#}
+{#                                    <td>{{ s.idRdv }}</td>#}
+{#                                    <td>{{ s.dateRdv|date("m/d/Y") }}</td>#}
+{#                                    <td>{{ s.garage.name }}</td>#}
+{#                                    <td>{{ s.status }}</td>#}
+{#                                    <td>{{ s.service.name }}</td>#}
+
+{#                                    <td> <a href="{{ path('updaterdv',{'id':s.idRdv}) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>#}
+{#                                    <td> <a href="{{ path('deleterdv',{'id':s.idRdv}) }}"><button type="button" class="btn btn-primary">Spprimer</button></a></td>#}
+
+{#                            {% endfor %}#}
+{#                                </tr>#}
+
+{#                            </tfoot>#}
+{#                        </table>#}
+{#                    </div>#}
+{#                    <!-- /.card-body -->#}
+{#                </div>#}
+{#                <a href="{{ path('createrdv') }}"><button type="button" class="btn btn-primary">Pour crée un Rendez-vous</button></a>#}
+{#            </div>#}
+{#        </div>#}
+{#    </section>#}
+{#</div>#}
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/popper.js/dist/umd/popper.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/bootstrap/dist/js/bootstrap.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/assets/js/main.js')  }}"></script>
+
+
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/jszip/dist/jszip.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/pdfmake/build/pdfmake.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/pdfmake/build/vfs_fonts.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.html5.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.print.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.colVis.min.js')  }}"></script>
+    <script src="{{asset('sufee-admin-dashboard-master/assets/js/init-scripts/data-table/datatables-init.js')  }}"></script>
+                <!-- /.card -->
+{#<html>#}
+{#<head>#}
+{#    <title>List des Rdv</title>#}
+{#</head>#}
+{#<body>#}
+{#<center>#}
+{#    <h1>Liste des Rdvs</h1>#}
+{#    <table border="1">#}
+{#        <tr>#}
+{#            <th>Id</th>#}
+{#            <th>DateRdv</th>#}
+{#            <th>Garage</th>#}
+{#            <th>Status</th>#}
+{#            <th>Service</th>#}
+{#        </tr>#}
+{#        {% for s in rdvs %}#}
+{#            <tr>#}
+{#                <td>{{ s.idRdv }}</td>#}
+{#                <td>{{ s.dateRdv|date("m/d/Y") }}</td>#}
+{#                <td>{{ s.garage.name }}</td>#}
+{#                <td>{{ s.status }}</td>#}
+{#                <td>{{ s.service.name }}</td>#}
+
+{#                <td> <a href="{{ path('updaterdv',{'id':s.idRdv}) }}">Modifier</a></td>#}
+{#                <td> <a href="{{ path('deleterdv',{'id':s.idRdv}) }}">supprimer</a></td>#}
+{#            </tr>#}
+{#        {% endfor %}#}
+{#    </table>#}
+{#</center>#}
+
+{#</body>#}
+{#</html>#}
+{% endblock %}
+{% endblock %}
+
+
+{#|default('undefined')#}
