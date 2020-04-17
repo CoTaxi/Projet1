@@ -2,7 +2,11 @@
 
 namespace TaxiCoBundle\Form;
 
+use Gregwar\CaptchaBundle\Type\CaptchaType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,21 +17,28 @@ class VehiculeType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('matricule')
-            ->add('marque')
+        $builder->add('matricule',FileType::class, array('data_class'=>null, 'required'=>false))
+            ->add('marque',ChoiceType::class,array(
+                'choices'=>array(
+                    'Alfa Romeo'=>"Alfa Romeo",
+                    'Audi'=>"Audi",
+                    'Citroen'=>"Citroen",
+                    'Ford'=>"Ford",
+                    'Peugeot'=>"Peugeot",)))
             ->add('modele')
-            ->add('cartegrise')
+            ->add('cartegrise',FileType::class, array('data_class'=>null, 'required'=>false))
             ->add('couleur')
-            ->add('type')
-            ->add('dispo')
+            ->add('type',ChoiceType::class,array(
+                'choices'=>array(
+                    'Taxi'=>"taxi",
+                    'Covoiturage'=>"covoiturage",)))
             ->add('position')
             ->add('destination')
-            ->add('etat')
             ->add('places')
-            ->add('dateco')
-            ->add('archive')
             ->add('zone')
-            ->add('acceptC');
+            ->add('acceptC')
+            ->add('captcha', CaptchaType::class)
+            ->add('Ajouter Vehicule',SubmitType::class);
     }/**
      * {@inheritdoc}
      */
