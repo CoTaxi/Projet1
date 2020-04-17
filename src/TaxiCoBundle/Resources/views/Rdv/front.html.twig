@@ -95,7 +95,7 @@
                     <div class="form-group">
                         <label for="date" class="form-label">Date: </label>
                         <div class="col-10">
-                            {{ form_widget(form.rdv,{ 'attr': {'class': 'form-control rdv2'} }) }}
+                            {{ form_widget(form.dateRdv,{ 'attr': {'class': 'form-control rdv2'} }) }}
                         </div>
                     </div>
                 </div>
@@ -142,10 +142,6 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
     <script src="{{ asset('js/app3.js') }}"></script>
-    <script
-            src ="https://code.jquery.com/jquery-3.2.1.min.js"
-            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-            crossorigin="anonymous"></script>
 <script>
 
     $(document).on('change','#taxicobundle_rdv_service, #taxicobundle_rdv_garage',function(){
@@ -172,22 +168,6 @@
             integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous">
 
-    </script>
-    <script>
-        $(document).on('change','.garage2, .rdv2',function(){
-            let $field = $(this)
-            let $garageField =$('.garage2')
-            let $rdvField =$('.rdv2')
-            let $form = $field.closest('form')
-            let data = {}
-            data[$garageField.attr('name')] = $garageField.val()
-            data[$rdvField.attr('name')] = $rdvField.val()
-            data[$field.attr('name')] = $field.val()
-            $.post($form.attr('action'), data).then(function (data) {
-                let $input = $(data).find('.rdv2')
-                $('.rdv2').replaceWith($input)
-            })
-        })
     </script>
     <script>
         $(document).on('change','.garage2, .rdv2',function(){
