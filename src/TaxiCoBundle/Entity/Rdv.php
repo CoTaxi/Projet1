@@ -3,12 +3,20 @@
 namespace TaxiCoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Rdv
  *
  * @ORM\Table(name="rdv", indexes={@ORM\Index(name="id_chauffeur_fk", columns={"id_chauffeur"}), @ORM\Index(name="id_garage_fk", columns={"id_garage"}), @ORM\Index(name="id_service_fk", columns={"id_service"})})
  * @ORM\Entity
+ */
+
+/**
+ * Rdv
+ *
+ * @ORM\Table(name="rdv")
+ * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\RdvRepository")
  */
 class Rdv
 {
@@ -29,12 +37,11 @@ class Rdv
     private $idChauffeur;
 
     /**
-     * @var \DateTime
+     * @var String
      *
-     * @ORM\Column(name="date_rdv", type="date", nullable=true)
+     * @ORM\Column(name="date_rdv", type="string", nullable=true)
      */
     private $dateRdv;
-
     /**
      * @var integer
      *
@@ -55,6 +62,85 @@ class Rdv
      * @ORM\Column(name="status", type="string", length=50, nullable=true)
      */
     private $status;
+
+//    /**
+//     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Garage")
+//     * @ORM\JoinColumn(name="id_Garage",referencedColumnName="idGarage")
+//     */
+//    private $id_garage;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Service")
+     * @ORM\JoinColumn(name="id_service",referencedColumnName="id_service")
+     */
+    private $service;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Garage")
+     * @ORM\JoinColumn(name="id_garage",referencedColumnName="id_garage")
+     */
+    private $garage;
+//    public function __construct()
+//    {
+//        $this->service = new ArrayCollection();
+//    }
+
+    /**
+     * @return mixed
+     */
+    public function getGarage()
+    {
+        return $this->garage;
+    }
+
+    /**
+     * @param mixed $garage
+     */
+    public function setGarage($garage)
+    {
+        $this->garage = $garage;
+    }
+
+//    /**
+//     * @return mixed
+//     */
+//    public function getService()
+//    {
+//        return $this->service;
+//    }
+//
+//    /**
+//     * @param mixed $service
+//     */
+//    public function setService($service)
+//    {
+//        $this->service = $service;
+//    }
+
+//    /**
+//     * @ORM\ManyToMany(targetEntity="TaxiCoBundle\Entity\Service", cascade={"persist"})
+//     * @ORM\JoinTable(name="rdv_service",
+//     *  joinColumns={@ORM\JoinColumn(name="id_rdv" ,referencedColumnName="id_rdv")},
+//     *     inverseJoinColumns={@ORM\JoinColumn(name="id_service", referencedColumnName="id_service")})
+//     */
+//    private $service;
+
+    /**
+     * @return mixed
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param mixed $service
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+    }
 
 
 
@@ -93,28 +179,22 @@ class Rdv
     }
 
     /**
-     * Set dateRdv
-     *
-     * @param \DateTime $dateRdv
-     *
-     * @return Rdv
-     */
-    public function setDateRdv($dateRdv)
-    {
-        $this->dateRdv = $dateRdv;
-
-        return $this;
-    }
-
-    /**
-     * Get dateRdv
-     *
-     * @return \DateTime
+     * @return String
      */
     public function getDateRdv()
     {
         return $this->dateRdv;
     }
+
+    /**
+     * @param String $dateRdv
+     */
+    public function setDateRdv($dateRdv)
+    {
+        $this->dateRdv = $dateRdv;
+    }
+
+
 
     /**
      * Set idGarage
@@ -187,4 +267,9 @@ class Rdv
     {
         return $this->status;
     }
+//    public function __toString()
+//    {
+//        // TODO: Implement __toString() method.
+//        return $this->name;
+//    }
 }

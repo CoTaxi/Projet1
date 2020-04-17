@@ -1,0 +1,147 @@
+{% extends "//DashboardRec.html.twig" %}
+{% block title %} Acceuil {% endblock %}
+{% block head %}
+    {{ parent() }}
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css">
+{% endblock %}
+{% block body %}
+    {% block contents %}
+        {{ form_start(form) }}
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <section class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1>General Form</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">General Form</li>
+                            </ol>
+                        </div>
+                    </div>
+                </div><!-- /.container-fluid -->
+            </section>
+
+            <!-- Main content -->
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <!-- left column -->
+                        <div class="col-md-6">
+                            <!-- general form elements -->
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Quick Example</h3>
+                                </div>
+                                <!-- /.card-header -->
+                                <!-- form start -->
+                                <form role="form">
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="exampleInputEmail1">ID Chauffeur</label>
+                                            {{ form_widget(form.idChauffeur,{ 'attr': {'class': 'form-control'} }) }}
+                                            {#                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">DateRdv</label>
+                                            {{ form_widget(form.dateRdv,{ 'attr': {'class': 'form-control'} }) }}
+                                            {#                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
+                                        </div>
+                                        <!-- Date mm/dd/yyyy -->
+{#                                        <div class="form-group">#}
+{#                                            <div class="input-group">#}
+{#                                                <div class="input-group-prepend">#}
+{#                                                    <span class="input-group-text"><i#}
+{#                                                                class="far fa-calendar-alt"></i></span>#}
+{#                                                </div>#}
+{#                                                <input type="text" class="form-control" data-inputmask-alias="datetime"#}
+{#                                                       data-inputmask-inputformat="mm/dd/yyyy" data-mask#}
+{#                                                       value="{{ form_widget(form.dateRdv,{ 'attr': {'class': 'js-datepicker'} }) }}">#}
+{#                                            </div>#}
+{#                                            #}{#                    <!-- /.input group -->#}
+{#                                        </div>#}
+                                        <!-- /.form group -->
+
+
+                                        <div class="form-group">
+                                            <label for="exampleInputFile">Garage</label>
+                                            {{ form_widget(form.garage,{ 'attr': {'class': 'form-control'} }) }}
+
+
+                                            <input type="file" class="custom-file-input" id="exampleInputFile">
+                                            <label for="exampleInputEmail1">Status</label>
+                                            {{ form_widget(form.status,{ 'attr': {'class': 'form-control'} }) }}
+                                            {#                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
+                                        </div>
+
+                                        <div>
+                                            <label for="exampleInputEmail1">Service</label>
+                                            {{ form_widget(form.service,{ 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+                                        <div>
+                                            <label for="exampleInputEmail1">Captcha</label>
+                                            {{ form_widget(form.captcha,{ 'attr': {'class': 'form-control'} }) }}
+                                        </div>
+
+                                        <!-- /.card-body -->
+
+                                        <div class="card-footer">
+
+                                            <div class="btn btn-primary">
+
+                                                {{ form_widget(form._token) }}
+
+                                                <button class="btn btn-primary"> ADD</button>
+                                                {#                    {{ form_widget(form.Add) }}#}
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+        {{ form_end(form) }}
+        <!-- /.card -->
+        {#<html>#}
+        {#<head>#}
+        {#    <title>#}
+        {#        Ajout des Rdv#}
+        {#    </title>#}
+        {#</head>#}
+        {#<body>#}
+        {#<center>#}
+        {#    <h1>Ajouter un Rdv</h1>#}
+        {#    <fieldset style="width: 50%">#}
+        {#        {{ form_start(form) }}#}
+        {#        Nom:* {{ form_widget(form.name) }}</br>#}
+
+        {#                {{ form_widget(form.ajouter) }}</br>#}
+        {#        {{ form_end(form) }}#}
+        {#    </fieldset>#}
+        {#</center>#}
+        {#</body>#}
+        {#</html>#}
+    {% endblock %}
+{% endblock %}
+{#        <div class="row">#}
+{#            <div class="col-md-12">#}
+{#                <div class="form-group bmd-form-group">#}
+{#                    <label class="bmd-label-floating">Nom </label>#}
+{#                    {{ form_widget(form.nomDemande,{ 'attr': {'class': 'form-control'} }) }}#}
+{#                </div>#}
+{#            </div>#}
+{#        <button type="submit" class="genric-btn primary circle">Ajouter</button>#}
+{#        <div class="clearfix"></div>#}
+{#        {{ form_end(form) }}#}
+{#    </div>#}
