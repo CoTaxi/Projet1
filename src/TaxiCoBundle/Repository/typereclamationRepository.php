@@ -10,4 +10,31 @@ namespace TaxiCoBundle\Repository;
  */
 class typereclamationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findDQLNT()
+    {
+        $query=$this->getEntityManager()->createQuery
+        ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Non traitée'");
+        return $query->getResult();
+    }
+
+    public function findDQLT()
+    {
+        $query=$this->getEntityManager()->createQuery
+        ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Traitée'");
+        return $query->getResult();
+    }
+
+    public function findDQLCT()
+    {
+        $query=$this->getEntityManager()->createQuery
+        ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='En cours de traitement'");
+        return $query->getResult();
+    }
+
+    public function findDQLArch()
+    {
+        $query=$this->getEntityManager()->createQuery
+        ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Archivée'");
+        return $query->getResult();
+    }
 }

@@ -59,6 +59,31 @@ class Reclamation
      */
     private $idch;
 
+    /**
+     * @var \typereclamation
+     *
+     * @ORM\ManyToOne(targetEntity="typereclamation")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_type", referencedColumnName="id")
+     * })
+     */
+    private $Objet;
+
+    /**
+     * @return \typereclamation
+     */
+    public function getObjet()
+    {
+        return $this->Objet;
+    }
+
+    /**
+     * @param \typereclamation $Objet
+     */
+    public function setObjet($Objet)
+    {
+        $this->Objet = $Objet;
+    }
 
 
     /**
