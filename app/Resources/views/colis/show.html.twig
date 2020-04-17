@@ -67,13 +67,20 @@
     </table>
 
     <ul>
-
+        {% if (coli.etat==0) %}
+        {
         <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger"> modifier </a>
         <a href="{{ path('colis_affecter', { 'idC': coli.idC }) }}" class="btn btn-danger"> affecter </a>
+        {% endif %}
+        {% if (coli.etat==1) %}
+            <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger"> modifier </a>
+        {% endif %}
+        {% if ((coli.etat==0) or (coli.etat==1)) %}
         <li>
             {{ form_start(delete_form) }}
                 <input type="submit"  class="readmore-btn" value="Delete">
             {{ form_end(delete_form) }}
         </li>
+        {% endif %}
     </ul>
 {% endblock %}

@@ -2,15 +2,22 @@
 {% extends 'default/acceuil.html.twig' %}
 
 {% block contents %}
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
+    <!--== Page Title Area Start ==-->
+    <section id="page-title-area" class="section-padding overlay">
+        <div class="container">
+            <div class="row">
+                <!-- Page Title Start -->
+                <div class="col-lg-12">
+                    <div class="section-title  text-center">
+                        <h2>Colis</h2>
+                        <span class="title-line"><i class="fa fa-car"></i></span>
+                    </div>
+                </div>
+                <!-- Page Title End -->
+            </div>
+        </div>
+    </section>
+    <!--== Page Title Area End ==-->
     <div class="content mt-3">
         <div class="animated fadeIn">
             <div class="row">
@@ -68,13 +75,14 @@
 <li>
                                                 {% if (coli.etat==0) %}
                                                 <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
+                                                <a href="{{ path('colis_affecter', { 'idC': coli.idC }) }}" class="rent-btn"> affecter </a>
                                                 {% endif %}
                                                 {% if (coli.etat==1) %}
                                                  <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
                                                 {% endif %}
 
 </li> <li>
-                                                <a href="{{ path('colis_show', { 'idC': coli.idC }) }}" class="btn btn-danger">afficher colis </a>
+                                                <a href="{{ path('colis_show', { 'idC': coli.idC }) }}" class="book-now-btn">afficher colis </a>
                                                 </li>
                                             </ul>
                                         </td>

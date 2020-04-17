@@ -1,0 +1,39 @@
+{% extends "//DashboardRec.html.twig" %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block contents %}
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-header">
+                <strong>Que pensez-vous ? 🤔</strong> <br> Ajouter votre réponse - Modifier l'état de la réclamation
+            </div>
+            <div class="card-body card-block">
+                <form action="" method="post" enctype="multipart/form-data" class="form-horizontal">
+                    {{ form_start(form) }}
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="textarea-input"
+                                                         class=" form-control-label">Réponse</label></div>
+                        {#                        <div class="col-12 col-md-9"><textarea name="textarea-input" id="textarea-input" rows="9"#}
+                        {#                                                               placeholder="Content..." class="form-control"></textarea>#}
+                        {#                        </div>#}
+                        {{ form_widget(form.reponse) }}
+                    </div>
+                    <div class="row form-group">
+                        <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Etat</label>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            {{ form_widget(form.etat) }}
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Submit
+                        </button>
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -1,5 +1,3 @@
-
-
 taxi_co_homepage:
     path:     /
     defaults: { _controller: TaxiCoBundle:Default:index }
@@ -69,3 +67,69 @@ details:
 MiseAjour:
     path:     /MiseAjour/{idC}
     defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
+
+display:
+    path:     /display
+    defaults: { _controller: TaxiCoBundle:Service:Display }
+#    methods:  [POST]
+
+update:
+    path:     /update/{id}
+    defaults: { _controller: TaxiCoBundle:Service:update }
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: TaxiCoBundle:Service:delete }
+
+create:
+    path:     /create
+    defaults: { _controller: TaxiCoBundle:Service:create }
+
+displaygarage:
+    path:     /displaygarage
+    defaults: { _controller: TaxiCoBundle:Garage:Display }
+
+
+updategarage:
+    path:     /updategarage/{id}
+    defaults: { _controller: TaxiCoBundle:Garage:update }
+deletegarage:
+    path:     /deletegarage/{id}
+    defaults: { _controller: TaxiCoBundle:Garage:delete }
+
+creategarage:
+    path:     /creategarage
+    defaults: { _controller: TaxiCoBundle:Garage:create }
+listegarage:
+    path:     /list
+    defaults: { _controller: TaxiCoBundle:Rdv:list2 }
+
+displayrdv:
+    path:     /displayrdv
+    defaults: { _controller: TaxiCoBundle:Rdv:Display }
+
+
+updaterdv:
+    path:     /updaterdv/{id}
+    defaults: { _controller: TaxiCoBundle:Rdv:update }
+deleterdv:
+    path:     /deleterdv/{id}
+    defaults: { _controller: TaxiCoBundle:Rdv:delete }
+
+createrdv:
+    path:     /createrdv
+    defaults: { _controller: TaxiCoBundle:Rdv:create }
+
+front:
+    path:     /front
+    defaults: { _controller: TaxiCoBundle:Maintenance:front }
+test:
+    path:     /test
+    defaults: { _controller: TaxiCoBundle:Rdv:front }
+test2:
+    path:     /test2
+    defaults: { _controller: TaxiCoBundle:Rdv:Display2 }
+
+test5:
+    path:     /test5
+    defaults: { _controller: TaxiCoBundle:Rdv:list }
+

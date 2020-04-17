@@ -7,6 +7,12 @@ parameters:
     database_name: symfony
     database_user: root
     database_password: ~
+    mailer_transport: smtp
+    mailer_port: 465
+    mailer_encryption: ssl
+    mailer_host: smtp.zoho.com
+    mailer_user: rmilissou@zohomail.com
+    mailer_password: Oussama01
     # You should uncomment this if you want to use pdo_sqlite
     #database_path: '%kernel.project_dir%/var/data/data.sqlite'
 

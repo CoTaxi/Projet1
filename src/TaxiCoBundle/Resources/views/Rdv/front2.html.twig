@@ -1,0 +1,111 @@
+{% extends "//layout.html.twig" %}
+{% block title %} Acceuil {% endblock %}
+{% block head %}
+    {{ parent() }}
+
+{% endblock %}
+{% block body %}
+    {% block contents %}
+
+
+        <style type="text/css">
+
+            form {
+                width: 70%;
+            }
+
+            .form-book, .form-cart {
+                display: inline-block;
+            }
+
+            fieldset {
+                width: 40%;
+                margin-top: 20px;
+                padding: 15px;
+                margin-left: 5%;
+                border-radius: 10px;
+            }
+
+            input[type='submit'] {
+                padding: 10px;
+                font-size: 15px;
+                font-weight: bold;
+                border: none;
+                background-color: yellow;
+            }
+
+            input[type='submit']:hover {
+                color: white;
+            }
+        </style>
+        <center>
+            <section id="slider-area">
+                <!--== slide Item One ==-->
+                <div class="single-slide-item overlay" align="center">
+
+                    <div class="container">
+                        <div class="row">
+
+                            <div class="col-lg-11" style="position: center">
+                                <div class="book-a-car">
+                                    <form action="index.html">
+                                        <center>
+                                            <table class="table table-bordered table-dark">
+                                                <thead>
+                                                <tr>
+
+                                                    <th scope="col">Service</th>
+                                                    <th scope="col">Garage</th>
+                                                    <th scope="col">Date</th>
+                                                    <th scope="col">#</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+                                                {% for s in rdvs %}
+                                                <tr>
+                                                    <td>{{ s.service.name }}</td>
+                                                    <td>{{ s.garage.name }}</td>
+                                                    <td>{{ s.dateRdv|date("m/d/Y") }}</td>
+
+                                                    {#            <td>{{ s.status }}</td>#}
+                                                    {#            <td>{{ s.service.name }}</td>#}
+
+{#                                                    <td><a href="{{ path('updaterdv',{'id':s.idRdv}) }}">#}
+{#                                                            <button type="button" class="btn btn-primary">Modifier#}
+{#                                                            </button>#}
+{#                                                        </a></td>#}
+                                                    <td><a href="{{ path('deleterdv',{'id':s.idRdv}) }}">
+                                                            <button type="button" class="btn btn-primary">Annuler Réservation
+                                                            </button>
+                                                        </a></td>
+
+                                                    {% endfor %}
+                                                    {#        <tr>#}
+                                                    {#            <th scope="row">1</th>#}
+                                                    {#            <td>Service 1</td>#}
+                                                    {#            <td>Garage 1</td>#}
+                                                    {#            <td>Date 1</td>#}
+                                                    {#        </tr>#}
+                                                    {#        <tr>#}
+                                                    {#            <th scope="row">2</th>#}
+                                                    {#            <td>Service 2</td>#}
+                                                    {#            <td>Garage 2</td>#}
+                                                    {#            <td>Date 2</td>#}
+                                                    {#        </tr>#}
+
+                                                </tbody>
+                                            </table>
+                                            <center><input type="submit" name="annuler" value="Annuler"></center>
+                                        </center>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </center>
+    {% endblock %}
+{% endblock %}

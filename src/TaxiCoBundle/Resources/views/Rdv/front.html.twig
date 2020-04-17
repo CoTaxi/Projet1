@@ -1,0 +1,327 @@
+{% extends "//layout.html.twig" %}
+{% block title %} Acceuil {% endblock %}
+{% block head %}
+    <head>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    </head>
+    {{ parent() }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+{% endblock %}
+{% block body %}
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+    <p></p>
+{% block contents %}
+    {{ form_start(form) }}
+    <style type="text/css">
+
+        form {
+            width:70%;
+        }
+        .form-book,.form-cart {
+            display: inline-block;
+        }
+        fieldset {
+            width: 40%;
+            margin-top: 20px;
+            padding: 15px;
+            margin-left: 5%;
+            border-radius: 10px;
+        }
+        input[type='submit']
+        {
+            padding:10px;
+            font-size: 15px;
+            font-weight: bold;
+            border:none;
+            background-color: yellow;
+        }
+        input[type='submit']:hover
+        {
+            color:white;
+        }
+    </style>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <fieldset  class="form-book">
+        <center>
+            <form action="#" method="#">
+
+                <div class="form-group">
+                    <label for="garage">Service: </label>
+{#                    <select class="form-control" id="garage">#}
+                        {{ form_widget(form.service,{ 'attr': {'class': 'form-control'} }) }}
+{#                    </select>#}
+                </div>
+                <div class="form-group">
+                    <label for="garage">Garage: </label>
+{#                    <select class="form-control" id="garage">#}
+                        {{ form_widget(form.garage,{ 'attr': {'class': 'form-control garage2'} }) }}
+                    </select>
+                </div>
+{#                <div class="form-group">#}
+{#                    <label for="garage">Rdv: </label>#}
+{#                    <select class="form-control" id="garage">#}
+{#                        {{ form_widget(form.rdv|date("m/d/Y"),{ 'attr': {'class': 'form-control rdv2'} }) }}#}
+{#                    </select>#}
+{#                </div>#}
+
+
+                    <div class="form-group">
+                        <label for="date" class="form-label">Date: </label>
+                        <div class="col-10">
+                            {{ form_widget(form.rdv,{ 'attr': {'class': 'form-control rdv2'} }) }}
+                        </div>
+                    </div>
+                </div>
+                {{ form_widget(form._token) }}
+                <input type="submit" name="reserver" value="Réserver">
+{#                {{ form_widget(form.Add) }}#}
+            </form>
+        </center>
+    </fieldset>
+    <fieldset  class="form-cart">
+        <table class="table table-bordered table-dark">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Service</th>
+                <th scope="col">Garage</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Service 1</td>
+                <td>Garage 1</td>
+                <td>Date 1</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Service 2</td>
+                <td>Garage 2</td>
+                <td>Date 2</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <center><input type="submit" name="annuler" value="Annuler"></center>
+    </fieldset>
+
+
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js"></script>
+    <script
+            src ="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+    <script src="{{ asset('js/app3.js') }}"></script>
+    <script
+            src ="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous"></script>
+<script>
+
+    $(document).on('change','#taxicobundle_rdv_service, #taxicobundle_rdv_garage',function(){
+        let $field = $(this)
+        let $serviceField =$('#taxicobundle_rdv_service')
+        let $garageField =$('#taxicobundle_rdv_garage')
+        let $form = $field.closest('form')
+        let data = {}
+        data[$serviceField.attr('name')] = $serviceField.val()
+        data[$garageField.attr('name')] = $garageField.val()
+        data[$field.attr('name')] = $field.val()
+        $.post($form.attr('action'), data).then(function (data) {
+            let $input = $(data).find('#taxicobundle_rdv_garage')
+            $('#taxicobundle_rdv_garage').replaceWith($input)
+        })
+    })
+
+</script>
+    <script src="{{ asset('js/app.js') }}"></script>
+
+
+    <script
+            src ="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+
+    </script>
+    <script>
+        $(document).on('change','.garage2, .rdv2',function(){
+            let $field = $(this)
+            let $garageField =$('.garage2')
+            let $rdvField =$('.rdv2')
+            let $form = $field.closest('form')
+            let data = {}
+            data[$garageField.attr('name')] = $garageField.val()
+            data[$rdvField.attr('name')] = $rdvField.val()
+            data[$field.attr('name')] = $field.val()
+            $.post($form.attr('action'), data).then(function (data) {
+                let $input = $(data).find('.rdv2')
+                $('.rdv2').replaceWith($input)
+            })
+        })
+    </script>
+    <script>
+        $(document).on('change','.garage2, .rdv2',function(){
+            let $field = $(this)
+            let $garageField =$('.garage2')
+            // let $rdvField =$('.rdv2')
+            let $form = $field.closest('form')
+            let data = {}
+            data[$garageField.attr('name')] = $garageField.val()
+            // data[$rdvField.attr('name')] = $rdvField.val()
+            data[$field.attr('name')] = $field.val()
+            $.post($form.attr('action'), data).then(function (data) {
+                let $input = $(data).find('.rdv2')
+                $('.rdv2').replaceWith($input)
+            })
+        })
+    </script>
+
+
+    {#<style type="text/css">#}
+
+{#    form {#}
+{#        width:70%;#}
+{#    }#}
+{#    .form-book,.form-cart {#}
+{#        display: inline-block;#}
+{#    }#}
+{#    fieldset {#}
+{#        width: 40%;#}
+{#        margin-top: 20px;#}
+{#        padding: 15px;#}
+{#        margin-left: 5%;#}
+{#        border-radius: 10px;#}
+{#    }#}
+{#    input[type='submit']#}
+{#    {#}
+{#        padding:10px;#}
+{#        font-size: 15px;#}
+{#        font-weight: bold;#}
+{#        border:none;#}
+{#        background-color: yellow;#}
+{#    }#}
+{#    input[type='submit']:hover#}
+{#    {#}
+{#        color:white;#}
+{#    }#}
+{#    .walid {#}
+
+{#        margin-top: 10%;#}
+{#    }#}
+{#</style>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <div class="walid">#}
+{#<fieldset  class="form-book">#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+
+{#    <center>#}
+{#        <form action="#" method="#">#}
+
+{#            <div class="form-group">#}
+{#                <label for="garage">Service: </label>#}
+{#                <select class="form-control" id="garage">#}
+{#                    {{ form_widget(form.service,{ 'attr': {'class': 'form-control'} }) }}#}
+{#                    <option>5</option>#}
+{#                </select>#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="garage">Garage: </label>#}
+{#                <select class="form-control" id="garage">#}
+{#                    {{ form_widget(form.garage,{ 'attr': {'class': 'form-control'} }) }}#}
+{#                </select>#}
+{#            </div>#}
+{#            <div class="form-group">#}
+{#                <label for="garage">Rdv: </label>#}
+{#                <select class="form-control" id="garage">#}
+{#                    {{ form_widget(form.rdv,{ 'attr': {'class': 'form-control'} }) }}#}
+{#                </select>#}
+{#            </div>#}
+
+{#            <div class="form-group">#}
+{#                <label for="date" class="form-label">Date: </label>#}
+{#                <div class="col-10">#}
+{#                    <input class="form-control" type="date" value="2020-02-12" id="date">#}
+{#                </div>#}
+{#            </div>#}
+{#            <input type="submit" name="reserver" value="Réserver">#}
+{#        </form>#}
+{#    </center>#}
+{#</fieldset>#}
+{#<fieldset  class="form-cart">#}
+{#    <table class="table table-bordered table-dark">#}
+{#        <thead>#}
+{#        <tr>#}
+{#            <th scope="col">#</th>#}
+{#            <th scope="col">Service</th>#}
+{#            <th scope="col">Garage</th>#}
+{#            <th scope="col">Date</th>#}
+{#        </tr>#}
+{#        </thead>#}
+{#        <tbody>#}
+{#        <tr>#}
+{#            <th scope="row">1</th>#}
+{#            <td>Service 1</td>#}
+{#            <td>Garage 1</td>#}
+{#            <td>Date 1</td>#}
+{#        </tr>#}
+{#        <tr>#}
+{#            <th scope="row">2</th>#}
+{#            <td>Service 2</td>#}
+{#            <td>Garage 2</td>#}
+{#            <td>Date 2</td>#}
+{#        </tr>#}
+
+{#        </tbody>#}
+{#    </table>#}
+{#    <center><input type="submit" name="annuler" value="Annuler"></center>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#    <p></p>#}
+{#</fieldset>#}
+{#    </div>#}
+    {{ form_end(form) }}
+{% endblock %}
+{% endblock %}
