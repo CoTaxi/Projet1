@@ -68,8 +68,6 @@ MiseAjour:
     path:     /MiseAjour/{idC}
     defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
 
-
-####################### Module Reclamation : #######################
 taxi_co_addRec:
     path:     /add
     defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
@@ -131,7 +129,7 @@ taxi_co__backlistArchRec:
 taxi_co__rating:
     path:     /rating
     defaults: { _controller: TaxiCoBundle:RatingRec:rate }
-=======
+
 display:
     path:     /display
     defaults: { _controller: TaxiCoBundle:Service:Display }
@@ -170,7 +168,6 @@ listegarage:
 displayrdv:
     path:     /displayrdv
     defaults: { _controller: TaxiCoBundle:Rdv:Display }
-
 
 updaterdv:
     path:     /updaterdv/{id}
