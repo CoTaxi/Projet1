@@ -2,6 +2,7 @@
 
 namespace TaxiCoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +10,12 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="service")
  * @ORM\Entity
+ */
+/**
+ * Service
+ *
+ * @ORM\Table(name="Service")
+ * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\ServiceRepository")
  */
 class Service
 {
@@ -61,6 +68,11 @@ class Service
      */
     public function getName()
     {
+        return $this->name;
+    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
         return $this->name;
     }
 }
