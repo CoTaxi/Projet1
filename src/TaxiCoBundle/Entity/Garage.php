@@ -2,13 +2,22 @@
 
 namespace TaxiCoBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Garage
  *
  * @ORM\Table(name="garage", indexes={@ORM\Index(name="id_service_fk", columns={"id_service"})})
  * @ORM\Entity
+ */
+
+/**
+ * Garage
+ *
+ * @ORM\Table(name="garage")
+ * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\GarageRepository")
  */
 class Garage
 {
@@ -17,7 +26,7 @@ class Garage
      *
      * @ORM\Column(name="id_garage", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $idGarage;
 
@@ -42,6 +51,37 @@ class Garage
      */
     private $idService;
 
+//    /**
+//     * @ORM\ManyToMany(targetEntity="TaxiCoBundle\Entity\Service", cascade={"persist"})
+//     * @ORM\JoinTable(name="garage_service",
+//     *  joinColumns={@ORM\JoinColumn(name="id_garage" ,referencedColumnName="id_garage")},
+//     *     inverseJoinColumns={@ORM\JoinColumn(name="id_service", referencedColumnName="id_service")})
+//     */
+//    private $service;
+
+
+    /**
+     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Service")
+     * @ORM\JoinColumn(name="id_service",referencedColumnName="id_service")
+     * @Assert\NotBlank()
+     */
+    private $service;
+
+    /**
+     * @return mixed
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param mixed $service
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+    }
 
 
     /**
@@ -124,5 +164,10 @@ class Garage
     public function getIdService()
     {
         return $this->idService;
+    }
+    public function __toString()
+    {
+        // TODO: Implement __toString() method.
+        return $this->name;
     }
 }

@@ -31,7 +31,7 @@ class ReclamationType extends AbstractType
                     'cols' => '30',
                     'rows' => '8'],
             ));
-            //->add('Ajouter', SubmitType::class);
+        //->add('Ajouter', SubmitType::class);
     }
 
     /**

@@ -1,0 +1,7 @@
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/starrating/css/rating.css') }}" />
+<script src="{{ asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js') }}"></script>
+{#<script src="{{ asset('bundles/starrating/js/rating.js') }}"></script>#}
+{% for entity in someInteger %}
+
+<p>{{ entity.rating|rating }}</p>
+{% endfor %}

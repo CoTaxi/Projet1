@@ -68,6 +68,68 @@ MiseAjour:
     path:     /MiseAjour/{idC}
     defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
 
+taxi_co_addRec:
+    path:     /add
+    defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
+
+taxi_co_listRec:
+    path:     /list
+    defaults: { _controller: TaxiCoBundle:Reclamation:afficherReclamation }
+
+taxi_co_deletetRec:
+    path:     /delete/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:supprimerReclamation }
+
+taxi_co_updateRec:
+    path:     /update/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:modifierReclamation }
+
+taxi_co__mailRec:
+    path:     /mail
+    defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
+
+# For Admin :
+
+taxi_co__backListRec:
+    path:     /adminList
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistRec }
+
+taxi_co__backListCardRec:
+    path:     /adminListCard
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistCardRec }
+
+taxi_co__backDeleteRec:
+    path:     /adminDelete/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRec }
+
+taxi_co__backDeleteCardRec:
+    path:     /adminDeleteCard/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRecCard }
+
+taxi_co__backupdateRec:
+    path:     /adminUpdate/{id}
+    defaults: { _controller: TaxiCoBundle:Reclamation:adminupdateRec }
+
+taxi_co__backlistNTRec:
+    path:     /adminNTlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrRec }
+
+taxi_co__backlistTRec:
+    path:     /adminTlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findTrRec }
+
+taxi_co__backlistCTRec:
+    path:     /adminCTlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findCTRec }
+
+taxi_co__backlistArchRec:
+    path:     /adminCTlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findArchRec }
+
+taxi_co__rating:
+    path:     /rating
+    defaults: { _controller: TaxiCoBundle:RatingRec:rate }
+
 display:
     path:     /display
     defaults: { _controller: TaxiCoBundle:Service:Display }
@@ -106,7 +168,6 @@ listegarage:
 displayrdv:
     path:     /displayrdv
     defaults: { _controller: TaxiCoBundle:Rdv:Display }
-
 
 updaterdv:
     path:     /updaterdv/{id}
