@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block contents %}
+<div class="content mt-3">
+    <div class="animated fadeIn">
+        <div class="row">
+
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <strong class="card-title">Liste des contrats</strong>
+                        <div class="topnav" >
+                            <a href="{{ path('contrat_rechercher')}}"class="btn btn-outline-secondary btn-sm"><i class="fa fa-search "></i></a>
+                            <button class="btn  btn-link pull-right"
+                                    id="right-panel-link"  style="color:#23272b">
+                                <a href="{{ path('contrat_add')}}">Ajouter un contrat</a>
+                            </button>
+                        </div>
+
+                    </div>
+
+                    <div class="card-body">
+                        <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
+                            <thead>
+                            <tr>
+                                <th>Nom</th>
+                                <th>Prenom</th>
+                                <th>Email</th>
+                                <th>Type de Contrat</th>
+                                <th>Duree</th>
+                                <th>Options</th>
+                            </tr>
+                            </thead>
+                            {% for entity in tabs %}
+                                {% for user in tabu %}
+                                    {% if user.nom == entity.idchauff   %}
+                            <tbody>
+                            <tr>
+                                <td>{{ user.nom}}</td>
+                                <td>{{user.prenom}}</td>
+                                <td>{{user.mail}}</td>
+                                <td>{{entity.typeC}}</td>
+                                <td>{{entity.duree}}</td>
+                                <td>
+                                    <a href="{{ path('contrat_mail',{'name':user.nom}) }}"class="btn btn-success btn-sm"><i class="fa fa-mail-reply-all"></i></a>
+                                    <a href="{{ path('contrat_update',{'id':entity.idContrat}) }}"class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
+                                    <a href="{{ path('contrat_delete',{'id':entity.idContrat}) }}"class="btn btn-danger btn-sm"><i class="fa fa-trash-o "></i></a>
+                                    <a href="{{ path('contrat_pdf',{'nom':user.nom,'prenom':user.prenom,'typecontrat':entity.typeC,'duree':entity.duree}) }}"class="btn btn-outline-secondary btn-sm"><i class="fa fa-download"></i></a>
+                                </td>
+                            </tr>
+                            </tbody>
+                                    {% endif %}
+                                    {% endfor %}
+                            {% endfor %}
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div><!-- .animated -->
+</div><!-- .content -->
+{% endblock %}
