@@ -2,6 +2,9 @@
 
 namespace TaxiCoBundle\Repository;
 
+use TaxiCoBundle\Controller\ReclamationController;
+use TaxiCoBundle\TaxiCoBundle;
+
 /**
  * typereclamationRepository
  *
@@ -36,5 +39,110 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
         $query=$this->getEntityManager()->createQuery
         ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Archivée'");
         return $query->getResult();
+    }
+
+    public function countAllDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('COUNT(r)')
+            ->from('TaxiCoBundle:Reclamation', 'r');
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
+
+    public function countArchDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('COUNT(r)')
+            ->from('TaxiCoBundle:Reclamation', 'r')
+            ->where('r.etat=:etat')
+            ->setParameter('etat','Archivée');
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
+
+    public function countNTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('COUNT(r)')
+            ->from('TaxiCoBundle:Reclamation', 'r')
+            ->where('r.etat=:etat')
+            ->setParameter('etat','Non traitée');
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
+
+    public function countTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('COUNT(r)')
+            ->from('TaxiCoBundle:Reclamation', 'r')
+            ->where('r.etat=:etat')
+            ->setParameter('etat','Traitée');
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
+
+    public function countCTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder()
+            ->select('COUNT(r)')
+            ->from('TaxiCoBundle:Reclamation', 'r')
+            ->where('r.etat=:etat')
+            ->setParameter('etat','En cours de traitement');
+
+        return $queryBuilder->getQuery()->getSingleScalarResult();
+    }
+
+    public function DeleteAllRecDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder('dr')
+            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->getQuery()
+            ->execute();
+        return $queryBuilder;
+    }
+
+    public function DeleteAllArchDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder('dr')
+            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->where('dr.etat=:etat')
+            ->setParameter('etat','Archivée')
+            ->getQuery()
+            ->execute();
+        return $queryBuilder;
+    }
+
+    public function DeleteAllCTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder('dr')
+            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->where('dr.etat=:etat')
+            ->setParameter('etat','En cours de traitement')
+            ->getQuery()
+            ->execute();
+        return $queryBuilder;
+    }
+
+    public function DeleteAllTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder('dr')
+            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->where('dr.etat=:etat')
+            ->setParameter('etat','Traitée')
+            ->getQuery()
+            ->execute();
+        return $queryBuilder;
+    }
+
+    public function DeleteAllNTDQB()
+    {
+        $queryBuilder = $this->_em->createQueryBuilder('dr')
+            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->where('dr.etat=:etat')
+            ->setParameter('etat','Non traitée')
+            ->getQuery()
+            ->execute();
+        return $queryBuilder;
     }
 }

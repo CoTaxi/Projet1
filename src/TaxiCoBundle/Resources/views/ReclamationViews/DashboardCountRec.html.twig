@@ -1,0 +1,82 @@
+{% extends "//base.html.twig" %}
+{% block stylesheets %}
+
+{% endblock %}
+{% block contents %}
+
+    <div class="col-lg-12 col-md-12">
+        <aside class="profile-nav alt">
+            <section class="card">
+                <div class="card-header user-header alt bg-dark">
+                    <div class="media">
+                        <a href="#">
+                            <img class="align-self-center rounded-circle mr-3" style="width:75px; height:75px;" alt=""
+                                 src="{{ asset('sufee-admin-dashboard-master/images/Config.png') }}">
+                        </a>
+                        <div class="media-body">
+                            <h2 class="text-light display-6">Gestion des réclamations</h2>
+                            <p>Consultation le nombre des réclamations par types.<br> Suppression en lot de réclamations
+                                par types.
+                                <br> Ajouter types de réclamation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <a href="{{ path('taxi_co__backListRec') }}"> <i class="fa fa-envelope-o"></i> Tous les
+                            réclamations <span class="badge badge-info">{{ c1 }}</span></a>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAll') }}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ path('taxi_co__backlistTRec') }}"> <i class="fa fa-check-square"></i> Récalamtions
+                            Traitées <span class="badge badge-success">{{ c3 }}</span></a>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllT') }}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ path('taxi_co__backlistNTRec') }}"> <i class="fa fa-exclamation-circle"></i>
+                            Réclamations non traitées</a> <span class="badge badge-danger">{{ c2 }}</span>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllNT') }}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ path('taxi_co__backlistCTRec') }}"> <i class="fa fa-spinner"></i> Réclamations en
+                            cours de traitements </a><span class="badge badge-warning">{{ c4 }}</span>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllCT') }}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="{{ path('taxi_co__backlistArchRec') }}"> <i class="fa fa-archive"></i> Réclamations
+                            archivées</a> <span class="badge badge-secondary">{{ c5 }}</span>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllArch')}}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                    </li>
+{#                    <li class="list-group-item">#}
+{#                        <a id="addType" href="#"> <i class="fa fa-cog"></i></a> Settings#}
+{#                    </li>#}
+
+
+{#                    <div class="dropdown-menu input-group col-lg-12" id="newType">#}
+{#                        Ajouter type :  <div class="input-group-btn"><button class="btn btn-primary">Submit</button></div>#}
+{#                    </div>#}
+                </ul>
+            </section>
+        </aside>
+    </div>
+
+{#        <script src="{{ asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js') }}"></script>#}
+{#        <script>#}
+{#            $(document).ready(function(){#}
+{#                $("#addType").click(function(){#}
+{#                    $("#newType").toggle(500);#}
+{#                });#}
+{#            });#}
+{#        </script>#}
+{% endblock %}

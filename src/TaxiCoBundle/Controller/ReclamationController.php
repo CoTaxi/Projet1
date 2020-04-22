@@ -9,7 +9,9 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use TaxiCoBundle\Entity\Reclamation;
+use TaxiCoBundle\Entity\typereclamation;
 use TaxiCoBundle\Form\ReclamationType;
+use TaxiCoBundle\Form\typereclamationType;
 
 class ReclamationController extends Controller
 {
@@ -32,41 +34,20 @@ class ReclamationController extends Controller
         return $this->render("@TaxiCo/ReclamationViews/contact.html.twig", array('form' => $form->createView()));
     }
 
-//    public function ajouterReclamationAction(Request $request)
-//    {
-//        $reclamation = new Reclamation();
-//        $form = $this->createFormBuilder($reclamation)
-//            ->add('Objet', EntityType::class, array(
-//                'class' => 'TaxiCoBundle:typereclamation',
-//                'choice_label' => 'titre',
-//                'label' => 'Objet : ',
-//                'attr' => ['class' => 'form-control form-control-lg'],
-//                'multiple' => false,
-//            ))
-//            ->add('message', TextareaType::class, array(
-//                'attr' => ['class' => 'form-control form-control-lg',
-//                    'placeholder' => 'Votre message ici...',
-//                    'cols' => '30',
-//                    'rows' => '8'],
-//            ))
-//            //->add('Ajouter', SubmitType::class)
-//            ->getForm();
-//        $form->handleRequest($request);
-//        if ($form->isSubmitted() && $form->isValid()) {
-//            $reclamation->setMessage($form['message']->getData());
-//            $reclamation->setEtat("Non traitée");
-//            $reclamation->setDateRec(new \DateTime());
-//            $reclamation->setReponse(" ");
-//            $reclamation->setIdch($this->getUser());
-//
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($reclamation);
-//            $em->flush();
-//            return $this->redirectToRoute("taxi_co_listRec");
-//        }
-//        return $this->render("@TaxiCo/ReclamationViews/contact.html.twig", array('form' => $form->createView()));
-//    }
-
+    public function addtypeRecAction(Request $request)
+    {
+        $typeRec = new typereclamation();
+        $form =$this->createForm(typereclamationType::class, $typeRec);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($typeRec);
+            $em->flush();
+            return $this->redirectToRoute("taxi_co_listRec");
+        }
+        return $this->render("@TaxiCo/ReclamationViews/ok.html.twig", array('form' => $form->createView()));
+    }
 
     public function afficherReclamationAction()
     {
@@ -207,5 +188,85 @@ class ReclamationController extends Controller
         $em=$this->getDoctrine()->getManager();
         $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLArch();
         return $this->render("@TaxiCo/ReclamationViews/DashboardContentsRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findNonTrCardRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLNT();
+        return $this->render("@TaxiCo/ReclamationViews/CardViewRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findTrCardRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLT();
+        return $this->render("@TaxiCo/ReclamationViews/CardViewRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findCTCardRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLCT();
+        return $this->render("@TaxiCo/ReclamationViews/CardViewRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function findArchCardRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->findDQLArch();
+        return $this->render("@TaxiCo/ReclamationViews/CardViewRec.html.twig", array('rec' => $reclamations));
+    }
+
+    public function deleteAllRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->DeleteAllRecDQB();
+        return $this->redirectToRoute('taxi_co__count');
+    }
+
+    public function deleteAllTRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->DeleteAllTDQB();
+        return $this->redirectToRoute('taxi_co__count');
+    }
+
+    public function deleteAllNTRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->DeleteAllNTDQB();
+        return $this->redirectToRoute('taxi_co__count');
+    }
+
+    public function deleteAllCTRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->DeleteAllCTDQB();
+        return $this->redirectToRoute('taxi_co__count');
+    }
+
+    public function deleteAllArchRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->DeleteAllArchDQB();
+        return $this->redirectToRoute('taxi_co__count');
+    }
+
+    public function countRecAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->countAllDQB();
+        $reclamationsNT=$em->getRepository("TaxiCoBundle:typereclamation")->countNTDQB();
+        $reclamationsT=$em->getRepository("TaxiCoBundle:typereclamation")->countTDQB();
+        $reclamationsCT=$em->getRepository("TaxiCoBundle:typereclamation")->countCTDQB();
+        $reclamationsArch=$em->getRepository("TaxiCoBundle:typereclamation")->countArchDQB();
+
+        return $this->render("@TaxiCo/ReclamationViews/DashboardCountRec.html.twig", array(
+            'c1'=> $reclamations,
+            'c2'=>$reclamationsNT,
+            'c3'=>$reclamationsT,
+            'c4'=>$reclamationsCT,
+            'c5'=>$reclamationsArch));
     }
 }
