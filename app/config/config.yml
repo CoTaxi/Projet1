@@ -70,8 +70,8 @@ swiftmailer:
     host: '%mailer_host%'
     username: '%mailer_user%'
     password: '%mailer_password%'
-    port: '%mailer_port%'
-    encryption: '%mailer_encryption%'
+   # port: '%mailer_port%'
+   # encryption: '%mailer_encryption%'
     spool: { type: memory }
 
 sensio_framework_extra:
@@ -89,3 +89,16 @@ fos_user:
     registration:
         form:
             type: TaxiCoBundle\Form\UserType
+knp_snappy:
+
+    pdf:
+        enabled:    true
+        binary:     C:\Users\achref\Desktop\pdf\wkhtmltox\bin\wkhtmltopdf
+        options:
+            no-outline: true
+            page-size: LETTER
+            encoding: UTF-8
+
+    image:
+        enabled:    true
+        binary:      C:\Users\achref\Desktop\pdf\wkhtmltox\bin\wkhtmltoimage
