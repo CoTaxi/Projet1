@@ -93,7 +93,7 @@ knp_snappy:
 
     pdf:
         enabled:    true
-        binary:     C:\Users\achref\Desktop\pdf\wkhtmltox\bin\wkhtmltopdf
+        binary:     C:\Users\dell\Desktop\pdf\wkhtmltox\bin\wkhtmltopdf
         options:
             no-outline: true
             page-size: LETTER
@@ -101,4 +101,4 @@ knp_snappy:
 
     image:
         enabled:    true
-        binary:      C:\Users\achref\Desktop\pdf\wkhtmltox\bin\wkhtmltoimage
+        binary:      C:\Users\dell\Desktop\pdf\wkhtmltox\bin\wkhtmltoimage

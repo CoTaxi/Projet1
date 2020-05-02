@@ -92,8 +92,8 @@ class ContratController extends Controller
         $user= $em->getRepository('TaxiCoBundle:User')->findAll();
         $contrat= $em->getRepository("TaxiCoBundle:Contrat")->findAll();
         $message = (new \Swift_Message('Hello Email'))
-            ->setFrom('achrefnasri98@gmail.com')
-            ->setTo('achref.nasri@esprit.tn')
+            ->setFrom('rmilioussama70@gmail.com')
+            ->setTo('rmilissou@gmail.com')
             ->setBody(
                 $this->renderView(
                 // app/Resources/views/Emails/registration.html.twig

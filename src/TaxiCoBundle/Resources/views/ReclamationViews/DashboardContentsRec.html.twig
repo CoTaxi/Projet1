@@ -37,21 +37,25 @@
                         <div class="card">
                             <div class="card-header">
                                 <strong class="card-title">Tableau des données </strong>
-                                <span class="badge badge-success float-right" style="margin-left:4px; "><a href="{{ path('taxi_co__backlistTRec') }}">
-                                <i class="fa fa-check-square text-light"></i>
-                            </a></span>
-                                <span class="badge badge-warning float-right" style="margin-left:4px; "><a href="{{ path('taxi_co__backlistCTRec') }}">
-                                <i class="fa fa-spinner text-light"></i>
-                            </a></span>
-                                <span class="badge badge-danger float-right" style="margin-left:4px; "><a href="{{ path('taxi_co__backlistNTRec') }}">
-                                <i class="fa fa-exclamation text-light"></i>
-                            </a></span>
-                                <span class="badge badge-secondary float-right" style="margin-left:4px; "><a href="{{ path('taxi_co__backlistArchRec') }}">
-                                <i class="fa fa-archive text-light"></i>
-                            </a></span>
+                                <span class="badge badge-success float-right" style="margin-left:4px; "><a
+                                            href="{{ path('taxi_co__backlistTRec') }}">
+                                    <i class="fa fa-check-square text-light"></i>
+                                </a></span>
+                                <span class="badge badge-warning float-right" style="margin-left:4px; "><a
+                                            href="{{ path('taxi_co__backlistCTRec') }}">
+                                    <i class="fa fa-spinner text-light"></i>
+                                </a></span>
+                                <span class="badge badge-danger float-right" style="margin-left:4px; "><a
+                                            href="{{ path('taxi_co__backlistNTRec') }}">
+                                    <i class="fa fa-exclamation text-light"></i>
+                                </a></span>
+                                <span class="badge badge-secondary float-right" style="margin-left:4px; "><a
+                                            href="{{ path('taxi_co__backlistArchRec') }}">
+                                    <i class="fa fa-archive text-light"></i>
+                                </a></span>
                                 <span class="badge badge-info float-right"><a href="{{ path('taxi_co__backListRec') }}">
-                                <i class="fa fa-tasks text-light"></i>
-                            </a></span>
+                                    <i class="fa fa-tasks text-light"></i>
+                                </a></span>
                             </div>
                             <div class="card-body">
                                 <table id="bootstrap-data-table-export"
@@ -116,9 +120,7 @@
             </div>
         </div>
     </div>
-
-    <!-- .animated -->
-    {% block js %}
+    {% block javascripts %}
 
         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
@@ -132,25 +134,24 @@
         <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
         <script src="{{ asset('sufee-admin-dashboard-master/assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
         <script src="{{ asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js') }}"></script>
-    {% endblock %}
-    {#        <script>#}
-    {#            $(document).ready(function () {#}
-    {#                $(".btn").click(function () {#}
-    {#                    //alert("#}
-    {#                    $("#con").load("CardViewRec.html #right-panel");#}
-    {#                    alert("Hello");#}
-    {#                });#}
-    {#            });#}
-    {#        </script>#}
+        <script>
+            (function ($) {
+                "use strict";
 
-    <script>
-        $(document).ready(function () {
-            $("#hide").click(function () {
-                $("#card").hide();
-            });
-            $("#show").click(function () {
-                $("#card").show();
-            });
-        });
-    </script>
+                jQuery('#vmap').vectorMap({
+                    map: 'world_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#1de9b6',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#1de9b6', '#03a9f5'],
+                    normalizeFunction: 'polynomial'
+                });
+            })(jQuery);
+        </script>
+    {% endblock %}
+
 {% endblock %}

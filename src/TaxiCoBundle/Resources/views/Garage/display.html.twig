@@ -1,11 +1,11 @@
-{#{% extends "::base.html.twig" %}#}
+{% extends "//base.html.twig" %}
 
 {#{% block title %}TaxiCoBundle:Maintenance:Display{% endblock %}#}
 
 {#{% block body %}#}
 {#<h1>Welcome to the Maintenance:Display page</h1>#}
 {#{% endblock %}#}
-{% extends "DashboardRec.html.twig" %}
+{#{% extends "DashboardRec.html.twig" %}#}
 {% block title %} Acceuil {% endblock %}
 {% block head %}
     {{ parent() }}
@@ -50,7 +50,9 @@
                         </table>
                     </div>
                 </div>
-                <a href="{{ path('creategarage') }}"><button type="button" class="btn btn-primary">Pour crée un garage</button></a>
+                <a href="{{ path('creategarage') }}"><button type="button" class="btn btn-primary">
+                        <i class="fa fa-plus-square"></i>
+                         Crée garage</button></a>
 
             </div>
 
@@ -125,22 +127,38 @@
 {#        </div>#}
 {#    </section>#}
 {#</div>#}
-<script src="{{asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/popper.js/dist/umd/popper.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/bootstrap/dist/js/bootstrap.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/assets/js/main.js')  }}"></script>
+    {% block javascripts %}
 
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/jszip/dist/jszip.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/pdfmake/build/pdfmake.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/pdfmake/build/vfs_fonts.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.html5.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.print.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.colVis.min.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/assets/js/init-scripts/data-table/datatables-init.js') }}"></script>
+        <script src="{{ asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js') }}"></script>
+        <script>
+            (function ($) {
+                "use strict";
 
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net/js/jquery.dataTables.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-bs4/js/dataTables.bootstrap4.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/dataTables.buttons.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/jszip/dist/jszip.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/pdfmake/build/pdfmake.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/pdfmake/build/vfs_fonts.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.html5.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.print.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/vendors/datatables.net-buttons/js/buttons.colVis.min.js')  }}"></script>
-<script src="{{asset('sufee-admin-dashboard-master/assets/js/init-scripts/data-table/datatables-init.js')  }}
+                jQuery('#vmap').vectorMap({
+                    map: 'world_en',
+                    backgroundColor: null,
+                    color: '#ffffff',
+                    hoverOpacity: 0.7,
+                    selectedColor: '#1de9b6',
+                    enableZoom: true,
+                    showTooltip: true,
+                    values: sample_data,
+                    scaleColors: ['#1de9b6', '#03a9f5'],
+                    normalizeFunction: 'polynomial'
+                });
+            })(jQuery);
+        </script>
+    {% endblock %}
 {% endblock %}
 {% endblock %}

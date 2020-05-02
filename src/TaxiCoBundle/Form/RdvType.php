@@ -25,7 +25,7 @@ class RdvType extends AbstractType
                 'class'=>'TaxiCoBundle:garage','choice_label'=>'name','multiple'=>false,))
             ->add('status')
             ->add('service',EntityType::class,array(
-                'class'=>'TaxiCoBundle:service','choice_label'=>'name','multiple'=>false,'expanded'  => true,));
+                'class'=>'TaxiCoBundle:service','choice_label'=>'name','multiple'=>false,'expanded' => false,));
 //            ->add('Add',SubmitType::class);
 //            ->add('garage')
 //            ->add('service');

@@ -1,4 +1,4 @@
-{% extends "//DashboardRec.html.twig" %}
+{% extends "//base.html.twig" %}
 {% block stylesheets %}
 
 {% endblock %}
@@ -20,9 +20,28 @@
             <div class="page-header float-right">
                 <div class="page-title">
                     <ol class="breadcrumb text-right">
-                        <li><a href="#">Dashboard</a></li>
-                        <li><a href="#">Card</a></li>
-                        <li class="active">Data Card</li>
+                        <li><a href="#">Tableau de bord</a></li>
+                        <li class="active">Cardes des données</li>
+                        <li>
+                        <span class="badge badge-success float-right" style="margin-left:4px; "><a
+                                    href="{{ path('taxi_co__backlistCardTRec') }}">
+                                    <i class="fa fa-check-square text-light"></i>
+                                </a></span>
+                        <span class="badge badge-warning float-right" style="margin-left:4px; "><a
+                                    href="{{ path('taxi_co__backlistCardCTRec') }}">
+                                    <i class="fa fa-spinner text-light"></i>
+                                </a></span>
+                        <span class="badge badge-danger float-right" style="margin-left:4px; "><a
+                                    href="{{ path('taxi_co__backlistCardNTRec') }}">
+                                    <i class="fa fa-exclamation text-light"></i>
+                                </a></span>
+                        <span class="badge badge-secondary float-right" style="margin-left:4px; "><a
+                                    href="{{ path('taxi_co__backlistCardArchRec') }}">
+                                    <i class="fa fa-archive text-light"></i>
+                                </a></span>
+                        <span class="badge badge-info float-right"><a href="{{ path('taxi_co__backListRec') }}">
+                                    <i class="fa fa-tasks text-light"></i>
+                                </a></span> </li>
                     </ol>
                 </div>
             </div>

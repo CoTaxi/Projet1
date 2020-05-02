@@ -32,12 +32,12 @@
                             </thead>
                             {% for entity in tabs %}
                                 {% for user in tabu %}
-                                    {% if user.nom == entity.idchauff   %}
+                                    {% if user.username == entity.idchauff   %}
                             <tbody>
                             <tr>
-                                <td>{{ user.nom}}</td>
+                                <td>{{ user.username}}</td>
                                 <td>{{user.prenom}}</td>
-                                <td>{{user.mail}}</td>
+                                <td>{{user.email}}</td>
                                 <td>{{entity.typeC}}</td>
                                 <td>{{entity.duree}}</td>
                                 <td>

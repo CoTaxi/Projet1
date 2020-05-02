@@ -172,8 +172,6 @@ class User extends BaseUser
      */
     private $nomEvent = 'none';
 
-
-
     /**
      * Get idU
      *
@@ -181,7 +179,7 @@ class User extends BaseUser
      */
     public function getIdU()
     {
-        return $this->idU;
+        return $this->id;
     }
 
     /**
