@@ -19,19 +19,32 @@ class MobileUserController extends Controller
         $password = $request->query->get("password");
         $em = $this->getDoctrine()->getManager();
         $user = $em->getRepository("TaxiCoBundle:User")->findOneBy(['username' => $username]);
-        if ($user)
+        $user1 = $em->getRepository("TaxiCoBundle:User")->findBy(array('username' => $username));
+
+        $datas = array();
+        if (password_verify($password, $user->getPassword()))
         {
-            if (password_verify($password, $user->getPassword()))
-            {
-                $serializer = new Serializer([new ObjectNormalizer()]);
-                $formatted = $serializer->normalize($user);
-                return new JsonResponse($formatted);
-            }else{
-                return new Response("failed");
+            foreach ($user1 as $key => $blog) {
+                $datas[$key]['id'] = $blog->getId();
             }
-        }else{
-            return new Response("failed");
         }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+
+//        if ($user)
+//        {
+//            if (password_verify($password, $user->getPassword()))
+//            {
+//                $serializer = new Serializer([new ObjectNormalizer()]);
+//                $formatted = $serializer->normalize($datas);
+//                return new JsonResponse($formatted);
+//            }else{
+//                return new JsonResponse("failed");
+//            }
+//        }else{
+//            return new JsonResponse("failed");
+//        }
     }
 
     public function registerAction(Request $request)
@@ -39,7 +52,6 @@ class MobileUserController extends Controller
         $em = $this->getDoctrine()->getManager();
         $t = $em->getRepository(User::class);
         $user = new User();
-//        s
         $user->setPrenom($request->get('prenom'));
         $user->setNom($request->get('nom'));
         $user->setTel($request->get('tel'));
@@ -50,7 +62,8 @@ class MobileUserController extends Controller
         $user->setPermis($request->get('permis'));
         $user->setExperience($request->get('exp'));
         $user->setRibCompte($request->get('rib'));
-        $user->setPassword($request->get('pwd'));
+//        $user->setPassword($request->get('pwd'));
+        $user->setPlainPassword($request->get('pwd'));
         $user->setMdp($request->get('pwd'));
 //        $user->setRoles($request->get('role'));
         $em->persist($user);
