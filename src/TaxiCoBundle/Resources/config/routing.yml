@@ -1,196 +1,368 @@
 taxi_co_homepage:
-    path:     /
-    defaults: { _controller: TaxiCoBundle:Default:index }
+  path:     /
+  defaults: { _controller: TaxiCoBundle:Default:index }
 vehicule_homepage:
-    path:     /
-    defaults: { _controller: TaxiCoBundle:Default:index }
+  path:     /
+  defaults: { _controller: TaxiCoBundle:Default:index }
 vehicule_ajoutvehicule:
-    path:     /ajoutvehicule
-    defaults: { _controller: TaxiCoBundle:Vehicule:ajoutvehicule }
+  path:     /ajoutvehicule
+  defaults: { _controller: TaxiCoBundle:Vehicule:ajoutvehicule }
 vehicule_listVehicule:
-    path:     /listvehicule
-    defaults: { _controller: TaxiCoBundle:Vehicule:listVehicule }
+  path:     /listvehicule
+  defaults: { _controller: TaxiCoBundle:Vehicule:listVehicule }
 vehicule_taxi:
-    path:     /listtaxi
-    defaults: { _controller: TaxiCoBundle:Vehicule:taxi }
+  path:     /listtaxi
+  defaults: { _controller: TaxiCoBundle:Vehicule:taxi }
 vehicule_covoiturage:
-    path:     /listcovoiturage
-    defaults: { _controller: TaxiCoBundle:Vehicule:covoiturage }
+  path:     /listcovoiturage
+  defaults: { _controller: TaxiCoBundle:Vehicule:covoiturage }
 vehicule_updatetaxi:
-    path:     /updatetaxi/{id}
-    defaults: { _controller: TaxiCoBundle:Vehicule:updateTaxi }
+  path:     /updatetaxi/{id}
+  defaults: { _controller: TaxiCoBundle:Vehicule:updateTaxi }
 acceptercolis:
-    path:     /acceptercolis/{idV}
-    defaults: { _controller: "TaxiCoBundle:Colis:ColisChauffeur" }
-vehicule_deletetaxi  :
-    path:     /deletetaxi/{id}
-    defaults: { _controller: TaxiCoBundle:Vehicule:deleteVehicule }
+  path:     /acceptercolis/{idV}
+  defaults: { _controller: "TaxiCoBundle:Colis:ColisChauffeur" }
+vehicule_deletetaxi:
+  path:     /deletetaxi/{id}
+  defaults: { _controller: TaxiCoBundle:Vehicule:deleteVehicule }
 colis_colis:
-    resource: "@ColisBundle/Resources/config/routing/colis.yml"
-    prefix:   /colis
+  resource: "@ColisBundle/Resources/config/routing/colis.yml"
+  prefix:   /colis
 
 colis_category:
-    resource: "@ColisBundle/Resources/config/routing/category.yml"
-    prefix:   /category
+  resource: "@ColisBundle/Resources/config/routing/category.yml"
+  prefix:   /category
 taxi_back:
-    path:     /back
-    defaults: { _controller: ColisBundle:Default:index }
+  path:     /back
+  defaults: { _controller: ColisBundle:Default:index }
 
 colis_affecter:
-    path:     /affectation/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:AffecterColis" }
-    methods:  GET
+  path:     /affectation/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:AffecterColis" }
+  methods:  GET
 choix_voiture:
-    path:     /choix/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:choixvoiture" }
-    methods:  GET
+  path:     /choix/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:choixvoiture" }
+  methods:  GET
 colis_showModal:
-    path:     /showModal/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:showModal" }
-    methods:  [GET, POST]
+  path:     /showModal/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:showModal" }
+  methods:  [GET, POST]
 sms:
-    path:     /sms
-    defaults: { _controller: "TaxiCoBundle:Colis:sms" }
-    methods:  GET
+  path:     /sms
+  defaults: { _controller: "TaxiCoBundle:Colis:sms" }
+  methods:  GET
 Accept:
-    path:     /Accept/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:Accept" }
+  path:     /Accept/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:Accept" }
 Refusee:
-    path:     /Refusee/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:Refusee" }
+  path:     /Refusee/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:Refusee" }
 AfficheEtat:
-    path:     /AfficheEtat/{idV}
-    defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }
+  path:     /AfficheEtat/{idV}
+  defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }
 details:
-    path:     /details/{idV}
-    defaults: { _controller: "TaxiCoBundle:Colis:details" }
+  path:     /details/{idV}
+  defaults: { _controller: "TaxiCoBundle:Colis:details" }
 MiseAjour:
-    path:     /MiseAjour/{idC}
-    defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
+  path:     /MiseAjour/{idC}
+  defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
 
 taxi_co_addRec:
-    path:     /add
-    defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
+  path:     /add
+  defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
 
 taxi_co_listRec:
-    path:     /list
-    defaults: { _controller: TaxiCoBundle:Reclamation:afficherReclamation }
+  path:     /list
+  defaults: { _controller: TaxiCoBundle:Reclamation:afficherReclamation }
 
 taxi_co_deletetRec:
-    path:     /delete/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:supprimerReclamation }
+  path:     /delete/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:supprimerReclamation }
 
 taxi_co_updateRec:
-    path:     /update/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:modifierReclamation }
+  path:     /update/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:modifierReclamation }
 
 taxi_co__mailRec:
-    path:     /mail
-    defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
+  path:     /mail
+  defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
 
 # For Admin :
 
 taxi_co__backListRec:
-    path:     /adminList
-    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistRec }
+  path:     /adminList
+  defaults: { _controller: TaxiCoBundle:Reclamation:adminlistRec }
 
 taxi_co__backListCardRec:
-    path:     /adminListCard
-    defaults: { _controller: TaxiCoBundle:Reclamation:adminlistCardRec }
+  path:     /adminListCard
+  defaults: { _controller: TaxiCoBundle:Reclamation:adminlistCardRec }
 
 taxi_co__backDeleteRec:
-    path:     /adminDelete/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRec }
+  path:     /adminDelete/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRec }
 
 taxi_co__backDeleteCardRec:
-    path:     /adminDeleteCard/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRecCard }
+  path:     /adminDeleteCard/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:admindeleteRecCard }
 
 taxi_co__backupdateRec:
-    path:     /adminUpdate/{id}
-    defaults: { _controller: TaxiCoBundle:Reclamation:adminupdateRec }
+  path:     /adminUpdate/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:adminupdateRec }
 
 taxi_co__backlistNTRec:
-    path:     /adminNTlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrRec }
+  path:     /adminNTlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrRec }
 
 taxi_co__backlistTRec:
-    path:     /adminTlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findTrRec }
+  path:     /adminTlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findTrRec }
 
 taxi_co__backlistCTRec:
-    path:     /adminCTlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findCTRec }
+  path:     /adminCTlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findCTRec }
 
 taxi_co__backlistArchRec:
-    path:     /adminCTlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findArchRec }
+
+  path:     /adminArchlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findArchRec }
 
 taxi_co__rating:
-    path:     /rating
-    defaults: { _controller: TaxiCoBundle:RatingRec:rate }
+  path:     /rating
+  defaults: { _controller: TaxiCoBundle:RatingRec:rate }
 
+taxi_co__count:
+    path:     /count
+    defaults: { _controller: TaxiCoBundle:Reclamation:countRec }
+
+taxi_co__deleteAll:
+    path:     /deleteAll
+    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllRec }
+
+taxi_co__deleteAllArch:
+    path:     /deleteAllArch
+    defaults: { _controller: TaxiCoBundle:Reclamation:deleteArchRec }
+
+taxi_co__deleteAllNT:
+    path:     /deleteAllNT
+    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllNTRec }
+
+taxi_co__deleteAllT:
+    path:     /deleteAllT
+    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllTRec }
+
+taxi_co__deleteAllCT:
+    path:     /deleteAllCT
+    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllCTRec }
+
+taxi_co__addType:
+    path:     /addType
+    defaults: { _controller: TaxiCoBundle:Reclamation:addtypeRec }
+
+#Card View Reclamations
+taxi_co__backlistCardNTRec:
+    path:     /adminNTCardlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrCardRec }
+
+taxi_co__backlistCardTRec:
+    path:     /adminTCardlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findTrCardRec }
+
+taxi_co__backlistCardCTRec:
+    path:     /adminCTCardlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findCTCardRec }
+
+taxi_co__backlistCardArchRec:
+    path:     /adminArchCardlist
+    defaults: { _controller: TaxiCoBundle:Reclamation:findArchCardRec }
+
+#Service
 display:
-    path:     /display
-    defaults: { _controller: TaxiCoBundle:Service:Display }
+  path:     /display
+  defaults: { _controller: TaxiCoBundle:Service:Display }
 #    methods:  [POST]
 
 update:
-    path:     /update/{id}
-    defaults: { _controller: TaxiCoBundle:Service:update }
+  path:     /update/{id}
+  defaults: { _controller: TaxiCoBundle:Service:update }
 delete:
-    path:     /delete/{id}
-    defaults: { _controller: TaxiCoBundle:Service:delete }
+  path:     /delete/{id}
+  defaults: { _controller: TaxiCoBundle:Service:delete }
 
 create:
-    path:     /create
-    defaults: { _controller: TaxiCoBundle:Service:create }
+  path:     /create
+  defaults: { _controller: TaxiCoBundle:Service:create }
 
 displaygarage:
-    path:     /displaygarage
-    defaults: { _controller: TaxiCoBundle:Garage:Display }
+  path:     /displaygarage
+  defaults: { _controller: TaxiCoBundle:Garage:Display }
 
 
 updategarage:
-    path:     /updategarage/{id}
-    defaults: { _controller: TaxiCoBundle:Garage:update }
+  path:     /updategarage/{id}
+  defaults: { _controller: TaxiCoBundle:Garage:update }
 deletegarage:
-    path:     /deletegarage/{id}
-    defaults: { _controller: TaxiCoBundle:Garage:delete }
+  path:     /deletegarage/{id}
+  defaults: { _controller: TaxiCoBundle:Garage:delete }
 
 creategarage:
-    path:     /creategarage
-    defaults: { _controller: TaxiCoBundle:Garage:create }
+  path:     /creategarage
+  defaults: { _controller: TaxiCoBundle:Garage:create }
 listegarage:
-    path:     /list
-    defaults: { _controller: TaxiCoBundle:Rdv:list2 }
+  path:     /list
+  defaults: { _controller: TaxiCoBundle:Rdv:list2 }
 
 displayrdv:
-    path:     /displayrdv
-    defaults: { _controller: TaxiCoBundle:Rdv:Display }
+  path:     /displayrdv
+  defaults: { _controller: TaxiCoBundle:Rdv:Display }
 
 updaterdv:
-    path:     /updaterdv/{id}
-    defaults: { _controller: TaxiCoBundle:Rdv:update }
+  path:     /updaterdv/{id}
+  defaults: { _controller: TaxiCoBundle:Rdv:update }
 deleterdv:
-    path:     /deleterdv/{id}
-    defaults: { _controller: TaxiCoBundle:Rdv:delete }
+  path:     /deleterdv/{id}
+  defaults: { _controller: TaxiCoBundle:Rdv:delete }
 
 createrdv:
-    path:     /createrdv
-    defaults: { _controller: TaxiCoBundle:Rdv:create }
+  path:     /createrdv
+  defaults: { _controller: TaxiCoBundle:Rdv:create }
 
 front:
-    path:     /front
-    defaults: { _controller: TaxiCoBundle:Maintenance:front }
+  path:     /front
+  defaults: { _controller: TaxiCoBundle:Maintenance:front }
 test:
-    path:     /test
-    defaults: { _controller: TaxiCoBundle:Rdv:front }
+  path:     /test
+  defaults: { _controller: TaxiCoBundle:Rdv:front }
 test2:
-    path:     /test2
-    defaults: { _controller: TaxiCoBundle:Rdv:Display2 }
+  path:     /test2
+  defaults: { _controller: TaxiCoBundle:Rdv:Display2 }
 
 test5:
-    path:     /test5
-    defaults: { _controller: TaxiCoBundle:Rdv:list }
+  path:     /test5
+  defaults: { _controller: TaxiCoBundle:Rdv:list }
+
+
+contrat_add:
+  path:     /addc
+  defaults: { _controller: TaxiCoBundle:Contrat:AjoutContrat }
+contrat_list:
+  path:     /listc
+  defaults: { _controller: TaxiCoBundle:Contrat:afficherContrat }
+contrat_delete:
+  path:     /deletecontrat/{id}
+  defaults: { _controller: TaxiCoBundle:Contrat:deleteContrat }
+contrat_update:
+  path:     /updatetaxi/{id}
+  defaults: { _controller: TaxiCoBundle:Contrat:updatecontrat }
+contrat_rechercher:
+  path:     /rechercherc
+  defaults: { _controller: TaxiCoBundle:Contrat:recherchebyniveau }
+contrat_mail:
+  path:     /mail/{name}
+  defaults: { _controller: TaxiCoBundle:Contrat:Mail }
+contrat_pdf:
+  path:     /pdf/{nom}/{prenom}/{typecontrat}/{duree}
+  defaults: { _controller: TaxiCoBundle:Contrat:pdf }
+
+Mobile_User_login:
+  path:     /MobileUser
+  defaults: { _controller: TaxiCoBundle:MobileUser:login }
+
+Mobile_User_register:
+  path:     /MobileRegister
+  defaults: { _controller: TaxiCoBundle:MobileUser:register }
+
+taxi_co__display:
+  path:     /listJsonRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:all }
+
+taxi_co__add:
+  path:     /addMobileRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:new}
+
+taxi_co__listType:
+  path:     /listeTypeRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:allType}
+
+taxi_co__listIdType:
+  path:     /listeIdTypeRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:findselected}
+
+taxi_co__removeRec:
+  path:     /removeRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:removeSelected}
+
+taxi_co__updateRec:
+  path:     /updateRec
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:updateSelected}
+
+#Achref :
+
+vehicule_listjson:
+  path:     /listjsonVec
+  defaults: { _controller: TaxiCoBundle:ServiceVec:listjson }
+vehicule_findbyid:
+  path:     /findjsonVec/{matricule}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findjson }
+vehicule_load:
+  path:     /loadVec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:load }
+vehicule_ajoutjson:
+  path:     /newVec
+  defaults: { _controller: TaxiCoBundle:ServiceVec:ajoutjson}
+vehicule_findselected:
+  path:     /findselectedVec
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findselected}
+vehicule_delete:
+  path:     /deletejson1Vec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:deletejson}
+
+#Walid
+
+ServiceWeb_all_Rdv:
+  path:     /rdvs
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:Display }
+update_rdv:
+  path:     /rdvs/update/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:update}
+annuler_rdv:
+  path:     /rdvs/annuler/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:annuler}
+find_rdv:
+  path:     /rdvs/find
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:find}
+find_rdv_selected:
+  path:     /rdvs/ReserveRdv
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:ReserveRdv}
+find_rdv_selected2:
+  path:     /rdvs/findselected
+  defaults: { _controller: TaxiCoBundle:ServiceWebRdv:findselected}
+
+
+ServiceWeb_all_Service:
+  path:     /services
+  defaults: { _controller: TaxiCoBundle:ServiceWebService:Display }
+update_service:
+  path:     /services/update/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceWebService:update}
+find_service:
+  path:     /services/find
+  defaults: { _controller: TaxiCoBundle:ServiceWebService:find}
+
+ServiceWeb_all_Garage:
+  path:     /garages
+  defaults: { _controller: TaxiCoBundle:ServiceWebGarage:Display }
+update_garage:
+  path:     /garages/update/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceWebGarage:update}
+find_garage:
+  path:     /garages/find
+  defaults: { _controller: TaxiCoBundle:ServiceWebGarage:find}
+find_garage_selected:
+  path:     /garages/findSelected
+  defaults: { _controller: TaxiCoBundle:ServiceWebGarage:findSelected}
+
+
+
+
 

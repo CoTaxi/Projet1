@@ -8,3 +8,43 @@ colis_category:
 taxi_back:
     path:     /back
     defaults: { _controller: ColisBundle:Default:index }
+all:
+    path:     /all
+    defaults: { _controller: "ColisBundle:Services:all" }
+    methods:  GET
+new:
+    path:     /new
+    defaults: { _controller: "ColisBundle:Services:new" }
+AfficherCategorie:
+    path:     /AfficherCategorie
+    defaults: { _controller: "ColisBundle:Services:AfficherCategorie" }
+find:
+    path:     /find/{Id}
+    defaults: { _controller: "ColisBundle:Services:find" }
+Modifier:
+    path:     /Modifier/{Id}
+    defaults: { _controller: "ColisBundle:Services:Modifier" }
+Supprimer:
+    path:     /Supprimer/{Id}
+    defaults: { _controller: "ColisBundle:Services:Supprimer" }
+Affecter:
+    path:     /Affecter/{Id}/{matricule}
+    defaults: { _controller: "ColisBundle:Services:Affecter" }
+ListeDemandes:
+    path:     /ListeDemandes/{matricule}
+    defaults: { _controller: "ColisBundle:Services:ListeDemandes" }
+accepter:
+    path:     /accepter/{Id}
+    defaults: { _controller: "ColisBundle:Services:accepter" }
+Refus:
+    path:     /Refus/{Id}
+    defaults: { _controller: "ColisBundle:Services:Refus" }
+MAJ:
+    path:     /MAJ/{Id}
+    defaults: { _controller: "ColisBundle:Services:MAJ" }
+finduser:
+    path:     /finduser/{Id}
+    defaults: { _controller: "ColisBundle:Services:finduser" }
+findbydepart:
+    path:     /findbydepart/{depart}
+    defaults: { _controller: "ColisBundle:Services:findbydepart" }

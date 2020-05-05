@@ -1,4 +1,4 @@
-{% extends "//DashboardRec.html.twig" %}
+{% extends "//base.html.twig" %}
 {% block title %} Acceuil {% endblock %}
 {% block head %}
     {{ parent() }}
@@ -31,7 +31,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <!-- left column -->
-                        <div class="col-md-6">
+                        <div class="col-lg-12">
                             <!-- general form elements -->
                             <div class="card card-primary">
                                 <div class="card-header">
@@ -83,8 +83,8 @@
                                             {{ form_widget(form.service,{ 'attr': {'class': 'form-control'} }) }}
                                         </div>
                                         <div>
-                                            <label for="exampleInputEmail1">Captcha</label>
-                                            {{ form_widget(form.captcha,{ 'attr': {'class': 'form-control'} }) }}
+                                          <br>  <label for="exampleInputEmail1">Captcha</label>
+                                            {{ form_widget(form.captcha,{ 'attr': {'class': 'form-control col-sm-3'} }) }}
                                         </div>
 
                                         <!-- /.card-body -->
@@ -95,7 +95,10 @@
 
                                                 {{ form_widget(form._token) }}
 
-                                                <button class="btn btn-primary"> ADD</button>
+                                                <button class="btn btn-primary btn-sm">
+                                                <i class="fa fa-plus-square"></i> Ajouter
+                                                </button>
+
                                                 {#                    {{ form_widget(form.Add) }}#}
 
                                             </div>
