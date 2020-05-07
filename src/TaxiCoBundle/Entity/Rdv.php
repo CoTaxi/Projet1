@@ -3,20 +3,12 @@
 namespace TaxiCoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Doctrine\Common\Collections\ArrayCollection;
-use Symfony\Component\Validator\Constraints as Assert;
-/**
- * Rdv
- *
- * @ORM\Table(name="rdv", indexes={@ORM\Index(name="id_chauffeur_fk", columns={"id_chauffeur"}), @ORM\Index(name="id_garage_fk", columns={"id_garage"}), @ORM\Index(name="id_service_fk", columns={"id_service"})})
- * @ORM\Entity
- */
 
 /**
  * Rdv
  *
- * @ORM\Table(name="rdv")
- * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\RdvRepository")
+ * @ORM\Table(name="rdv", indexes={@ORM\Index(name="IDX_10C31F863F0033A2", columns={"id_service"}), @ORM\Index(name="IDX_10C31F86B911D4E6", columns={"id_garage"})})
+ * @ORM\Entity
  */
 class Rdv
 {
@@ -34,120 +26,44 @@ class Rdv
      *
      * @ORM\Column(name="id_chauffeur", type="integer", nullable=true)
      */
-    private $idChauffeur;
+    private $idChauffeur = 'NULL';
 
     /**
-     * @var Date
+     * @var \DateTime
      *
-     * @ORM\Column(name="date_rdv", type="Date", nullable=true)
+     * @ORM\Column(name="date_rdv", type="date", nullable=true)
      */
-    private $dateRdv;
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_garage", type="integer", nullable=true)
-     */
-    private $idGarage;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="id_service", type="integer", nullable=true)
-     */
-    private $idService;
+    private $dateRdv = 'NULL';
 
     /**
      * @var string
      *
      * @ORM\Column(name="status", type="string", length=50, nullable=true)
      */
-    private $status;
-
-//    /**
-//     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Garage")
-//     * @ORM\JoinColumn(name="id_Garage",referencedColumnName="idGarage")
-//     */
-//    private $id_garage;
-
+    private $status = 'NULL';
 
     /**
-     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Service")
-     * @ORM\JoinColumn(name="id_service",referencedColumnName="id_service")
-     */
-    private $service;
-
-    /**
-     * @ORM\ManyToOne(targetEntity="TaxiCoBundle\Entity\Garage")
-     * @ORM\JoinColumn(name="id_garage",referencedColumnName="id_garage")
-     */
-    private $garage;
-//    public function __construct()
-//    {
-//        $this->service = new ArrayCollection();
-//    }
-
-    /**
-     * @return mixed
-     */
-    public function getGarage()
-    {
-        return $this->garage;
-    }
-
-    /**
-     * @param mixed $garage
-     */
-    public function setGarage($garage)
-    {
-        $this->garage = $garage;
-    }
-
-//    /**
-//     * @return mixed
-//     */
-//    public function getService()
-//    {
-//        return $this->service;
-//    }
-//
-//    /**
-//     * @param mixed $service
-//     */
-//    public function setService($service)
-//    {
-//        $this->service = $service;
-//    }
-
-//    /**
-//     * @ORM\ManyToMany(targetEntity="TaxiCoBundle\Entity\Service", cascade={"persist"})
-//     * @ORM\JoinTable(name="rdv_service",
-//     *  joinColumns={@ORM\JoinColumn(name="id_rdv" ,referencedColumnName="id_rdv")},
-//     *     inverseJoinColumns={@ORM\JoinColumn(name="id_service", referencedColumnName="id_service")})
-//     */
-//    private $service;
-
-    /**
-     * @return mixed
-     */
-    public function getService()
-    {
-        return $this->service;
-    }
-
-    /**
-     * @param mixed $service
-     */
-    public function setService($service)
-    {
-        $this->service = $service;
-    }
-
-
-
-    /**
-     * Get idRdv
+     * @var \Service
      *
-     * @return integer
+     * @ORM\ManyToOne(targetEntity="Service")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_service", referencedColumnName="id_service")
+     * })
+     */
+    private $idService;
+
+    /**
+     * @var \Garage
+     *
+     * @ORM\ManyToOne(targetEntity="Garage")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="id_garage", referencedColumnName="id_garage")
+     * })
+     */
+    private $idGarage;
+
+    /**
+     * @return int
      */
     public function getIdRdv()
     {
@@ -155,23 +71,15 @@ class Rdv
     }
 
     /**
-     * Set idChauffeur
-     *
-     * @param integer $idChauffeur
-     *
-     * @return Rdv
+     * @param int $idRdv
      */
-    public function setIdChauffeur($idChauffeur)
+    public function setIdRdv($idRdv)
     {
-        $this->idChauffeur = $idChauffeur;
-
-        return $this;
+        $this->idRdv = $idRdv;
     }
 
     /**
-     * Get idChauffeur
-     *
-     * @return integer
+     * @return int
      */
     public function getIdChauffeur()
     {
@@ -179,7 +87,15 @@ class Rdv
     }
 
     /**
-     * @return Date
+     * @param int $idChauffeur
+     */
+    public function setIdChauffeur($idChauffeur)
+    {
+        $this->idChauffeur = $idChauffeur;
+    }
+
+    /**
+     * @return \DateTime
      */
     public function getDateRdv()
     {
@@ -187,57 +103,31 @@ class Rdv
     }
 
     /**
-     * @param Date $dateRdv
+     * @param \DateTime $dateRdv
      */
     public function setDateRdv($dateRdv)
     {
         $this->dateRdv = $dateRdv;
     }
 
-
-
     /**
-     * Set idGarage
-     *
-     * @param integer $idGarage
-     *
-     * @return Rdv
+     * @return string
      */
-    public function setIdGarage($idGarage)
+    public function getStatus()
     {
-        $this->idGarage = $idGarage;
-
-        return $this;
+        return $this->status;
     }
 
     /**
-     * Get idGarage
-     *
-     * @return integer
+     * @param string $status
      */
-    public function getIdGarage()
+    public function setStatus($status)
     {
-        return $this->idGarage;
+        $this->status = $status;
     }
 
     /**
-     * Set idService
-     *
-     * @param integer $idService
-     *
-     * @return Rdv
-     */
-    public function setIdService($idService)
-    {
-        $this->idService = $idService;
-
-        return $this;
-    }
-
-    /**
-     * Get idService
-     *
-     * @return integer
+     * @return \Service
      */
     public function getIdService()
     {
@@ -245,31 +135,29 @@ class Rdv
     }
 
     /**
-     * Set status
-     *
-     * @param string $status
-     *
-     * @return Rdv
+     * @param \Service $idService
      */
-    public function setStatus($status)
+    public function setIdService($idService)
     {
-        $this->status = $status;
-
-        return $this;
+        $this->idService = $idService;
     }
 
     /**
-     * Get status
-     *
-     * @return string
+     * @return \Garage
      */
-    public function getStatus()
+    public function getIdGarage()
     {
-        return $this->status;
+        return $this->idGarage;
     }
-//    public function __toString()
-//    {
-//        // TODO: Implement __toString() method.
-//        return $this->name;
-//    }
+
+    /**
+     * @param \Garage $idGarage
+     */
+    public function setIdGarage($idGarage)
+    {
+        $this->idGarage = $idGarage;
+    }
+
+
 }
+

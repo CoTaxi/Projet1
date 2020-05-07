@@ -14,11 +14,11 @@ use Symfony\Component\Serializer\Serializer;
 
 class ServicesController extends Controller
 {
-    public function allAction()
+    public function allAction($id)
     {
         $colis = $this->getDoctrine()->getManager()
             ->getRepository('ColisBundle:Colis')
-            ->findAll();
+            ->findBy(array('idExpediteur'=>$id));
         $datas = array();
         foreach ($colis as $key => $col){
             $datas[$key]['Id'] = $col->getIdC();
@@ -50,7 +50,7 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
         $colis = new Colis();
@@ -60,6 +60,7 @@ class ServicesController extends Controller
         $colis->setMailExpediteur($request->get('MailExpediteur'));
         $colis->setPoids($request->get('Poids'));
         $colis->setEtat(0);
+        $colis->setIdExpediteur($id);
         $colis->setNomDestinataire($request->get('NomDestinataire'));
         $colis->setMailDestinataire($request->get('MailDestinataire'));
         $colis->setTelDestinataire($request->get('TelDestinataire'));

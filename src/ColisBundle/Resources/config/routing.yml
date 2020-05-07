@@ -9,11 +9,11 @@ taxi_back:
     path:     /back
     defaults: { _controller: ColisBundle:Default:index }
 all:
-    path:     /all
+    path:     /all/{id}
     defaults: { _controller: "ColisBundle:Services:all" }
     methods:  GET
 new:
-    path:     /new
+    path:     /new/{id}
     defaults: { _controller: "ColisBundle:Services:new" }
 AfficherCategorie:
     path:     /AfficherCategorie
