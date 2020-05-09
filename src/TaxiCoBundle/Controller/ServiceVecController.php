@@ -14,9 +14,10 @@ class ServiceVecController extends Controller
 
     public function listjsonAction(Request $request)
     {
-
+        $iuser= $request->get('user');
         $em = $this->getDoctrine()->getManager();
-        $vehicule = $em->getRepository('TaxiCoBundle:Vehicule')->findAll();
+        $vehicule = $em->getRepository('TaxiCoBundle:Vehicule')->findby(['user'=>$iuser]);
+       // $vec = $em->getRepository('TaxiCoBundle:user')->findby(['user'=>$iuser]);
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($vehicule);
         return new JsonResponse($formatted);
@@ -64,7 +65,7 @@ class ServiceVecController extends Controller
         $vehicule->setPosition($request->get('position'));
         $vehicule->setAcceptC($request->get('accept_c'));
         $vehicule->setDestination($request->get('destination'));
-
+        $vehicule->setUser($request->get('user'));
         $em->persist($vehicule);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
