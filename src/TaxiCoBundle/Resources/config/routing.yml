@@ -389,8 +389,9 @@ CmdColis:
 findlastcnx:
   path:     /findlastcnx/{id}
   defaults: { _controller: TaxiCoBundle:MobileUser:findlastcnx }
-
-
+findPosition:
+  path:     /findPosition/{position}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findPosition }
 
 
 
