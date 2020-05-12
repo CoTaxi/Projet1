@@ -25,28 +25,32 @@ class ServiceWebRdvController extends Controller
     public function DisplayAction(Request $request)
     {
         $status = $request->get('status');
+        $idChauffeur = $request->get('idChauffeur');
         $em = $this->getDoctrine()->getManager();
-        $rdv = $em->getRepository(Rdv::class)->findBy(array('status'=>$status));
+        $rdv = $em->getRepository(Rdv::class)->findBy(array('status'=>$status,
+            'idChauffeur'=>$idChauffeur));
         $datas = array();
         foreach ($rdv as $key => $blog){
             $datas[$key]['idRdv'] = $blog->getIdRdv();
             $datas[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $datas[$key]['service'] = $blog->getService()->getName();
-            $datas[$key]['garage'] = $blog->getGarage()->getName();
-            $datas[$key]['dateRdv'] = $blog->getDateRdv();
+            $datas[$key]['service'] = $blog->getIdService()->getName();
+            $datas[$key]['garage'] = $blog->getIdGarage()->getName();
+            $datas[$key]['dateRdv'] = $blog->getDateRdv()->format('Y-m-d');
             $datas[$key]['status'] = $blog->getStatus();
 
         }
-//        $serializer = new Serializer([new ObjectNormalizer()]);
-//        $formatted = $serializer->normalize($rdv);
-        return new JsonResponse($datas);
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
     }
 
     public function updateAction(Request $request, $id)
     {
         $em=$this->getDoctrine()->getManager();
+        $idChauffeur = $request->get('idChauffeur');
         $rdv=$this->getDoctrine()->getRepository(Rdv::class)->find($id);
         $rdv->setStatus("nondisponible");
+        $rdv->setIdChauffeur($idChauffeur);
         $em->persist($rdv);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -56,8 +60,10 @@ class ServiceWebRdvController extends Controller
     public function annulerAction(Request $request, $id)
     {
         $em=$this->getDoctrine()->getManager();
+        $idChauffeur = $request->get('idChauffeur');
         $rdv=$this->getDoctrine()->getRepository(Rdv::class)->find($id);
         $rdv->setStatus("disponible");
+        $rdv->setIdChauffeur($idChauffeur);
         $em->persist($rdv);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -70,14 +76,14 @@ class ServiceWebRdvController extends Controller
         $idgarage = $request->get('idgarage');
         $em=$this->getDoctrine()->getManager();
         $rdv = $em->getRepository(Rdv::class)->findBy(array('idService'=>$idservice,
-                                                                           'idGarage' =>$idgarage));
+            'idGarage' =>$idgarage));
         $data = array();
         foreach ($rdv as $key => $blog){
             $data[$key]['idRdv'] = $blog->getIdRdv();
             $data[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $data[$key]['service'] = $blog->getService()->getIdService();
-            $data[$key]['garage'] = $blog->getGarage()->getIdGarage();
-            $data[$key]['dateRdv'] = $blog->getDateRdv();
+            $data[$key]['service'] = $blog->getIdService()->getIdService();
+            $data[$key]['garage'] = $blog->getIdGarage()->getIdGarage();
+            $data[$key]['dateRdv'] = $blog->getDateRdv()->format('Y-m-d');
             $data[$key]['status'] = $blog->getStatus();
 
         }
@@ -93,9 +99,9 @@ class ServiceWebRdvController extends Controller
         $idgarage = $request->get('idGarage');
         $em=$this->getDoctrine()->getManager();
         $rdv = $em->getRepository(Rdv::class)
-                      ->findOneBy(array('dateRdv'=>$daterdv,
-                                     'idService'=>$idservice,
-                                     'idGarage'=>$idgarage));
+            ->findOneBy(array('dateRdv'=>$daterdv,
+                'idService'=>$idservice,
+                'idGarage'=>$idgarage));
 //        $data = array();
         $rdv->setStatus("nondisponible");
         $em->persist($rdv);
@@ -125,8 +131,8 @@ class ServiceWebRdvController extends Controller
         foreach ($rdv as $key => $blog){
             $data[$key]['idRdv'] = $blog->getIdRdv();
             $data[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $data[$key]['service'] = $blog->getService()->getIdService();
-            $data[$key]['garage'] = $blog->getGarage()->getIdGarage();
+            $data[$key]['service'] = $blog->getIdService()->getIdService();
+            $data[$key]['garage'] = $blog->getIdGarage()->getIdGarage();
             $data[$key]['dateRdv'] = $blog->getDateRdv();
             $data[$key]['status'] = $blog->getStatus();
 

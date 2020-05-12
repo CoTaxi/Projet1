@@ -9,19 +9,20 @@ use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 use TaxiCoBundle\Entity\Reclamation;
 use TaxiCoBundle\Entity\typereclamation;
-
+use TaxiCoBundle\Entity\User;
 class ReclamationMobileController extends Controller
 {
-    public function allAction()
+    public function allAction(Request $request)
     {
+        $user = $request->get('idu');
         $reclamation = $this->getDoctrine()->getManager()
-            ->getRepository("TaxiCoBundle:Reclamation")->findAll();
+            ->getRepository("TaxiCoBundle:Reclamation")->findBy(array('idch'=>$user));
         $datas = array();
         foreach ($reclamation as $key => $blog) {
             $datas[$key]['idR'] = $blog->getIdR();
             $datas[$key]['message'] = $blog->getMessage();
             $datas[$key]['etat'] = $blog->getEtat();
-            $datas[$key]['dateRec'] = $blog->getDateRec();
+            $datas[$key]['dateRec'] = $blog->getDateRec()->format('yy-M-d H:m:s');
             $datas[$key]['Objet'] = $blog->getObjet()->getTitre();
             $datas[$key]['Reponse'] = $blog->getReponse();
         }
@@ -49,8 +50,11 @@ class ReclamationMobileController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $type = $request->get('IdType');
+        $id=$request->get('idu');
         $t = $em->getRepository(typereclamation::class)->findOneBy(array('id' => $type));
+        $idu = $em->getRepository(User::class)->findOneBy(array('id' => $id));
         $reclamation = new Reclamation();
+        $reclamation->setIdch($idu);
         $reclamation->setMessage($request->get('message'));
         $reclamation->setObjet($t);
         $reclamation->setEtat("Non traitée");

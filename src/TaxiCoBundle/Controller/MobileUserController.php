@@ -67,6 +67,7 @@ class MobileUserController extends Controller
 //        $user->setPassword($request->get('pwd'));
         $user->setPlainPassword($request->get('pwd'));
         $user->setMdp($request->get('pwd'));
+        $user->setType($request->get('type'));
 //        $user->setRoles($request->get('role'));
         $em->persist($user);
         $em->flush();
@@ -92,4 +93,5 @@ class MobileUserController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+
 }

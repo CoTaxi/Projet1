@@ -32,8 +32,8 @@ class ServiceWebGarageController extends Controller
             $data[$key]['idGarage'] = $blog->getIdGarage();
             $data[$key]['name'] = $blog->getName();
             $data[$key]['address'] = $blog->getAddress();
-            $data[$key]['service'] = ([$blog->getService()->getIdService(),
-                                      $blog->getService()->getName()]);
+            $data[$key]['service'] = ([$blog->getIdService()->getIdService(),
+                $blog->getIdService()->getName()]);
 
         }
 
@@ -62,7 +62,7 @@ class ServiceWebGarageController extends Controller
             $data[$key]['idGarage'] = $blog->getIdGarage();
             $data[$key]['name'] = $blog->getName();
             $data[$key]['address'] = $blog->getAddress();
-            $data[$key]['service'] = $blog->getService()->getIdService();
+            $data[$key]['service'] = $blog->getIdService()->getIdService();
 
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -80,7 +80,7 @@ class ServiceWebGarageController extends Controller
             $data[$key]['idGarage'] = $blog->getIdGarage();
             $data[$key]['name'] = $blog->getName();
             $data[$key]['address'] = $blog->getAddress();
-            $data[$key]['service'] = $blog->getService()->getIdService();
+            $data[$key]['service'] = $blog->getIdService()->getIdService();
 
         }
         $serializer = new Serializer([new ObjectNormalizer()]);

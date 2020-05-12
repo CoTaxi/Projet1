@@ -390,8 +390,10 @@ findlastcnx:
   path:     /findlastcnx/{id}
   defaults: { _controller: TaxiCoBundle:MobileUser:findlastcnx }
 findPosition:
-  path:     /findPosition/{position}
+  path:     /findPosition/{position}/{type}
   defaults: { _controller: TaxiCoBundle:ServiceVec:findPosition }
-
+findvec:
+  path:     /findvec/{position}/{type}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findvec }
 
 

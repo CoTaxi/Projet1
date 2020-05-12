@@ -86,11 +86,11 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($data);
         return new JsonResponse($data);
     }
-    public function findPositionAction(Request $request,$position)
+    public function findPositionAction(Request $request,$position,$type)
     {
 
         $em=$this->getDoctrine()->getManager();
-        $vehicule = $em->getRepository(Vehicule::class)->findBy(array('position' => $position));
+        $vehicule = $em->getRepository(Vehicule::class)->findBy(array('position' => $position,'type'=>$type));
         $data = array();
         foreach ($vehicule as $key => $blog){
             $data[$key]['id'] = $blog->getId();
@@ -102,9 +102,33 @@ class ServiceVecController extends Controller
             $data[$key]['type'] = $blog->getType();
             $data[$key]['user'] = $blog->getUser();
             $data[$key]['places'] = $blog->getPlaces();
-            $data[$key]['dateco'] = $blog->getDateco();
             $data[$key]['couleur'] = $blog->getCouleur();
             $data[$key]['position'] = $blog->getPosition();
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($data);
+        return new JsonResponse($data);
+    }
+    public function findvecAction(Request $request,$position,$type)
+    {
+
+        $em=$this->getDoctrine()->getManager();
+        $vehicule = $em->getRepository(Vehicule::class)->findBy(array('type'=>$type));
+        $data = array();
+        foreach ($vehicule as $key => $blog){
+            if($blog->getPosition()!="$position") {
+                $data[$key]['id'] = $blog->getId();
+                $data[$key]['matricule'] = $blog->getMatricule();
+                $data[$key]['marque'] = $blog->getMarque();
+                $data[$key]['modele'] = $blog->getModele();
+                $data[$key]['dispo'] = $blog->getDispo();
+                $data[$key]['destination'] = $blog->getDestination();
+                $data[$key]['type'] = $blog->getType();
+                $data[$key]['user'] = $blog->getUser();
+                $data[$key]['places'] = $blog->getPlaces();
+                $data[$key]['couleur'] = $blog->getCouleur();
+                $data[$key]['position'] = $blog->getPosition();
+            }
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($data);

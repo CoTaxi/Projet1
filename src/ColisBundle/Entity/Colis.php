@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Colis
  *
  * @ORM\Table(name="colis", indexes={@ORM\Index(name="ckcolis", columns={"nomcategorie"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ColisBundle\Repository\ColisRepository")
  */
 class Colis
 {

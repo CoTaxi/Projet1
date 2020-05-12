@@ -48,3 +48,6 @@ finduser:
 findbydepart:
     path:     /findbydepart/{depart}
     defaults: { _controller: "ColisBundle:Services:findbydepart" }
+triColis:
+    path:     /triColis
+    defaults: { _controller: "ColisBundle:Services:triColis" }

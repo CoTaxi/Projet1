@@ -10,4 +10,5 @@ namespace ColisBundle\Repository;
  */
 class categoryRepository extends \Doctrine\ORM\EntityRepository
 {
+
 }
