@@ -395,5 +395,9 @@ findPosition:
 findvec:
   path:     /findvec/{position}/{type}
   defaults: { _controller: TaxiCoBundle:ServiceVec:findvec }
-
-
+updatevec:
+  path:     /updatevec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:updatevec }
+finddispo:
+  path:     /finddispo/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:finddispo }

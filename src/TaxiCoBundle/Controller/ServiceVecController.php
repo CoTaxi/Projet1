@@ -31,7 +31,23 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($vehicule);
         return new JsonResponse($formatted);
     }
+    public function finddispoAction($id)
+    {
+        $vehicule = $this->getDoctrine()->getManager()
+            ->getRepository('TaxiCoBundle:Vehicule')
+            ->findBy(['user'=>$id]);
 
+        $datas = array();
+        foreach ($vehicule as $key => $blog){
+            $datas[$key]['id'] = $blog->getId();
+            $datas[$key]['dispo'] = $blog->getDispo();
+
+
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
     public function loadAction($idv)
     {
         //  $idv= $request->get('id');
@@ -145,6 +161,18 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($Post);
         return new JsonResponse($formatted);
     }
+    public function updatevecAction(Request $request,$id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $dispo = $request->get('dispo');
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find($id);
+        $vehicule->setDispo($dispo);
 
+        $em->persist($vehicule);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
 
 }
