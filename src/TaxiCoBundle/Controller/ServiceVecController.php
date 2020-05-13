@@ -154,11 +154,11 @@ class ServiceVecController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $Post = $em->getRepository("TaxiCoBundle:Vehicule")->find($id);
-        $em->remove($Post);
+        $vec = $em->getRepository("TaxiCoBundle:Vehicule")->find($id);
+        $em->remove($vec);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
-        $formatted = $serializer->normalize($Post);
+        $formatted = $serializer->normalize($vec);
         return new JsonResponse($formatted);
     }
     public function updatevecAction(Request $request,$id)
@@ -174,5 +174,24 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($vehicule);
         return new JsonResponse($formatted);
     }
+    public function ModifiervecAction(Request $request)
+    {
+        $id = $request->get('id');
+        $em=$this->getDoctrine()->getManager();
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find($id);
+        $vehicule->setMatricule($request->get('matricule'));
+        $em->persist($vehicule);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
+
+
+
+
+
+
+
 
 }
