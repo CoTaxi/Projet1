@@ -33,9 +33,9 @@ class ServiceWebRdvController extends Controller
         foreach ($rdv as $key => $blog){
             $datas[$key]['idRdv'] = $blog->getIdRdv();
             $datas[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $datas[$key]['service'] = $blog->getIdService()->getName();
-            $datas[$key]['garage'] = $blog->getIdGarage()->getName();
-            $datas[$key]['dateRdv'] = $blog->getDateRdv()->format('Y-m-d');
+            $datas[$key]['service'] = $blog->getService()->getName();
+            $datas[$key]['garage'] = $blog->getGarage()->getName();
+            $datas[$key]['dateRdv'] = $blog->getDateRdv();
             $datas[$key]['status'] = $blog->getStatus();
 
         }
@@ -81,9 +81,9 @@ class ServiceWebRdvController extends Controller
         foreach ($rdv as $key => $blog){
             $data[$key]['idRdv'] = $blog->getIdRdv();
             $data[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $data[$key]['service'] = $blog->getIdService()->getIdService();
-            $data[$key]['garage'] = $blog->getIdGarage()->getIdGarage();
-            $data[$key]['dateRdv'] = $blog->getDateRdv()->format('Y-m-d');
+            $data[$key]['service'] = $blog->getService()->getIdService();
+            $data[$key]['garage'] = $blog->getGarage()->getIdGarage();
+            $data[$key]['dateRdv'] = $blog->getDateRdv();
             $data[$key]['status'] = $blog->getStatus();
 
         }
@@ -131,8 +131,8 @@ class ServiceWebRdvController extends Controller
         foreach ($rdv as $key => $blog){
             $data[$key]['idRdv'] = $blog->getIdRdv();
             $data[$key]['idChauffeur'] = $blog->getIdChauffeur();
-            $data[$key]['service'] = $blog->getIdService()->getIdService();
-            $data[$key]['garage'] = $blog->getIdGarage()->getIdGarage();
+            $data[$key]['service'] = $blog->getService()->getIdService();
+            $data[$key]['garage'] = $blog->getGarage()->getIdGarage();
             $data[$key]['dateRdv'] = $blog->getDateRdv();
             $data[$key]['status'] = $blog->getStatus();
 

@@ -70,6 +70,13 @@ class Reclamation
     private $Objet;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="Chauffeur", type="text", length=65535, nullable=false)
+     */
+    private $chauff;
+
+    /**
      * @return \typereclamation
      */
     public function getObjet()
@@ -215,4 +222,21 @@ class Reclamation
     {
         return $this->idch;
     }
+
+    /**
+     * @return string
+     */
+    public function getChauff()
+    {
+        return $this->chauff;
+    }
+
+    /**
+     * @param string $chauff
+     */
+    public function setChauff($chauff)
+    {
+        $this->chauff = $chauff;
+    }
+
 }

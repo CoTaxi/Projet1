@@ -183,7 +183,7 @@ class ServicesController extends Controller
         foreach ($findcolis as $find) {
             $find->setEtat('1');
             $find->setIdKarhba($idv);
-
+          //  $find->setPickup($request->get('pickup'));
             $em->persist($find);
         }
         }
@@ -266,12 +266,13 @@ class ServicesController extends Controller
     {
         $findvehicule=  $this->getDoctrine()->getManager()
             ->getRepository('TaxiCoBundle:Vehicule')->findBy(array('matricule'=>$matricule));
+        $datas = array();
         foreach ($findvehicule as $findv)
         {
             $idv=$findv->getId();
             $findcolis=  $this->getDoctrine()->getManager()
                 ->getRepository('ColisBundle:Colis')->findBy(array('idKarhba'=>$idv));
-            $datas = array();
+
             foreach ($findcolis as $key => $col){
                 $datas[$key]['Id'] = $col->getIdC();
                 $datas[$key]['Depart'] = $col->getDepart();
@@ -283,6 +284,7 @@ class ServicesController extends Controller
                 $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
                 $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
                 $datas[$key]['Etat']= $col->getEtat();
+                $datas[$key]['pickup']= $col->getPickup();
                 #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
             }
         }

@@ -101,4 +101,20 @@ class CommandeMobileController extends Controller
 
         return new JsonResponse($formatted);
     }
+    public function findwaAction($id)
+    {
+        $vehicule = $this->getDoctrine()->getManager()
+            ->getRepository('TaxiCoBundle:Commande')
+            ->findBy(['vehicule' => $id]);
+        $datas = array();
+        foreach ($vehicule as $key => $blog)
+        {
+            $client=$this->getDoctrine()->getManager()->getRepository('TaxiCoBundle:User')
+                ->find($blog->getClient());
+            $datas[$key]['client'] = $client->getId();
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
 }

@@ -296,6 +296,14 @@ taxi_co__updateRec:
   path:     /updateRec
   defaults: { _controller: TaxiCoBundle:ReclamationMobile:updateSelected}
 
+taxi_co__ListPrenameChauffRec:
+  path:     /displayUser
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:displayuser}
+
+taxi_co__ListnameChauffRec:
+  path:     /displayName
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:findName}
+
 #Achref :
 
 vehicule_listjson:
@@ -401,3 +409,10 @@ updatevec:
 finddispo:
   path:     /finddispo/{id}
   defaults: { _controller: TaxiCoBundle:ServiceVec:finddispo }
+findwa:
+  path:     /findwa/{id}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:findwa }
+listwa:
+  path:     /listwa/{id}
+  defaults: { _controller: TaxiCoBundle:MobileUser:listwa }
+
