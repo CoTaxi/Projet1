@@ -33,7 +33,7 @@ class ServiceWebGarageController extends Controller
             $data[$key]['name'] = $blog->getName();
             $data[$key]['address'] = $blog->getAddress();
             $data[$key]['service'] = ([$blog->getService()->getIdService(),
-                                      $blog->getService()->getName()]);
+                $blog->getService()->getName()]);
 
         }
 

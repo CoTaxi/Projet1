@@ -29,9 +29,15 @@ class Rdv
     private $idChauffeur = 'NULL';
 
     /**
+
      * @var \DateTime
      *
      * @ORM\Column(name="date_rdv", type="date", nullable=true)
+
+     * @var String
+     *
+     * @ORM\Column(name="date_rdv", type="string", nullable=true)
+
      */
     private $dateRdv = 'NULL';
 
@@ -95,7 +101,11 @@ class Rdv
     }
 
     /**
+
      * @return \DateTime
+
+     * @return String
+
      */
     public function getDateRdv()
     {
@@ -103,7 +113,11 @@ class Rdv
     }
 
     /**
+
      * @param \DateTime $dateRdv
+
+     * @param String $dateRdv
+
      */
     public function setDateRdv($dateRdv)
     {

@@ -1,14 +1,14 @@
 <?php
 
+
 namespace TaxiCoBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Commande
  *
- * @ORM\Table(name="commande", indexes={@ORM\Index(name="clientk", columns={"client"}), @ORM\Index(name="karhba", columns={"vehicule"})})
- * @ORM\Entity
+ * @ORM\Table(name="commande")
+ * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\CommandeRepository")
  */
 class Commande
 {
@@ -24,7 +24,11 @@ class Commande
     /**
      * @var string
      *
-     * @ORM\Column(name="pt_depart", type="string", length=250, nullable=false)
+     * @ORM\Column(name="pt_depart", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(
+     *     message="This field cannot be blank"
+     * )
+     *
      */
     private $ptDepart;
 
@@ -32,63 +36,69 @@ class Commande
      * @var string
      *
      * @ORM\Column(name="pt_arrivee", type="string", length=250, nullable=false)
+     * @Assert\NotBlank(
+     *     message="This field cannot be blank"
+     * )
+     *
      */
     private $ptArrivee;
 
     /**
      * @var float
      *
-     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
+     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=true)
      */
     private $prix;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type_paiement", type="string", length=250, nullable=false)
+     * @ORM\Column(name="mode_paiement", type="string", length=260, nullable=false)
      */
-    private $typePaiement;
+    private $modepaiement;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="date", type="date", nullable=false)
+     * @ORM\Column(name="date", type="string", nullable=false)
+     *
      */
     private $date;
 
     /**
-     * @var \DateTime
+     * @var \string
      *
-     * @ORM\Column(name="time", type="time", nullable=false)
+     * @ORM\Column(name="time", type="string", nullable=false)
      */
     private $time;
-
     /**
-     * @var \Vehicule
+     * @var integer
      *
-     * @ORM\ManyToOne(targetEntity="Vehicule")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="vehicule", referencedColumnName="id_v")
-     * })
-     */
-    private $vehicule;
-
-    /**
-     * @var \User
-     *
-     * @ORM\ManyToOne(targetEntity="User")
-     * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="client", referencedColumnName="id_u")
-     * })
+     * @ORM\Column(name="client", type="integer", nullable=true)
      */
     private $client;
-
-
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="vehicule", type="integer", nullable=true)
+     */
+    private $vehicule;
+    /**
+     * @var \string
+     *
+     * @ORM\Column(name="typecmd", type="string", nullable=true)
+     *
+     */
+    private $typecmd;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="idcolis", type="integer", nullable=true)
+     */
+    private $idcolis;
 
     /**
-     * Get idCommande
-     *
-     * @return integer
+     * @return int
      */
     public function getIdCommande()
     {
@@ -96,22 +106,6 @@ class Commande
     }
 
     /**
-     * Set ptDepart
-     *
-     * @param string $ptDepart
-     *
-     * @return Commande
-     */
-    public function setPtDepart($ptDepart)
-    {
-        $this->ptDepart = $ptDepart;
-
-        return $this;
-    }
-
-    /**
-     * Get ptDepart
-     *
      * @return string
      */
     public function getPtDepart()
@@ -120,22 +114,14 @@ class Commande
     }
 
     /**
-     * Set ptArrivee
-     *
-     * @param string $ptArrivee
-     *
-     * @return Commande
+     * @param string $ptDepart
      */
-    public function setPtArrivee($ptArrivee)
+    public function setPtDepart($ptDepart)
     {
-        $this->ptArrivee = $ptArrivee;
-
-        return $this;
+        $this->ptDepart = $ptDepart;
     }
 
     /**
-     * Get ptArrivee
-     *
      * @return string
      */
     public function getPtArrivee()
@@ -144,22 +130,14 @@ class Commande
     }
 
     /**
-     * Set prix
-     *
-     * @param float $prix
-     *
-     * @return Commande
+     * @param string $ptArrivee
      */
-    public function setPrix($prix)
+    public function setPtArrivee($ptArrivee)
     {
-        $this->prix = $prix;
-
-        return $this;
+        $this->ptArrivee = $ptArrivee;
     }
 
     /**
-     * Get prix
-     *
      * @return float
      */
     public function getPrix()
@@ -168,47 +146,31 @@ class Commande
     }
 
     /**
-     * Set typePaiement
-     *
-     * @param string $typePaiement
-     *
-     * @return Commande
+     * @param float $prix
      */
-    public function setTypePaiement($typePaiement)
+    public function setPrix($prix)
     {
-        $this->typePaiement = $typePaiement;
-
-        return $this;
+        $this->prix = $prix;
     }
 
     /**
-     * Get typePaiement
-     *
      * @return string
      */
-    public function getTypePaiement()
+    public function getModepaiement()
     {
-        return $this->typePaiement;
+        return $this->modepaiement;
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     *
-     * @return Commande
+     * @param string $modepaiement
      */
-    public function setDate($date)
+    public function setModepaiement($modepaiement)
     {
-        $this->date = $date;
-
-        return $this;
+        $this->modepaiement = $modepaiement;
     }
 
     /**
-     * Get date
-     *
-     * @return \DateTime
+     * @return string
      */
     public function getDate()
     {
@@ -216,23 +178,15 @@ class Commande
     }
 
     /**
-     * Set time
-     *
-     * @param \DateTime $time
-     *
-     * @return Commande
+     * @param string $date
      */
-    public function setTime($time)
+    public function setDate($date)
     {
-        $this->time = $time;
-
-        return $this;
+        $this->date = $date;
     }
 
     /**
-     * Get time
-     *
-     * @return \DateTime
+     * @return string
      */
     public function getTime()
     {
@@ -240,23 +194,31 @@ class Commande
     }
 
     /**
-     * Set vehicule
-     *
-     * @param \TaxiCoBundle\Entity\Vehicule $vehicule
-     *
-     * @return Commande
+     * @param string $time
      */
-    public function setVehicule(\TaxiCoBundle\Entity\Vehicule $vehicule = null)
+    public function setTime($time)
     {
-        $this->vehicule = $vehicule;
-
-        return $this;
+        $this->time = $time;
     }
 
     /**
-     * Get vehicule
-     *
-     * @return \TaxiCoBundle\Entity\Vehicule
+     * @return int
+     */
+    public function getClient()
+    {
+        return $this->client;
+    }
+
+    /**
+     * @param int $client
+     */
+    public function setClient($client)
+    {
+        $this->client = $client;
+    }
+
+    /**
+     * @return int
      */
     public function getVehicule()
     {
@@ -264,26 +226,43 @@ class Commande
     }
 
     /**
-     * Set client
-     *
-     * @param \TaxiCoBundle\Entity\User $client
-     *
-     * @return Commande
+     * @param int $vehicule
      */
-    public function setClient(\TaxiCoBundle\Entity\User $client = null)
+    public function setVehicule($vehicule)
     {
-        $this->client = $client;
-
-        return $this;
+        $this->vehicule = $vehicule;
     }
 
     /**
-     * Get client
-     *
-     * @return \TaxiCoBundle\Entity\User
+     * @return string
      */
-    public function getClient()
+    public function getTypecmd()
     {
-        return $this->client;
+        return $this->typecmd;
     }
+
+    /**
+     * @param string $typecmd
+     */
+    public function setTypecmd($typecmd)
+    {
+        $this->typecmd = $typecmd;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdcolis()
+    {
+        return $this->idcolis;
+    }
+
+    /**
+     * @param int $idcolis
+     */
+    public function setIdcolis($idcolis)
+    {
+        $this->idcolis = $idcolis;
+    }
+
 }

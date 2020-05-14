@@ -11,14 +11,15 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
+use Symfony\Component\Serializer\Encoder\XmlEncoder;
+use Symfony\Component\Serializer\Encoder\JsonEncoder;
 class ServicesController extends Controller
 {
-    public function allAction()
+    public function allAction($id)
     {
         $colis = $this->getDoctrine()->getManager()
             ->getRepository('ColisBundle:Colis')
-            ->findAll();
+            ->findBy(array('idExpediteur'=>$id));
         $datas = array();
         foreach ($colis as $key => $col){
             $datas[$key]['Id'] = $col->getIdC();
@@ -50,7 +51,7 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
-    public function newAction(Request $request)
+    public function newAction(Request $request,$id)
     {
         $em = $this->getDoctrine()->getManager();
         $colis = new Colis();
@@ -60,6 +61,7 @@ class ServicesController extends Controller
         $colis->setMailExpediteur($request->get('MailExpediteur'));
         $colis->setPoids($request->get('Poids'));
         $colis->setEtat(0);
+        $colis->setIdExpediteur($id);
         $colis->setNomDestinataire($request->get('NomDestinataire'));
         $colis->setMailDestinataire($request->get('MailDestinataire'));
         $colis->setTelDestinataire($request->get('TelDestinataire'));
@@ -116,7 +118,7 @@ class ServicesController extends Controller
     public function findbydepartAction($depart)
     {
         $find=  $this->getDoctrine()->getManager()
-            ->getRepository('ColisBundle:Colis')->findBy(array('depart'=>$depart));
+            ->getRepository('ColisBundle:Colis')->findByDepart($depart);
         $datas = array();
         foreach ($find as $key => $col){
             $datas[$key]['Id'] = $col->getIdC();
@@ -181,7 +183,7 @@ class ServicesController extends Controller
         foreach ($findcolis as $find) {
             $find->setEtat('1');
             $find->setIdKarhba($idv);
-
+          //  $find->setPickup($request->get('pickup'));
             $em->persist($find);
         }
         }
@@ -237,16 +239,40 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($findcolis);
         return new JsonResponse($formatted);
     }
+    public function triColisAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find = $em->getRepository('ColisBundle:Colis')->findAllOrderedByDepart();
+        $datas = array();
+        foreach ($find as $key => $col){
+            $datas[$key]['Id'] = $col->getIdC();
+            $datas[$key]['Depart'] = $col->getDepart();
+            $datas[$key]['Destination'] = $col->getDestination();
+            $datas[$key]['Poids'] = $col->getPoids();
+            $datas[$key]['NomExpediteur'] = $col->getNomExpediteur();
+            $datas[$key]['MailExpediteur'] = $col->getMailExpediteur();
+            $datas[$key]['NomDestinataire'] = $col->getNomDestinataire();
+            $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
+            $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
+            $datas[$key]['Etat']= $col->getEtat();
+            #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
+        }
+
+    $serializer = new Serializer([new ObjectNormalizer()]);
+    $formatted = $serializer->normalize($datas);
+    return new JsonResponse($formatted);
+    }
     public function ListeDemandesAction($matricule)
     {
         $findvehicule=  $this->getDoctrine()->getManager()
             ->getRepository('TaxiCoBundle:Vehicule')->findBy(array('matricule'=>$matricule));
+        $datas = array();
         foreach ($findvehicule as $findv)
         {
             $idv=$findv->getId();
             $findcolis=  $this->getDoctrine()->getManager()
                 ->getRepository('ColisBundle:Colis')->findBy(array('idKarhba'=>$idv));
-            $datas = array();
+
             foreach ($findcolis as $key => $col){
                 $datas[$key]['Id'] = $col->getIdC();
                 $datas[$key]['Depart'] = $col->getDepart();
@@ -258,6 +284,7 @@ class ServicesController extends Controller
                 $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
                 $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
                 $datas[$key]['Etat']= $col->getEtat();
+                $datas[$key]['pickup']= $col->getPickup();
                 #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
             }
         }
@@ -265,4 +292,6 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+
+
 }

@@ -328,6 +328,9 @@ vehicule_findselected:
 vehicule_delete:
   path:     /deletejson1Vec/{id}
   defaults: { _controller: TaxiCoBundle:ServiceVec:deletejson}
+vehicule_modif:
+  path:     /modifiervec/{id}/{matricule}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:Modifiervec}
 
 #Walid
 
@@ -375,6 +378,48 @@ find_garage_selected:
   defaults: { _controller: TaxiCoBundle:ServiceWebGarage:findSelected}
 
 
+allcmd:
+  path:     /allcmd
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:all }
 
+newcmd:
+  path:     /newcmd
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:new }
 
+findcmd:
+  path:     /findcmd/{idCommande}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:find }
+
+deletecmd:
+  path:     /deletecmd/{idCommande}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:delete }
+
+CmdVehicule:
+  path:     /CmdVehicule/{type}/{idc}/{idv}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:CmdVehicule }
+
+CmdColis:
+  path:     /CmdColis/{type}/{idcolis}/{idclient}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:CmdColis }
+findlastcnx:
+  path:     /findlastcnx/{id}
+  defaults: { _controller: TaxiCoBundle:MobileUser:findlastcnx }
+findPosition:
+  path:     /findPosition/{position}/{type}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findPosition }
+findvec:
+  path:     /findvec/{position}/{type}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findvec }
+updatevec:
+  path:     /updatevec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:updatevec }
+finddispo:
+  path:     /finddispo/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:finddispo }
+findwa:
+  path:     /findwa/{id}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:findwa }
+listwa:
+  path:     /listwa/{id}
+  defaults: { _controller: TaxiCoBundle:MobileUser:listwa }
 

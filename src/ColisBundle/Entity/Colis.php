@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  * Colis
  *
  * @ORM\Table(name="colis", indexes={@ORM\Index(name="ckcolis", columns={"nomcategorie"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="ColisBundle\Repository\ColisRepository")
  */
 class Colis
 {
@@ -93,6 +93,12 @@ class Colis
      */
     private $mailDestinataire;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="pickup", type="string", length=250, nullable=true)
+     */
+    private $pickup;
     /**
      * @var \Category
      *
@@ -405,6 +411,22 @@ class Colis
     {
      return $this->nomcategorie ;
 
+    }
+
+    /**
+     * @return string
+     */
+    public function getPickup()
+    {
+        return $this->pickup;
+    }
+
+    /**
+     * @param string $pickup
+     */
+    public function setPickup($pickup)
+    {
+        $this->pickup = $pickup;
     }
 
 }

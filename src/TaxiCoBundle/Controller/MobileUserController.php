@@ -27,6 +27,7 @@ class MobileUserController extends Controller
         {
             foreach ($user1 as $key => $blog) {
                 $datas[$key]['id'] = $blog->getId();
+                $datas[$key]['type'] = $blog->getType();
             }
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -35,7 +36,8 @@ class MobileUserController extends Controller
 
 //        if ($user)
 //        {
-//            if (password_verify($password, $user->getPassword()))
+//            if (password_verify($password, $
+//user->getPassword()))
 //            {
 //                $serializer = new Serializer([new ObjectNormalizer()]);
 //                $formatted = $serializer->normalize($datas);
@@ -88,6 +90,7 @@ class MobileUserController extends Controller
 //        $user->setPassword($request->get('pwd'));
         $user->setPlainPassword($request->get('pwd'));
         $user->setMdp($request->get('pwd'));
+        $user->setType($request->get('type'));
 //        $user->setRoles($request->get('role'));
         $em->persist($user);
         $em->flush();
@@ -95,5 +98,39 @@ class MobileUserController extends Controller
         $formatted = $serializer->normalize($user);
         return new JsonResponse($formatted);
 
+    }
+    public function findlastcnxAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user1 = $em->getRepository("TaxiCoBundle:User")->findBy(array('id' => $id));
+
+        $datas = array();
+        foreach ($user1 as $key => $blog)
+        {
+                $datas[$key]['id'] = $blog->getId();
+                $datas[$key]['type'] = $blog->getType();
+                $datas[$key]['username'] = $blog->getUsername();
+                $datas[$key]['email'] = $blog->getEmail();
+            }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
+    public function listwaAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user1 = $em->getRepository("TaxiCoBundle:User")->findBy(array('id' => $id));
+
+        $datas = array();
+        foreach ($user1 as $key => $blog)
+        {
+            $datas[$key]['id'] = $blog->getId();
+            $datas[$key]['nom'] = $blog->getNom();
+            $datas[$key]['prenom'] = $blog->getPrenom();
+            $datas[$key]['email'] = $blog->getEmail();
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
     }
 }
