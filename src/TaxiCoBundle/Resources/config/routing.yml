@@ -270,7 +270,11 @@ Mobile_User_login:
 
 Mobile_User_register:
   path:     /MobileRegister
-  defaults: { _controller: TaxiCoBundle:MobileUser:register }
+  defaults: { _controller: TaxiCoBundle:MobileUser:registerClient }
+
+Mobile_User_registerChauffeur:
+  path:     /MobileRegisterChauff
+  defaults: { _controller: TaxiCoBundle:MobileUser:registerChauffeur }
 
 taxi_co__display:
   path:     /listJsonRec
@@ -295,6 +299,14 @@ taxi_co__removeRec:
 taxi_co__updateRec:
   path:     /updateRec
   defaults: { _controller: TaxiCoBundle:ReclamationMobile:updateSelected}
+
+taxi_co__ListPrenameChauffRec:
+  path:     /displayUser
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:displayuser}
+
+taxi_co__ListnameChauffRec:
+  path:     /displayName
+  defaults: { _controller: TaxiCoBundle:ReclamationMobile:findName}
 
 #Achref :
 

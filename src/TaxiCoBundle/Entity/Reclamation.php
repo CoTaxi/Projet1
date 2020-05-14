@@ -50,6 +50,29 @@ class Reclamation
     private $reponse;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="Chauffeur", type="text", length=65535, nullable=false)
+     */
+    private $chauff;
+
+    /**
+     * @return string
+     */
+    public function getChauff()
+    {
+        return $this->chauff;
+    }
+
+    /**
+     * @param string $chauff
+     */
+    public function setChauff($chauff)
+    {
+        $this->chauff = $chauff;
+    }
+
+    /**
      * @var \User
      *
      * @ORM\ManyToOne(targetEntity="User")
@@ -199,7 +222,7 @@ class Reclamation
      *
      * @return Reclamation
      */
-    public function setIdch(\TaxiCoBundle\Entity\User $idch = null)
+    public function setIdch(\TaxiCoBundle\Entity\User $idch)
     {
         $this->idch = $idch;
 

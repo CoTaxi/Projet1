@@ -13,6 +13,7 @@ use TaxiCoBundle\Entity\User;
 
 class MobileUserController extends Controller
 {
+
     public function loginAction(Request $request)
     {
         $username = $request->query->get("username");
@@ -47,7 +48,29 @@ class MobileUserController extends Controller
 //        }
     }
 
-    public function registerAction(Request $request)
+    public function registerClientAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $t = $em->getRepository(User::class);
+        $user = new User();
+        $user->setPrenom($request->get('prenom'));
+        $user->setNom($request->get('nom'));
+        $user->setTel($request->get('tel'));
+        $user->setMail($request->get('email'));
+        $user->setEmail($request->get('email'));
+        $user->setUsername($request->get('usern'));
+        $user->setNaissance($request->get('dtn'));
+        $user->setPlainPassword($request->get('pwd'));
+        $user->setMdp($request->get('pwd'));
+//        $user->setRoles($request->get('role'));
+        $em->persist($user);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($user);
+        return new JsonResponse($formatted);
+
+    }
+    public function registerChauffeurAction(Request $request)
     {
         $em = $this->getDoctrine()->getManager();
         $t = $em->getRepository(User::class);

@@ -2,7 +2,6 @@
 
 namespace TaxiCoBundle\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -10,12 +9,6 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="service")
  * @ORM\Entity
- */
-/**
- * Service
- *
- * @ORM\Table(name="Service")
- * @ORM\Entity(repositoryClass="TaxiCoBundle\Repository\ServiceRepository")
  */
 class Service
 {
@@ -33,14 +26,10 @@ class Service
      *
      * @ORM\Column(name="name", type="string", length=50, nullable=true)
      */
-    private $name;
-
-
+    private $name = 'NULL';
 
     /**
-     * Get idService
-     *
-     * @return integer
+     * @return int
      */
     public function getIdService()
     {
@@ -48,31 +37,29 @@ class Service
     }
 
     /**
-     * Set name
-     *
-     * @param string $name
-     *
-     * @return Service
+     * @param int $idService
      */
-    public function setName($name)
+    public function setIdService($idService)
     {
-        $this->name = $name;
-
-        return $this;
+        $this->idService = $idService;
     }
 
     /**
-     * Get name
-     *
      * @return string
      */
     public function getName()
     {
         return $this->name;
     }
-    public function __toString()
+
+    /**
+     * @param string $name
+     */
+    public function setName($name)
     {
-        // TODO: Implement __toString() method.
-        return $this->name;
+        $this->name = $name;
     }
+
+
 }
+
