@@ -96,7 +96,7 @@ class Colis
     /**
      * @var string
      *
-     * @ORM\Column(name="pickup", type="string", length=250, nullable=true)
+     * @ORM\Column(name="pickup", type="text", nullable=true)
      */
     private $pickup;
     /**

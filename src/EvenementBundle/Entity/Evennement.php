@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
  * Evennement
  *
  * @ORM\Table(name="evennement")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="EvenementBundle\Repository\EvenementRepository")
  */
 class Evennement
 {
@@ -69,6 +69,14 @@ class Evennement
      * @ORM\Column(name="etat", type="string", length=250, nullable=false)
      */
     private $etat;
+
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="place", type="integer", nullable=true)
+     */
+    private $place;
+
 
 
 
@@ -249,4 +257,21 @@ class Evennement
     {
         return $this->etat;
     }
+
+    /**
+     * @return int
+     */
+    public function getPlace()
+    {
+        return $this->place;
+    }
+
+    /**
+     * @param int $place
+     */
+    public function setPlace($place)
+    {
+        $this->place = $place;
+    }
+
 }

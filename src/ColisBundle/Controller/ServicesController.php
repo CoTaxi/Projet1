@@ -15,7 +15,7 @@ use Symfony\Component\Serializer\Encoder\XmlEncoder;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 class ServicesController extends Controller
 {
-    public function allAction($id)
+    public function allcolisAction($id)
     {
         $colis = $this->getDoctrine()->getManager()
             ->getRepository('ColisBundle:Colis')
@@ -32,6 +32,7 @@ class ServicesController extends Controller
             $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
+            $datas[$key]['pickup']= $col->getPickup();
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
             }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -109,6 +110,7 @@ class ServicesController extends Controller
             $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
+            $datas[$key]['pickup']= $col->getPickup();
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -131,6 +133,7 @@ class ServicesController extends Controller
             $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
+            $datas[$key]['pickup']= $col->getPickup();
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -239,6 +242,21 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($findcolis);
         return new JsonResponse($formatted);
     }
+    public function pickupAction($Id,$pickup)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $findcolis=  $this->getDoctrine()->getManager()
+            ->getRepository('ColisBundle:Colis')->findBy(array('idC'=>$Id));
+
+        foreach ($findcolis as $find) {
+            $find->setPickup($pickup);
+            $em->persist($find);
+        }
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($findcolis);
+        return new JsonResponse($formatted);
+    }
     public function triColisAction()
     {
         $em=$this->getDoctrine()->getManager();
@@ -255,6 +273,7 @@ class ServicesController extends Controller
             $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
+            $datas[$key]['pickup']= $col->getPickup();
             #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
 

@@ -12,4 +12,18 @@ LoadEvent:
 addEvent:
     path:     /add
     defaults: { _controller: EvenementBundle:Evenement:add }
-
+allevent:
+    path:     /allevent
+    defaults: { _controller: EvenementBundle:EventMobile:allevent }
+Participer:
+    path:     /Participer/{idev}/{iduser}
+    defaults: { _controller: EvenementBundle:EventMobile:Participer }
+findevent:
+    path:     /findevent/{id}
+    defaults: { _controller: EvenementBundle:EventMobile:findevent }
+listuser:
+    path:     /listuser/{iduser}
+    defaults: { _controller: EvenementBundle:EventMobile:listuser }
+Quitter:
+    path:     /Quitter/{idev}/{iduser}
+    defaults: { _controller: EvenementBundle:EventMobile:Quitter }

@@ -416,6 +416,9 @@ updatevec:
 finddispo:
   path:     /finddispo/{id}
   defaults: { _controller: TaxiCoBundle:ServiceVec:finddispo }
+toutvec:
+  path:     /toutvec
+  defaults: { _controller: TaxiCoBundle:ServiceVec:toutvec }
 findwa:
   path:     /findwa/{id}
   defaults: { _controller: TaxiCoBundle:CommandeMobile:findwa }

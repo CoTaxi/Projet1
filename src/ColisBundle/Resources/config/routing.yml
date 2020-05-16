@@ -8,9 +8,9 @@ colis_category:
 taxi_back:
     path:     /back
     defaults: { _controller: ColisBundle:Default:index }
-all:
-    path:     /all/{id}
-    defaults: { _controller: "ColisBundle:Services:all" }
+allcolis:
+    path:     /allcolis/{id}
+    defaults: { _controller: "ColisBundle:Services:allcolis" }
     methods:  GET
 new:
     path:     /new/{id}
@@ -51,3 +51,9 @@ findbydepart:
 triColis:
     path:     /triColis
     defaults: { _controller: "ColisBundle:Services:triColis" }
+pickup:
+    path:     /pickup/{Id}/{pickup}
+    defaults: { _controller: "ColisBundle:Services:pickup" }
+getchat:
+    path:     /getchat
+    defaults: { _controller: "ColisBundle:Chat:getchat" }

@@ -43,7 +43,7 @@ class Vehicule
     /**
      * @var string
      *
-     * @ORM\Column(name="matricule", type="string", length=250, nullable=false)
+     * @ORM\Column(name="matricule", type="string", length=250, nullable=true)
      */
     private $matricule;
 
@@ -51,70 +51,70 @@ class Vehicule
     /**
      * @var string
      *
-     * @ORM\Column(name="marque", type="string", length=250, nullable=false)
+     * @ORM\Column(name="marque", type="string", length=250, nullable=true)
      */
     private $marque;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="modele", type="string", length=250, nullable=false)
+     * @ORM\Column(name="modele", type="string", length=250, nullable=true)
      */
     private $modele;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="cartegrise", type="string", length=250, nullable=false)
+     * @ORM\Column(name="cartegrise", type="string", length=250, nullable=true)
      */
     private $cartegrise;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="couleur", type="string", length=250, nullable=false)
+     * @ORM\Column(name="couleur", type="string", length=250, nullable=true)
      */
     private $couleur;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=250, nullable=false)
+     * @ORM\Column(name="type", type="string", length=250, nullable=true)
      */
     private $type;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="dispo", type="integer", nullable=false)
+     * @ORM\Column(name="dispo", type="integer", nullable=true)
      */
     private $dispo;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="position", type="string", length=250, nullable=false)
+     * @ORM\Column(name="position", type="string", length=250, nullable=true)
      */
     private $position;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="destination", type="string", length=250, nullable=false)
+     * @ORM\Column(name="destination", type="string", length=250, nullable=true)
      */
     private $destination;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="etat", type="integer", nullable=false)
+     * @ORM\Column(name="etat", type="integer", nullable=true)
      */
     private $etat;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="places", type="integer", nullable=false)
+     * @ORM\Column(name="places", type="integer", nullable=true)
      */
     private $places = '0';
 
