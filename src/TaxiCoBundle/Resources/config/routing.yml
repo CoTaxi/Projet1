@@ -425,4 +425,7 @@ findwa:
 listwa:
   path:     /listwa/{id}
   defaults: { _controller: TaxiCoBundle:MobileUser:listwa }
+doing:
+  path:     /doing/{id}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:doing }
 
