@@ -425,4 +425,21 @@ findwa:
 listwa:
   path:     /listwa/{id}
   defaults: { _controller: TaxiCoBundle:MobileUser:listwa }
-
+doing:
+  path:     /doing/{id}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:doing }
+done:
+  path:     /done/{id}
+  defaults: { _controller: TaxiCoBundle:CommandeMobile:done }
+profile:
+  path:     /profile/{id}
+  defaults: { _controller: TaxiCoBundle:MobileUser:profile }
+Mobile_User_Edit:
+  path:     /EditProfile/{id}
+  defaults: { _controller: TaxiCoBundle:MobileUser:edit }
+vehicule_update:
+  path:     /updatevec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:updatevec}
+vehicule_doing:
+  path:     /doingvec/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:doingvec}

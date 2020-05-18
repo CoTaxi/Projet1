@@ -117,4 +117,32 @@ class CommandeMobileController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+    public function doingAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vehicule=$this->getDoctrine()->getRepository('TaxiCoBundle:Commande')->findBy(array('idCommande'=>$id
+        ));
+        $datas = array();
+        foreach ($vehicule as $key => $blog) {
+            $blog->setEtat("doing");
+            $em->persist($blog);
+            $em->flush();
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
+    public function doneAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $vehicule=$this->getDoctrine()->getRepository(Commande::class)->find($id);
+        $vehicule->setEtat("done");
+
+        $em->persist($vehicule);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
+
 }

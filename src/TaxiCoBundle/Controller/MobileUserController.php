@@ -135,4 +135,43 @@ class MobileUserController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+    public function profileAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user1 = $em->getRepository("TaxiCoBundle:User")->findBy(array('id' => $id));
+
+        $datas = array();
+        foreach ($user1 as $key => $blog)
+        {
+            $datas[$key]['nom'] = $blog->getNom();
+            $datas[$key]['prenom'] = $blog->getPrenom();
+            $datas[$key]['username'] = $blog->getUsername();
+            $datas[$key]['email'] = $blog->getEmail();
+            $datas[$key]['password'] = $blog->getMdp();
+
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
+    public function editAction(Request $request,$id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $em->getRepository("TaxiCoBundle:User")->find($id);
+        $user->setPrenom($request->get('prenom'));
+        $user->setNom($request->get('nom'));
+        $user->setMail($request->get('email'));
+        $user->setEmail($request->get('email'));
+        $user->setUsername($request->get('usern'));
+//        $user->setPassword($request->get('pwd'));
+        $user->setPlainPassword($request->get('pwd'));
+        $user->setMdp($request->get('pwd'));
+//        $user->setRoles($request->get('role'));
+        $em->persist($user);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($user);
+        return new JsonResponse($formatted);
+
+    }
 }

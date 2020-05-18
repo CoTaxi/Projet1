@@ -98,6 +98,14 @@ class Commande
     private $idcolis;
 
     /**
+     * @var \string
+     *
+     * @ORM\Column(name="etat", type="string", nullable=true)
+     *
+     */
+    private $etat;
+
+    /**
      * @return int
      */
     public function getIdCommande()
@@ -263,6 +271,22 @@ class Commande
     public function setIdcolis($idcolis)
     {
         $this->idcolis = $idcolis;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEtat()
+    {
+        return $this->etat;
+    }
+
+    /**
+     * @param string $etat
+     */
+    public function setEtat($etat)
+    {
+        $this->etat = $etat;
     }
 
 }
