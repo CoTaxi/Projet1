@@ -1,6 +1,6 @@
 forum:
     resource: "@ForumBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /F
 
 colis:
     resource: "@ColisBundle/Resources/config/routing.yml"

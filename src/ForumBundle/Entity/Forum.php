@@ -43,6 +43,13 @@ class Forum
     private $content;
 
     /**
+     * @var int
+     *
+     * @ORM\Column(name="iduser", type="integer", nullable=true)
+     */
+    private $iduser;
+
+    /**
      * @return \DateTime
      */
     public function getModified()
@@ -205,6 +212,22 @@ class Forum
     public function setImage($image)
     {
         $this->image = $image;
+    }
+
+    /**
+     * @return int
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * @param int $iduser
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
     }
 
 

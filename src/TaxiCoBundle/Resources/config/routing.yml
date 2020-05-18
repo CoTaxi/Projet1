@@ -443,3 +443,9 @@ vehicule_update:
 vehicule_doing:
   path:     /doingvec/{id}
   defaults: { _controller: TaxiCoBundle:ServiceVec:doingvec}
+vehicule_position:
+  path:     /position/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:position}
+vehicule_updateposition:
+  path:     /updateposition/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:updateposition}

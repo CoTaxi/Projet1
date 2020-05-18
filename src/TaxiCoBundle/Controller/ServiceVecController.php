@@ -195,7 +195,35 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($vehicule);
         return new JsonResponse($formatted);
     }
+    public function updatepositionAction(Request $request,$id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $position = $request->get('position');
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find($id);
+        $vehicule->setPosition($position);
 
+        $em->persist($vehicule);
+        $em->flush();
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
+    public function positionAction($id)
+    {
+        $vehicule = $this->getDoctrine()->getManager()
+            ->getRepository('TaxiCoBundle:Vehicule')
+            ->findBy(['user'=>$id]);
+
+        $datas = array();
+        foreach ($vehicule as $key => $blog){
+            $datas[$key]['position'] = $blog->getPosition();
+
+
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
 
 
 
