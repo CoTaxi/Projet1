@@ -3,7 +3,7 @@
 
 namespace ForumBundle\Controller;
 
-
+use ForumBundle\Entity\Forum;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -50,7 +50,7 @@ class ForumMobileController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $find= $this->getDoctrine()->getManager()
-            ->getRepository('ForumBundle:Forum')->findBy(array('iduser'=>$id));
+            ->getRepository('ForumBundle:Forum')->findBy(array('title'=>$id));
         foreach($find as $fin)
         {
             $fin->setTitle($request->get('title'));
@@ -68,7 +68,7 @@ class ForumMobileController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $find= $this->getDoctrine()->getManager()
-            ->getRepository('ForumBundle:Forum')->findBy(array('iduser'=>$id));
+            ->getRepository('ForumBundle:Forum')->findBy(array('title'=>$id));
         foreach ($find as $col) {
             $em->remove($col);
         }
