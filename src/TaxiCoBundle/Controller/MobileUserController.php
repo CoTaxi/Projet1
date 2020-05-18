@@ -135,4 +135,23 @@ class MobileUserController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+    public function profileAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user1 = $em->getRepository("TaxiCoBundle:User")->findBy(array('id' => $id));
+
+        $datas = array();
+        foreach ($user1 as $key => $blog)
+        {
+            $datas[$key]['nom'] = $blog->getNom();
+            $datas[$key]['prenom'] = $blog->getPrenom();
+            $datas[$key]['username'] = $blog->getUsername();
+            $datas[$key]['email'] = $blog->getEmail();
+            $datas[$key]['password'] = $blog->getMdp();
+
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
 }
