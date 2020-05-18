@@ -91,6 +91,9 @@ class ServiceVecController extends Controller
         $vehicule->setAcceptC($request->get('accept_c'));
         $vehicule->setDestination($request->get('destination'));
         $vehicule->setUser($request->get('user'));
+        $vehicule->setEtat(1);
+        $vehicule->setDispo(1);
+        $vehicule->setType("taxi");
         $em->persist($vehicule);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -199,7 +202,7 @@ class ServiceVecController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $position = $request->get('position');
-        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find($id);
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->findOneBy(array('user'=>$id));
         $vehicule->setPosition($position);
 
         $em->persist($vehicule);

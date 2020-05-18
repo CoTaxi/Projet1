@@ -33,7 +33,6 @@ class ServicesController extends Controller
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
             $datas[$key]['pickup']= $col->getPickup();
-            #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
             }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
@@ -66,6 +65,7 @@ class ServicesController extends Controller
         $colis->setNomDestinataire($request->get('NomDestinataire'));
         $colis->setMailDestinataire($request->get('MailDestinataire'));
         $colis->setTelDestinataire($request->get('TelDestinataire'));
+        $colis->setPickup("none");
         $em->persist($colis);
         $em->flush();
         $serializer = new Serializer([new ObjectNormalizer()]);
@@ -87,6 +87,7 @@ class ServicesController extends Controller
             $fin->setNomDestinataire($request->get('NomDestinataire'));
             $fin->setMailDestinataire($request->get('MailDestinataire'));
             $fin->setTelDestinataire($request->get('TelDestinataire'));
+
         }
         $em->persist($fin);
         $em->flush();
@@ -111,7 +112,6 @@ class ServicesController extends Controller
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
             $datas[$key]['pickup']= $col->getPickup();
-            #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
@@ -134,7 +134,6 @@ class ServicesController extends Controller
             $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
             $datas[$key]['Etat']= $col->getEtat();
             $datas[$key]['pickup']= $col->getPickup();
-            #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);

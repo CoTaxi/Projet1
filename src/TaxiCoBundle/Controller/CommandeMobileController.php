@@ -105,13 +105,14 @@ class CommandeMobileController extends Controller
     {
         $vehicule = $this->getDoctrine()->getManager()
             ->getRepository('TaxiCoBundle:Commande')
-            ->findBy(['vehicule' => $id]);
+            ->findBy(['vehicule' => $id,'etat'=>"notdone"]);
         $datas = array();
         foreach ($vehicule as $key => $blog)
         {
             $client=$this->getDoctrine()->getManager()->getRepository('TaxiCoBundle:User')
                 ->find($blog->getClient());
             $datas[$key]['client'] = $client->getId();
+            $datas[$key]['idcommande'] = $blog->getIdCommande();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
@@ -120,8 +121,8 @@ class CommandeMobileController extends Controller
     public function doingAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $vehicule=$this->getDoctrine()->getRepository('TaxiCoBundle:Commande')->findBy(array('idCommande'=>$id
-        ));
+        $vehicule=$this->getDoctrine()->getRepository('TaxiCoBundle:Commande')
+            ->findBy(array('idCommande'=>$id));
         $datas = array();
         foreach ($vehicule as $key => $blog) {
             $blog->setEtat("doing");

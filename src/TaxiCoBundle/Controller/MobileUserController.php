@@ -64,6 +64,7 @@ class MobileUserController extends Controller
         $user->setNaissance($request->get('dtn'));
         $user->setPlainPassword($request->get('pwd'));
         $user->setMdp($request->get('pwd'));
+        $user->setType($request->get('type'));
 //        $user->setRoles($request->get('role'));
         $em->persist($user);
         $em->flush();
