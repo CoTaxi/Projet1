@@ -130,6 +130,8 @@ class MobileUserController extends Controller
             $datas[$key]['nom'] = $blog->getNom();
             $datas[$key]['prenom'] = $blog->getPrenom();
             $datas[$key]['email'] = $blog->getEmail();
+            $datas[$key]['tel'] = $blog->getTel();
+            $datas[$key]['naissance'] = $blog->getNaissance();
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
