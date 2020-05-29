@@ -3,8 +3,9 @@
 
 {% endblock %}
 {% block contents %}
-
+    {{ form_start(form) }}
     <div class="col-lg-12 col-md-12">
+
         <aside class="profile-nav alt">
             <section class="card">
                 <div class="card-header user-header alt bg-dark">
@@ -15,10 +16,22 @@
                         </a>
                         <div class="media-body">
                             <h2 class="text-light display-6">Gestion des réclamations</h2>
-                            <p>Consultation le nombre des réclamations par types.<br> Suppression en lot de réclamations
-                                par types.
+                            <p>Consultation les statistiques des réclamations par état.<br> Suppression en lot de réclamations
+                                par état.
                                 <br> Ajouter types de réclamation.
                             </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-7">
+                    <div class="card">
+                        <div class="card-body" id="pieChart">
+
+                            <script type="text/javascript"
+                                    src="{{ asset('sufee-admin-dashboard-master/assets/js/loader.js') }}"></script>
+                            <script type="text/javascript">
+                                {{ gc_draw(piechart, 'pieChart') }}
+                            </script>
                         </div>
                     </div>
                 </div>
@@ -32,51 +45,60 @@
                     </li>
                     <li class="list-group-item">
                         <a href="{{ path('taxi_co__backlistTRec') }}"> <i class="fa fa-check-square"></i> Récalamtions
-                            Traitées <span class="badge badge-success">{{ c3 }}</span></a>
+                            Traitées <span class="badge badge-success">{{ c3 }}  </span></a>
                         <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllT') }}">
                             <i class="fa fa-times-circle text-light"></i>
                         </a></span>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ path('taxi_co__backlistNTRec') }}"> <i class="fa fa-exclamation-circle"></i>
-                            Réclamations non traitées</a> <span class="badge badge-danger">{{ c2 }}</span>
+                            Réclamations non traitées</a> <span class="badge badge-danger">{{ c2 }} </span>
                         <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllNT') }}">
                             <i class="fa fa-times-circle text-light"></i>
                         </a></span>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ path('taxi_co__backlistCTRec') }}"> <i class="fa fa-spinner"></i> Réclamations en
-                            cours de traitements </a><span class="badge badge-warning">{{ c4 }}</span>
+                            cours de traitements </a><span class="badge badge-warning">{{ c4 }} </span>
                         <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllCT') }}">
                             <i class="fa fa-times-circle text-light"></i>
                         </a></span>
                     </li>
                     <li class="list-group-item">
                         <a href="{{ path('taxi_co__backlistArchRec') }}"> <i class="fa fa-archive"></i> Réclamations
-                            archivées</a> <span class="badge badge-secondary">{{ c5 }}</span>
-                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllArch')}}">
+                            archivées</a> <span class="badge badge-secondary">{{ c5 }} </span>
+                        <span class="badge badge-danger pull-right"><a href="{{ path('taxi_co__deleteAllArch') }}">
                             <i class="fa fa-times-circle text-light"></i>
                         </a></span>
                     </li>
-{#                    <li class="list-group-item">#}
-{#                        <a id="addType" href="#"> <i class="fa fa-cog"></i></a> Settings#}
-{#                    </li>#}
 
-
-{#                    <div class="dropdown-menu input-group col-lg-12" id="newType">#}
-{#                        Ajouter type :  <div class="input-group-btn"><button class="btn btn-primary">Submit</button></div>#}
-{#                    </div>#}
+                </ul>
+            </section>
+            <div class="row form-group">
+                <div class="col col-md-12">
+                    <div class="input-group">
+                        {{ form_widget(form.titre) }}
+                        <div class="input-group-btn">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="card">
+                <ul class="list-group list-group-flush">
+                    {% for entity in rec %}
+                        <li class="list-group-item">
+                            <i class="fa fa-asterisk"></i> {{ entity.titre }}
+                            <span class="badge badge-danger pull-right"><a
+                                        href="{{ path('taxi_co__backDeleteTypeRec', {id: entity.id}) }}">
+                            <i class="fa fa-times-circle text-light"></i>
+                        </a></span>
+                        </li>
+                    {% endfor %}
                 </ul>
             </section>
         </aside>
     </div>
+    {{ form_end(form) }}
 
-{#        <script src="{{ asset('sufee-admin-dashboard-master/vendors/jquery/dist/jquery.min.js') }}"></script>#}
-{#        <script>#}
-{#            $(document).ready(function(){#}
-{#                $("#addType").click(function(){#}
-{#                    $("#newType").toggle(500);#}
-{#                });#}
-{#            });#}
-{#        </script>#}
 {% endblock %}

@@ -145,4 +145,5 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
             ->execute();
         return $queryBuilder;
     }
+
 }

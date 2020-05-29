@@ -2,6 +2,8 @@
 
 namespace TaxiCoBundle\Controller;
 
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
+use CMEN\GoogleChartsBundle\GoogleCharts\Options\PieChart\PieSlice;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -10,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\HttpFoundation\Request;
 use TaxiCoBundle\Entity\Reclamation;
 use TaxiCoBundle\Entity\typereclamation;
+use TaxiCoBundle\Entity\User;
 use TaxiCoBundle\Form\ReclamationType;
 use TaxiCoBundle\Form\typereclamationType;
 
@@ -17,15 +20,17 @@ class ReclamationController extends Controller
 {
     public function ajouterReclamationAction(Request $request)
     {
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $reclamation = new Reclamation();
+
+        $find = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id'=> $usrId));
         $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $reclamation->setIdch($find);
             $reclamation->setEtat("Non traitée");
             $reclamation->setDateRec(new \DateTime());
             $reclamation->setReponse("Aucune réponse");
-            $reclamation->setIdch($this->getUser());
-
             $em = $this->getDoctrine()->getManager();
             $em->persist($reclamation);
             $em->flush();
@@ -34,26 +39,14 @@ class ReclamationController extends Controller
         return $this->render("@TaxiCo/ReclamationViews/contact.html.twig", array('form' => $form->createView()));
     }
 
-    public function addtypeRecAction(Request $request)
-    {
-        $typeRec = new typereclamation();
-        $form =$this->createForm(typereclamationType::class, $typeRec);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid())
-        {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($typeRec);
-            $em->flush();
-            return $this->redirectToRoute("taxi_co_listRec");
-        }
-        return $this->render("@TaxiCo/ReclamationViews/ok.html.twig", array('form' => $form->createView()));
-    }
-
     public function afficherReclamationAction()
     {
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findAll();
-        return $this->render("@TaxiCo/ReclamationViews/listReclamation.html.twig", array('tabs' => $reclamation));
+        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findBy(array('idch'=> $usrId));
+        $userRec = $em->getRepository("TaxiCoBundle:User")->find($usrId);
+        return $this->render("@TaxiCo/ReclamationViews/listReclamation.html.twig", array('tabs' => $reclamation,
+            'user'=>$userRec));
     }
 
     public function supprimerReclamationAction($id)
@@ -253,20 +246,87 @@ class ReclamationController extends Controller
         return $this->redirectToRoute('taxi_co__count');
     }
 
-    public function countRecAction()
+    public function countRecAction(Request $request)
     {
         $em=$this->getDoctrine()->getManager();
         $reclamations=$em->getRepository("TaxiCoBundle:typereclamation")->countAllDQB();
         $reclamationsNT=$em->getRepository("TaxiCoBundle:typereclamation")->countNTDQB();
+        $statNT = $reclamationsNT*100/$reclamations;
         $reclamationsT=$em->getRepository("TaxiCoBundle:typereclamation")->countTDQB();
+        $statT = $reclamationsT*100/$reclamations;
         $reclamationsCT=$em->getRepository("TaxiCoBundle:typereclamation")->countCTDQB();
+        $statCT = $reclamationsCT*100/$reclamations;
         $reclamationsArch=$em->getRepository("TaxiCoBundle:typereclamation")->countArchDQB();
+        $statArch = $reclamationsArch*100/$reclamations;
+        // Pie Chart :
+        $pieChart = new PieChart();
+        $pieChart->getData()->setArrayToDataTable(
+            [
+                ['Pac Man', 'Percentage'],
+                ['Réclamation(s) en cours de traitement', $statCT],
+                ['Réclamation(s) Traitée(s)', $statT],
+                ['Réclamation(s) Non Traitée(s)', $statNT],
+                ['Réclamation(s) Archivée(s)', $statArch]
+            ]
+        );
+        $pieChart->getOptions()->getLegend()->setPosition('Right');
+        $pieChart->getOptions()->setPieSliceText('none');
+        $pieChart->getOptions()->setPieStartAngle(135);
+        $pieChart->getOptions()->setIs3D(true);
 
+        $pieSlice1 = new PieSlice();
+        $pieSlice1->setColor('orange');
+        $pieSlice2 = new PieSlice();
+        $pieSlice2->setColor('green');
+        $pieSlice3 = new PieSlice();
+        $pieSlice3->setColor('red');
+        $pieSlice4 = new PieSlice();
+        $pieSlice4->setColor('grey');
+        $pieChart->getOptions()->setSlices([$pieSlice1, $pieSlice2, $pieSlice3, $pieSlice4]);
+
+        $pieChart->getOptions()->setHeight(400);
+        $pieChart->getOptions()->setWidth(1000);
+        $pieChart->getOptions()->setTitle('Statistique des réclamations selon l\'état');
+        $pieChart->getOptions()->getTitleTextStyle()->setFontSize(25);
+
+        $rec = $em->getRepository("TaxiCoBundle:typereclamation")->findAll();
+        $typeRec = new typereclamation();
+        $form =$this->createForm(typereclamationType::class, $typeRec);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid())
+        {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($typeRec);
+            $em->flush();
+//            echo '<script type="text/javascript">alert("Votre tyoe/Objet est bien ajouté!");</script>';
+            return $this->redirectToRoute("taxi_co__count");
+
+        }
         return $this->render("@TaxiCo/ReclamationViews/DashboardCountRec.html.twig", array(
+            'form' => $form->createView(),
             'c1'=> $reclamations,
+            'piechart' => $pieChart,
             'c2'=>$reclamationsNT,
             'c3'=>$reclamationsT,
             'c4'=>$reclamationsCT,
-            'c5'=>$reclamationsArch));
+            'c5'=>$reclamationsArch,
+            'rec' => $rec));
+    }
+
+//    public function statTypeRecAction(Request $request)
+//    {
+//        $em = $this->getDoctrine()->getManager();
+//        $type = $em->getRepository("TaxiCoBundle:typereclamation")->findAll();
+//        $f=$type->getId();
+//        return $this->render("@TaxiCo/ReclamationViews/ok.html.twig", array('rec' => $f));
+//    }
+
+    public function deleteTypeRecAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Typereclamation = $em->getRepository("TaxiCoBundle:typereclamation")->find($id);
+        $em->remove($Typereclamation);
+        $em->flush();
+        return $this->redirectToRoute("taxi_co__count");
     }
 }

@@ -57,7 +57,7 @@
                                                 alt="user" class="img-circle">
                                     </div>
                                     <div class="mail-contnet">
-                                        <h4>Pavan kumar</h4><span
+                                        <h4>{{ user.prenom }} {{ user.nom }}</h4><span
                                                 class="time">{{ entity.dateRec|date('Y-m-d H:i:s') }} - <strong
                                                     class="text-danger">{{ entity.etat }}</strong> </span>
                                         <span class="mail-desc"> <strong>Objet : {{ entity.Objet.titre }}.</strong> <br> <p

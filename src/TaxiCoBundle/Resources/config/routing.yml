@@ -132,49 +132,53 @@ taxi_co__rating:
   defaults: { _controller: TaxiCoBundle:RatingRec:rate }
 
 taxi_co__count:
-    path:     /count
-    defaults: { _controller: TaxiCoBundle:Reclamation:countRec }
+  path:     /count
+  defaults: { _controller: TaxiCoBundle:Reclamation:countRec }
 
 taxi_co__deleteAll:
-    path:     /deleteAll
-    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllRec }
+  path:     /deleteAll
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllRec }
 
 taxi_co__deleteAllArch:
-    path:     /deleteAllArch
-    defaults: { _controller: TaxiCoBundle:Reclamation:deleteArchRec }
+  path:     /deleteAllArch
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllArchRec }
 
 taxi_co__deleteAllNT:
-    path:     /deleteAllNT
-    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllNTRec }
+  path:     /deleteAllNT
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllNTRec }
 
 taxi_co__deleteAllT:
-    path:     /deleteAllT
-    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllTRec }
+  path:     /deleteAllT
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllTRec }
 
 taxi_co__deleteAllCT:
-    path:     /deleteAllCT
-    defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllCTRec }
+  path:     /deleteAllCT
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteAllCTRec }
 
 taxi_co__addType:
-    path:     /addType
-    defaults: { _controller: TaxiCoBundle:Reclamation:addtypeRec }
+  path:     /addType
+  defaults: { _controller: TaxiCoBundle:Reclamation:addtypeRec }
+
+taxi_co__backDeleteTypeRec:
+  path:     /adminDeleteTypeRec/{id}
+  defaults: { _controller: TaxiCoBundle:Reclamation:deleteTypeRec }
 
 #Card View Reclamations
 taxi_co__backlistCardNTRec:
-    path:     /adminNTCardlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrCardRec }
+  path:     /adminNTCardlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findNonTrCardRec }
 
 taxi_co__backlistCardTRec:
-    path:     /adminTCardlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findTrCardRec }
+  path:     /adminTCardlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findTrCardRec }
 
 taxi_co__backlistCardCTRec:
-    path:     /adminCTCardlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findCTCardRec }
+  path:     /adminCTCardlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findCTCardRec }
 
 taxi_co__backlistCardArchRec:
-    path:     /adminArchCardlist
-    defaults: { _controller: TaxiCoBundle:Reclamation:findArchCardRec }
+  path:     /adminArchCardlist
+  defaults: { _controller: TaxiCoBundle:Reclamation:findArchCardRec }
 
 #Service
 display:
@@ -307,7 +311,6 @@ taxi_co__ListPrenameChauffRec:
 taxi_co__ListnameChauffRec:
   path:     /displayName
   defaults: { _controller: TaxiCoBundle:ReclamationMobile:findName}
-
 #Achref :
 
 vehicule_listjson:
