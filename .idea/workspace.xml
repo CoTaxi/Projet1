@@ -89,6 +89,9 @@
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php.zend.framework.tool" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\wamp64\www\Projet1\app\Resources\views\default" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\wamp64\www\Projet1\src\TaxiCoBundle\Resources\views" />
       <recent name="C:\wamp64\www\Projet1\web" />
@@ -104,10 +107,11 @@
       <command value="s doctrine:schema:update --dump-sql" />
       <command value="s doctrine:schema:update --complete" />
       <command value="s doctrine:schema:update --force --complete" />
-      <command value="s cache:clear" />
       <command value="s doctrine:schema:validate" />
       <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:schema:update" />
+      <command value="s server run" />
+      <command value="s cache:clear" />
       <command value="s server:run" />
     </option>
   </component>
@@ -152,6 +156,11 @@
       <workItem from="1589473611972" duration="681000" />
       <workItem from="1589634871964" duration="3309000" />
       <workItem from="1589704510434" duration="1705000" />
+      <workItem from="1589849145067" duration="4069000" />
+      <workItem from="1590482782992" duration="68000" />
+      <workItem from="1590750140877" duration="331000" />
+      <workItem from="1590750485673" duration="12119000" />
+      <workItem from="1590780907703" duration="5797000" />
     </task>
     <servers />
   </component>
@@ -171,10 +180,15 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="275" y="23" key="#JSHint/0.0.1366.728@0.0.1366.728" timestamp="1587069734660" />
-    <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1589381530668">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state x="444" y="151" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1590758833200">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
+    <state x="444" y="151" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590758833200" />
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.832@0.0.1536.832" timestamp="1589381530668" />
+    <state x="367" y="20" width="645" height="688" key="#phpunit.xml.dist" timestamp="1590783265448">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="367" y="20" width="645" height="688" key="#phpunit.xml.dist/0.0.1366.728@0.0.1366.728" timestamp="1590783265448" />
     <state x="171" y="0" key="CommitChangelistDialog2" timestamp="1587062899431">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -189,35 +203,35 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="460" y="277" width="446" height="262" key="ComposerInitDialogKey/0.0.1366.728@0.0.1366.728" timestamp="1587069010339" />
-    <state x="519" y="121" key="FileChooserDialogImpl" timestamp="1588894405301">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state x="462" y="106" key="FileChooserDialogImpl" timestamp="1590482852809">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="433" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587061168917" />
-    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1587156481111" />
+    <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590482852809" />
     <state x="519" y="121" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1588894405301" />
-    <state width="1493" height="188" key="GridCell.Tab.0.bottom" timestamp="1589680217698">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state width="1323" height="103" key="GridCell.Tab.0.bottom" timestamp="1590782892408">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="176" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1587074639096" />
+    <state width="1323" height="103" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590782892408" />
     <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1589680217698" />
-    <state width="1493" height="188" key="GridCell.Tab.0.center" timestamp="1589680217697">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state width="1323" height="103" key="GridCell.Tab.0.center" timestamp="1590782892407">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="176" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1587074639096" />
+    <state width="1323" height="103" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
     <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
-    <state width="1493" height="188" key="GridCell.Tab.0.left" timestamp="1589680217697">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state width="1323" height="103" key="GridCell.Tab.0.left" timestamp="1590782892407">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="176" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1587074639096" />
+    <state width="1323" height="103" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
     <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
-    <state width="1493" height="188" key="GridCell.Tab.0.right" timestamp="1589680217698">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state width="1323" height="103" key="GridCell.Tab.0.right" timestamp="1590782892407">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="176" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1587074639096" />
+    <state width="1323" height="103" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
     <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1589680217698" />
     <state x="207" y="8" key="SettingsEditor" timestamp="1589072871376">
       <screen x="0" y="0" width="1536" height="832" />
@@ -235,11 +249,11 @@
     </state>
     <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587155847351" />
     <state x="425" y="215" key="com.intellij.ide.util.TipDialog/0.0.1536.832@0.0.1536.832" timestamp="1589704577218" />
-    <state x="381" y="185" width="756" height="774" key="run.anything.popup" timestamp="1589704586224">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1590782892432">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="318" y="151" width="672" height="633" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587061771116" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1587065831574" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590782892432" />
     <state x="381" y="185" width="756" height="774" key="run.anything.popup/0.0.1536.832@0.0.1536.832" timestamp="1589704586224" />
   </component>
 </project>

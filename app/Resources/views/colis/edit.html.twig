@@ -12,31 +12,88 @@
             </section><!-- /.inner-banner -->
         {% endblock %}
 {% block contents %}
-    <h1>Coli edit</h1>
-<section id="slider-area">
     <!--== slide Item One ==-->
-    <div class="single-slide-item overlay">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-5 col-lg-6">
+                                <section class="contact-form-style-one">
+                                    <div class="container">
+                                        <div class="block-title text-center">
 
-                    <div class="book-a-car">
+                                        </div><!-- /.block-title -->
+                                        {{ form_start(edit_form,{'attr': {'class' : 'contact-form-one row'}}) }}
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.depart,{ 'attr': {'placeholder': 'Depart'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.destination,{ 'attr': {'placeholder': 'Destination'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.nomExpediteur,{ 'attr': {'placeholder': 'Nom Expediteur'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.mailExpediteur,{ 'attr': {'placeholder': 'Mail Expediteur'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.poids,{ 'attr': {'placeholder': 'Poids'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.nomDestinataire,{ 'attr': {'placeholder': 'Nom Destinataire'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.telDestinataire,{ 'attr': {'placeholder': 'Numero De Telephone'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.mailDestinataire,{ 'attr': {'placeholder': 'Mail Destinataire'} }) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
 
-                            <!--== Pick Up Location ==-->
-                            <div class="pickup-location book-item">
-                          {{ form_start(edit_form) }}
+                                        <div class="col-lg-6">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form.captcha) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-6" style="position: relative;top: 30px">
+                                            <div class="input-holder">
+                                                {{ form_widget(edit_form) }}
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        <div class="col-lg-12" style="position: relative;left: -150px">
+                                            <div class="input-holder text-center">
+                                                <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                                <button class="theme-btn btn-style-two" type="submit" data-loading-text="Please wait..."><span>Modifier Colis</span></button>
+                                            </div><!-- /.input-holder -->
+                                        </div><!-- /.col-lg-6 -->
+                                        {{ form_end(edit_form) }}
+                                    </div><!-- /.container -->
 
-        {{ form_widget(edit_form) }}
-        <button type="submit"  name="Edit" title="Edit" class="btn-outline-success"><i class="fa fa-edit">Modifier</i></button>
+                                    {{ form_end(edit_form) }}
 
-        {{ form_end(edit_form) }}
+                                    <div class="col-lg-12" style="position: relative;top: -95px;left: 150px">
+                                        <div class="input-holder text-center">
+                                            {{ form_start(delete_form) }}
+                                            <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                                            <button class="theme-btn btn-style-two" type="submit" data-loading-text="Please wait..."><span>Supprimer Colis</span></button>
+
+                                            {{ form_end(delete_form) }}
+                                        </div><!-- /.input-holder -->
+                                    </div><!-- /.col-lg-6 -->
+                                </section><!-- /.contact-form-style-one -->
 
     <ul>
 
-            {{ form_start(delete_form) }}
-            <button type="submit"  name="Delete" title="Delete" class="btn-outline-danger"><i class="fa fa-remove">Supprimer</i></button>
-
-            {{ form_end(delete_form) }}
 
         <li>
             <a href="{{ path('colis_afficher') }}">Back to the list</a>
@@ -46,9 +103,6 @@
 
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
 
 
 {% endblock %}

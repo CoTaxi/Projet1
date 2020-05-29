@@ -1,5 +1,16 @@
 {% extends'layout.html.twig' %}
+  {% block cnx %}
 
+      {% if (user != null ) %}
+
+          <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-user-circle"></i>LOGOUT</a>
+
+          <a href="#"><i class="fa fa-envelope"></i>{{ user.Email }}</a>
+      {% endif %}
+      {% if (user == null)%}
+          <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle"></i>Sign In</a>
+      {% endif %}
+  {% endblock %}
         {% block bg %}
             <section class="inner-banner">
                 <div class="container">
@@ -18,9 +29,9 @@
         <div class="container">
             <div class="block-title text-center">
                 <div class="dot-line"></div><!-- /.dot-line -->
-                <h2>Register</h2>
+                <h2>Envoyer Colis</h2>
             </div><!-- /.block-title -->
-            {{ form_start(form) }}
+            {{ form_start(form,{'attr': {'class' : 'contact-form-one row'}}) }}
             <div class="col-lg-6">
                 <div class="input-holder">
                     {{ form_widget(form.depart,{ 'attr': {'placeholder': 'Depart'} }) }}
@@ -63,6 +74,11 @@
             </div><!-- /.col-lg-6 -->
 
             <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.captcha) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6" style="position: relative;top: 30px">
                 <div class="input-holder">
                     {{ form_widget(form) }}
                 </div><!-- /.input-holder -->
