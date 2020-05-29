@@ -70,33 +70,36 @@
                         <li class=" current ">
                             <a href="{{ path('homepage') }}">Acceuil</a>
                         </li>
+                        {% if ((is_granted('ROLE_CLIENT'))) %}
                         <li><a href="{{ path('ourservices') }}">Nos Services</a></li>
+                        {% endif %}
+
+                        {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
+                            <li><a href="#">Vehicules</a></li>
+                        {% endif %}
+
+                        {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
+                            <li><a href="#">Maintenance</a></li>
+                        {% endif %}
                         <li>
-                            <a href="#">Pages</a>
-                            <ul class="sub-menu">
-                                <li><a href="driver.html">Our Drivers</a></li>
-                                <li><a href="taxi.html">Our Taxi</a></li>
-                                <li><a href="single-taxi.html">Taxi Details</a></li>
-                            </ul><!-- /.sub-menu -->
+                            <a href="#">Reclamation</a>
                         </li>
-                        <li><a href="book-ride.html">Book A Ride</a></li>
+
+                        {% if ((is_granted('ROLE_CLIENT'))) %}
+                            <li><a href="{{ path('ourservices') }}">Evenement</a></li>
+                        {% endif %}
                         <li>
-                            <a href="blog.html">Blog</a>
-                            <ul class="sub-menu">
-                                <li><a href="blog.html">Blog Grid</a></li>
-                                <li><a href="blog-details.html">Blog Details</a></li>
-                            </ul><!-- /.sub-menu -->
+                            <a href="#">Blog</a>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
                 <div class="right-side-box">
-                    <a href="callto:888-888-0000" class="contact-btn-block">
+                    <a href="Appel:22-222-2222" class="contact-btn-block">
                             <span class="icon-block">
                                 <i class="conexi-icon-phone-call"></i>
                             </span>
                         <span class="text-block">
-                                888 888 0000
+                                22 222 222
                                 <span class="tag-line">Phone line</span>
                             </span>
                     </a>

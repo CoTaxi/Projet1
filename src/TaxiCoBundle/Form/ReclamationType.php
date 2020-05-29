@@ -30,48 +30,22 @@ class ReclamationType extends AbstractType
             'multiple' => false,
 
         ))
-
             ->add('chauff', EntityType::class, array(
                 'class' => 'TaxiCoBundle:User',
                 'label' => 'Chauffeur : ',
                 'attr' => ['class' => 'form-control form-control-lg'],
                 'multiple' => false,
-                'disabled' => true,
-                'choice_label' => function(User $user){
+                'choice_label' => function (User $user) {
                     return $user->getPrenom() . ' ' . $user->getNom();
                 },
             ))
             ->add('message', TextareaType::class, array(
-                'attr' => ['class' => 'form-control form-control-lg',
+                'attr' => ['class' => 'form-control',
                     'placeholder' => 'Votre message ici...',
+                    'name' => 'form_message',
                     'cols' => '30',
                     'rows' => '8'],
             ));
-        $builder->get('Objet')->addEventListener(FormEvents::POST_SET_DATA,
-            function (FormEvent $event) {
-                $rec = $event->getData();
-                var_dump($rec);
-                $form = $event->getForm();
-                if ($rec!='Voiture/Chauffeur') {
-                    $form->getParent()->add('chauff', ChoiceType::class, array(
-                        'label' => 'Chauffeur : ',
-                        'attr' => ['class' => 'form-control form-control-lg'],
-                        'multiple' => false,
-                        'disabled' => true,
-                        'choices' => array('None' => "None",)
-                    ));
-                } else {
-                    $form->getParent()->add('chauff', EntityType::class, array(
-                        'class' => 'TaxiCoBundle:User',
-                        'label' => 'Chauffeur : ',
-                        'attr' => ['class' => 'form-control form-control-lg'],
-                        'multiple' => false,
-                        'choice_label' => function (User $user) {
-                            return $user->getPrenom() . ' ' . $user->getNom();
-                        },
-                    ));
-                }
-            });
     }
 
     /**
@@ -91,6 +65,5 @@ class ReclamationType extends AbstractType
     {
         return 'taxicobundle_reclamation';
     }
-
 
 }
