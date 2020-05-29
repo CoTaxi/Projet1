@@ -1979,7 +1979,6 @@ hr.style-one {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
-          justify-content: space-between;
   -webkit-box-align: start;
           align-items: start;
   border-bottom: 2px solid #F3F3F3;
