@@ -13,30 +13,37 @@ use TaxiCoBundle\TaxiCoBundle;
  */
 class typereclamationRepository extends \Doctrine\ORM\EntityRepository
 {
+    public function findDQLAll($id)
+    {
+        $query = $this->getEntityManager()->createQuery
+        ("SELECT r From TaxiCoBundle:Reclamation r where r.idch=$id and r.etat ='Non traitée' or r.etat ='Traitée' or r.etat ='En cours de traitement'");
+        return $query->getResult();
+    }
+
     public function findDQLNT()
     {
-        $query=$this->getEntityManager()->createQuery
+        $query = $this->getEntityManager()->createQuery
         ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Non traitée'");
         return $query->getResult();
     }
 
     public function findDQLT()
     {
-        $query=$this->getEntityManager()->createQuery
+        $query = $this->getEntityManager()->createQuery
         ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Traitée'");
         return $query->getResult();
     }
 
     public function findDQLCT()
     {
-        $query=$this->getEntityManager()->createQuery
+        $query = $this->getEntityManager()->createQuery
         ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='En cours de traitement'");
         return $query->getResult();
     }
 
     public function findDQLArch()
     {
-        $query=$this->getEntityManager()->createQuery
+        $query = $this->getEntityManager()->createQuery
         ("SELECT r From TaxiCoBundle:Reclamation r where r.etat ='Archivée'");
         return $query->getResult();
     }
@@ -55,7 +62,7 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
             ->select('COUNT(r)')
             ->from('TaxiCoBundle:Reclamation', 'r')
             ->where('r.etat=:etat')
-            ->setParameter('etat','Archivée');
+            ->setParameter('etat', 'Archivée');
 
         return $queryBuilder->getQuery()->getSingleScalarResult();
     }
@@ -66,7 +73,7 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
             ->select('COUNT(r)')
             ->from('TaxiCoBundle:Reclamation', 'r')
             ->where('r.etat=:etat')
-            ->setParameter('etat','Non traitée');
+            ->setParameter('etat', 'Non traitée');
 
         return $queryBuilder->getQuery()->getSingleScalarResult();
     }
@@ -77,7 +84,7 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
             ->select('COUNT(r)')
             ->from('TaxiCoBundle:Reclamation', 'r')
             ->where('r.etat=:etat')
-            ->setParameter('etat','Traitée');
+            ->setParameter('etat', 'Traitée');
 
         return $queryBuilder->getQuery()->getSingleScalarResult();
     }
@@ -88,7 +95,7 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
             ->select('COUNT(r)')
             ->from('TaxiCoBundle:Reclamation', 'r')
             ->where('r.etat=:etat')
-            ->setParameter('etat','En cours de traitement');
+            ->setParameter('etat', 'En cours de traitement');
 
         return $queryBuilder->getQuery()->getSingleScalarResult();
     }
@@ -96,7 +103,7 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
     public function DeleteAllRecDQB()
     {
         $queryBuilder = $this->_em->createQueryBuilder('dr')
-            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->delete('TaxiCoBundle:Reclamation', 'dr')
             ->getQuery()
             ->execute();
         return $queryBuilder;
@@ -105,9 +112,9 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
     public function DeleteAllArchDQB()
     {
         $queryBuilder = $this->_em->createQueryBuilder('dr')
-            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->delete('TaxiCoBundle:Reclamation', 'dr')
             ->where('dr.etat=:etat')
-            ->setParameter('etat','Archivée')
+            ->setParameter('etat', 'Archivée')
             ->getQuery()
             ->execute();
         return $queryBuilder;
@@ -116,9 +123,9 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
     public function DeleteAllCTDQB()
     {
         $queryBuilder = $this->_em->createQueryBuilder('dr')
-            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->delete('TaxiCoBundle:Reclamation', 'dr')
             ->where('dr.etat=:etat')
-            ->setParameter('etat','En cours de traitement')
+            ->setParameter('etat', 'En cours de traitement')
             ->getQuery()
             ->execute();
         return $queryBuilder;
@@ -127,9 +134,9 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
     public function DeleteAllTDQB()
     {
         $queryBuilder = $this->_em->createQueryBuilder('dr')
-            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->delete('TaxiCoBundle:Reclamation', 'dr')
             ->where('dr.etat=:etat')
-            ->setParameter('etat','Traitée')
+            ->setParameter('etat', 'Traitée')
             ->getQuery()
             ->execute();
         return $queryBuilder;
@@ -138,12 +145,11 @@ class typereclamationRepository extends \Doctrine\ORM\EntityRepository
     public function DeleteAllNTDQB()
     {
         $queryBuilder = $this->_em->createQueryBuilder('dr')
-            ->delete('TaxiCoBundle:Reclamation','dr')
+            ->delete('TaxiCoBundle:Reclamation', 'dr')
             ->where('dr.etat=:etat')
-            ->setParameter('etat','Non traitée')
+            ->setParameter('etat', 'Non traitée')
             ->getQuery()
             ->execute();
         return $queryBuilder;
     }
-
 }

@@ -87,7 +87,7 @@ taxi_co_updateRec:
   defaults: { _controller: TaxiCoBundle:Reclamation:modifierReclamation }
 
 taxi_co__mailRec:
-  path:     /mail
+  path:     /mail/{msg}
   defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
 
 # For Admin :

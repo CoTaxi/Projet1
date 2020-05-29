@@ -1,106 +1,91 @@
-{% extends "//baseRec.html.twig" %}
-{% block stylesheets %}
-    <link href="{{ asset('comment/bootstrap/dist/css/bootstrap.min.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('comment/css/style.css') }}" rel="stylesheet"/>
-    <link href="{{ asset('comment/css/colors/default.css') }}" id="theme" rel="stylesheet"/>
-
-    {#    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">#}
+{% extends "//layout.html.twig" %}
+{% block bg %}
+    <section class="inner-banner">
+        <div class="container">
+            <ul class="thm-breadcrumb">
+                <li><a href="index-2.html">TaxiCo</a></li>
+                <li><span class="sep">.</span></li>
+                <li><span class="page-title">Récalamations</span></li>
+            </ul><!-- /.thm-breadcrumb -->
+            <h2>Gérer vos réclmations</h2>
+            <span class="page-title">Ajouter, supprimer, modifier vos réclamations en toute fluidité 💯✔</span>
+        </div><!-- /.container -->
+    </section><!-- /.inner-banner -->
 {% endblock %}
-
 {% block contents %}
-    <section id="page-title-area" class="section-padding overlay">
+    <section class="single-blog-details-page">
         <div class="container">
             <div class="row">
-                <!-- Page Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2> Contactez nous</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                        <p style="font-size: larger;">Gérez vos réclamation en toute simplicité</p>
-                    </div>
-                </div>
-                <!-- Page Title End -->
-            </div>
-        </div>
-    </section>
-    <div class="contact-page-wrao section-padding">
-        <div class="container">
-            {#            <div class="row">#}
-            {#                <div class="col-lg-10 m-auto">#}
-            {#                    <div class="contact-form">#}
-            {#                        <!--== Page Title Area End ==-->#}
-            {#                        {% for entity in tabs %}#}
-            {#                            {{ entity.idR }}#}
-            {#                            {{ entity.Objet.titre }}#}
-            {#                            {{ entity.message }}#}
-            {#                            {{ entity.etat}}#}
-            {#                            {{ entity.dateRec|date('Y-m-d H:i:s')}}#}
-            {#                            {{ entity.reponse}}#}
-            {#                            <a href="{{ path('taxi_co_deletetRec', {id: entity.idR}) }}">Supprimer</a>#}
-            {#                            <a href="{{ path('taxi_co_updateRec', {id: entity.idR}) }}">Modifier</a>#}
-            {#                            <a href="{{ path('taxi_co_listRec', {id: entity.idR}) }}">Afficher</a>#}
-            {#                            <br><br>#}
-            {#                        {% endfor %}#}
-            {#                    </div>#}
-            {#                 </div>#}
-            {#             </div>#}
-            <div class="row">
-                <!-- .col -->
-                <div class="col-md-12 col-lg-12 col-sm-12">
-                    <div class="white-box">
-                        <span class="title-line"><h3 class="box-title"><i class="fa fa-quote-left text-warning"></i>   Vos réclamations récentes</h3></span>
-                        <div class="comment-center p-t-10">
-                            {% for entity in tabs %}
-                                <div class="comment-body">
-                                    <div class="user-img"><img
-                                                src="{{ asset('comment/plugins/images/users/pawandeep.jpg') }}"
-                                                alt="user" class="img-circle">
-                                    </div>
-                                    <div class="mail-contnet">
-                                        <h4>{{ user.prenom }} {{ user.nom }}</h4><span
-                                                class="time">{{ entity.dateRec|date('Y-m-d H:i:s') }} - <strong
-                                                    class="text-danger">{{ entity.etat }}</strong> </span>
-                                        <span class="mail-desc"> <strong>Objet : {{ entity.Objet.titre }}.</strong> <br> <p
-                                                    class="text-dark">{{ entity.message }}</p></span>
-                                        <span class="mail-desc"> <strong class="text-info">       Réponse administrative : </strong><br><p
-                                                    class="text-secondary">{{ entity.reponse }}.</p></span>
-                                        <a href="{{ path('taxi_co_deletetRec', {id: entity.idR}) }}"
-                                           class="btn btn btn-rounded btn-default btn-outline m-r-5">
-                                            <i class="ti-check text-success m-r-5"></i>Supprimer</a>
-                                        <a href="{{ path('taxi_co_updateRec', {id: entity.idR}) }}"
-                                           class="btn-rounded btn btn-default btn-outline">
-                                            <i class="ti-close text-danger m-r-5"></i> Modifier</a>
-                                        <a href="{{ path('taxi_co__mailRec') }}"
-                                           class="btn-rounded btn btn-default btn-outline">
-                                            <i class="ti-close text-danger m-r-5"></i> E-mail</a>
-                                    </div>
-                                </div>
-                            {% endfor %}
-                            {#                        <div class="comment-body">#}
-                            {#                            <div class="user-img"><img src="{{ asset('comment/plugins/images/users/sonu.jpg') }}"#}
-                            {#                                                       alt="user" class="img-circle">#}
-                            {#                            </div>#}
-                            {#                            <div class="mail-contnet">#}
-                            {#                                <h5>Sonu Nigam</h5><span class="time">10:20 AM   20  may 2016</span>#}
-                            {#                                <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>#}
-                            {#                            </div>#}
-                            {#                        </div>#}
-                            {#                        <div class="comment-body b-none">#}
-                            {#                            <div class="user-img"><img src="{{ asset('comment/plugins/images/users/arijit.jpg') }}"#}
-                            {#                                                       alt="user" class="img-circle">#}
-                            {#                            </div>#}
-                            {#                            <div class="mail-contnet">#}
-                            {#                                <h5>Arijit singh</h5><span class="time">10:20 AM   20  may 2016</span>#}
-                            {#                                <br/><span class="mail-desc">Donec ac condimentum massa. Etiam pellentesque pretium lacus. Phasellus ultricies dictum suscipit. Aenean commodo dui pellentesque molestie feugiat. Aenean commodo dui pellentesque molestie feugiat</span>#}
-                            {#                            </div>#}
-                            {#                        </div>#}
-                        </div>
+                <div class="col-lg-8">
+                    <div class="comments-block">
+                        <div class="block-title">
+                            <h2><i class="fa fa-quote-left text-warning"></i> Vos Réclamations</h2>
+                        </div><!-- /.block-title -->
+                        {% for entity in tabs %}
+                        <div class="single-comment-one">
+                            <div class="image-block">
+                                <div class="inner-block">
+                                    <img src="{{ asset ('TaxiCo/images/blog/comment-1-2.jpg') }}"
+                                         alt="Awesome Image"/>
+                                </div><!-- /.inner-block -->
+                            </div><!-- /.image-block -->
+                            <div class="text-block">
+                                <h3>{{ user.prenom }} {{ user.nom }} <span
+                                            class="accrodion-title text-info"> - {{ entity.Objet.titre }}</span>
+                                    {% if entity.Objet.titre == 'Voiture/Chauffeur' %}
+                                     <h5 style="color: #fe7a15;"><li class="fa fa-user"></li> ‍ {{ entity.chauff }}</h5>
+                                    {% endif %}
+                                </h3>
 
-                    </div>
+                                <h5><i class="fa fa-clock-o"> </i><span class="date-line">{{ entity.dateRec|date('Y-m-d H:i:s') }}</span>
+                                    {% if entity.etat == 'Non traitée' %}
+                                    <span class="text-danger">    -   <i class="fa fa-times-circle-o"> </i> {{ entity.etat }}</span></h5>
+                                <p><strong> <i class="fa fa-envelope-open-o"> </i> Votre message : </strong> {{ entity.message }}</p>
 
-                </div>
-            </div>
-        </div>
+                                <p><strong class="text-primary"> <i class="fa fa-reply"> </i>  Réponse administrative : </strong>{{ entity.reponse }}</p>
+                                <a href="{{ path('taxi_co_deletetRec', {id: entity.idR}) }}"
+                                   class="reply-btn"><i class="fa fa-trash-o"></i> Supprimer</a>
+
+                                <a href="{{ path('taxi_co_updateRec', {id: entity.idR}) }}" class="reply-btn" disabled><i
+                                            class="fa fa-edit"></i> Modifier</a>
+                                <a href="{{ path('taxi_co__mailRec', {msg: entity.message}) }}" class="reply-btn"><i
+                                            class="fa fa-envelope-o"></i> Email</a>
+                            </div><!-- /.text-block -->
+                        </div><!-- /.single-comment-one -->
+                        {% elseif entity.etat == 'En cours de traitement' %}
+                        <span class="text-warning">    -   <i class="fa fa-spinner"></i> {{ entity.etat }}</span></h5>
+                        <p><strong> <i class="fa fa-envelope-open-o"> </i> Votre message : </strong> {{ entity.message }}</p>
+
+                        <p><strong class="text-primary"> <i class="fa fa-reply"> </i> Réponse administrative : </strong>{{ entity.reponse }}</p>
+                        <a href="{{ path('taxi_co_deletetRec', {id: entity.idR}) }}"
+                           class="reply-btn"><i class="fa fa-trash-o"></i> Supprimer</a>
+
+                        <a href="{{ path('taxi_co_updateRec', {id: entity.idR}) }}" class="reply-btn" disabled><i
+                                    class="fa fa-edit"></i> Modifier</a>
+                        <a href="{{ path('taxi_co__mailRec', {msg: entity.message}) }}" class="reply-btn"><i
+                                    class="fa fa-envelope-o"></i> Email</a>
+                    </div><!-- /.text-block -->
+                </div><!-- /.single-comment-one -->
+                {% elseif entity.etat == 'Traitée' %}
+                <span class="text-success">    -   <i class="fa fa-check"> </i> {{ entity.etat }}</span></h5>
+                <p><strong> <i class="fa fa-envelope-open-o"> </i> Votre message : </strong> {{ entity.message }}</p>
+
+                <p><strong class="text-primary"> <i class="fa fa-reply"> </i> Réponse administrative : </strong>{{ entity.reponse }}</p>
+                <a href="{{ path('taxi_co_deletetRec', {id: entity.idR}) }}"
+                   class="reply-btn"><i class="fa fa-trash-o"></i> Supprimer</a>
+
+                <a href="javascript:alert('Oops! Votre réclamation a été traitée, vous ne pouvez pas la modifier.');"
+                   class="reply-btn"><i
+                            class="fa fa-edit"></i> Modifier</a>
+                <a href="{{ path('taxi_co__mailRec', {msg: entity.message}) }}" class="reply-btn"><i
+                            class="fa fa-envelope-o"></i> Email</a>
+            </div><!-- /.text-block -->
+        </div><!-- /.single-comment-one -->
+        {% endif %}
+
+        {% endfor %}
+    </section><!-- /.comments-block -->
     </div>
-
+    </div>
+    </div>
 {% endblock %}

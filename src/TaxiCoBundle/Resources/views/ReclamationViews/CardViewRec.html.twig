@@ -27,21 +27,21 @@
                                     href="{{ path('taxi_co__backlistCardTRec') }}">
                                     <i class="fa fa-check-square text-light"></i>
                                 </a></span>
-                        <span class="badge badge-warning float-right" style="margin-left:4px; "><a
-                                    href="{{ path('taxi_co__backlistCardCTRec') }}">
+                            <span class="badge badge-warning float-right" style="margin-left:4px; "><a
+                                        href="{{ path('taxi_co__backlistCardCTRec') }}">
                                     <i class="fa fa-spinner text-light"></i>
                                 </a></span>
-                        <span class="badge badge-danger float-right" style="margin-left:4px; "><a
-                                    href="{{ path('taxi_co__backlistCardNTRec') }}">
+                            <span class="badge badge-danger float-right" style="margin-left:4px; "><a
+                                        href="{{ path('taxi_co__backlistCardNTRec') }}">
                                     <i class="fa fa-exclamation text-light"></i>
                                 </a></span>
-                        <span class="badge badge-secondary float-right" style="margin-left:4px; "><a
-                                    href="{{ path('taxi_co__backlistCardArchRec') }}">
+                            <span class="badge badge-secondary float-right" style="margin-left:4px; "><a
+                                        href="{{ path('taxi_co__backlistCardArchRec') }}">
                                     <i class="fa fa-archive text-light"></i>
                                 </a></span>
-                        <span class="badge badge-info float-right"><a href="{{ path('taxi_co__backListRec') }}">
+                            <span class="badge badge-info float-right"><a href="{{ path('taxi_co__backListRec') }}">
                                     <i class="fa fa-tasks text-light"></i>
-                                </a></span> </li>
+                                </a></span></li>
                     </ol>
                 </div>
             </div>
@@ -56,16 +56,28 @@
                         <div class="col-md-4">
                             <div class="card">
                                 <div class="card-header">
-                                    <i class="fa fa-user"></i><strong class="card-title pl-2">Profile Card - <span class="badge badge-primary">{{ entity.idR }}</span></strong>
-                                    <br><span class="badge badge-secondary"> {{ entity.dateRec|date('Y-m-d H:i:s') }}</span>
-                                   <br> <span class="badge badge-info"> {{ entity.etat }}</span>
+                                    <i class="fa fa-list-alt"></i><strong
+                                            class="card-title pl-2">{{ entity.Objet.titre }}</strong>
+                                    {% if entity.Objet.titre != 'Voiture/Chauffeur' %}
+                                        <span class="badge badge-secondary"> Aucun. </span>
+                                    {% else %}
+                                        <span class="badge badge-secondary"> {{ entity.chauff }} </span>
+                                    {% endif %}
+                                    <br><span
+                                            class="badge badge-primary"> {{ entity.dateRec|date('Y-m-d H:i:s') }}</span>
+                                    {% if entity.etat == 'Non traitée' %}
+                                        <br> <span class="badge badge-danger"> {{ entity.etat }}</span>
+                                    {% elseif  entity.etat == 'En cours de traitement' %}
+                                        <br> <span class="badge badge-warning"> {{ entity.etat }}</span>
+                                    {% elseif entity.etat == 'Traitée' %}
+                                        <br> <span class="badge badge-success"> {{ entity.etat }}</span>
+                                    {% endif %}
                                 </div>
                                 <div class="card-body">
                                     <div class="mx-auto d-block">
                                         <img class="rounded-circle mx-auto d-block"
-                                             src="{{ asset('sufee-admin-dashboard-master/images/admin.jpg') }}"
+                                             src="{{ asset('sufee-admin-dashboard-master/images/recimg.png') }}"
                                              alt="Card image cap">
-                                        <h5 class="text-sm-center mt-2 mb-1">{{ entity.Objet.titre }}</h5>
                                         <div class="location text-sm-center"><i
                                                     class="fa fa-comment"></i> {{ entity.message }}</div>
                                         <div class="location text-sm-center"><i
@@ -74,8 +86,10 @@
 
                                     <hr>
                                     <div class="card-text text-sm-center">
-                                        <a href="{{ path('taxi_co__backDeleteCardRec', {id: entity.idR}) }}"><i class="fa fa-trash-o text-danger"></i></a>
-                                        <a href="{{ path('taxi_co__backupdateRec', {id: entity.idR}) }}"><i class="fa fa-edit text-warning"></i></a>
+                                        <a href="{{ path('taxi_co__backDeleteCardRec', {id: entity.idR}) }}"><i
+                                                    class="fa fa-trash-o text-danger"></i></a>
+                                        <a href="{{ path('taxi_co__backupdateRec', {id: entity.idR}) }}"><i
+                                                    class="fa fa-edit text-warning"></i></a>
                                     </div>
                                 </div>
                             </div>
