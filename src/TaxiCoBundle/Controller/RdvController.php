@@ -27,13 +27,9 @@ class RdvController extends Controller
         return $this->render('@TaxiCo/Rdv/display.html.twig', array('rdvs' => $rdv
         ));
     }
-public function Display2Action()
+    public function Display2Action()
     {
         $em = $this->getDoctrine()->getManager();
-
-//        $service = $em->getRepository(Service::class)->findBy(name);
-//        $garage = $em->getRepository(Garage::class)->findBy(name);
-//        $rdv = $em->getRepository(Rdv::class)->findBy(dateRdv);
         $rdv2 = $em->getRepository(Rdv::class)->findrdv();
         dump($rdv2);
         return $this->render('@TaxiCo/Rdv/front2.html.twig', array(
@@ -61,12 +57,12 @@ public function Display2Action()
 //            {
 //                $rdv->setIdService($array_service[0]);
 //                $rdv->setService($array_service[0]);
-                //persist the object $club in the ORM
-                $em->persist($rdv);
-                //update the data base with flush
-                $em->flush();
-                //redirect the route after the add
-                return $this->redirectToRoute('displayrdv');
+            //persist the object $club in the ORM
+            $em->persist($rdv);
+            //update the data base with flush
+            $em->flush();
+            //redirect the route after the add
+            return $this->redirectToRoute('displayrdv');
 
 //            }else {
 //                return new Response('ce service n est pas affecter a un rdv');
@@ -103,6 +99,15 @@ public function Display2Action()
         $em->remove($find);
         $em->flush();
         return $this->redirectToRoute('displayrdv');
+    }
+    public function updatedispoAction($id)
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find=$this->getDoctrine()->getRepository(Rdv::class)->find($id);
+        $find->setStatus("disponible");
+        $find->setIdChauffeur(0);
+        $em->flush();
+        return $this->redirectToRoute('test2');
     }
 //    /**
 //     * Creates a new coli entity.
@@ -142,7 +147,7 @@ public function Display2Action()
         $em->persist($rdv);
         $em->flush();
         $ss = $em->getRepository(Rdv::class)->findDQL($rdv->getIdService());
-            $form = $this->createFormBuilder($rdv)
+        $form = $this->createFormBuilder($rdv)
             ->add('garage',EntityType::class,array($ss))
             ->add('Add',SubmitType::class)
             ->getForm();
@@ -245,15 +250,27 @@ public function Display2Action()
     public function listAction(Request $request)
     {
         $rdv = new Rdv();
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $form = $this->createForm(ReserveType::class, $rdv);
+        $em=$this->getDoctrine()->getManager();
+        $find=$this->getDoctrine()->getRepository(Rdv::class)->find(9);
         $form->handleRequest($request);
 //
         if ($form->isSubmitted() && $form->isValid()) {
-            dump($form->getParent()->getData());
-            $rdv ->setStatus("nondisponible");
+            dump($form->getData());
+            $find ->setStatus("nondisponible");
+            $find ->setIdChauffeur($usrId);
 //            dump($rdv);
             $em = $this->getDoctrine()->getManager();
-            $em->persist($rdv);
+            $basic  = new \Nexmo\Client\Credentials\Basic('8dde225c', 'mLVMaMwx4TCdDIRJ');
+            $client = new \Nexmo\Client($basic);
+
+            $message = $client->message()->send([
+                'to' => '21651766031',
+                'from' => 'TaxiCo',
+                'text' => 'You have just picked an Rdv For our services'
+            ]);
+            $em->persist($find);
             $em->flush();
             return $this->redirectToRoute("test2");
 

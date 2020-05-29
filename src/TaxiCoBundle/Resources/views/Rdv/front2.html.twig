@@ -5,6 +5,18 @@
 
 {% endblock %}
 {% block body %}
+    {% block bg %}
+        <section class="inner-banner">
+            <div class="container">
+                <ul class="thm-breadcrumb">
+                    <li><a href="index-2.html">TaxiCo</a></li>
+                    <li><span class="sep">.</span></li>
+                    <li><span class="page-title">Maintenance</span></li>
+                </ul><!-- /.thm-breadcrumb -->
+                <h2>Liste des rendez vous</h2>
+            </div><!-- /.container -->
+        </section><!-- /.inner-banner -->
+    {% endblock %}
     {% block contents %}
 
 
@@ -70,11 +82,11 @@
                                                     {#            <td>{{ s.status }}</td>#}
                                                     {#            <td>{{ s.service.name }}</td>#}
 
-{#                                                    <td><a href="{{ path('updaterdv',{'id':s.idRdv}) }}">#}
-{#                                                            <button type="button" class="btn btn-primary">Modifier#}
-{#                                                            </button>#}
-{#                                                        </a></td>#}
-                                                    <td><a href="{{ path('deleterdv',{'id':s.idRdv}) }}">
+                                                    {#                                                    <td><a href="{{ path('updaterdv',{'id':s.idRdv}) }}">#}
+                                                    {#                                                            <button type="button" class="btn btn-primary">Modifier#}
+                                                    {#                                                            </button>#}
+                                                    {#                                                        </a></td>#}
+                                                    <td><a href="{{ path('updatedispordv',{'id':s.idRdv}) }}">
                                                             <button type="button" class="btn btn-primary">Annuler Réservation
                                                             </button>
                                                         </a></td>
