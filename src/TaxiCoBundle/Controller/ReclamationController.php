@@ -22,7 +22,6 @@ class ReclamationController extends Controller
     {
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $reclamation = new Reclamation();
-
         $find = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id'=> $usrId));
         $form = $this->createForm(ReclamationType::class, $reclamation);
         $form->handleRequest($request);
@@ -43,7 +42,10 @@ class ReclamationController extends Controller
     {
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findBy(array('idch'=> $usrId));
+//        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findBy(array(
+//            'idch'=> $usrId,
+//        ));
+        $reclamation = $em->getRepository("TaxiCoBundle:typereclamation")->findDQLAll($usrId);
         $userRec = $em->getRepository("TaxiCoBundle:User")->find($usrId);
         return $this->render("@TaxiCo/ReclamationViews/listReclamation.html.twig", array('tabs' => $reclamation,
             'user'=>$userRec));
@@ -75,13 +77,16 @@ class ReclamationController extends Controller
         ));
     }
 
-    public function mailReclamationAction()
+    public function mailReclamationAction($msg)
     {
         $message = \Swift_Message::newInstance()
             ->setSubject('Réclamation')
             ->setFrom('rmilioussama70@gmail.com')
             ->setTo('rmilissou@gmail.com')
-            ->setBody('Bonjour monsieur,\n  Veuillez traiter la réclamation que j\'ai envoyé et de laisser une réponse. \n ');
+            ->setBody($msg);
+//            ->setBody('Bonjour monsieur,
+//             Veuillez traiter la réclamation que j\'ai envoyé et de laisser une réponse. ');
+
         $this->get('mailer')->send($message);
         return $this->redirectToRoute('taxi_co_listRec');
     }
