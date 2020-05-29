@@ -1,65 +1,77 @@
 {% extends 'layout.html.twig' %}
 
+{% block bg %}
+    <section class="inner-banner">
+        <div class="container">
+            <ul class="thm-breadcrumb">
+                <li><a href="index-2.html">TaxiCo</a></li>
+            </ul><!-- /.thm-breadcrumb -->
+            <h2>Vehicules</h2>
+        </div><!-- /.container -->
+    </section><!-- /.inner-banner -->
+{% endblock %}
+
+
 {% block contents %}
-
-    <section id="pricing-area"   class="section-padding overlay">
-
+    <section class="single-blog-details-page">
         <div class="container">
             <div class="row">
-                <!-- Section Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>Liste des Taxi</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
+                <div class="col-lg-8">
+                    <div class="comments-block">
+                        <div class="block-title">
+                            <h2><i class="fa fa-quote-left text-warning"></i> Vos Taxis</h2>
+                        </div><!-- /.block-title -->
 
 
-                <!-- Section Title End -->
-                {% for vehicule in vehicule %}
-                    {% if vehicule.type =="taxi" %}
-                <div class="card-group">
-                    <div class="card " style="width: 18rem;">
-                        <div class="card-body">
-                        <div class="card-img-top" ><img src="{{ asset('uploads/images/' ~ vehicule.matricule) }}" alt=""class="img-thumbnail"></div>
-                        </div>
-                        <div class="card-footer text-center">
+                        {% for vehicule in vehicule %}
+
+                        {% if vehicule.type =="Taxi" %}
 
 
-                            <button class="btn btn-warning btn-sm"
-                                    id="center" style="color:white">
-                                <a href="{{ path('vehicule_updatetaxi',{'id':vehicule.id}) }}" >modifier</a>
-                            </button>
-                            {% if (vehicule.etat==1)  %}
-                            <button class="btn btn-warning btn-sm"
-                                    id="center" style="color:white">
-                                <a href="{{ path('acceptercolis',{'idV':vehicule.id}) }}" >Accepter</a>
-                            </button>
-                            {% endif %}
-                            {% if (vehicule.etat==0) %}
-                                <button class="btn btn-warning btn-sm"
-                                        id="center" style="color:white">
-                                    <a href="" >Annuler</a>
-                                </button>
-                            {% endif %}
-                            <button class="btn btn-danger btn-sm float-right"
-                                    id="right" style="color:white">
-                                <a href="{{ path('vehicule_deletetaxi',{'id':vehicule.id}) }}" >supprimer</a>
-                            </button>
-                        </div>
-                    </div>
+                        <div class="single-comment-one">
+                            <div class="image-block">
+                                <div class="inner-content" >
+                                    <div class="card-img-top" ><img src="{{ asset('uploads/images/' ~ vehicule.matricule) }}" alt=""class="img-thumbnail"></div>
+{#                                    {% if (vehicule.matricule|length() < 10 ) %}#}
+{#                                    <h2>{{ vehicule.matricule }}</h2>#}
+{#                                    {% endif %}#}
+                                </div><!-- /.inner-block -->
+                            </div><!-- /.image-block -->
+                            <div class="text-block">
+                                <h3>{{ vehicule.marque }} {{ vehicule.modele }} <span
+                                            class="accrodion-title text-info"> - {{ vehicule.type }}</span>
+                                </h3>
 
-                </div>
-                    {% endif %}
+
+                                <h5><span class="date-line text-success"><strong> <i class="fa fa-check"> </i> Places:{{vehicule.places}} </strong></span>
+                                    <span class="text-green">    -   <i class="fa fa-times-circle-o"> </i> {{ vehicule.couleur }}</span></h5>
+
+                                <a href="{{ path('vehicule_deletetaxi',{'id':vehicule.id}) }}"
+                                   class="reply-btn"><i class="fa fa-trash-o"></i> Supprimer</a>
+
+                                <a href="{{ path('vehicule_updatetaxi',{'id':vehicule.id}) }}" class="reply-btn" ><i
+                                            class="fa fa-edit"></i> Modifier</a>
+{#                                <a href="{{ path('taxi_co__mailRec') }}" class="reply-btn"><i#}
+{#                                            class="fa fa-envelope-o"></i> Email</a>#}
+                                {% if (vehicule.etat==1)  %}
+
+                                    <a href="{{ path('acceptercolis',{'idV':vehicule.id}) }}"
+                                       class="reply-btn"><i class="fa fa-check-circle-o"></i> Accepter</a>
+
+                                {% endif %}
+                            </div><!-- /.text-block -->
+                        </div><!-- /.single-comment-one -->
+            </div><!-- /.text-block -->
+        </div><!-- /.single-comment-one -->
+                {% endif %}
                 {% endfor %}
 
                 <button class="btn btn-outline-warning btn-block"
                         id="center" style="color:white">
                     <a href="{{ path('vehicule_ajoutvehicule') }}" >Ajouter</a>
                 </button>
-
-
-
-    </section>
+            </div>
+        </div>
+    </section><!-- /.comments-block -->
 
 {% endblock %}

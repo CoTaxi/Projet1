@@ -63,13 +63,21 @@ AfficheEtat:
 Archive:
   path:     /Archive/{idV}
   defaults: { _controller: "TaxiCoBundle:Colis:Archive" }
+clientfirstpage:
+  path:     /clientfirstpage
+  defaults: { _controller: "TaxiCoBundle:Colis:clientfirstpage" }
+parcategorie:
+  path:     /parcategorie/{cat}
+  defaults: { _controller: "TaxiCoBundle:Colis:parcategorie" }
 details:
   path:     /details/{idV}
   defaults: { _controller: "TaxiCoBundle:Colis:details" }
 MiseAjour:
   path:     /MiseAjour/{idC}
   defaults: { _controller: "TaxiCoBundle:Colis:MiseAjour" }
-
+ourservices:
+  path:     /ourservices
+  defaults: { _controller: TaxiCoBundle:Default:ourservices }
 taxi_co_addRec:
   path:     /add
   defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
@@ -460,4 +468,3 @@ vehicule_updateposition:
 vecmatricule:
   path:     /vecmatricule/{matricule}
   defaults: { _controller: TaxiCoBundle:ServiceVec:vecmatricule}
-

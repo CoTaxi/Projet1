@@ -11,11 +11,13 @@ use TaxiCoBundle\Form\VehiculeType;
 class VehiculeController extends Controller
 {
     public function ajoutVehiculeAction(Request $request){
-
+            $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
             $vehicule = new Vehicule();
+        $vehicule->setUser($usrId);
             $form = $this->createForm(VehiculeType::class,$vehicule);
         $form = $form->handleRequest($request);
         if ($form->isSubmitted()&&$form->isValid()) {
+
             $em = $this->getDoctrine()->getManager();
             $file=$vehicule->getMatricule();
             $filename=md5(uniqid()) . '.' . $file->guessExtension();
@@ -38,16 +40,17 @@ class VehiculeController extends Controller
     }
 
     public function taxiAction(Request $request){
-
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-        $vehicule=$em->getRepository('TaxiCoBundle:Vehicule')->findAll();
+        $vehicule=$em->getRepository('TaxiCoBundle:Vehicule')->findBy(array('user'=>$usrId));
         return $this->render('Vehicule/listTaxi.html.twig',
             array('vehicule'=>$vehicule));
     }
     public function CovoiturageAction(Request $request){
 
+        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
-        $vehicule=$em->getRepository('TaxiCoBundle:Vehicule')->findAll();
+        $vehicule=$em->getRepository('TaxiCoBundle:Vehicule')->findBy(array('user'=>$usrId));
         return $this->render('Vehicule/listCovoiturage.html.twig',
             array('vehicule'=>$vehicule));
     }

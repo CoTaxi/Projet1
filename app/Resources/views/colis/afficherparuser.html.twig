@@ -23,16 +23,19 @@
             <ul class="nav nav-tabs tab-title" role="tablist">
                 //class="nav-link active"
                 <li class="nav-item">
-                    <a class="nav-link " href="#hybrid" role="tab" data-toggle="tab">Colis Leger</a>
+                    <a class="nav-link " href="{{ path('colis_afficher' ) }}" >Tous Les Colis</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#town" role="tab" data-toggle="tab">Colis Lourd</a>
+                    <a class="nav-link " href="{{ path('parcategorie', { 'cat': 'Categorie Leger' }) }}" >Colis Leger</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#limousine" role="tab" data-toggle="tab">Colis Liquide</a>
+                    <a  href="{{ path('parcategorie', { 'cat': 'Categorie Lourd' }) }}" >Colis Lourd</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#suv" role="tab" data-toggle="tab">Colis Sensible</a>
+                    <a  href="{{ path('parcategorie', { 'cat': 'Categorie Liquide' }) }}" >Colis Liquide</a>
+                </li>
+                <li class="nav-item">
+                    <a  href="{{ path('parcategorie', { 'cat': 'Categorie Sensible' }) }}" >Colis Sensible</a>
                 </li>
             </ul>
             <div class="tab-content">

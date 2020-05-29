@@ -1,0 +1,32 @@
+{% extends 'layout.html.twig' %}
+
+{% block contents %}
+
+    <section id="pricing-area" class="section-padding overlay">
+        <div class="container" style="position: relative;top: 50px">
+
+            <div class="card  text-white" >
+                <img class="img-fluid" src="{{ asset('TaxiCo/images/consultercolis.png') }}" alt="">
+
+                <button class="btn btn-warning btn-sm"
+                        id="center" style="color:white">
+                    <a href="{{ path('colis_afficher') }}" class="btn btn-outline-secondary btn-lg pull-right">Consulter</a>
+                </button>
+            </div>
+            <br>
+
+            <div class="card bg-dark text-white">
+                <img class="img-fluid" src="{{ asset('TaxiCo/images/ajoutercolis.png') }}" alt="">
+
+                <button class="btn btn-warning btn-sm"
+                        id="center" style="color:white">
+                    <a href="{{ path('colis_new') }}" class="btn btn-outline-secondary btn-lg pull-right">Envoyer</a>
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <br>
+    <br>
+{% endblock %}

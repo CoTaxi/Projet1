@@ -1,5 +1,14 @@
 {% extends 'layout.html.twig' %}
-
+{% block bg %}
+    <section class="inner-banner">
+        <div class="container">
+            <ul class="thm-breadcrumb">
+                <li><a href="index-2.html">TaxiCo</a></li>
+            </ul><!-- /.thm-breadcrumb -->
+            <h2>Vehicules</h2>
+        </div><!-- /.container -->
+    </section><!-- /.inner-banner -->
+{% endblock %}
 {% block contents %}
 
     <section id="pricing-area"   class="section-padding overlay">
@@ -12,12 +21,20 @@
                         <h2>Modifier Votre Vehicule</h2>
                         <span class="title-line"><i class="fa fa-car"></i></span>
                     </div>
-                    <div class="card text-white bg-warning mb-3 align-items-center " style="max-width: 33rem;">
+                    <div class="card text-white bg-warning mb-3 align-items-center " style="max-width: 42rem;">
                         <img class="img-fluid" src="{{ asset('uploads/images/backcard.jfif') }}" alt="">
                         <div class="card-img-overlay">
 
                             {{ form_start (Form) }}
+                            <div class="card-body">
+                                <div class="input-holder">
+                                    {{ form_widget(Form._token) }}
+                                    <button type="submit">Ajouter Vehicule</button>
+                                    {#                                    <input type="submit" class="btn btn-block btn-outline-warning  " value="Ajouter" />#}
+                                </div><!-- /.input-holder -->
+                            </div>
                             {{ form_end (Form) }}
+
                         </div>
                     </div>
                 </div>
