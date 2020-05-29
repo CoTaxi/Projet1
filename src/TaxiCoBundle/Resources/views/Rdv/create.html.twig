@@ -42,14 +42,8 @@
                                 <form role="form">
                                     <div class="card-body">
                                         <div class="form-group">
-                                            <label for="exampleInputEmail1">ID Chauffeur</label>
-                                            {{ form_widget(form.idChauffeur,{ 'attr': {'class': 'form-control'} }) }}
-                                            {#                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
-                                        </div>
-                                        <div class="form-group">
                                             <label for="exampleInputFile">DateRdv</label>
-                                            {{ form_widget(form.dateRdv,{ 'attr': {'class': 'form-control'} }) }}
-                                            {#                    <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter email">#}
+                                            {{ form_widget(form.dateRdv,{ 'attr': {'class': 'form-control datepicker'} }) }}
                                         </div>
                                         <!-- Date mm/dd/yyyy -->
 {#                                        <div class="form-group">#}
@@ -57,12 +51,13 @@
 {#                                                <div class="input-group-prepend">#}
 {#                                                    <span class="input-group-text"><i#}
 {#                                                                class="far fa-calendar-alt"></i></span>#}
-{#                                                </div>#}
+
 {#                                                <input type="text" class="form-control" data-inputmask-alias="datetime"#}
 {#                                                       data-inputmask-inputformat="mm/dd/yyyy" data-mask#}
 {#                                                       value="{{ form_widget(form.dateRdv,{ 'attr': {'class': 'js-datepicker'} }) }}">#}
-{#                                            </div>#}
-{#                                            #}{#                    <!-- /.input group -->#}
+{#                                                </div>#}
+{#                                                </div>#}
+{#                                            #}{##}{#                    <!-- /.input group -->#}
 {#                                        </div>#}
                                         <!-- /.form group -->
 
