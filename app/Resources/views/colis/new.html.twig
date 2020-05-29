@@ -1,61 +1,81 @@
-{% extends 'default/acceuil.html.twig' %}
+{% extends'layout.html.twig' %}
 
-
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Colis</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Envoyer Colis</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
 
 {% block contents %}
-
-    <style>
-        #map{
-            height:600px;
-            width:100%;
-        }
-    </style>
-<section id="slider-area">
-
-    <!--== slide Item One ==-->
-    <div class="single-slide-item overlay">
+    <section class="contact-form-style-one">
         <div class="container">
+            <div class="block-title text-center">
+                <div class="dot-line"></div><!-- /.dot-line -->
+                <h2>Register</h2>
+            </div><!-- /.block-title -->
+            {{ form_start(form) }}
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.depart,{ 'attr': {'placeholder': 'Depart'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.destination,{ 'attr': {'placeholder': 'Destination'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.nomExpediteur,{ 'attr': {'placeholder': 'Nom Expediteur'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.mailExpediteur,{ 'attr': {'placeholder': 'Mail Expediteur'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.poids,{ 'attr': {'placeholder': 'Poids'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.nomDestinataire,{ 'attr': {'placeholder': 'Nom Destinataire'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.telDestinataire,{ 'attr': {'placeholder': 'Numero De Telephone'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form.mailDestinataire,{ 'attr': {'placeholder': 'Mail Destinataire'} }) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
 
-            <div class="row">
-
-                <div class="col-lg-5">
-                    <div class="book-a-car">
-
-                        <!--== Pick Up Location ==-->
-                        <div class="pickup-location book-item">
-    {% form_theme form 'bootstrap_4_layout.html.twig' %}
-    {{ form_start(form) }}
-    <br>
-                            {{ form_row(form.depart) }}
-                            {{ form_row(form.destination) }}
-                            {{ form_row(form.nomExpediteur) }}
-                            {{ form_row(form.mailExpediteur) }}
-                            {{ form_row(form.poids) }}
-
-
-
-                            {{ form_row(form.nomDestinataire) }}
-                            {{ form_row(form.telDestinataire) }}
-                            {{ form_row(form.mailDestinataire) }}
-
-                            {{ form_widget(form) }}
-        <input type="submit"  class="book-now-btn" value="Create" />
-    {{ form_end(form) }}
-
-
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-              </section>
-        <li>
-            <a href="{{ path('colis_index') }}">Back to the list</a>
-        </li>
-    </ul>
-
+            <div class="col-lg-6">
+                <div class="input-holder">
+                    {{ form_widget(form) }}
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-lg-12">
+                <div class="input-holder text-center">
+                    <input id="form_botcheck" name="form_botcheck" class="form-control" type="hidden" value="">
+                    <button class="theme-btn btn-style-two" type="submit" data-loading-text="Please wait..."><span>Envoyer Colis</span></button>
+                </div><!-- /.input-holder -->
+            </div><!-- /.col-lg-6 -->
+            {{ form_end(form) }}
+        </div><!-- /.container -->
+    </section><!-- /.contact-form-style-one -->
     <div id="map"></div>
     <script>
         function initMap(){
@@ -143,6 +163,5 @@
     <script async defer
             src="{{ asset('https://maps.googleapis.com/maps/api/js?key=AIzaSyBiNUO68DkrsFKFz744_LWMqCNI_GqYciQ&callback=initMap')}}">
     </script>
-
 
 {% endblock %}

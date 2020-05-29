@@ -1,0 +1,17 @@
+HTTrack3.49-2+htsswf+htsjava launched on Fri, 22 May 2020 00:24:07 at http://ashik.templatepath.net/conexi-preview-files/ +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar
+(winhttrack -qwC2%Ps2u1%s%uN0%I0p3DaK0H0%kf2A25000%f#f -F "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)" -%F "<!-- Mirrored from %s%s by HTTrack Website Copier/3.x [XR&CO'2014], %s -->" -%l "en, *" http://ashik.templatepath.net/conexi-preview-files/ -O1 "C:\My Web Sites\TaxiCo" +*.png +*.gif +*.jpg +*.jpeg +*.css +*.js -ad.doubleclick.net/* -mime:application/foobar )
+
+Information, Warnings and Errors reported for this mirror:
+note:	the hts-log.txt file, and hts-cache folder, may contain sensitive information,
+	such as username/password authentication for websites mirrored in this project
+	do not share these files/folders if you want these information to remain private
+
+00:25:33	Error: 	"Not Found" (404) at link ashik.templatepath.net/ms-icon-144x144.png (from ashik.templatepath.net/conexi-preview-files/)
+00:33:32	Warning: 	Retry after error -2 (Receive Time Out) at link ashik.templatepath.net/conexi-preview-files/images/team/team-1-3.jpg (from ashik.templatepath.net/conexi-preview-files/index2.html)
+00:33:34	Warning: 	Retry after error -2 (Receive Time Out) at link ashik.templatepath.net/conexi-preview-files/images/pricing/pricing-1-4.png (from ashik.templatepath.net/conexi-preview-files/taxi.html)
+00:33:35	Warning: 	Retry after error -2 (Receive Time Out) at link ashik.templatepath.net/conexi-preview-files/images/blog/single-blog-1-1.jpg (from ashik.templatepath.net/conexi-preview-files/blog-details.html)
+00:37:15	Warning: 	Retry after error -2 (Receive Time Out) at link ashik.templatepath.net/conexi-preview-files/fonts/fontawesome-webfont.eot?v=4.7.0 (from ashik.templatepath.net/conexi-preview-files/css/font-awesome.min.css)
+00:37:15	Error: 	"Not Found" (404) at link ashik.templatepath.net/conexi-preview-files/css/owl.video.play.png (from ashik.templatepath.net/conexi-preview-files/css/owl.carousel.css)
+
+HTTrack Website Copier/3.49-2 mirror complete in 13 minutes 10 seconds : 127 links scanned, 120 files written (6199404 bytes overall) [6231598 bytes received at 7888 bytes/sec], 2.6 requests per connection
+(2 errors, 4 warnings, 0 messages)

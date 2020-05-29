@@ -53,6 +53,10 @@ class Colis
      * @var float
      *
      * @ORM\Column(name="poids", type="float", precision=10, scale=0, nullable=false)
+     * * Assert\Type([
+    'type' => 'float',
+    'message' => 'Invalid Type.',
+    ]));
      */
     private $poids;
 
@@ -82,6 +86,7 @@ class Colis
      * @var string
      *
      * @ORM\Column(name="mail_expediteur", type="string", length=250, nullable=false)
+     * * @Assert\Email
      */
     private $mailExpediteur;
 

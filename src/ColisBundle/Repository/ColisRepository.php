@@ -14,12 +14,11 @@ class ColisRepository extends \Doctrine\ORM\EntityRepository
 
         return $query->getQuery()->getResult();
     }
-    public function findAllOrderedByDepart()
-    {
-        return $this->getEntityManager()
-            ->createQuery(
-                'SELECT p FROM ColisBundle:Colis p ORDER BY p.depart ASC'
-            )
-            ->getResult();
+    public function findAllOrderedByDepart($id)
+    {   $qb=$this->createQueryBuilder('s');
+        $qb->where('s.idKarhba=:id');
+        $qb->orderBy('s.depart','ASC');
+        $qb->setParameter('id',$id);
+        return $qb->getQuery()->getResult();
     }
 }

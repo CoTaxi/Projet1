@@ -1,107 +1,110 @@
 
-{% extends 'default/acceuil.html.twig' %}
-
+{% extends'layout.html.twig' %}
+{% block title %} Liste Colis {% endblock %}
+{% block head %}
+    {{ parent() }}
+{% endblock %}
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Colis</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Vos Colis</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
 {% block contents %}
-    <!--== Page Title Area Start ==-->
-    <section id="page-title-area" class="section-padding overlay">
+
+    <section class="taxi-style-one taxi-page">
         <div class="container">
-            <div class="row">
-                <!-- Page Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>Colis</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
-                <!-- Page Title End -->
-            </div>
-        </div>
-    </section>
-    <!--== Page Title Area End ==-->
-    <div class="content mt-3">
-        <div class="animated fadeIn">
-            <div class="row">
+            <ul class="nav nav-tabs tab-title" role="tablist">
+                //class="nav-link active"
+                <li class="nav-item">
+                    <a class="nav-link " href="#hybrid" role="tab" data-toggle="tab">Colis Leger</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#town" role="tab" data-toggle="tab">Colis Lourd</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#limousine" role="tab" data-toggle="tab">Colis Liquide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#suv" role="tab" data-toggle="tab">Colis Sensible</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane show active  animated fadeInUp" id="hybrid">
+                    <div class="row">
 
-                <div class="col-md-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <strong class="card-title">liste des colis </strong>
-                        </div>
-                        <div class="card-body">
-                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered sortable " >
-                                <thead>
+                        {% for coli in colis %}
+                            <div class="col-lg-4 col-md-6 col-sm-12">
+                                <div class="single-taxi-one">
+                                    <div class="inner-content">
+                                        <div class="image-block">
+                                            <div class="inner-block">
+                                                {{ coli.nomcategorie }}
+                                                {% if (coli.nomcategorie=="Categorie Lourd") %}
+                                                    <a href="{{ path('colis_show', { 'idC': coli.idC }) }}">
+                                                        <img src="{{ asset('TaxiCo/images/lourd.png') }}"  style="height: 250px;width: 350px" alt="Awesome Image" />
+                                                    </a>
+                                                {% endif %}
 
-                                <tr>
-                                    <th>Idc</th>
-                                    <th>Depart</th>
-                                    <th>Destination</th>
-                                    <th>Nomexpediteur</th>
-                                    <th>Nomdestinataire</th>
-                                    <th>Poids</th>
-                                    <th>Teldestinataire</th>
-                                    <th>Mailexpediteur</th>
-                                    <th>Maildestinataire</th>
-                                    <th>Etat Colis</th>
-                                    <th>Actions</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                {% for coli in colis %}
-                                    <tr>
-                                        <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a></td>
-                                        <td>{{ coli.depart }}</td>
-                                        <td>{{ coli.destination }}</td>
-                                        <td>{{ coli.nomExpediteur }}</td>
-                                        <td>{{ coli.nomDestinataire }}</td>
-                                        <td>{{ coli.poids }}</td>
-                                        <td>{{ coli.telDestinataire }}</td>
-                                        <td>{{ coli.mailExpediteur }}</td>
-                                        <td>{{ coli.mailDestinataire }}</td>
-                                        {% if (coli.etat==0) %}
-                                        <td>Non Affecté</td>
-                                        {% endif %}
-                                        {% if (coli.etat==1) %}
-                                            <td>En attente de confirmation</td>
-                                        {% endif %}
-                                        {% if (coli.etat==2) %}
-                                            <td>Affecté</td>
-                                        {% endif %}
-                                        {% if (coli.etat==3) %}
-                                            <td>Livré</td>
-                                        {% endif %}
-                                        <td>
-                                            <ul>
+                                                {% if (coli.nomcategorie=="Categorie Leger") %}
+                                                    <a href="{{ path('colis_show', { 'idC': coli.idC }) }}">
+                                                        <img src="{{ asset('TaxiCo/images/leger.png') }}"  style="height: 250px;width: 250px" alt="Awesome Image" />
+                                                    </a>
+                                                {% endif %}
 
-<li>
+                                                {% if (coli.nomcategorie=="Categorie Fragile") %}
+                                                    <a href="{{ path('colis_show', { 'idC': coli.idC }) }}">
+                                                        <img src="{{ asset('TaxiCo/images/fragile.png') }}"  style="height: 250px;width: 250px" alt="Awesome Image" />
+                                                    </a>
+                                                {% endif %}
+
+                                            </div><!-- /.inner-block -->
+                                        </div>
+                                        <h3>Traget : {{ coli.depart }} , {{ coli.destination }}</h3>
+                                        <ul class="feature-list">
+                                            <li>
+                                                <span class="name-line">Destinataire:</span>
+                                                <span class="price-line">{{ coli.nomDestinataire }}</span>
+                                            </li>
+                                            <li>
+                                                <span class="name-line">Poids:</span>
+                                                <span class="price-line">{{coli.poids}} Kg</span>
+                                            </li>
+                                            <li>
+                                                <span class="name-line">Etat:</span>
                                                 {% if (coli.etat==0) %}
-                                                <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
-                                                <a href="{{ path('colis_affecter', { 'idC': coli.idC }) }}" class="rent-btn"> affecter </a>
+                                                    <span class="price-line">Colis Non Affecté</span>
                                                 {% endif %}
                                                 {% if (coli.etat==1) %}
-                                                 <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="btn btn-danger">modifier colis </a>
+                                                    <span class="price-line">En attente de confirmation</span>
                                                 {% endif %}
+                                                {% if (coli.etat==2) %}
+                                                    <span class="price-line">Colis Affecté </span>
+                                                {% endif %}
+                                                {% if (coli.etat==3) %}
+                                                    <span class="price-line">Colis Livré </span>
+                                                {% endif %}
+                                            </li>
+                                        </ul><!-- /.feature-list -->
+                                        <a href="{{ path('colis_show', { 'idC': coli.idC }) }}" class="book-taxi-btn"> Plus De Detailles</a>
+                                    </div><!-- /.inner-content -->
+                                </div><!-- /.single-taxi-one -->
+                            </div><!-- /.col-lg-4 -->
+                        {% endfor %}
 
-</li> <li>
-                                                <a href="{{ path('colis_show', { 'idC': coli.idC }) }}" class="book-now-btn">afficher colis </a>
-                                                </li>
-                                            </ul>
-                                        </td>
-                                    </tr>
-                                {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    </div><!-- /.row -->
                 </div>
-            </div>
-        </div>
-    </div>
-    <ul>
+            </div><!-- /.tab-content -->
+        </div><!-- /.container -->
+    </section><!-- /.taxi-style-one -->
 
-
-    </ul>
-
-    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="btn btn-warning">  &nbsp    IMPRIMER  </a>
+    <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank" style="cursor:pointer;"  class="btn btn-warning">  &nbsp    IMPRIMER  </a>
 
     <br>
 

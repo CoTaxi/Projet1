@@ -1,428 +1,239 @@
 <!DOCTYPE html>
-<html class="no-js" lang="zxx">
+<html lang="en">
 
+
+<!-- Mirrored from ashik.templatepath.net/conexi-preview-files/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 May 2020 23:24:10 GMT -->
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Taxico | {% block title %} {% endblock %}</title>
 
-    <!--=== Favicon ===-->
     {% block stylesheets %}
     {% endblock %}
 
-
-    <!-- favicon
-          ============================================ -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}"/>
-    <!-- Google Fonts
-		============================================ -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700,900" rel="stylesheet">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/bootstrap.min.css') }}">
-    <!-- Bootstrap CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/font-awesome.min.css') }}">
-    <!-- owl.carousel CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/owl.carousel.css') }}">
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/owl.theme.css') }}">
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/owl.transitions.css') }}">
-    <!-- animate CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/animate.css') }}">
-    <!-- normalize CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/normalize.css') }}">
-    <!-- meanmenu icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/meanmenu.min.css') }}">
-    <!-- main CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/main.css') }}">
-    <!-- educate icon CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/educate-custon-icon.css') }}">
-    <!-- morrisjs CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/morrisjs/morris.css') }}">
-    <!-- mCustomScrollbar CSS
-		============================================ -->
-    <link rel="stylesheet"
-          href="{{ asset('kiaalap-master/kiaalap-master/css/scrollbar/jquery.mCustomScrollbar.min.css') }}">
-    <!-- metisMenu CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/metisMenu/metisMenu.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/metisMenu/metisMenu-vertical.css') }}">
-    <!-- calendar CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/calendar/fullcalendar.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/calendar/fullcalendar.print.min.css') }}">
-    <!-- style CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/style.css') }}">
-    <!-- responsive CSS
-		============================================ -->
-    <link rel="stylesheet" href="{{ asset('kiaalap-master/kiaalap-master/css/responsive.css') }}">
-    <!-- modernizr JS
-		============================================ -->
-    <script src="{{ asset('kiaalap-master/kiaalap-master/js/vendor/modernizr-2.8.3.min.js') }}"></script>
-    <link rel="icon" type="image/x-icon" href="{{ asset('uploads/images/logo3.png') }}"/>
-    <!--=== Bootstrap CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <!--=== Vegas Min CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/vegas.min.css') }}" rel="stylesheet">
-    <!--=== Slicknav CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/slicknav.min.css') }}" rel="stylesheet">
-    <!--=== Magnific Popup CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/magnific-popup.css') }}" rel="stylesheet">
-    <!--=== Owl Carousel CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/owl.carousel.min.css') }}" rel="stylesheet">
-    <!--=== Gijgo CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/gijgo.css') }}" rel="stylesheet">
-    <!--=== FontAwesome CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/plugins/font-awesome.css') }}" rel="stylesheet">
-    <!--=== Theme Reset CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/reset.css') }}" rel="stylesheet">
-    <!--=== Main Style CSS ===-->
-    <link href="{{ asset('cardoor/style.css') }}" rel="stylesheet">
-    <!--=== Responsive CSS ===-->
-    <link href="{{ asset('cardoor/assets/css/responsive.css') }}" rel="stylesheet">
-
-
-    <!--[if lt IE 9]>
-    <script src="{{ asset('//oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js') }}"></script>
-    <script src="{{ asset('//oss.maxcdn.com/respond/1.4.2/respond.min.js') }}"></script>
-    <![endif]-->
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('TaxiCo/images/favicon/apple-icon-57x57.png') }}"/>
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('TaxiCo/images/favicon/apple-icon-60x60.png') }}"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('TaxiCo/images/favicon/apple-icon-72x72.png') }}"/>
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('TaxiCo/images/favicon/apple-icon-76x76.png') }}"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('TaxiCo/images/favicon/apple-icon-114x114.png') }}"/>
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('TaxiCo/images/favicon/apple-icon-120x120.png') }}"/>
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('TaxiCo/images/favicon/apple-icon-144x144.png') }}"/>
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('TaxiCo/images/favicon/apple-icon-152x152.png') }}"/>
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('TaxiCo/images/favicon/apple-icon-180x180.png') }}"/>
+    <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('TaxiCo/images/favicon/android-icon-192x192.png') }}"/>
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('TaxiCo/images/favicon/favicon-32x32.png') }}"/>
+    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('TaxiCo/images/favicon/favicon-96x96.png') }}"/>
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('TaxiCo/images/favicon/favicon-16x16.png') }}"/>
+    <link rel="manifest" href="{{ asset('TaxiCo/images/favicon/manifest.json') }}"/>
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../ms-icon-144x144.html">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="{{ asset('TaxiCo/css/style.css') }}"/>
+    <link rel="stylesheet" href="{{ asset('TaxiCo/css/responsive.css') }}"/>
 </head>
 
-<body class="loader-active">
+<body>
+<div class="preloader"></div><!-- /.preloader -->
+<div class="page-wrapper">
+    <header class="site-header header-one">
+        <div class="top-bar">
+            <div class="container">
+                <div class="left-block">
+                    {% block cnx %}
 
-<!--== Preloader Area Start ==-->
-<div class="preloader">
-    <div class="preloader-spinner">
-        <div class="loader-content">
-            <img src="{{ asset('cardoor/assets/img/preloader.gif') }}" alt="JSOFT">
-        </div>
-    </div>
-</div>
-<!--== Preloader Area End ==-->
-
-<!--== Header Area Start ==-->
-<header id="header-area" class="fixed-top">
-    <!--== Header Top Start ==-->
-    <div id="header-top" class="d-none d-xl-block">
-        <div class="container">
-            <div class="row">
-                <!--== Single HeaderTop Start ==-->
-                <div class="col-lg-3 text-left">
-                    <i class="fa fa-map-marker"></i>Ariana, Tunis
-                </div>
-                <!--== Single HeaderTop End ==-->
-
-                <!--== Single HeaderTop Start ==-->
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-mobile"></i> +216 22 222 222
-                </div>
-                <!--== Single HeaderTop End ==-->
-
-                <!--== Single HeaderTop Start ==-->
-                <div class="col-lg-3 text-center">
-                    <i class="fa fa-clock-o"></i> Lundi-Vendredi 09.00 - 17.00
-                </div>
-                <!--== Single HeaderTop End ==-->
-
-                <!--== Social Icons Start ==-->
-                <div class="col-lg-3 text-right">
-                    <div class="header-social-icons">
-                        <a href="#"><i class="fa fa-behance"></i></a>
-                        <a href="#"><i class="fa fa-pinterest"></i></a>
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                    </div>
-                </div>
-                <!--== Social Icons End ==-->
-            </div>
-        </div>
-    </div>
-    <!--== Header Top End ==-->
-
-    <!--== Header Bottom Start ==-->
-    <div id="header-bottom">
-        <div class="container">
-            <div class="row">
-                <!--== Logo Start ==-->
-                <div class="col-lg-4">
-                    <a href="index2.html" class="logo">
-                        <img src="{{ asset('cardoor/assets/img/logo.png') }}" alt="JSOFT">
+                    {% endblock %}
+                </div><!-- /.left-block -->
+                <div class="logo-block">
+                    <a href="index-2.html"><img src="{{ asset('TaxiCo/images/resources/logo-1-1.png') }}" alt="Awesome Image" /></a>
+                </div><!-- /.logo-block -->
+                <div class="social-block">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                    <a href="#"><i class="fa fa-facebook-f"></i></a>
+                    <a href="#"><i class="fa fa-youtube-play"></i></a>
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </div><!-- /.social-block -->
+            </div><!-- /.container -->
+        </div><!-- /.top-bar -->
+        <nav class="navbar navbar-expand-lg navbar-light header-navigation stricky">
+            <div class="container clearfix">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="logo-box clearfix">
+                    <button class="menu-toggler" data-target="#main-nav-bar">
+                        <span class="fa fa-bars"></span>
+                    </button>
+                </div><!-- /.logo-box -->
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="main-navigation" id="main-nav-bar">
+                    <ul class="navigation-box">
+                        <li class=" current ">
+                            <a href="index-2.html">Home</a>
+                            <ul class="sub-menu">
+                                <li><a href="index-2.html">Home One</a></li>
+                                <li><a href="index2.html">Home Two</a></li>
+                                <li><a href="index-2.html">Header Versions</a>
+                                    <ul class="sub-menu">
+                                        <li><a href="index-2.html">Header One</a></li>
+                                        <li><a href="index2.html">Header Two</a></li>
+                                    </ul><!-- /.sub-menu -->
+                                </li>
+                            </ul><!-- /.sub-menu -->
+                        </li>
+                        <li><a href="about.html">About</a></li>
+                        <li>
+                            <a href="#">Pages</a>
+                            <ul class="sub-menu">
+                                <li><a href="driver.html">Our Drivers</a></li>
+                                <li><a href="taxi.html">Our Taxi</a></li>
+                                <li><a href="single-taxi.html">Taxi Details</a></li>
+                            </ul><!-- /.sub-menu -->
+                        </li>
+                        <li><a href="book-ride.html">Book A Ride</a></li>
+                        <li>
+                            <a href="blog.html">Blog</a>
+                            <ul class="sub-menu">
+                                <li><a href="blog.html">Blog Grid</a></li>
+                                <li><a href="blog-details.html">Blog Details</a></li>
+                            </ul><!-- /.sub-menu -->
+                        </li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+                <div class="right-side-box">
+                    <a href="callto:888-888-0000" class="contact-btn-block">
+                            <span class="icon-block">
+                                <i class="conexi-icon-phone-call"></i>
+                            </span>
+                        <span class="text-block">
+                                888 888 0000
+                                <span class="tag-line">Phone line</span>
+                            </span>
                     </a>
-                </div>
-                <!--== Logo End ==-->
+                </div><!-- /.right-side-box -->
+            </div>
+            <!-- /.container -->
+        </nav>
+    </header><!-- /.site-header header-one -->
 
-                <!--== Main Menu Start ==-->
-                <div class="col-lg-8 d-none d-xl-block">
-                    <nav class="mainmenu alignright">
-                        <ul>
-                            <li class="active"><a href="#">Home</a>
-                                <ul>
-                                    <li><a href="index.html">Home 1</a></li>
-                                    <li><a href="index2.html">Home 2</a></li>
-                                    <li><a href="index3.html">Home 3</a></li>
-                                </ul>
-                            </li> {% if ((is_granted('ROLE_CLIENT'))) %}
-                                <li><a href="{{ path('colis_afficher') }}">Afficher mes colis </a></li>
-                                <li><a href="{{ path('colis_new') }}">ajouter un colis </a></li>
+    <div class="main-banner-wrapper">
 
-                            {% endif %}
-                            {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                                <li><a href="{{ path('fos_user_registration_register') }}">register</a>
+        {% block bg %}
 
-                                </li>
-                            {% endif %}
-                            <li>
-                                {% if not(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                            <li><a href="{{ path('fos_user_security_login') }}">log in</a></li>
+        {% endblock %}
+    <div class="carousel-btn-block banner-carousel-btn">
+        <span class="carousel-btn left-btn"><i class="conexi-icon-left"></i></span>
+        <span class="carousel-btn right-btn"><i class="conexi-icon-right"></i></span>
+    </div><!-- /.carousel-btn-block banner-carousel-btn -->
+</div><!-- /.main-banner-wrapper -->
 
-                            </a>
-                            {% endif %}
-                            {% if (is_granted('IS_AUTHENTICATED_FULLY')) %}
-                                <a href="{{ path('fos_user_security_logout') }}">
+    {% block contents %}
+    {% endblock %}
 
-                                    logout
-                                </a>
+    {% block content1 %}
+    {% endblock %}
 
-                            {% endif %}
-                            <li>
-                                {% if(is_granted('IS_AUTHENTICATED_FULLY')) %}
-                                <a href="{{ path('taxi_back') }}">
-
-                                    dashboard
-                                </a>
-                            </li>
-                            {% endif %}
+    <section class="cta-style-one text-center">
+        <div class="container">
+            <p>Call 24 hour service available</p>
+            <h3>Call now and book <br> our taxi for your next ride</h3>
+            <a href="taxi.html" class="cta-btn">Choose Your Taxi</a>
+        </div><!-- /.container -->
+    </section><!-- /.cta-style-one -->
+<footer class="site-footer">
+    <img src="{{ asset('TaxiCo/images/background/footer-bg-1-1.png') }}" class="footer-bg" alt="Awesome Image" />
+    <div class="upper-footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="footer-widget about-widget">
+                        <div class="widget-title">
+                            <h3>About</h3>
+                        </div><!-- /.widget-title -->
+                        <p>There are many vari of pass of lorem ipsum availab but the majority have suffered in some form by injected humour or words</p>
+                        <div class="social-block">
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            <a href="#"><i class="fa fa-google-plus"></i></a>
+                        </div><!-- /.social-block -->
+                    </div><!-- /.footer-widget about-widget -->
+                </div><!-- /.col-lg-3 -->
+                <div class="col-lg-2">
+                    <div class="footer-widget">
+                        <div class="widget-title">
+                            <h3>Links</h3>
+                        </div><!-- /.widget-title -->
+                        <ul class="link-lists">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Get a Taxi</a></li>
+                            <li><a href="#">Our Reviews</a></li>
+                            <li><a href="#">Latest News</a></li>
+                            <li><a href="#">Contact</a></li>
                         </ul>
-                    </nav>
-                </div>
-                <!--== Main Menu End ==-->
-            </div>
-        </div>
-    </div>
-    <!--== Header Bottom End ==-->
-</header>
-<!--== Header Area End ==-->
-{% block contents %}
-{% endblock %}
-<section id="footer-area">
-    <!-- Footer Widget Start -->
-    <div class="footer-widget-area">
+                    </div><!-- /.footer-widget -->
+                </div><!-- /.col-lg-2 -->
+                <div class="col-lg-3">
+                    <div class="footer-widget">
+                        <div class="widget-title">
+                            <h3>Contact</h3>
+                        </div><!-- /.widget-title -->
+                        <p>86 Road Broklyn Street, 600 <br> New York, USA</p>
+                        <ul class="contact-infos">
+                            <li><i class="fa fa-envelope"></i> needhelp@conexi.com</li>
+                            <li><i class="fa fa-phone-square"></i> 666 888 000</li>
+                        </ul><!-- /.contact-infos -->
+                    </div><!-- /.footer-widget -->
+                </div><!-- /.col-lg-3 -->
+                <div class="col-lg-4">
+                    <div class="footer-widget">
+                        <div class="widget-title">
+                            <h3>Newsletter</h3>
+                        </div><!-- /.widget-title -->
+                        <p>Sign up now for our mailing list to get all latest news <br> and updates from conexi company.</p>
+                        <form action="#" class="subscribe-form">
+                            <input type="text" name="email" placeholder="Enter your email">
+                            <button type="submit">Go</button>
+                        </form>
+                    </div><!-- /.footer-widget -->
+                </div><!-- /.col-lg-4 -->
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </div><!-- /.upper-footer -->
+    <div class="bottom-footer">
         <div class="container">
-            <div class="row">
-                <!-- Single Footer Widget Start -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-footer-widget">
-                        <h2>About Us</h2>
-                        <div class="widget-body">
-                            <img src="{{ asset('cardoor/assets/img/logo.png') }}">
-                            <p>Lorem ipsum dolored is a sit ameted consectetur adipisicing elit. Nobis magni assumenda
-                                distinctio debitis, eum fuga fugiat error reiciendis.</p>
-
-                            <div class="newsletter-area">
-                                <form action="index.html">
-                                    <input type="email" placeholder="Subscribe Our Newsletter">
-                                    <button type="submit" class="newsletter-btn"><i class="fa fa-send"></i></button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Footer Widget End -->
-
-                <!-- Single Footer Widget Start -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-footer-widget">
-                        <h2>Recent Posts</h2>
-                        <div class="widget-body">
-                            <ul class="recent-post">
-                                <li>
-                                    <a href="#">
-                                        Hello Bangladesh!
-                                        <i class="fa fa-long-arrow-right"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Lorem ipsum dolor sit amet
-                                        <i class="fa fa-long-arrow-right"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        Hello Bangladesh!
-                                        <i class="fa fa-long-arrow-right"></i>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="#">
-                                        consectetur adipisicing elit?
-                                        <i class="fa fa-long-arrow-right"></i>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Footer Widget End -->
-
-                <!-- Single Footer Widget Start -->
-                <div class="col-lg-4 col-md-6">
-                    <div class="single-footer-widget">
-                        <h2>get touch</h2>
-                        <div class="widget-body">
-                            <p>Lorem ipsum doloer sited amet, consectetur adipisicing elit. nibh auguea, scelerisque
-                                sed</p>
-
-                            <ul class="get-touch">
-                                <li><i class="fa fa-map-marker"></i> 800/8, Kazipara, Dhaka</li>
-                                <li><i class="fa fa-mobile"></i> +880 01 86 25 72 43</li>
-                                <li><i class="fa fa-envelope"></i> kazukamdu83@gmail.com</li>
-                            </ul>
-                            <a href="https://goo.gl/maps/b5mt45MCaPB2" class="map-show" target="_blank">Show
-                                Location</a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Single Footer Widget End -->
-            </div>
-        </div>
-    </div>
-    <!-- Footer Widget End -->
-
-    <!-- Footer Bottom Start -->
-    <div class="footer-bottom-area">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                        All rights reserved | This template is made with <i class="fa fa-heart-o"
-                                                                            aria-hidden="true"></i> by <a
-                                href="https://colorlib.com" target="_blank">Colorlib</a>
-                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer Bottom End -->
-</section>
-<!--== Footer Area End ==-->
-
-<!--== Scroll Top Area Start ==-->
-<div class="scroll-top">
-    <img src="{{ asset('cardoor/assets/img/scroll-top.png"') }}'>
-</div>
-<!--== Scroll Top Area End ==-->
+            <div class="inner-container">
+                <div class="left-block">
+                    <a href="index-2.html" class="footer-logo"><img src="{{ asset('TaxiCo/images/resources/logo-1-1.png') }}" alt="Awesome Image" /></a>
+                    <span>&copy; 2020 <a href="#">Tonatheme.com</a></span>
+                </div><!-- /.left-block -->
+                <div class="right-block">
+                    <ul class="link-lists">
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div><!-- /.right-block -->
+            </div><!-- /.inner-container -->
+        </div><!-- /.container -->
+    </div><!-- /.bottom-footer -->
+</footer><!-- /.site-footer -->
+</div><!-- /.page-wrapper -->
+<a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
+<!-- /.scroll-to-top -->
 {% block javascripts %}
 {% endblock %}
-<!--=======================Javascript============================-->
-<div class=" scroll-top" style="display: block;">
-    <img src="{{ asset('cardoor/assets/img/scroll-top.png') }}" alt="JSOFT">
-</div>
-<!--=== Jquery Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/jquery-3.2.1.min.js') }}"></script>
-<!--=== Jquery Migrate Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/jquery-migrate.min.js') }}"></script>
-<!--=== Popper Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/popper.min.js') }}"></script>
-<!--=== Bootstrap Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/bootstrap.min.js') }}"></script>
-<!--=== Gijgo Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/gijgo.js') }}"></script>
-<!--=== Vegas Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/vegas.min.js') }}"></script>
-<!--=== Isotope Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/isotope.min.js') }}"></script>
-<!--=== Owl Caousel Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/owl.carousel.min.js') }}"></script>
-<!--=== Waypoint Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/waypoints.min.js') }}"></script>
-<!--=== CounTotop Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/counterup.min.js') }}"></script>
-<!--=== YtPlayer Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/mb.YTPlayer.js') }}"></script>
-<!--=== Magnific Popup Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/magnific-popup.min.js') }}"></script>
-<!--=== Slicknav Min Js ===-->
-<script src="{{ asset('cardoor/assets/js/plugins/slicknav.min.js') }}"></script>
 
-<!--=== Mian Js ===-->
-<script src="{{ asset('cardoor/assets/js/main.js') }}"></script>
-
-
-<!-- jquery
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/vendor/jquery-1.12.4.min.js') }}"></script>
-<!-- bootstrap JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/bootstrap.min.js') }}"></script>
-<!-- wow JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/wow.min.js') }}"></script>
-<!-- price-slider JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/jquery-price-slider.js') }}"></script>
-<!-- meanmenu JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/jquery.meanmenu.js') }}"></script>
-<!-- owl.carousel JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/owl.carousel.min.js') }}"></script>
-<!-- sticky JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/jquery.sticky.js') }}"></script>
-<!-- scrollUp JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/jquery.scrollUp.min.js') }}"></script>
-<!-- counterup JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/counterup/jquery.counterup.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/counterup/waypoints.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/counterup/counterup-active.js') }}"></script>
-<!-- mCustomScrollbar JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/scrollbar/jquery.mCustomScrollbar.concat.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/scrollbar/mCustomScrollbar-active.js') }}"></script>
-<!-- metisMenu JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/metisMenu/metisMenu.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/metisMenu/metisMenu-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/morrisjs/raphael-min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/morrisjs/morris.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/morrisjs/morris-active.js') }}"></script>
-<!-- morrisjs JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/sparkline/jquery.sparkline.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/sparkline/jquery.charts-sparkline.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/sparkline/sparkline-active.js') }}"></script>
-<!-- calendar JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/calendar/moment.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/calendar/fullcalendar.min.js') }}"></script>
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/calendar/fullcalendar-active.js') }}"></script>
-<!-- plugins JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/plugins.js') }}"></script>
-<!-- main JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/main.js') }}"></script>
-<!-- tawk chat JS
-    ============================================ -->
-<script src="{{ asset('kiaalap-master/kiaalap-master/js/tawk-chat.js') }}"></script>
-
+<script src="{{ asset('TaxiCo/js/jquery.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/owl.carousel.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/bootstrap-select.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/jquery.magnific-popup.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/waypoints.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/jquery.bxslider.min.js') }}"></script>
+<script src="{{ asset('TaxiCo/js/theme.js') }}"></script>
 
 </body>
 
+
+<!-- Mirrored from ashik.templatepath.net/conexi-preview-files/ by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 21 May 2020 23:25:33 GMT -->
 </html>

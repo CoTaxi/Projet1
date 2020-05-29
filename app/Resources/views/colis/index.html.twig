@@ -5,27 +5,13 @@
         <div class="animated fadeIn">
             <div class="row">
 
-<<<<<<< HEAD
                 <div class="col-md-12">
                     <div class="card">
-=======
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <strong class="card-title">liste des colis </strong>
-                            </div>
-                            <div class="card-body">
-                                <table id="bootstrap-data-table-export" class="table table-striped table-bordered " >
-                                    <thead>
->>>>>>> d7776216b69f686f32e81689e9e9d3f5d17f894b
-
                         <div class="card-header">
                             <strong class="card-title">liste des colis </strong>
                         </div>
-
-<<<<<<< HEAD
                         <div class="card-body">
-                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered ">
+                            <table id="bootstrap-data-table-export" class="table table-striped table-bordered " >
                                 <thead>
 
                                 <tr>
@@ -44,8 +30,7 @@
                                 <tbody>
                                 {% for coli in colis %}
                                     <tr>
-                                        <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a>
-                                        </td>
+                                        <td><a href="{{ path('colis_show', { 'idC': coli.idC }) }}">{{ coli.idC }}</a></td>
                                         <td>{{ coli.depart }}</td>
                                         <td>{{ coli.destination }}</td>
                                         <td>{{ coli.nomExpediteur }}</td>
@@ -57,10 +42,9 @@
                                         <td>
                                             <ul>
 
-
-                                                <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}"
-                                                   class="btn btn-danger">affecter colis </a>
-
+                                                {% if (coli.etat==0) %}
+                                                    <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="ti-link">affecter colis </a>
+                                                {% endif %}
                                             </ul>
                                         </td>
                                     </tr>
@@ -72,34 +56,13 @@
                 </div>
             </div>
         </div>
-=======
-                        {% if (coli.etat==0) %}
-                            <a href="{{ path('colis_edit', { 'idC': coli.idC }) }}" class="ti-link">affecter colis </a>
-                        {% endif %}
-                    </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-</div>
-</div>
-</div>
-</div>
-</div>
->>>>>>> d7776216b69f686f32e81689e9e9d3f5d17f894b
     </div>
     <ul>
 
 
     </ul>
 
-<<<<<<< HEAD
-    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank"
-                                     style="cursor:pointer;" class="btn btn-warning"> &nbsp IMPRIMER </a>
-=======
-    &nbsp           &nbsp         <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank"   class="ti-printer">  &nbsp    IMPRIMER  </a>
->>>>>>> a3257b171d0812926310ac2e5994a66adfdf60ba
+   <a title="Print Screen" alt="Print Screen" onclick="window.print();" target="_blank"   class="ti-printer">  &nbsp    IMPRIMER  </a>
 
     <br>
 

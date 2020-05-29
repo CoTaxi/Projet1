@@ -1,115 +1,172 @@
-{% extends 'default/acceuil.html.twig' %}
 
+{% extends'layout.html.twig' %}
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+              xmlns="http://www.w3.org/1999/html">
+    {% endblock %}
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Livraison Colis</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Detailles Colis</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
 {% block contents %}
-    <!--== Page Title Area Start ==-->
-    <section id="page-title-area" class="section-padding overlay">
+    <br>
+
+    <section class="single-taxi-details-one">
         <div class="container">
+          <div class="single-taxi-one">
+           <div class="inner-content">
             <div class="row">
-                <!-- Page Title Start -->
-                <div class="col-lg-12">
-                    <div class="section-title  text-center">
-                        <h2>Colis</h2>
-                        <span class="title-line"><i class="fa fa-car"></i></span>
-                    </div>
-                </div>
-                <!-- Page Title End -->
-            </div>
-        </div>
-    </section>
-    <!--== Page Title Area End ==-->
-    <!--== Car List Area Start ==-->
-    <section id="car-list-area" class="section-padding"  >
-        <div class="container">
-            <div class="row">
-                <!-- Car List Content Start -->
-
-
-                <div class="col-lg-8">
-                    <div class="car-details-content">
-                        <h2>{{ colis.depart }}--{{ colis.destination }}<span class="price">Reference Colis: <b>{{ colis.idC }}</b></span></h2>
-                        <div class="car-preview-crousel">
-                            <div class="single-car-preview">
-                                <img src="{{ asset('cardoor/assets/img/car/car-5.jpg')}}" >
-                            </div>
-                            <div class="single-car-preview">
-                                <img src="{{ asset('cardoor/assets/img/car/car-1.jpg')}}">
-                            </div>
-                            <div class="single-car-preview">
-                                <img src="{{ asset('cardoor/assets/img/car/car-6.jpg')}}">
-                            </div>
-                        </div>
-                        <div class="car-details-info">
-                            <div class="technical-info">
-                                <div class="row">
-                                    <div class="col-lg-6">
-                                        <div class="tech-info-table">
-                                            <table class="table table-bordered">
-                                                <tr>
-                                                    <th>Depart</th>
-                                                    <td>{{ colis.depart }}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Destination</th>
-                                                    <td>{{colis.destination}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Poids</th>
-                                                    <td>{{colis.poids}}</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Categorie</th>
-                                                    <td>{{cat}}</td>
-                                                </tr>
-                                            </table>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-                                {% if ((colis.etat==0) or(colis.etat==1))  %}
-                                <div class="input-submit">
-                                    <button type="submit" ><a href="{{ path('Accept', { 'idC': colis.idC }) }}">Accepter La Demande</a></button>
-                                    <button type="reset"><a href="{{ path('Refusee', { 'idC': colis.idC }) }}" >Refuser La Demande</a></button>
-                                </div>
-                                {% endif %}
-                        </div>
-                    </div>
-                </div>
-                <!-- Car List Content End -->
-
-                <!-- Sidebar Area Start -->
-                <div class="col-lg-4">
-                    <div class="sidebar-content-wrap m-t-50">
-                        <!-- Single Sidebar Start -->
-                        <div class="single-sidebar">
-                            <h3>Informations Sur L'Expediteur</h3>
-
-                            <div class="sidebar-body">
+                    <div class="col-lg-6" >
+                        <div class="sidebar">
+                            <div class="single-sidebar author-widget" style="position: absolute">
+                                <div class="image-block">
+                                    <img src="{{ asset('TaxiCo/images/homme.png')}}" style="height: 150px;width: 150px" alt="Expediteur"  />
+                                </div><!-- /.image-block -->
+                                <h3>A Propos De L'expediteur</h3>
                                 <p>Nom :{{ user.nom }}</p>
                                 <p>Prenom :{{ user.prenom }}</p>
                                 <p>Numero De Telephone :{{ user.tel }}</p>
                                 <p>Adresse Mail :{{ user.email }}</p>
-                            </div>
-                        </div>
-                        <!-- Single Sidebar End -->
+                            </div><!-- /.single-sidebar author-widget -->
+                        </div><!-- /.sidebar -->
+                    </div><!-- /.col-lg-6 -->
+                <div class="col-lg-6">
+                    <div class="content-block">
+                        <div class="block-title" style="position: relative;right: 90px">
+                            <div class="dot-line"></div><!-- /.dot-line -->
+                            <p>Detailles Du Colis</p>
+                            <h2>Traget : {{ colis.depart }} , {{ colis.destination }}</h2>
+                        </div><!-- /.block-title -->
+                            Etat Du colis :
+                            {% if (colis.etat==0) %}
+                                Non Affecté.
+                            {% endif %}
+                            {% if (colis.etat==1) %}
+                                En attente de confirmation.
+                                <a  href="mimi" ><i class="fa fa-car"></i> </a>
+                            {% endif %}
+                            {% if (colis.etat==2) %}
+                                Affecté.
+                                <a  href="mimi" ><i class="fa fa-car"></i> </a>
+                            {% endif %}
+                            {% if (colis.etat==3) %}
+                                Livré.
+                                <a  href="mimi" ><i class="fa fa-car"></i> </a>
+                            {% endif %}
+                        <br>
+                        <p style="position: relative; left: 42px">
+                            Categorie Du Colis :
+                            {{ colis.nomcategorie }}
+                        </p>
+                        <p style="position: relative; right: 20px">
+                        Poids Du Colis :
+                        {{ colis.poids }} Kg
+                        </p>
+                            <hr class="style-one" />
+                            <div class="row">
+                                <div class="col-lg-8">
 
-                        <!-- Single Sidebar Start -->
-                        <div class="single-sidebar">
-                            <h3>Informations Sur Le Destinataire</h3>
-                            <div class="sidebar-body">
-                                <p>Usernale :{{ colis.nomDestinataire }}</p>
-                                <p>Numero De Telephone :{{ colis.telDestinataire }}</p>
-                                <p>Adresse Mail :{{ colis.mailDestinataire }}</p>
-                            </div>
-                        </div>
-                        <!-- Single Sidebar End -->
+                                    <div class="block-title">
+                                        <div class="dot-line"></div><!-- /.dot-line -->
+                                        <p>A Propos Du Destinataire</p>
+                                    </div><!-- /.block-title -->
+                                    <ul class="features-list">
+                                        <li>
+                                            <span class="name-line">Nom Destinataire:</span>
+                                            <span class="price-line">{{colis.nomDestinataire}}</span>
+                                        </li>
+                                        <li>
+                                            <span class="name-line">Mail Destinataire:</span>
+                                            <span class="price-line">{{ colis.mailDestinataire }}</span>
+                                        </li>
+                                        <li>
+                                            <span class="name-line">Telephone Destinataire:</span>
+                                            <span class="price-line">{{ colis.telDestinataire }} Kg</span>
+                                        </li>
+                                    </ul><!-- /.feature-list -->
+                                </div><!-- /.col-lg-7 -->
+                            </div><!-- /.row -->
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                            <span style="position: relative;right: 250px">
+                                 {% if ((colis.etat==1)) %}
+                                     <a href="{{ path('Accept', { 'idC': colis.idC }) }}" class="book-taxi-btn">Accepter</a>
+                                     <a href="{{ path('Refusee', { 'idC': colis.idC , 'idV': colis.idKarhba }) }}" class="book-taxi-btn">Refuser</a>
+                                 {% endif %}
+                                {% if ((colis.etat==0)) %}
+                                    Ce Colis Ne Fait Plus Partie De Votre Liste
+                                {% endif %}
+                            </span>
 
+                    </div><!-- /.content-block -->
+                </div><!-- /.col-lg-6 -->
+            </div><!-- /.row -->
+          </div>
+         </div>
+        </div>
+        </div><!-- /.container -->
+    </section><!-- /.single-taxi-details-one -->
+    <section class="single-taxi-faq-one thm-gray-bg">
+        <div class="container">
+            <div class="block-title text-center">
+                <div class="dot-line"></div><!-- /.dot-line -->
+                <p>Q&R</p>
+                <h2>Questions & Reponses</h2>
+            </div><!-- /.block-title -->
+            <div class="accrodion-grp" data-grp-name="faq-accrodion">
+                <div class="accrodion active">
+                    <div class="accrodion-title">
+                        <h4>Quand est ce que je peux finaliser ma commande?</h4>
+                    </div>
+                    <div class="accrodion-content">
+                        <div class="inner">
+                            <p>Vous Pouvez Finaliser Votre Commande Une Fois Le Chauffeur Acceptera La Livraison De Votre Colis.</p>
+                        </div><!-- /.inner -->
                     </div>
                 </div>
-                <!-- Sidebar Area End -->
+                <div class="accrodion ">
+                    <div class="accrodion-title">
+                        <h4>Est Ce Que Je Peux Annuler L'envoi De Mon Colis ?</h4>
+                    </div>
+                    <div class="accrodion-content">
+                        <div class="inner">
+                            <p>L'annulation N'est Possible Sur Le Site Que Lorsque Votre Colis N'est Pas Encore Affecté. Si Ce N'est Pas Le Cas Vous Pouvez Nous Appelez Sue le 22.222.222 On Serait Ravis De Vous Aider.</p>
+                        </div><!-- /.inner -->
+                    </div>
+                </div>
+                <div class="accrodion">
+                    <div class="accrodion-title">
+                        <h4>Est Ce Que C'est Possible D'envoyer De Colis De Plus De 50 Kg?</h4>
+                    </div>
+                    <div class="accrodion-content">
+                        <div class="inner">
+                            <p>En Remplissant Le Formulaire De L'envoi Choisissez La Categorie Colis Lourd, Lors De L'affectation Vous Aurez Des Vehicules Adequate.</p>
+                        </div><!-- /.inner -->
+                    </div>
+                </div>
+                <div class="accrodion">
+                    <div class="accrodion-title">
+                        <h4>Combien Ca Coute La livraison Du colis?</h4>
+                    </div>
+                    <div class="accrodion-content">
+                        <div class="inner">
+                            <p>Le Prix Dependra De Plusieurs Facteur (poids,traget,categorie colis..) Avant De Valider Votre Commande Vous Aurez Une Facture Detaillees.</p>
+                        </div><!-- /.inner -->
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
-    <!--== Car List Area End ==-->
+        </div><!-- /.container -->
+    </section><!-- /.single-taxi-faq-one -->
+
+
 {% endblock %}

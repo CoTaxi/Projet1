@@ -150,7 +150,7 @@ class MobileUserController extends Controller
             $datas[$key]['prenom'] = $blog->getPrenom();
             $datas[$key]['username'] = $blog->getUsername();
             $datas[$key]['email'] = $blog->getEmail();
-            $datas[$key]['password'] = $blog->getMdp();
+            $datas[$key]['mdp'] = $blog->getMdp();
 
         }
         $serializer = new Serializer([new ObjectNormalizer()]);

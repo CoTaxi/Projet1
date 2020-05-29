@@ -49,7 +49,7 @@ findbydepart:
     path:     /findbydepart/{depart}
     defaults: { _controller: "ColisBundle:Services:findbydepart" }
 triColis:
-    path:     /triColis
+    path:     /triColis/{id}
     defaults: { _controller: "ColisBundle:Services:triColis" }
 pickup:
     path:     /pickup/{Id}/{pickup}
