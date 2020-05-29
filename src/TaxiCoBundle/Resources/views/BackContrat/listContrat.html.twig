@@ -10,10 +10,6 @@
                         <strong class="card-title">Liste des contrats</strong>
                         <div class="topnav" >
                             <a href="{{ path('contrat_rechercher')}}"class="btn btn-outline-secondary btn-sm"><i class="fa fa-search "></i></a>
-                            <button class="btn  btn-link pull-right"
-                                    id="right-panel-link"  style="color:#23272b">
-                                <a href="{{ path('contrat_add')}}">Ajouter un contrat</a>
-                            </button>
                         </div>
 
                     </div>
@@ -54,6 +50,11 @@
                         </table>
                     </div>
                 </div>
+                <ul>
+
+                    <a href="{{ path('contrat_add')}}"  class="btn  btn-outline-danger pull-right"  >Ajouter un contrat</a>
+
+                </ul>
             </div>
 
 
