@@ -50,10 +50,10 @@
                                             class="fa fa-edit"></i> Modifier</a>
 {#                                <a href="{{ path('taxi_co__mailRec') }}" class="reply-btn"><i#}
 {#                                            class="fa fa-envelope-o"></i> Email</a>#}
-                                {% if (vehicule.etat==1)  %}
+                                {% if (vehicule.acceptC=='Oui')  %}
 
                                     <a href="{{ path('acceptercolis',{'idV':vehicule.id}) }}"
-                                       class="reply-btn"><i class="fa fa-check-circle-o"></i> Accepter</a>
+                                       class="reply-btn"><i class="fa fa-check-circle-o"></i> Livraison Colis</a>
 
                                 {% endif %}
                             </div><!-- /.text-block -->

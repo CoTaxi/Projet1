@@ -4,6 +4,18 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
               xmlns="http://www.w3.org/1999/html">
     {% endblock %}
+  {% block cnx %}
+
+      {% if (user != null ) %}
+
+          <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-user-circle"></i>LOGOUT</a>
+
+          <a href="#"><i class="fa fa-envelope"></i>{{ user.Email }}</a>
+      {% endif %}
+      {% if (user == null)%}
+          <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle"></i>Sign In</a>
+      {% endif %}
+  {% endblock %}
         {% block bg %}
             <section class="inner-banner">
                 <div class="container">

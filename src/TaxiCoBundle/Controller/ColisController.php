@@ -39,26 +39,32 @@ class ColisController extends Controller
      */
     public function newAction(Request $request)
     {
-
-        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
-        $usrNom = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
-        $usrEmail = $this->get('security.token_storage')->getToken()->getUser()->getEmail();
-        $coli = new Colis();
-        $coli->setIdExpediteur($usrId);
-        $coli->setNomExpediteur($usrNom);
-        $coli->setMailExpediteur($usrEmail);
-        $form = $this->createForm('ColisBundle\Form\ColisType', $coli);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($coli);
-            $em->flush();
-            return $this->redirectToRoute('colis_show', array('idC' => $coli->getIdc()));
+        $us=$this->getUser();
+        if($us != null) {
+            $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
+            $usrNom = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
+            $usrEmail = $this->get('security.token_storage')->getToken()->getUser()->getEmail();
+            $coli = new Colis();
+            $coli->setIdExpediteur($usrId);
+            $coli->setNomExpediteur($usrNom);
+            $coli->setMailExpediteur($usrEmail);
+            $form = $this->createForm('ColisBundle\Form\ColisType', $coli);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($coli);
+                $em->flush();
+                return $this->redirectToRoute('colis_show', array('idC' => $coli->getIdc()));
+            }
+            return $this->render('colis/new.html.twig', array(
+                'coli' => $coli,
+                'form' => $form->createView(),
+            ));
         }
-        return $this->render('colis/new.html.twig', array(
-            'coli' => $coli,
-            'form' => $form->createView(),
-        ));
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
     /**
      * Finds and displays a coli entity.
