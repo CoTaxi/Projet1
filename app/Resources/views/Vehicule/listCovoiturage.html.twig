@@ -22,7 +22,6 @@
                             <h2><i class="fa fa-quote-left text-warning"></i> Vos Taxis</h2>
                         </div><!-- /.block-title -->
 
-
                         {% for vehicule in vehicule %}
                         {% if vehicule.type =="Covoiturage" %}
                         <div class="single-comment-one">
@@ -62,7 +61,6 @@
                 </div><!-- /.single-comment-one -->
                 {% endif %}
                 {% endfor %}
-
                 <button class="btn btn-outline-warning btn-block"
                         id="center" style="color:white">
                     <a href="{{ path('vehicule_ajoutvehicule') }}" >Ajouter</a>

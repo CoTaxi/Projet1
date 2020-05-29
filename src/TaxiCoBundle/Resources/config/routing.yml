@@ -254,6 +254,9 @@ test2:
 test5:
   path:     /test5
   defaults: { _controller: TaxiCoBundle:Rdv:list }
+updatedispordv:
+  path:     /updatedispordv/{id}
+  defaults: { _controller: TaxiCoBundle:Rdv:updatedispo }
 
 
 contrat_add:
