@@ -22,13 +22,21 @@ class ColisController extends Controller
      */
     public function indexAction()
     {
-        $em = $this->getDoctrine()->getManager();
+        $us=$this->getUser();
+        if($us != null)
+        {
+            $em = $this->getDoctrine()->getManager();
 
-        $colis = $em->getRepository('ColisBundle:Colis')->findAll();
+            $colis = $em->getRepository('ColisBundle:Colis')->findAll();
 
-        return $this->render('colis/index.html.twig', array(
-            'colis' => $colis,
-        ));
+            return $this->render('colis/index.html.twig', array(
+                'colis' => $colis,
+            ));
+        }
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
     }
 
     /**
