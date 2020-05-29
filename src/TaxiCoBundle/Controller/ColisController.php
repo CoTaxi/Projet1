@@ -72,14 +72,16 @@ class ColisController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-    public function detailsAction($idV)
+    public function detailsAction(Request $request,$idV)
     {
-        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find('8');
+        $vehicule=$this->getDoctrine()->getRepository(Vehicule::class)->find($idV);
+        $colis=$this->getDoctrine()->getRepository(Colis::class)->find($request->get('idC'));
         $user=$vehicule->getUser();
         $find=$this->getDoctrine()->getRepository(User::class)->find($user);
       return $this->render('colis/detailsclient.html.twig', array(
           'vehicule' => $vehicule,
           'user'=>$find,
+          'colis'=>$colis,
       ));
     }
     public function showModalAction($idC)
@@ -213,7 +215,12 @@ class ColisController extends Controller
     {
         $usr= $this->get('security.token_storage')->getToken()->getUser();
         $colis=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idExpediteur'=> $usr));
-        return $this->render('colis/afficherparuser.html.twig',array('colis'=>$colis));
+
+        return $this->render('colis/afficherparuser.html.twig',array
+        (
+            'colis'=>$colis,
+            'category'=>$colis->getNomcategorie()->getIdcategory(),
+        ));
     }
     public function ColisChauffeurAction(Request $request,$idV)
     {
@@ -254,11 +261,9 @@ class ColisController extends Controller
     {
         $em=$this->getDoctrine()->getManager();
         $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
-        $findv=$this->getDoctrine()->getRepository(Vehicule::class)->find('8');
-        $find->setidKarhba('8');
+
+        $find->setidKarhba($request->get('idv'));
         $find->setEtat('1');
-        $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
-        $findv->setUser($usrId);
         $em->persist($find);
         $em->flush();
         return $this->redirectToRoute('colis_afficher');
@@ -311,15 +316,31 @@ class ColisController extends Controller
         return $this->render('colis/afficheracceptee.html.twig',array(
             'colis'=>$etat,
             'cat'=>$nomcat,
+            'idV'=>$idV,
+        ) );
+    }
+    public function ArchiveAction($idV)
+    {
+        $etat=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV,'etat'=>'3'));
+        $findc=$this->getDoctrine()->getRepository(Vehicule::class)->find($idV);
+        $nomcat=$findc->getacceptC();
+        return $this->render('colis/archive.html.twig',array(
+            'colis'=>$etat,
+            'cat'=>$nomcat,
+            'idV'=>$idV,
         ) );
     }
     public function MiseAjourAction($idC)
     {
         $em=$this->getDoctrine()->getManager();
         $find=$this->getDoctrine()->getRepository(Colis::class)->find($idC);
+        $idV=$find->getIdKarhba();
         $find->setetat('3') ;
         $em->persist($find);
         $em->flush();
-        return $this->render('colis/afficheracceptee.html.twig',array( 'colis'=>$find) );
+        return $this->render('colis/afficheracceptee.html.twig',array(
+            'colis'=>$find,
+            'idV'=>$idV,
+        ) );
     }
 }

@@ -47,7 +47,6 @@ choix_voiture:
 colis_showModal:
   path:     /showModal/{idC}
   defaults: { _controller: "TaxiCoBundle:Colis:showModal" }
-  methods:  [GET, POST]
 sms:
   path:     /sms
   defaults: { _controller: "TaxiCoBundle:Colis:sms" }
@@ -61,6 +60,9 @@ Refusee:
 AfficheEtat:
   path:     /AfficheEtat/{idV}
   defaults: { _controller: "TaxiCoBundle:Colis:AfficheEtat" }
+Archive:
+  path:     /Archive/{idV}
+  defaults: { _controller: "TaxiCoBundle:Colis:Archive" }
 details:
   path:     /details/{idV}
   defaults: { _controller: "TaxiCoBundle:Colis:details" }
@@ -452,3 +454,7 @@ vehicule_position:
 vehicule_updateposition:
   path:     /updateposition/{id}
   defaults: { _controller: TaxiCoBundle:ServiceVec:updateposition}
+vecmatricule:
+  path:     /vecmatricule/{matricule}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:vecmatricule}
+

@@ -20,20 +20,18 @@ class ColisType extends AbstractType
     {
         $builder
             ->add('nomcategorie',EntityType::class,array('class'=>'ColisBundle:Category','choice_label'=>'categorie'))
-            ->add('depart',ChoiceType::class,array('choices'=> array(
-
+            ->add('depart',ChoiceType::class,['choices' => [ 'Depart' => [
             'Bizerte'=> 'bizerte' ,
             'Tunis'=> 'Tunis' ,
             'ariana'=> 'ariana' ,
             'Zaghwen'=> 'zaghwen' ,
-        )))
-            ->add('destination',ChoiceType::class,array('choices'=> array(
-
+            ]]])
+            ->add('destination',ChoiceType::class,['choices' => [ 'Destination' => [
                 'Bizerte'=> 'bizerte' ,
                 'Tunis'=> 'Tunis' ,
                 'ariana'=> 'ariana' ,
                 'Zaghwen'=> 'zaghwen' ,
-            )))
+            ]]])
             ->add('nomExpediteur')
 
             ->add('mailExpediteur')

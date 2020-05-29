@@ -1,5 +1,16 @@
-{% extends 'default/acceuil.html.twig' %}
-
+{% extends'layout.html.twig' %}
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Colis</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Modifier Colis</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
 {% block contents %}
     <h1>Coli edit</h1>
 <section id="slider-area">
@@ -16,20 +27,19 @@
                           {{ form_start(edit_form) }}
 
         {{ form_widget(edit_form) }}
-        <input type="submit" class="readmore-btn" value="Edit" />
-    {{ form_end(edit_form) }}
+        <button type="submit"  name="Edit" title="Edit" class="btn-outline-success"><i class="fa fa-edit">Modifier</i></button>
+
+        {{ form_end(edit_form) }}
 
     <ul>
 
-        <li>
             {{ form_start(delete_form) }}
+            <button type="submit"  name="Delete" title="Delete" class="btn-outline-danger"><i class="fa fa-remove">Supprimer</i></button>
 
-                <input type="submit" class="readmore-btn" value="Delete">
             {{ form_end(delete_form) }}
-        </li>
 
         <li>
-            <a href="{{ path('colis_index') }}">Back to the list</a>
+            <a href="{{ path('colis_afficher') }}">Back to the list</a>
         </li>
     </ul>
                             </div>

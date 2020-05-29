@@ -256,25 +256,29 @@ class ServicesController extends Controller
         $formatted = $serializer->normalize($findcolis);
         return new JsonResponse($formatted);
     }
-    public function triColisAction()
+    public function triColisAction($id)
     {
         $em=$this->getDoctrine()->getManager();
-        $find = $em->getRepository('ColisBundle:Colis')->findAllOrderedByDepart();
+        $find = $em->getRepository('ColisBundle:Colis')->findAllOrderedByDepart($id);
         $datas = array();
-        foreach ($find as $key => $col){
-            $datas[$key]['Id'] = $col->getIdC();
-            $datas[$key]['Depart'] = $col->getDepart();
-            $datas[$key]['Destination'] = $col->getDestination();
-            $datas[$key]['Poids'] = $col->getPoids();
-            $datas[$key]['NomExpediteur'] = $col->getNomExpediteur();
-            $datas[$key]['MailExpediteur'] = $col->getMailExpediteur();
-            $datas[$key]['NomDestinataire'] = $col->getNomDestinataire();
-            $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
-            $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
-            $datas[$key]['Etat']= $col->getEtat();
-            $datas[$key]['pickup']= $col->getPickup();
-            #$datas[$key]['Categorie'] = $col->getNomcategorie()->getCategorie();
-        }
+
+            foreach ($find as $key => $col)
+            {
+
+                    $datas[$key]['Id'] = $col->getIdC();
+                    $datas[$key]['Depart'] = $col->getDepart();
+                    $datas[$key]['Destination'] = $col->getDestination();
+                    $datas[$key]['Poids'] = $col->getPoids();
+                    $datas[$key]['NomExpediteur'] = $col->getNomExpediteur();
+                    $datas[$key]['MailExpediteur'] = $col->getMailExpediteur();
+                    $datas[$key]['NomDestinataire'] = $col->getNomDestinataire();
+                    $datas[$key]['MailDestinataire'] = $col->getMailDestinataire();
+                    $datas[$key]['TelDestinataire'] = $col->getTelDestinataire();
+                    $datas[$key]['Etat']= $col->getEtat();
+                    $datas[$key]['pickup']= $col->getPickup();
+
+            }
+
 
     $serializer = new Serializer([new ObjectNormalizer()]);
     $formatted = $serializer->normalize($datas);
