@@ -39,6 +39,7 @@ class ColisController extends Controller
      */
     public function newAction(Request $request)
     {
+
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $usrNom = $this->get('security.token_storage')->getToken()->getUser()->getUsername();
         $usrEmail = $this->get('security.token_storage')->getToken()->getUser()->getEmail();
@@ -83,6 +84,19 @@ class ColisController extends Controller
           'user'=>$find,
           'colis'=>$colis,
       ));
+    }
+    public function parcategorieAction($cat)
+    {
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $catt=$this->getDoctrine()->getRepository(Category::class)->findBy(array('categorie'=>$cat));
+
+        foreach ($catt as $c)
+        {
+            $colis=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('nomcategorie'=>$c,'idExpediteur'=>$id));
+        }
+        return $this->render('colis/parcategorie.html.twig', array(
+            'colis'=>$colis,
+        ));
     }
     public function showModalAction($idC)
     {
@@ -267,6 +281,10 @@ class ColisController extends Controller
         $em->persist($find);
         $em->flush();
         return $this->redirectToRoute('colis_afficher');
+    }
+    public function clientfirstpageAction()
+    {
+        return $this->render('colis/clientfirstpage.html.twig');
     }
     public function smsAction ()
     {
