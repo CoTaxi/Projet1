@@ -1,5 +1,14 @@
 {% extends 'layout.html.twig' %}
-
+{% block bg %}
+    <section class="inner-banner">
+        <div class="container">
+            <ul class="thm-breadcrumb">
+                <li><a href="index-2.html">TaxiCo</a></li>
+            </ul><!-- /.thm-breadcrumb -->
+            <h2>Vehicules</h2>
+        </div><!-- /.container -->
+    </section><!-- /.inner-banner -->
+{% endblock %}
 {% block contents %}
 
     <section id="pricing-area" class="section-padding overlay">
@@ -33,8 +42,9 @@
                         id="center" style="color:white">
                     <a href="{{ path('vehicule_covoiturage') }}" class="btn btn-outline-secondary btn-lg pull-right">Consulter</a>
                 </button>
-            </div>
 
+            </div>
+            <p>  </p>
         </div>
     </section>
 
