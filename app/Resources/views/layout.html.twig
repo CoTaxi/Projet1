@@ -82,7 +82,11 @@
                             <li><a href="#">Maintenance</a></li>
                         {% endif %}
                         <li>
-                            <a href="#">Reclamation</a>
+                            <a href="{{ path('taxi_co_addRec') }}">Reclamation</a>
+                            <ul class="sub-menu">
+                                <li><a href="{{ path('taxi_co_addRec') }}">Envoyer réclamation</a></li>
+                                <li><a href="{{ path('taxi_co_listRec') }}">Afficher réclamations</a></li>
+                            </ul><!-- /.sub-menu -->
                         </li>
 
                         {% if ((is_granted('ROLE_CLIENT'))) %}
@@ -173,7 +177,7 @@
                         <div class="widget-title">
                             <h3>Newsletter</h3>
                         </div><!-- /.widget-title -->
-                        <p>Inscrivez Vous Dans Notre NewsLetter<br> et recevrez les nouveaute de TaxiCo.</p>
+                        <p>Inscrivez Vous Dans Notre NewsLetter<br> et recevrez les nouveautes de TaxiCo.</p>
                         <form action="#" class="subscribe-form">
                             <input type="text" name="email" placeholder="Email">
                             <button type="submit">Go</button>

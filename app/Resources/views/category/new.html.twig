@@ -12,7 +12,8 @@
             <div class="row form-group">
                 &nbsp {{ form_start(form) }}
                 &nbsp   {{ form_widget(form) }}
-                &nbsp   <input type="submit" class="btn btn-primary btn-sm " value="Create" />
+{#                &nbsp   <input type="submit" class="btn btn-primary btn-sm " value="Create" />#}
+                <button type="submit" class="btn" value="Edit" style="background-color: #FFFFFF;"> <i class="fa fa--square-o"></i> ➕ </button>
                 &nbsp{{ form_end(form) }}
             </div>
         </form>
@@ -23,7 +24,7 @@
 
     <ul>
 
-            &nbsp   <a href="{{ path('category_index') }}" class="btn btn-lg btn-info btn-block">Back to the list</a>
+        &nbsp   <a href="{{ path('category_index') }}" class="btn btn-lg btn-info btn-block"><i class="fa fa-hand-o-left"> </i> Back to the list</a>
 
     </ul> </div>
     </div>

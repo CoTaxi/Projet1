@@ -98,6 +98,10 @@ taxi_co__mailRec:
   path:     /mail/{msg}
   defaults: { _controller: TaxiCoBundle:Reclamation:mailReclamation }
 
+taxi_co__BackmailRec:
+  path:     /mail
+  defaults: { _controller: TaxiCoBundle:Reclamation:mailBackReclamation }
+
 # For Admin :
 
 taxi_co__backListRec:

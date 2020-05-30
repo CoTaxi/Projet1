@@ -91,6 +91,18 @@ class ReclamationController extends Controller
         return $this->redirectToRoute('taxi_co_listRec');
     }
 
+    public function mailBackReclamationAction()
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('[Important] Réponse Admin')
+            ->setFrom('rmilioussama70@gmail.com')
+            ->setTo('rmilissou@gmail.com')
+            ->setBody('Bonjour, Votre réclamation est bien traitée.');
+
+        $this->get('mailer')->send($message);
+        return $this->redirectToRoute('taxi_co_listRec');
+    }
+
     public function adminlistRecAction()
     {
         $em = $this->getDoctrine()->getManager();

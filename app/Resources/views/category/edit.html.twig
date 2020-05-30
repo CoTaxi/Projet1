@@ -2,22 +2,23 @@
 
 {% block contents %}
     <div class="content mt-3">
-        &nbsp    <div class="card">
+        &nbsp
+        <div class="card">
             <div class="card-header">
                 <strong>créer categorie</strong>
             </div>
             <div class="card-body card-block">
                 <form action="" method="post" class="form-horizontal">
                     <div class="row form-group">
-    {{ form_start(edit_form) }}
-      {{ form_widget(edit_form) }}
-<input type="submit" class="ti-pencil "  value="Edit" />
-        {{ form_end(edit_form) }}
+                        {{ form_start(edit_form) }}
+                        {{ form_widget(edit_form) }}
+                        <button type="submit" class="btn" value="Edit" style="background-color: #FFFFFF;"> <i class="fa fa-pencil-square-o"></i></button>
+{#                        <input type="submit" class="ti-pencil " value="Edit"/>#}
+                        {{ form_end(edit_form) }}
                         {{ form_start(delete_form) }}
-                        <div class="icon-container">
-                            <input type="submit" class="btn " value="Delete">
-                        </div>
 
+                            <button type="submit" value="Delete" class="btn" style="background-color: #FFFFFF; position: relative;top: 24px"><i class="fa fa-trash-o text-danger"></i> </button>
+{#                            <input type="submit" class="btn " value="Delete">#}
 
                         {{ form_end(delete_form) }}
                     </div>
@@ -26,17 +27,17 @@
         </div>
 
         <div>
-    <ul>
+            <ul>
 
-            <a href="{{ path('category_index') }}" class="btn btn-lg btn-info btn-block" >Back to the list</a>
+                <a href="{{ path('category_index') }}" class="btn btn-lg btn-info btn-block"><i class="fa fa-hand-o-left"> </i> Back to the list</a>
 
 
-
-    </ul> </div>
+            </ul>
+        </div>
     </div>
 
 
 
-    {% endblock %}
+{% endblock %}
 
 
