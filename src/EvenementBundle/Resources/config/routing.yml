@@ -27,3 +27,6 @@ listuser:
 Quitter:
     path:     /Quitter/{idev}/{iduser}
     defaults: { _controller: EvenementBundle:EventMobile:Quitter }
+Trier:
+    path:     /trier
+    defaults: { _controller: EvenementBundle:EventMobile:triEvent }
