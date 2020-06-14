@@ -57,3 +57,6 @@ pickup:
 getchat:
     path:     /getchat
     defaults: { _controller: "ColisBundle:Chat:getchat" }
+stat:
+    path:     /stat
+    defaults: { _controller: "ColisBundle:Services:stat" }

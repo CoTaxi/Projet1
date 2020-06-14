@@ -70,12 +70,10 @@
                         <li class=" current ">
                             <a href="{{ path('homepage') }}">Acceuil</a>
                         </li>
-                        {% if ((is_granted('ROLE_CLIENT'))) %}
                         <li><a href="{{ path('ourservices') }}">Nos Services</a></li>
-                        {% endif %}
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
-                            <li><a href="#">Vehicules</a></li>
+                            <li><a href="{{ path('vehicule_taxi') }}">Vehicules</a></li>
                         {% endif %}
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}

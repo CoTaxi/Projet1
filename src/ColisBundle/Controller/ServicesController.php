@@ -4,6 +4,7 @@
 namespace ColisBundle\Controller;
 
 
+use CMEN\GoogleChartsBundle\GoogleCharts\Charts\PieChart;
 use ColisBundle\Entity\Category;
 use ColisBundle\Entity\Colis;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -312,6 +313,38 @@ class ServicesController extends Controller
         }
         $serializer = new Serializer([new ObjectNormalizer()]);
         $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
+    public function statAction()
+    {
+        $pieChart = new PieChart();
+        $em= $this->getDoctrine();
+        $villes = $em->getRepository(Colis::class)->findAll();
+        $totalpoids=0;
+        foreach( $villes as  $ville) {
+            $totalpoids= $totalpoids+$ville->getpoids();
+        }
+
+        $data= array();
+        $stat=['ville', 'nb'];
+        $nb=0;
+        foreach( $villes as $ville) {
+            $stat=array();
+            array_push($stat,$ville->getpoids(),(($ville->getpoids()) *100)/ $totalpoids);
+            $nb=($ville->getpoids() *100)/ $totalpoids;
+            $stat=[$ville->getdepart(),$nb];
+            array_push($data,$stat);
+
+        }
+
+
+        $pieChart->getData()->setArrayToDataTable(
+            $data
+        );
+
+
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($pieChart->getData());
         return new JsonResponse($formatted);
     }
 
