@@ -481,3 +481,6 @@ vehicule_updateposition:
 vecmatricule:
   path:     /vecmatricule/{matricule}
   defaults: { _controller: TaxiCoBundle:ServiceVec:vecmatricule}
+findbyid:
+  path:     /findbyid/{id}
+  defaults: { _controller: TaxiCoBundle:ServiceVec:findbyid}

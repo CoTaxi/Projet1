@@ -22,6 +22,14 @@ class ServiceVecController extends Controller
         $formatted = $serializer->normalize($vehicule);
         return new JsonResponse($formatted);
     }
+    public function findbyidAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $vehicule = $em->getRepository('TaxiCoBundle:Vehicule')->find($id);
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($vehicule);
+        return new JsonResponse($formatted);
+    }
     public function toutvecAction(Request $request)
     {
         $iuser= $request->get('user');

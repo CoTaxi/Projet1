@@ -248,7 +248,7 @@ class ColisController extends Controller
         $find=$this->getDoctrine()->getRepository(Vehicule::class)->find($idV);
         $categorie=$find->getAcceptC();
         $form = $this->createForm(VehiculeForm::class,$find);
-        $demande=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV));
+        $demande=$this->getDoctrine()->getRepository(Colis::class)->findBy(array('idKarhba'=>$idV,'etat'=>1));
         $form->handleRequest($request);
         if($form->isSubmitted())
         {

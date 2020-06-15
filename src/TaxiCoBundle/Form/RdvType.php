@@ -19,8 +19,7 @@ class RdvType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('idChauffeur')
-            ->add('dateRdv')
+        $builder->add('dateRdv')
             ->add('garage',EntityType::class,array(
                 'class'=>'TaxiCoBundle:garage','choice_label'=>'name','multiple'=>false,))
             ->add('status')

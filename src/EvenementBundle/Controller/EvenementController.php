@@ -52,7 +52,15 @@ class EvenementController extends Controller
         return $response;
 
     }
-
+    public function deleteAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
+        $id=$request->get("id");
+        var_dump($id);
+        $event=$em->getRepository('EvenementBundle:Evennement')->find($id);
+        $em->remove($event);
+        $em->flush();
+        return $this->render('@Evenement/Back/indexB.html.twig');
+    }
     public function addAction(Request $request){
         $em= $this->getDoctrine()->getManager();
         $event = new Evennement();

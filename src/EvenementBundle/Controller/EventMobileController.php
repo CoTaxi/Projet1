@@ -118,4 +118,25 @@ class EventMobileController extends Controller
         $formatted = $serializer->normalize($datas);
         return new JsonResponse($formatted);
     }
+    public function triEventAction()
+    {
+        $em=$this->getDoctrine()->getManager();
+        $find = $em->getRepository('EvenementBundle:Evennement')->findAllOrderedByDepart();
+        $datas = array();
+        foreach ($find as $key => $ev)
+        {
+            $datas[$key]['id'] = $ev->getIdEvent();
+            $datas[$key]['nom'] = $ev->getNomEvent();
+            $datas[$key]['date'] = $ev->getDateEvent();
+            $datas[$key]['fin'] = $ev->getDateEventFin();
+            $datas[$key]['duree'] = $ev->getDureeEvent();
+            $datas[$key]['capacite'] = $ev->getCapacite();
+            $datas[$key]['emplacement'] = $ev->getEmplacement();
+            $datas[$key]['etat'] = $ev->getEtat();
+            $datas[$key]['place'] = $ev->getPlace();
+        }
+        $serializer = new Serializer([new ObjectNormalizer()]);
+        $formatted = $serializer->normalize($datas);
+        return new JsonResponse($formatted);
+    }
 }

@@ -41,8 +41,10 @@
                                 <td>{{ s.address }}</td>
                                 <td>{{ s.service.name }}</td>
 
-                                <td> <a href="{{ path('updategarage',{'id':s.idGarage}) }}"><button type="button" class="btn btn-primary">Modifier</button></a></td>
-                                <td> <a href="{{ path('deletegarage',{'id':s.idGarage}) }}"><button type="button" class="btn btn-primary">Spprimer</button></a></td>
+                                <td> <a href="{{ path('update',{'id':s.idGarage}) }}"><button style="border-radius: 25px;" type="button" class="btn btn-success">
+                                            <i class="fa fa-pencil-square"></i> </button></a></td>
+                                <td> <a href="{{ path('delete',{'id':s.idGarage}) }}"><button style="border-radius: 25px;" type="button" class="btn btn-danger">
+                                            <i class="fa fa-trash"></i> </button></a></td>
 
                                 {% endfor %}
                             </tr>

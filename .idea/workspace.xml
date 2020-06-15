@@ -2,8 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2a7c174-8df6-4bd3-a152-6a5854dad42c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/TaxiCo/ashik.templatepath.net/conexi-preview-files/images/background/maintenance4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/TaxiCo/ashik.templatepath.net/conexi-preview-files/images/background/maintenance6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/TaxiCo/images/background/maintenance4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/TaxiCo/images/background/maintenance6.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Projet1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Projet1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/app/Resources/views/layout.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/bin/symfony_requirements" beforeDir="false" afterPath="$PROJECT_DIR$/bin/symfony_requirements" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/RdvController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Controller/RdvController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/config/routing.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front2.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaxiCoBundle/Resources/views/Rdv/front2.html.twig" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/var/SymfonyRequirements.php" beforeDir="false" afterPath="$PROJECT_DIR$/var/SymfonyRequirements.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/config.php" beforeDir="false" afterPath="$PROJECT_DIR$/web/config.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +30,9 @@
     <execution>
       <phar pharPath="$PROJECT_DIR$/composer_2.phar" interpreterId="587a176e-d3b0-4ad9-9c8a-9d9051cacea6" />
     </execution>
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="Projet1" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -66,6 +84,20 @@
       <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
       <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
+      <path value="$PROJECT_DIR$/vendor/lcobucci/jwt" />
+      <path value="$PROJECT_DIR$/vendor/zendframework/zend-diactoros" />
+      <path value="$PROJECT_DIR$/vendor/php-http/httplug" />
+      <path value="$PROJECT_DIR$/vendor/php-http/guzzle6-adapter" />
+      <path value="$PROJECT_DIR$/vendor/php-http/promise" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/psr7" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/promises" />
+      <path value="$PROJECT_DIR$/vendor/guzzlehttp/guzzle" />
+      <path value="$PROJECT_DIR$/vendor/psr/http-message" />
+      <path value="$PROJECT_DIR$/vendor/nexmo/client" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php72" />
+      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-idn" />
+      <path value="$PROJECT_DIR$/vendor/nexmo/client-core" />
+      <path value="$PROJECT_DIR$/vendor/ralouphie/getallheaders" />
     </include_path>
   </component>
   <component name="ProjectId" id="1adH0RxSgDW0xCIgnqcIHYF2pKh" />
@@ -111,8 +143,8 @@
       <command value="s doctrine:schema:update --force" />
       <command value="s doctrine:schema:update" />
       <command value="s server run" />
-      <command value="s cache:clear" />
       <command value="s server:run" />
+      <command value="s cache:clear" />
     </option>
   </component>
   <component name="RunManager">
@@ -156,11 +188,14 @@
       <workItem from="1589473611972" duration="681000" />
       <workItem from="1589634871964" duration="3309000" />
       <workItem from="1589704510434" duration="1705000" />
+<<<<<<< HEAD
+      <workItem from="1590765178011" duration="18366000" />
+=======
       <workItem from="1589849145067" duration="4069000" />
       <workItem from="1590482782992" duration="68000" />
       <workItem from="1590750140877" duration="331000" />
       <workItem from="1590750485673" duration="12119000" />
-      <workItem from="1590780907703" duration="5797000" />
+>>>>>>> c86e4455add953e6b5a34e6c99e8b32c669384a5
     </task>
     <servers />
   </component>
@@ -185,10 +220,6 @@
     </state>
     <state x="444" y="151" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728@0.0.1366.728" timestamp="1590758833200" />
     <state x="499" y="172" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1536.832@0.0.1536.832" timestamp="1589381530668" />
-    <state x="367" y="20" width="645" height="688" key="#phpunit.xml.dist" timestamp="1590783265448">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="367" y="20" width="645" height="688" key="#phpunit.xml.dist/0.0.1366.728@0.0.1366.728" timestamp="1590783265448" />
     <state x="171" y="0" key="CommitChangelistDialog2" timestamp="1587062899431">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -209,35 +240,61 @@
     <state x="433" y="99" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1587061168917" />
     <state x="462" y="106" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1590482852809" />
     <state x="519" y="121" key="FileChooserDialogImpl/0.0.1536.832@0.0.1536.832" timestamp="1588894405301" />
-    <state width="1323" height="103" key="GridCell.Tab.0.bottom" timestamp="1590782892408">
+<<<<<<< HEAD
+    <state width="831" height="159" key="GridCell.Tab.0.bottom" timestamp="1590783189981">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="103" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590782892408" />
+    <state width="831" height="159" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590783189981" />
     <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1589680217698" />
-    <state width="1323" height="103" key="GridCell.Tab.0.center" timestamp="1590782892407">
+    <state width="831" height="159" key="GridCell.Tab.0.center" timestamp="1590783189980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="103" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
+    <state width="831" height="159" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590783189980" />
     <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
-    <state width="1323" height="103" key="GridCell.Tab.0.left" timestamp="1590782892407">
+    <state width="831" height="159" key="GridCell.Tab.0.left" timestamp="1590783189980">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="103" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
+    <state width="831" height="159" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590783189980" />
     <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
-    <state width="1323" height="103" key="GridCell.Tab.0.right" timestamp="1590782892407">
+    <state width="831" height="159" key="GridCell.Tab.0.right" timestamp="1590783189981">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
-    <state width="1323" height="103" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590782892407" />
+    <state width="831" height="159" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590783189981" />
+=======
+    <state width="1323" height="103" key="GridCell.Tab.0.bottom" timestamp="1590768005265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
+    <state width="1323" height="103" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1590768005265" />
+    <state width="1493" height="188" key="GridCell.Tab.0.bottom/0.0.1536.832@0.0.1536.832" timestamp="1589680217698" />
+    <state width="1323" height="103" key="GridCell.Tab.0.center" timestamp="1590768005265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
+    <state width="1323" height="103" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1590768005265" />
+    <state width="1493" height="188" key="GridCell.Tab.0.center/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
+    <state width="1323" height="103" key="GridCell.Tab.0.left" timestamp="1590768005265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
+    <state width="1323" height="103" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1590768005265" />
+    <state width="1493" height="188" key="GridCell.Tab.0.left/0.0.1536.832@0.0.1536.832" timestamp="1589680217697" />
+    <state width="1323" height="103" key="GridCell.Tab.0.right" timestamp="1590768005265">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1237" height="157" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1587062899803" />
+    <state width="1323" height="103" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1590768005265" />
+>>>>>>> c86e4455add953e6b5a34e6c99e8b32c669384a5
     <state width="1493" height="188" key="GridCell.Tab.0.right/0.0.1536.832@0.0.1536.832" timestamp="1589680217698" />
-    <state x="207" y="8" key="SettingsEditor" timestamp="1589072871376">
-      <screen x="0" y="0" width="1536" height="832" />
+    <state x="184" y="7" key="SettingsEditor" timestamp="1590765852456">
+      <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="172" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1587062231850" />
-    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1587068434020" />
+    <state x="184" y="7" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590765852456" />
     <state x="207" y="8" key="SettingsEditor/0.0.1536.832@0.0.1536.832" timestamp="1589072871376" />
     <state x="506" y="305" key="SymfonyPathDialog" timestamp="1588795510027">
       <screen x="0" y="0" width="1536" height="832" />
@@ -249,11 +306,19 @@
     </state>
     <state x="378" y="188" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1587155847351" />
     <state x="425" y="215" key="com.intellij.ide.util.TipDialog/0.0.1536.832@0.0.1536.832" timestamp="1589704577218" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1590782892432">
+<<<<<<< HEAD
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1590780563138">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="318" y="151" width="672" height="633" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587061771116" />
-    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590782892432" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590780563138" />
+=======
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup" timestamp="1590762596326">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="318" y="151" width="672" height="633" key="run.anything.popup/0.0.1280.680@0.0.1280.680" timestamp="1587061771116" />
+    <state x="339" y="162" width="672" height="677" key="run.anything.popup/0.0.1366.728@0.0.1366.728" timestamp="1590762596326" />
+>>>>>>> c86e4455add953e6b5a34e6c99e8b32c669384a5
     <state x="381" y="185" width="756" height="774" key="run.anything.popup/0.0.1536.832@0.0.1536.832" timestamp="1589704586224" />
   </component>
 </project>
