@@ -110,6 +110,10 @@ class ForumController extends Controller
         return $this->redirectToRoute('forum_homepage_back');
 
     }
+    public function blgAction(Request $request){
+
+        return $this->render('@Forum/Front/blg.html.twig');
+    }
 
 
 }

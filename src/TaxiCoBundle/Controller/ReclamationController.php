@@ -346,4 +346,9 @@ class ReclamationController extends Controller
         $em->flush();
         return $this->redirectToRoute("taxi_co__count");
     }
+
+    public function recAction(Request $request){
+
+        return $this->render('@TaxiCo/ReclamationViews/rec.html.twig');
+    }
 }

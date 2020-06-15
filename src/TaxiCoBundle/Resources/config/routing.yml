@@ -82,6 +82,10 @@ taxi_co_addRec:
   path:     /add
   defaults: { _controller: TaxiCoBundle:Reclamation:ajouterReclamation }
 
+taxi_co_rec:
+  path:     /rec
+  defaults: { _controller: TaxiCoBundle:Reclamation:rec }
+
 taxi_co_listRec:
   path:     /list
   defaults: { _controller: TaxiCoBundle:Reclamation:afficherReclamation }
@@ -258,6 +262,11 @@ test2:
 test5:
   path:     /test5
   defaults: { _controller: TaxiCoBundle:Rdv:list }
+
+maint:
+  path:     /maint
+  defaults: { _controller: TaxiCoBundle:Maintenance:maint }
+
 updatedispordv:
   path:     /updatedispordv/{id}
   defaults: { _controller: TaxiCoBundle:Rdv:updatedispo }

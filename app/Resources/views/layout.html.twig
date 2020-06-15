@@ -71,29 +71,26 @@
                             <a href="{{ path('homepage') }}">Acceuil</a>
                         </li>
                         {% if ((is_granted('ROLE_CLIENT'))) %}
-                        <li><a href="{{ path('ourservices') }}">Nos Services</a></li>
+                            <li><a href="{{ path('ourservices') }}">Nos Services</a></li>
                         {% endif %}
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
-                            <li><a href="#">Vehicules</a></li>
+                            <li><a href="{{ path('vehicule_listVehicule')}}">Vehicules</a></li>
                         {% endif %}
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
-                            <li><a href="#">Maintenance</a></li>
+
+                            <li><a href="{{ path('maint')}}">Maintenance</a></li>
                         {% endif %}
                         <li>
-                            <a href="{{ path('taxi_co_addRec') }}">Reclamation</a>
-                            <ul class="sub-menu">
-                                <li><a href="{{ path('taxi_co_addRec') }}">Envoyer réclamation</a></li>
-                                <li><a href="{{ path('taxi_co_listRec') }}">Afficher réclamations</a></li>
-                            </ul><!-- /.sub-menu -->
+                            <a href="{{ path('taxi_co_rec') }}">Reclamation</a>
                         </li>
 
                         {% if ((is_granted('ROLE_CLIENT'))) %}
                             <li><a href="{{ path('ourservices') }}">Evenement</a></li>
                         {% endif %}
                         <li>
-                            <a href="#">Blog</a>
+                        <li><a href="{{ path('blg') }}">blog</a></li>
                         </li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
@@ -118,11 +115,11 @@
         {% block bg %}
 
         {% endblock %}
-    <div class="carousel-btn-block banner-carousel-btn">
-        <span class="carousel-btn left-btn"><i class="conexi-icon-left"></i></span>
-        <span class="carousel-btn right-btn"><i class="conexi-icon-right"></i></span>
-    </div><!-- /.carousel-btn-block banner-carousel-btn -->
-</div><!-- /.main-banner-wrapper -->
+        <div class="carousel-btn-block banner-carousel-btn">
+            <span class="carousel-btn left-btn"><i class="conexi-icon-left"></i></span>
+            <span class="carousel-btn right-btn"><i class="conexi-icon-right"></i></span>
+        </div><!-- /.carousel-btn-block banner-carousel-btn -->
+    </div><!-- /.main-banner-wrapper -->
 
 
 
@@ -141,67 +138,67 @@
             <a href="{{ path('ourservices') }}" class="cta-btn">Nos Services</a>
         </div><!-- /.container -->
     </section><!-- /.cta-style-one -->
-<footer class="site-footer">
-    <img src="{{ asset('TaxiCo/images/background/footer-bg-1-1.png') }}" class="footer-bg" alt="Awesome Image" />
-    <div class="upper-footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3">
-                    <div class="footer-widget about-widget">
-                        <div class="widget-title">
-                            <h3>A propos</h3>
-                        </div><!-- /.widget-title -->
-                        <p>TaxiCo est une application developpée par le groupe Unplugged afin de faciler la reservation des taxis et covoiturage ainsi que l'envoi des colis.</p>
-                        <div class="social-block">
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                            <a href="#"><i class="fa fa-facebook-f"></i></a>
-                            <a href="#"><i class="fa fa-youtube-play"></i></a>
-                            <a href="#"><i class="fa fa-google-plus"></i></a>
-                        </div><!-- /.social-block -->
-                    </div><!-- /.footer-widget about-widget -->
-                </div><!-- /.col-lg-3 -->
-                <div style="position: relative; left: 100px" class="col-lg-4">
-                    <div class="footer-widget">
-                        <div class="widget-title">
-                            <h3>Contact</h3>
-                        </div><!-- /.widget-title -->
-                        <p>116 rue ghazela  <br> Ariana, Tunisie</p>
-                        <ul class="contact-infos">
-                            <li><i class="fa fa-envelope"></i> needhelp@taxico.com</li>
-                            <li><i class="fa fa-phone-square"></i> 22 222 222</li>
-                        </ul><!-- /.contact-infos -->
-                    </div><!-- /.footer-widget -->
-                </div><!-- /.col-lg-3 -->
-                <div class="col-lg-4">
-                    <div class="footer-widget">
-                        <div class="widget-title">
-                            <h3>Newsletter</h3>
-                        </div><!-- /.widget-title -->
-                        <p>Inscrivez Vous Dans Notre NewsLetter<br> et recevrez les nouveautes de TaxiCo.</p>
-                        <form action="#" class="subscribe-form">
-                            <input type="text" name="email" placeholder="Email">
-                            <button type="submit">Go</button>
-                        </form>
-                    </div><!-- /.footer-widget -->
-                </div><!-- /.col-lg-4 -->
-            </div><!-- /.row -->
-        </div><!-- /.container -->
-    </div><!-- /.upper-footer -->
-    <div class="bottom-footer">
-        <div class="container">
-            <div class="inner-container">
-                <div class="left-block">
-                    <a href="index-2.html" class="footer-logo"><img src="{{ asset('uploads/images/logo3.png') }}" style="height: 70px;width: 70px" alt="logo" /></a>
-                    <span>&copy; 2020 <a href="#">Unplugged</a></span>
-                </div><!-- /.left-block -->
-                <div class="right-block">
-                    <ul class="link-lists">
-                    </ul>
-                </div><!-- /.right-block -->
-            </div><!-- /.inner-container -->
-        </div><!-- /.container -->
-    </div><!-- /.bottom-footer -->
-</footer><!-- /.site-footer -->
+    <footer class="site-footer">
+        <img src="{{ asset('TaxiCo/images/background/footer-bg-1-1.png') }}" class="footer-bg" alt="Awesome Image" />
+        <div class="upper-footer">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer-widget about-widget">
+                            <div class="widget-title">
+                                <h3>A propos</h3>
+                            </div><!-- /.widget-title -->
+                            <p>TaxiCo est une application developpée par le groupe Unplugged afin de faciler la reservation des taxis et covoiturage ainsi que l'envoi des colis.</p>
+                            <div class="social-block">
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-facebook-f"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                                <a href="#"><i class="fa fa-google-plus"></i></a>
+                            </div><!-- /.social-block -->
+                        </div><!-- /.footer-widget about-widget -->
+                    </div><!-- /.col-lg-3 -->
+                    <div style="position: relative; left: 100px" class="col-lg-4">
+                        <div class="footer-widget">
+                            <div class="widget-title">
+                                <h3>Contact</h3>
+                            </div><!-- /.widget-title -->
+                            <p>116 rue ghazela  <br> Ariana, Tunisie</p>
+                            <ul class="contact-infos">
+                                <li><i class="fa fa-envelope"></i> needhelp@taxico.com</li>
+                                <li><i class="fa fa-phone-square"></i> 22 222 222</li>
+                            </ul><!-- /.contact-infos -->
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-lg-3 -->
+                    <div class="col-lg-4">
+                        <div class="footer-widget">
+                            <div class="widget-title">
+                                <h3>Newsletter</h3>
+                            </div><!-- /.widget-title -->
+                            <p>Inscrivez Vous Dans Notre NewsLetter<br> et recevrez les nouveaute de TaxiCo.</p>
+                            <form action="#" class="subscribe-form">
+                                <input type="text" name="email" placeholder="Email">
+                                <button type="submit">Go</button>
+                            </form>
+                        </div><!-- /.footer-widget -->
+                    </div><!-- /.col-lg-4 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </div><!-- /.upper-footer -->
+        <div class="bottom-footer">
+            <div class="container">
+                <div class="inner-container">
+                    <div class="left-block">
+                        <a href="index-2.html" class="footer-logo"><img src="{{ asset('uploads/images/logo3.png') }}" style="height: 70px;width: 70px" alt="logo" /></a>
+                        <span>&copy; 2020 <a href="#">Unplugged</a></span>
+                    </div><!-- /.left-block -->
+                    <div class="right-block">
+                        <ul class="link-lists">
+                        </ul>
+                    </div><!-- /.right-block -->
+                </div><!-- /.inner-container -->
+            </div><!-- /.container -->
+        </div><!-- /.bottom-footer -->
+    </footer><!-- /.site-footer -->
 </div><!-- /.page-wrapper -->
 <a href="#" data-target="html" class="scroll-to-target scroll-to-top"><i class="fa fa-angle-up"></i></a>
 <!-- /.scroll-to-top -->

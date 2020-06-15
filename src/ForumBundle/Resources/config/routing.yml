@@ -32,4 +32,7 @@ Modifierblog:
 Supprimerblog:
     path:     /Supprimerblog/{id}
     defaults: { _controller: ForumBundle:ForumMobile:Supprimerblog }
+blg:
+    path:     /blg
+    defaults: { _controller: ForumBundle:Forum:blg }
 
