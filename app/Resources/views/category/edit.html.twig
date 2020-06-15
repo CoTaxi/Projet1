@@ -13,12 +13,21 @@
                         {{ form_start(edit_form) }}
                         {{ form_widget(edit_form) }}
                         <button type="submit" class="btn" value="Edit" style="background-color: #FFFFFF;"> <i class="fa fa-pencil-square-o"></i></button>
+
+{#                        <input type="submit" class="ti-pencil " value="Edit"/>#}
+                        {{ form_end(edit_form) }}
+                        {{ form_start(delete_form) }}
+
+                            <button type="submit" value="Delete" class="btn" style="background-color: #FFFFFF; position: relative;top: 24px"><i class="fa fa-trash-o text-danger"></i> </button>
+{#                            <input type="submit" class="btn " value="Delete">#}
+
                         {#                        <input type="submit" class="ti-pencil " value="Edit"/>#}
                         {{ form_end(edit_form) }}
                         {{ form_start(delete_form) }}
 
                         <button type="submit" value="Delete" class="btn" style="background-color: #FFFFFF; position: relative;top: 24px"><i class="fa fa-trash-o text-danger"></i> </button>
                         {#                            <input type="submit" class="btn " value="Delete">#}
+
 
                         {{ form_end(delete_form) }}
                     </div>

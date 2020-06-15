@@ -3,6 +3,7 @@
 namespace TaxiCoBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class MaintenanceController extends Controller
 {
@@ -47,5 +48,10 @@ class MaintenanceController extends Controller
     public function frontAction()
     {
         return $this->render('@TaxiCo/Rdv/front.html.twig');
+    }
+
+    public function maintAction(Request $request){
+
+        return $this->render('@TaxiCo/Maintenance/maint.html.twig');
     }
 }
