@@ -5,7 +5,9 @@ evenement_homepage:
 Event_Back:
     path:     /showBack
     defaults: { _controller: EvenementBundle:Evenement:showback }
-
+Event_add:
+    path:     /new
+    defaults: { _controller: EvenementBundle:Evenement:new }
 LoadEvent:
     path:     /load
     defaults: { _controller: EvenementBundle:Evenement:load }
@@ -33,3 +35,6 @@ Trier:
 event_delete:
     path:     /delete
     defaults: { _controller: EvenementBundle:Evenement:delete }
+event_modif:
+    path:     /modif
+    defaults: { _controller: EvenementBundle:Evenement:modif }

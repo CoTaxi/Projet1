@@ -1,77 +1,49 @@
-
 {% extends'layout.html.twig' %}
-{% block title %} Forum {% endblock %}
-{% block head %}
-    {{ parent() }}
-{% endblock %}
-{% block body %}
+
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Blog</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Nos Articles</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
+
 {% block contents %}
 
-<!--== Page Title Area Start ==-->
-<section id="page-title-area" class="section-padding overlay">
-    <div class="container">
-        <div class="row">
-            <!-- Page Title Start -->
-            <div class="col-lg-12">
-                <div class="section-title  text-center">
-                    <h2>Our Latest Articles</h2>
+    <section class="blog-style-one blog-page">
+        <div class="container">
+            <div class="row">
+                {% for f in f %}
+                <div class="col-xl-6 col-lg-12">
+                    <div class="single-blog-style-one">
+                        <div class="image-block">
+                            <div class="inner-block">
+                                <a href="{{ path('forum_one', { 'f': f.id}) }}"><i class="fa fa-link"></i></a>
+                                <img src="{{asset('uploads/media/'~f.image)}}" alt="Awesome Image" />
+                            </div><!-- /.inner-block -->
+                        </div><!-- /.image-block -->
+                        <div class="text-block">
+                            <div class="meta-info">
+                                <a href="#" class="date-block">{{ f.created |date('Y-m-d H:i:s')}}</a>
+                                <a href="#">{{f.title}}</a>
+                                <span class="sep">.</span>
+                                <a href="#">3 Comments</a>
+                            </div><!-- /.meta-info -->
+                            <p>{{ f.content|raw }}</p>
 
-                    <span class="title-line"><i class="fa fa-car"></i></span>
-                </div>
-                <a href="{{path('forum_add')}}" class="readmore-btn" style=" position: relative;margin-left: 494px;">Add New <i class="fa fa-long-arrow-right"></i></a>
-            </div>
-            <!-- Page Title End -->
-        </div>
-    </div>
-</section>
+                            <a href="{{ path('forum_one', { 'f': f.id}) }}" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
+                        </div><!-- /.text-block -->
+                    </div><!-- /.single-blog-style-one -->
+                </div><!-- /.col-xl-6 col-lg-12 -->
+                {% endfor %}
+                <div class="text-center">{{ knp_pagination_render(f) }}</div>
+            </div><!-- /.row -->
+        </div><!-- /.container -->
+    </section><!-- /.blog-style-one -->
 
-<!--== Page Title Area End ==-->
-    <div id="blog-page-content" class="section-padding">
-    <div class="container">
-    <div class="row">
-      {% for f in f %}
-
-          <div class="col-lg-12">
-          <article class="single-article">
-          <div class="row">
-        <!-- Articles Thumbnail Start -->
-        <div class="col-lg-5">
-            <div class="article-thumb">
-                <img src="{{asset('uploads/media/'~f.image)}}" alt="JSOFT">
-            </div>
-        </div>
-        <!-- Articles Thumbnail End -->
-
-        <!-- Articles Content Start -->
-        <div class="col-lg-7">
-            <div class="display-table">
-                <div class="display-table-cell">
-                    <div class="article-body">
-                        <h3><a href="article-details.html">{{f.title}}</a></h3>
-                        <div class="article-meta">
-                            <a href="#" class="author">By :: <span>Admin</span></a>
-                            <a href="#" class="commnet">Comments :: <span>10</span></a>
-                        </div>
-
-                        <div class="article-date">{{ f.created |date('Y-m-d H:i:s')}}</div>
-
-                        <p>{{ f.content|raw }}</p>
-
-                        <a href="{{ path('forum_one', { 'f': f.id}) }}" class="readmore-btn">Read More <i class="fa fa-long-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Articles Content End -->
-    </div>
-          </article>
-          </div>
-    {% endfor %}
-        <div class="text-center">{{ knp_pagination_render(f) }}</div>
-
-
-    </div>
-    </div>
-    </div>
-{% endblock %}
 {% endblock %}

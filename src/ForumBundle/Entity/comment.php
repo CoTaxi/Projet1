@@ -49,6 +49,28 @@ class comment
      */
     private $etat;
     /**
+     * @var int
+     *
+     * @ORM\Column(name="iduser", type="integer", nullable=true)
+     */
+    private $iduser;
+
+    /**
+     * @return int
+     */
+    public function getIduser()
+    {
+        return $this->iduser;
+    }
+
+    /**
+     * @param int $iduser
+     */
+    public function setIduser($iduser)
+    {
+        $this->iduser = $iduser;
+    }
+    /**
      * @var
      * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Forum")
      * @ORM\JoinColumn(name="Forum_id",referencedColumnName="id")

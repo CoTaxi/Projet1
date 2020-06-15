@@ -95,7 +95,7 @@
                             <li><a href="{{ path('ourservices') }}">Evenement</a></li>
                         {% endif %}
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="{{ path('forum_add') }}">Blog</a>
                         </li>
                         {% if ((is_granted('ROLE_ADMIN'))) %}
                             <li><a href="{{ path('colis_index') }}">Admin Interface</a></li>

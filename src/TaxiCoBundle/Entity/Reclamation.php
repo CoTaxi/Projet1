@@ -25,7 +25,6 @@ class Reclamation
      * @var string
      *
      * @ORM\Column(name="message", type="text", length=65535, nullable=false)
-     * @Assert\NotBlank()
      */
     private $message;
 

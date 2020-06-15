@@ -40,7 +40,7 @@
 
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
 </head>
 
 <body>
@@ -86,7 +86,21 @@
                         <li><i class="fa fa-bar-chart"></i><a href="{{ path('colis_stat') }}">Statistiques </a></li>
                     </ul>
                 </li>
-
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">  <i class="menu-icon fa fa-comments"></i>Blog</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa  fa-bars"></i><a href="{{ path('forum_homepage_back') }}">Afficher Articles</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-gift"></i>Evennement </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa  fa-bars"></i><a href="{{ path('Event_Back') }}">Liste events </a></li>
+                        <li><i class="fa fa-bar-chart"></i><a href="{{ path('Event_add') }}">ajouter event </a></li>
+                    </ul>
+                </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-certificate "></i>Contrats </a>
@@ -345,6 +359,25 @@
     })(jQuery);
 </script>
 {% block javascripts %} {% endblock %}
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<!-- ChartJS -->
+<script src="{{ asset('plugins/chart.js/Chart.min.js') }}"></script>
+<!-- overlayScrollbars -->
+<script src="{{asset('plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}" ></script>
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.js')}}" ></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<script src="{{asset ('dist/js/pages/dashboard.js')}}"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="{{asset('dist/js/demo.js')}}"></script>
 </body>
 
 </html>
