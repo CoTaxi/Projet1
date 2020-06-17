@@ -11,6 +11,9 @@ forum_homepage_back:
 forum_one:
     path:     /article/{f}
     defaults: { _controller: ForumBundle:Forum:article }
+commentdelete:
+    path:     /commentdelete/{f}
+    defaults: { _controller: ForumBundle:Forum:commentdelete }
 comment:
     path:     /comment/{f}
     defaults: { _controller: ForumBundle:Forum:comment }
@@ -26,3 +29,18 @@ removeSelected:
 edit:
     path:     /edit/{id}
     defaults: { _controller: ForumBundle:Forum:edit }
+newblog:
+    path:     /newblog/{id}
+    defaults: { _controller: ForumBundle:ForumMobile:newblog }
+allblog:
+    path:     /allblog
+    defaults: { _controller: ForumBundle:ForumMobile:allblog }
+Modifierblog:
+    path:     /Modifierblog/{id}
+    defaults: { _controller: ForumBundle:ForumMobile:Modifierblog }
+Supprimerblog:
+    path:     /Supprimerblog/{id}
+    defaults: { _controller: ForumBundle:ForumMobile:Supprimerblog }
+blg:
+    path:     /blg
+    defaults: { _controller: ForumBundle:Forum:blg }

@@ -1,10 +1,18 @@
 evenement_homepage:
     path:     /
     defaults: { _controller: EvenementBundle:Default:index }
-
 Event_Back:
     path:     /showBack
     defaults: { _controller: EvenementBundle:Evenement:showback }
+Event_show:
+    path:     /show
+    defaults: { _controller: EvenementBundle:Evenement:show }
+ParticiperEv:
+    path:     /ParticiperEv/{idev}
+    defaults: { _controller: EvenementBundle:Evenement:ParticiperEv }
+QuitterEv:
+    path:     /QuitterEv/{idev}
+    defaults: { _controller: EvenementBundle:Evenement:QuitterEv }
 Event_add:
     path:     /new
     defaults: { _controller: EvenementBundle:Evenement:new }
@@ -17,6 +25,15 @@ addEvent:
 allevent:
     path:     /allevent
     defaults: { _controller: EvenementBundle:EventMobile:allevent }
+afficherback:
+    path:     /afficherback
+    defaults: { _controller: EvenementBundle:Evenement:afficherback }
+archiver:
+    path:     /archiver/{id}
+    defaults: { _controller: EvenementBundle:Evenement:archiver }
+desarchiver:
+    path:     /desarchiver/{id}
+    defaults: { _controller: EvenementBundle:Evenement:desarchiver }
 Participer:
     path:     /Participer/{idev}/{iduser}
     defaults: { _controller: EvenementBundle:EventMobile:Participer }
@@ -33,8 +50,8 @@ Trier:
     path:     /trier
     defaults: { _controller: EvenementBundle:EventMobile:triEvent }
 event_delete:
-    path:     /delete
+    path:     /delete/{id}
     defaults: { _controller: EvenementBundle:Evenement:delete }
 event_modif:
-    path:     /modif
+    path:     /modif/{id}
     defaults: { _controller: EvenementBundle:Evenement:modif }

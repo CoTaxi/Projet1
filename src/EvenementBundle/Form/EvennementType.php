@@ -20,7 +20,7 @@ class EvennementType extends AbstractType
             ->add('dureeEvent')
             ->add('capacite')
             ->add('etat' ,HiddenType::class, [
-                'data' => 1,
+                'data' => 0,
             ])
             ->add('place' ,HiddenType::class, [
                 'data' => 0,

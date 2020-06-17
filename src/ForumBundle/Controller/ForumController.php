@@ -15,6 +15,8 @@ class ForumController extends Controller
 {
     public function showAction(Request $request)
     {
+        $us=$this->getUser();
+        if($us != null) {
         $em= $this->getDoctrine()->getManager();
         $forum =$em->getRepository('ForumBundle:Forum')->findBy(['etat'=>0]);
         $f  = $this->get('knp_paginator')->paginate(
@@ -22,42 +24,54 @@ class ForumController extends Controller
             $request->query->get('page', 1),
             2
         );
-
         return $this->render('@Forum/Front/index.html.twig',array(
 
             'f'=>$f
         ));
+        }
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
+        }
+
     }
 
     public function addForumAction( Request $request )
     {
-        $em= $this->getDoctrine()->getManager();
+        $us=$this->getUser();
+        if($us != null) {
+            $em = $this->getDoctrine()->getManager();
 
-        $forum = new Forum();
-        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
-        $forum->setIduser($id);
-        $form=$this->createForm('ForumBundle\Form\ForumType',$forum);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
+            $forum = new Forum();
+            $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+            $forum->setIduser($id);
+            $form = $this->createForm('ForumBundle\Form\ForumType', $forum);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
 
-            $forum->setCreated(new \DateTime('now'));
+                $forum->setCreated(new \DateTime('now'));
 
-            $forum->setModified(new \DateTime('now'));
+                $forum->setModified(new \DateTime('now'));
 
-            $forum->setEtat(0);
-            $file = $forum->getImage();
-            $fileName = $file->getClientOriginalName();
-            $file->move($this->getParameter('media_directory'), $fileName);
-            $forum->setImage($fileName);
+                $forum->setEtat(0);
+                $file = $forum->getImage();
+                $fileName = $file->getClientOriginalName();
+                $file->move($this->getParameter('media_directory'), $fileName);
+                $forum->setImage($fileName);
 
-            $em->persist($forum);
-            $em->flush($forum);
-            return $this->redirectToRoute('forum_homepage');
+                $em->persist($forum);
+                $em->flush($forum);
+                return $this->redirectToRoute('forum_homepage');
+            }
 
+
+            return $this->render('@Forum/Front/add.html.twig',array('form'=>$form->createView()));
+        }
+        else
+        {
+            return $this->redirectToRoute('fos_user_security_login');
         }
 
-
-        return $this->render('@Forum/Front/add.html.twig',array('form'=>$form->createView()));
     }
     public function removeSelectedAction($id)
     {
@@ -115,8 +129,10 @@ class ForumController extends Controller
         foreach ($c as $key => $cnx) {
             $finduser=$this->getDoctrine()->getRepository(User::class)->find($cnx->getIduser());
             $datas[$key]['username'] = $finduser;
+            $datas[$key]['idc'] = $cnx->getId();
             $datas[$key]['created'] = $cnx->getCreated();
             $datas[$key]['content'] = $cnx->getContent();
+            $datas[$key]['iduser'] = $cnx->getIduser();
         }
         return $this->render('@Forum/Front/article.html.twig',array(
             'id'=>$id,
@@ -136,8 +152,10 @@ class ForumController extends Controller
         foreach ($c as $key => $cnx) {
             $finduser=$this->getDoctrine()->getRepository(User::class)->find($cnx->getIduser());
             $datas[$key]['username'] = $finduser;
+            $datas[$key]['idc'] = $cnx->getId();
             $datas[$key]['created'] = $cnx->getCreated();
             $datas[$key]['content'] = $cnx->getContent();
+            $datas[$key]['iduser'] = $cnx->getIduser();
         }
 //dump($commentText);exit;
         if($commentText){
@@ -161,9 +179,39 @@ class ForumController extends Controller
             'f'=>$f,
             'cnxuser'=>$datas,
             'c'=>$c));
+
     }
+    public function commentdeleteAction(Request $request, Forum $f)
+    {
+        $idcom = $request->get("idcom");
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $em= $this->getDoctrine()->getManager();
+        $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
+        $comment=$em->getRepository('ForumBundle:comment')->findby(['id'=>$idcom]);
+        $datas = array();
+        foreach ($c as $key => $cnx) {
+            $finduser=$this->getDoctrine()->getRepository(User::class)->find($cnx->getIduser());
+            $datas[$key]['username'] = $finduser;
+            $datas[$key]['idc'] = $cnx->getId();
+            $datas[$key]['created'] = $cnx->getCreated();
+            $datas[$key]['content'] = $cnx->getContent();
+            $datas[$key]['iduser'] = $cnx->getIduser();
+        }
 
+        $find=$this->getDoctrine()->getRepository(User::class)->find($f->getIduser());
+        $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
 
+        foreach ($comment as $cm) {
+        $em->remove($cm);
+        $em->flush();
+        }
+        return $this->render('@Forum/Front/article.html.twig',array(
+            'id'=>$id,
+            'user'=>$find,
+            'f'=>$f,
+            'cnxuser'=>$datas,
+            'c'=>$c));
+          }
 
     public function archiverAction(Request $request, Forum $forum){
 
