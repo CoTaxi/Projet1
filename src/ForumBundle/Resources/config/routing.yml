@@ -20,6 +20,12 @@ archiver:
 desarchiver:
     path:     /desarchiver/{id}
     defaults: { _controller: ForumBundle:Forum:desarchiver }
+removeSelected:
+    path:     /removeSelected/{id}
+    defaults: { _controller: ForumBundle:Forum:removeSelected }
+edit:
+    path:     /edit/{id}
+    defaults: { _controller: ForumBundle:Forum:edit }
 newblog:
     path:     /newblog/{id}
     defaults: { _controller: ForumBundle:ForumMobile:newblog }
@@ -32,4 +38,6 @@ Modifierblog:
 Supprimerblog:
     path:     /Supprimerblog/{id}
     defaults: { _controller: ForumBundle:ForumMobile:Supprimerblog }
-
+blg:
+    path:     /blg
+    defaults: { _controller: ForumBundle:Forum:blg }

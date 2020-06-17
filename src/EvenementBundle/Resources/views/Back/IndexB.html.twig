@@ -12,9 +12,8 @@
         <script src='{{ asset('fullCalendar/lib/fullcalendar.min.js') }}'></script>
         <div>
             <script>
-                console.log('a');
                 $(document).ready(function() {
-                    var calendar = $('#calendar').fullCalendar({
+                    var calendar = $('calendar').fullCalendar({
                         editable:true,
                         header:{
                             left:'prev,next today',
@@ -45,15 +44,15 @@
                             }
                         },
                         editable:true,
-                        eventResize:function(event)
+                        eventResize:function(event,start,end)
                         {
                             var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
                             var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
                             var title = event.title;
                             var id = event.id;
                             $.ajax({
-                                url:"update.php",
-                                type:"POST",
+                                url:"modif",
+                                type:"GET",
                                 data:{title:title, start:start, end:end, id:id},
                                 success:function(){
                                     calendar.fullCalendar('refetchEvents');
@@ -61,21 +60,24 @@
                                 }
                             })
                         },
-
-                        eventDrop:function(event)
-                        var start = $.fullCalendar.formatDate(event.start, "Y-MM-DD HH:mm:ss");
-                        var end = $.fullCalendar.formatDate(event.end, "Y-MM-DD HH:mm:ss");
-                        var title = event.title;
-                        var id = event.id;
-                        $.ajax({
-                            url: "update.php",
-                            type: "POST",
-                            data: {title: title, start: start, end: end, id: id},
-                            success: function () {
-                                calendar.fullCalendar('refetchEvents');
-                                alert("Event Updated");
+                        editable:true,
+                        eventDragStop:function(event,start, end)
+                        {
+                            if(confirm("Are you sure you want to edit it?")) {
+                                var start =moment(start, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
+                                var end = moment(end, 'DD.MM.YYYY').format( "YYYY-MM-DD HH:mm:ss");
+                                var title = event.title;
+                                var id = event.id;
+                                $.ajax({
+                                    url: "modif",
+                                    type: "GET",
+                                    data: {title: title, start: start, end: end, id: id},
+                                    success: function () {
+                                        calendar.fullCalendar('refetchEvents');
+                                        alert("Event Updated");
+                                    }
+                                });
                             }
-                        });
                         },
 
                         eventClick:function(event)

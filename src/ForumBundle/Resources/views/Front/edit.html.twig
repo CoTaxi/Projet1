@@ -11,7 +11,7 @@
                         <li><span class="sep">.</span></li>
                         <li><span class="page-title">BLOG</span></li>
                     </ul><!-- /.thm-breadcrumb -->
-                    <h2>Ajouter Article</h2>
+                    <h2>Modifier Article</h2>
                 </div><!-- /.container -->
             </section><!-- /.inner-banner -->
         {% endblock %}
@@ -20,10 +20,16 @@
         <div class="container">
             <div class="block-title text-center">
                 <div class="dot-line"></div><!-- /.dot-line -->
-                <h2>Ajouter Article</h2>
+                <h2>Modifier Article</h2>
             </div><!-- /.block-title -->
             {{ form_start(form,{'attr': {'class' : 'contact-form-one row'}}) }}
-            <div class="col-lg-6">
+            <div class="image-block" >
+                <div class="inner-block">
+                    <img src="{{asset('uploads/media/'~find.image)}}" alt="Awesome Image" style="width: 600px;height: 600px" />
+                </div><!-- /.inner-block -->
+
+<br>
+                <div class="col-lg-8">
                 <div class="input-holder">
                     {{ form_widget(form.title, {'attr': {'class': 'form-control','placeholder': 'Title'}}) }}
                 </div><!-- /.input-holder -->
@@ -35,15 +41,10 @@
                     </div>
                 </div><!-- /.input-holder -->
             </div><!-- /.col-lg-6 -->
-            <div class="col-lg-6">
-                <div class="input-holder">
-                    {{ form_widget(form.image, {'attr': {'class': 'form-control','placeholder': 'Image'}}) }}
-                </div><!-- /.input-holder -->
-            </div><!-- /.col-lg-6 -->
 
             <div class="col-lg-12">
                 <div class="input-holder text-center">
-                    {{ form_widget(form.Add,{'attr': {'class': 'book-now-btn'}})}}
+                    {{ form_widget(form.Edit,{'attr': {'class': 'book-now-btn'}})}}
                 </div><!-- /.input-holder -->
             </div><!-- /.col-lg-6 -->
             {{ form_end(form) }}

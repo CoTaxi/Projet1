@@ -25,6 +25,8 @@ class Evennement
      * @var string
      *
      * @ORM\Column(name="nom_event", type="string", length=250, nullable=false)
+     * * @Assert\NotBlank
+     * * @Assert\Length(min=5)
      */
     private $nomEvent;
 
@@ -32,6 +34,7 @@ class Evennement
      * @var \DateTime
      *
      * @ORM\Column(name="date_event", type="datetime", nullable=false)
+     * * @Assert\DateTime
      */
     private $dateEvent;
 
@@ -39,6 +42,7 @@ class Evennement
      * @var \DateTime
      *
      * @ORM\Column(name="date_event_fin", type="datetime", nullable=false)
+     * * @Assert\DateTime
      */
     private $dateEventFin;
 
@@ -46,6 +50,8 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="duree_event", type="integer", nullable=false)
+     * * @Assert\Positive
+     * * @Assert\length(max=7)
      */
     private $dureeEvent;
 
@@ -53,6 +59,7 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="capacite", type="integer", nullable=false)
+     * * @Assert\Positive
      */
     private $capacite;
 
@@ -60,6 +67,7 @@ class Evennement
      * @var string
      *
      * @ORM\Column(name="emplacement", type="string", length=50, nullable=false)
+     * * @Assert\NotBlank
      */
     private $emplacement;
 
@@ -74,6 +82,7 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="place", type="integer", nullable=true)
+     * * @Assert\Positive
      */
     private $place;
 

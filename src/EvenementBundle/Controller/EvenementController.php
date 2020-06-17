@@ -79,9 +79,54 @@ class EvenementController extends Controller
         return $this->render('@Evenement/Back/indexB.html.twig');
 
     }
+    public function modifAction(Request $request){
+        $em= $this->getDoctrine()->getManager();
 
+        $id=$request->get("id");
+        $event=$em->getRepository('EvenementBundle:Evennement')->find($id);
+        $dateD = new \DateTime($request->get("start"));
+        $dateF = new \DateTime($request->get("end"));
+
+        $event->setDateEvent($dateD);
+        $event->setDateEventFin($dateF);
+        $event->setNomEvent($request->get("title"));
+        $em->persist($event);
+        $em->flush();
+        return $this->render('@Evenement/Back/indexB.html.twig');
+
+    }
     public function calendar()
     {
         return $this->render('@Evenement/calendar.html.twig');
+    }
+    public function newAction(Request $request)
+    {
+            $Event = new Evennement();
+            $form = $this->createForm('EvenementBundle\Form\EvennementType', $Event);
+            $form->handleRequest($request);
+            if ($form->isSubmitted() && $form->isValid()) {
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($Event);
+                $em->flush();
+                return $this->redirectToRoute('Event_Back');
+            }
+            return $this->render('@Evenement/Back/new.html.twig', array(
+                'form' => $form->createView(),
+            ));
+    }
+    public function updateAction(Request $request)
+    {
+        $Event = new Evennement();
+        $form = $this->createForm('EvenementBundle\Form\EvennementType', $Event);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Event);
+            $em->flush();
+            return $this->redirectToRoute('Event_Back');
+        }
+        return $this->render('@Evenement/Back/new.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 }

@@ -5,7 +5,11 @@ namespace ForumBundle\Controller;
 use ForumBundle\Entity\comment;
 use ForumBundle\Entity\Forum;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+use TaxiCoBundle\Entity\User;
 
 class ForumController extends Controller
 {
@@ -16,9 +20,13 @@ class ForumController extends Controller
         $f  = $this->get('knp_paginator')->paginate(
             $forum,
             $request->query->get('page', 1),
-            6
+            2
         );
-        return $this->render('@Forum/Front/index.html.twig',array('f'=>$f));
+
+        return $this->render('@Forum/Front/index.html.twig',array(
+
+            'f'=>$f
+        ));
     }
 
     public function addForumAction( Request $request )
@@ -26,6 +34,8 @@ class ForumController extends Controller
         $em= $this->getDoctrine()->getManager();
 
         $forum = new Forum();
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $forum->setIduser($id);
         $form=$this->createForm('ForumBundle\Form\ForumType',$forum);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()) {
@@ -49,7 +59,20 @@ class ForumController extends Controller
 
         return $this->render('@Forum/Front/add.html.twig',array('form'=>$form->createView()));
     }
+    public function removeSelectedAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $forum =$em->getRepository('ForumBundle:Forum')->find($id);
+        foreach ($forum as $key => $f) {
 
+            $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
+            $em->remove($c);
+            $em->flush();
+        }
+        $em->remove($forum);
+        $em->flush();
+        return $this->render('@Forum/Back/index.html.twig',array('f'=>$forum));
+    }
     public function showbackAction(Request $request)
     {
         $em= $this->getDoctrine()->getManager();
@@ -61,20 +84,61 @@ class ForumController extends Controller
         );
         return $this->render('@Forum/Back/index.html.twig',array('f'=>$f));
     }
+    public function editAction(Request $request,$id)
+    {
 
+        $em = $this->getDoctrine()->getManager();
+        $find = $this->getDoctrine()->getRepository('ForumBundle:Forum')->find($id);
+        $form=$this->createForm('ForumBundle\Form\ForumForm',$find);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+            $find->setModified(new \DateTime('now'));
+            $em->persist($find);
+            $em->flush();
+            return $this->redirectToRoute('forum_homepage');
+        }
+        return $this->render('@Forum/Front/edit.html.twig', array(
+            'form' => $form->createView(),
+            'find'=>$find
+        ));
+    }
     public function articleAction(Forum $f)
     {
 
         $em= $this->getDoctrine()->getManager();
+
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
-        return $this->render('@Forum/Front/article.html.twig',array('f'=>$f,'c'=>$c));
+        $find = $this->getDoctrine()->getRepository(User::class)->find($f->getIduser());
+        $datas = array();
+        foreach ($c as $key => $cnx) {
+            $finduser=$this->getDoctrine()->getRepository(User::class)->find($cnx->getIduser());
+            $datas[$key]['username'] = $finduser;
+            $datas[$key]['created'] = $cnx->getCreated();
+            $datas[$key]['content'] = $cnx->getContent();
+        }
+        return $this->render('@Forum/Front/article.html.twig',array(
+            'id'=>$id,
+            'user'=>$find,
+            'f'=>$f,
+            'cnxuser'=>$datas,
+            'c'=>$c));
     }
 
     public function commentAction(Request $request, Forum $f)
     {
         $commentText = $request->get("comment");
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em= $this->getDoctrine()->getManager();
-
+        $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
+        $datas = array();
+        foreach ($c as $key => $cnx) {
+            $finduser=$this->getDoctrine()->getRepository(User::class)->find($cnx->getIduser());
+            $datas[$key]['username'] = $finduser;
+            $datas[$key]['created'] = $cnx->getCreated();
+            $datas[$key]['content'] = $cnx->getContent();
+        }
 //dump($commentText);exit;
         if($commentText){
         $em = $this->getDoctrine()->getManager();
@@ -82,12 +146,21 @@ class ForumController extends Controller
         $comment->setContent($commentText);
         $comment->setCreated(new \DateTime('now'));
         $comment->setUpdated(new \DateTime('now'));
+        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+        $comment->setIduser($id);
         $comment->setForum($f);
         $comment->setEtat(0);
         $em->persist($comment);
         $em->flush();}
+
+        $find=$this->getDoctrine()->getRepository(User::class)->find($f->getIduser());
         $c =$em->getRepository('ForumBundle:comment')->findby(['forum'=>$f->getId()]);
-        return $this->render('@Forum/Front/article.html.twig',array('f'=>$f,'c'=>$c));
+        return $this->render('@Forum/Front/article.html.twig',array(
+            'id'=>$id,
+            'user'=>$find,
+            'f'=>$f,
+            'cnxuser'=>$datas,
+            'c'=>$c));
     }
 
 
@@ -109,6 +182,10 @@ class ForumController extends Controller
         $em->flush();
         return $this->redirectToRoute('forum_homepage_back');
 
+    }
+    public function blgAction(Request $request){
+
+        return $this->render('@Forum/Front/blg.html.twig');
     }
 
 
