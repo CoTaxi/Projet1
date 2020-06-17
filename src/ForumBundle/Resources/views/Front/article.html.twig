@@ -56,6 +56,9 @@
 
                             {% for cnxuser in cnxuser %}
                             <div class="single-comment-one">
+                                {% if(cnxuser.iduser==id) %}
+                                    <a href="{{ path('commentdelete', { 'f': f.id,'idcom':cnxuser.idc }) }}" class="fa fa-remove">delete</a>
+                                {% endif %}
                                 <div class="image-block">
                                     <div class="inner-block">
                                         <img src="{{asset('TaxiCo/images/blog/comment-1-1.jpg')}}" alt="Awesome Image" />
@@ -67,6 +70,11 @@
                                     <a href="#" class="reply-btn">Reply</a>
                                 </div><!-- /.text-block -->
                             </div><!-- /.single-comment-one -->
+
+                                </div><!-- /.text-block -->
+
+                            </div><!-- /.single-comment-one -->
+
                             {% endfor %}
                         </div><!-- /.comments-block -->
                         <div class="reply-comment-block">

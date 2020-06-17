@@ -40,7 +40,7 @@
 
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
-
+    <link rel="stylesheet" href="{{ asset('plugins/fontawesome-free/css/all.min.css') }}">
 </head>
 
 <body>
@@ -86,7 +86,21 @@
                         <li><i class="fa fa-bar-chart"></i><a href="{{ path('colis_stat') }}">Statistiques </a></li>
                     </ul>
                 </li>
-
+                <li class="menu-item-has-children dropdown">
+                    <a href="{{ path('forum_homepage_back') }}" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false">  <i class="menu-icon fa fa-comments"></i>Blog</a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa  fa-bars"></i><a href="{{ path('forum_homepage_back') }}">Afficher Articles</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
+                       aria-expanded="false"> <i class="menu-icon fa fa-gift"></i>Evennement </a>
+                    <ul class="sub-menu children dropdown-menu">
+                        <li><i class="fa  fa-bars"></i><a href="{{ path('afficherback') }}">Liste events </a></li>
+                        <li><i class="fa fa-bar-chart"></i><a href="{{ path('Event_add') }}">ajouter event </a></li>
+                    </ul>
+                </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"
                        aria-expanded="false"> <i class="menu-icon fa fa-certificate "></i>Contrats </a>
@@ -103,27 +117,10 @@
                        aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-comments"></i>Gestion
                         réclamations </a>
                     <ul class="sub-menu children dropdown-menu">
-                        <li><i class="fa  fa-eye"></i><a href="{{ path('taxi_co__backListRec') }}">Réclamations
+                        <li><i class="fa fa-eye"></i><a href="{{ path('taxi_co__backListRec') }}">Réclamations
                                 client </a></li>
                         <li><i class="fa  fa-gears"></i><a href="{{ path('taxi_co__count') }}">Configuration
                                 réclamation </a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="widgets.html"> <i class="menu-icon ti-email"></i>Widgets </a>
-                </li>
-                <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-bar-chart"></i>Maintenance</a>
-                    <ul class="sub-menu children dropdown-menu">
-                        <li><i class="menu-icon fa fa-line-chart"></i><a href="{{ path('displayrdv') }}">Rendez vous</a></li>
-                        <li><i class="menu-icon fa fa-area-chart"></i><a href="{{ path('displaygarage') }}">Grage</a></li>
-                        <li><i class="menu-icon fa fa-pie-chart"></i><a href="{{ path('display') }}">Service</a></li>
-
-                        <li><i class="fa  fa-eye"></i><a href="{{ path('taxi_co__backListRec') }}">Réclamations
-                                client </a></li>
-                        <li><i class="fa  fa-gears"></i><a href="{{ path('taxi_co__count') }}">Configuration
-                                réclamation </a></li>
-
                     </ul>
                 </li>
 
@@ -345,6 +342,20 @@
     })(jQuery);
 </script>
 {% block javascripts %} {% endblock %}
+<script src="{{ asset('plugins/jquery/jquery.min.js') }}"></script>
+<!-- jQuery UI 1.11.4 -->
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.min.js') }}"></script>
+<!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
+<script>
+    $.widget.bridge('uibutton', $.ui.button)
+</script>
+<!-- Bootstrap 4 -->
+<!-- ChartJS -->
+<!-- overlayScrollbars -->
+<!-- AdminLTE App -->
+<script src="{{asset('dist/js/adminlte.js')}}" ></script>
+<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+<!-- AdminLTE for demo purposes -->
 </body>
 
 </html>

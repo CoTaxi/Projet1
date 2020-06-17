@@ -91,6 +91,18 @@ class ReclamationController extends Controller
         return $this->redirectToRoute('taxi_co_listRec');
     }
 
+    public function mailBackReclamationAction()
+    {
+        $message = \Swift_Message::newInstance()
+            ->setSubject('[Important] Réponse Admin')
+            ->setFrom('rmilioussama70@gmail.com')
+            ->setTo('rmilissou@gmail.com')
+            ->setBody('Bonjour, Votre réclamation est bien traitée.');
+
+        $this->get('mailer')->send($message);
+        return $this->redirectToRoute('taxi_co_listRec');
+    }
+
     public function adminlistRecAction()
     {
         $em = $this->getDoctrine()->getManager();
@@ -333,5 +345,10 @@ class ReclamationController extends Controller
         $em->remove($Typereclamation);
         $em->flush();
         return $this->redirectToRoute("taxi_co__count");
+    }
+
+    public function recAction(Request $request){
+
+        return $this->render('@TaxiCo/ReclamationViews/rec.html.twig');
     }
 }

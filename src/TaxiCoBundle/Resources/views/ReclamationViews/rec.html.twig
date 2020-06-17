@@ -5,7 +5,7 @@
             <ul class="thm-breadcrumb">
                 <li><a href="index-2.html">TaxiCo</a></li>
             </ul><!-- /.thm-breadcrumb -->
-            <h2>Blog</h2>
+            <h2>Réclamations</h2>
         </div><!-- /.container -->
     </section><!-- /.inner-banner -->
 {% endblock %}
@@ -26,22 +26,21 @@
 
 
             <div class="card  text-white">
-                <img class="img-fluid" src="{{ asset('uploads/images/ajouterblog.JPG') }}" alt="">
+                <img class="img-fluid" src="{{ asset('uploads/images/ajouterrec.png') }}" alt="">
 
                 <button class="btn btn-warning btn-sm"
                         id="center" style="color:white">
-                    <a href="{{ path('forum_add') }}" class="btn btn-outline-secondary btn-lg pull-right">Ajouter</a>
+                    <a href="{{ path('taxi_co_addRec') }}" class="btn btn-outline-secondary btn-lg pull-right">Ajouter</a>
                 </button>
             </div>
             <br>
 
             <div class="card bg-dark text-white">
-                <img class="img-fluid" src="{{ asset('uploads/images/consulterblog.JPG') }}" alt="">
+                <img class="img-fluid" src="{{ asset('uploads/images/reclamationconsulter.png') }}" alt="">
 
                 <button class="btn btn-warning btn-sm"
                         id="center" style="color:white">
-                    <a href="{{ path('allblog') }}" class="btn btn-outline-secondary btn-lg pull-right">Consulter</a>
-                    <a href="{{ path('forum_homepage') }}" class="btn btn-outline-secondary btn-lg pull-right">Consulter</a>
+                    <a href="{{ path('taxi_co_listRec') }}" class="btn btn-outline-secondary btn-lg pull-right">Consulter</a>
                 </button>
 
             </div>

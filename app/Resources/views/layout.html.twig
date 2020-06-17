@@ -92,10 +92,10 @@
                         </li>
 
                         {% if ((is_granted('ROLE_CLIENT'))) %}
-                            <li><a href="{{ path('ourservices') }}">Evenement</a></li>
+                            <li><a href="{{ path('Event_show') }}">Evenement</a></li>
                         {% endif %}
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="{{ path('blg') }}">Blog</a>
                         </li>
                         {% if ((is_granted('ROLE_ADMIN'))) %}
                             <li><a href="{{ path('colis_index') }}">Admin Interface</a></li>

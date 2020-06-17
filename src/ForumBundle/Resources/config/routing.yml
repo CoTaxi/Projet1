@@ -11,6 +11,9 @@ forum_homepage_back:
 forum_one:
     path:     /article/{f}
     defaults: { _controller: ForumBundle:Forum:article }
+commentdelete:
+    path:     /commentdelete/{f}
+    defaults: { _controller: ForumBundle:Forum:commentdelete }
 comment:
     path:     /comment/{f}
     defaults: { _controller: ForumBundle:Forum:comment }

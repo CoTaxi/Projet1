@@ -3,6 +3,7 @@
 namespace TaxiCoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Reclamation
@@ -25,7 +26,6 @@ class Reclamation
      * @var string
      *
      * @ORM\Column(name="message", type="text", length=65535, nullable=false)
-     * @Assert\NotBlank()
      */
     private $message;
 

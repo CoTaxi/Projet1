@@ -19,6 +19,7 @@ use TaxiCoBundle\Entity\User;
 class ColisController extends Controller
 {
     /**
+    /**
      * Lists all coli entities.
      *
      */

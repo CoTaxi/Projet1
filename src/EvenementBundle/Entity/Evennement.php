@@ -3,7 +3,7 @@
 namespace EvenementBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Evennement
  *
@@ -25,6 +25,7 @@ class Evennement
      * @var string
      *
      * @ORM\Column(name="nom_event", type="string", length=250, nullable=false)
+     *
      * * @Assert\NotBlank
      * * @Assert\Length(min=5)
      */
@@ -35,6 +36,8 @@ class Evennement
      *
      * @ORM\Column(name="date_event", type="datetime", nullable=false)
      * * @Assert\DateTime
+     *
+     * * @Assert\NotBlank
      */
     private $dateEvent;
 
@@ -51,6 +54,8 @@ class Evennement
      *
      * @ORM\Column(name="duree_event", type="integer", nullable=false)
      * * @Assert\Positive
+     *
+     * * @Assert\NotBlank
      * * @Assert\length(max=7)
      */
     private $dureeEvent;
@@ -60,6 +65,8 @@ class Evennement
      *
      * @ORM\Column(name="capacite", type="integer", nullable=false)
      * * @Assert\Positive
+     *
+     * * @Assert\NotBlank
      */
     private $capacite;
 
@@ -67,6 +74,7 @@ class Evennement
      * @var string
      *
      * @ORM\Column(name="emplacement", type="string", length=50, nullable=false)
+     *
      * * @Assert\NotBlank
      */
     private $emplacement;
@@ -83,6 +91,7 @@ class Evennement
      *
      * @ORM\Column(name="place", type="integer", nullable=true)
      * * @Assert\Positive
+     *
      */
     private $place;
 
