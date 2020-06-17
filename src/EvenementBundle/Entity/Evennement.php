@@ -53,7 +53,6 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="duree_event", type="integer", nullable=false)
-     * * @Assert\Positive
      *
      * * @Assert\NotBlank
      * * @Assert\length(max=7)
@@ -64,7 +63,6 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="capacite", type="integer", nullable=false)
-     * * @Assert\Positive
      *
      * * @Assert\NotBlank
      */
@@ -90,7 +88,6 @@ class Evennement
      * @var integer
      *
      * @ORM\Column(name="place", type="integer", nullable=true)
-     * * @Assert\Positive
      *
      */
     private $place;

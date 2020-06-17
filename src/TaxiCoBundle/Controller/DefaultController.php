@@ -13,6 +13,7 @@ class DefaultController extends Controller
     }
     public function ourservicesAction()
     {
-        return $this->render('default/ourservices.html.twig');
+        $us=$this->getUser();
+            return $this->render('default/ourservices.html.twig',array('user' => $us));
     }
 }

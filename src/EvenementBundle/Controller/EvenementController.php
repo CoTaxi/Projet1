@@ -139,7 +139,8 @@ class EvenementController extends Controller
     public function showAction(Request $request)
     {
         $us=$this->getUser();
-        if($us != null) {
+        if($us != null)
+        {
         $em= $this->getDoctrine()->getManager();
         $event =$em->getRepository('EvenementBundle:Evennement')->findBy(['etat'=>0]);
         $iduser= $this->get('security.token_storage')->getToken()->getUser()->getId();
@@ -148,7 +149,8 @@ class EvenementController extends Controller
         return $this->render('@Evenement/Default/show.html.twig',array(
 
             'f'=>$event,
-            'user'=>$find
+            'user'=>$find,
+            'us' => $us
         ));
         }
         else
@@ -156,21 +158,7 @@ class EvenementController extends Controller
             return $this->redirectToRoute('fos_user_security_login');
         }
     }
-    public function modifAction(Request $request){
-        $em= $this->getDoctrine()->getManager();
 
-        $id=$request->get("id");
-        $event=$em->getRepository('EvenementBundle:Evennement')->find($id);
-        $dateD = new \DateTime($request->get("start"));
-        $dateF = new \DateTime($request->get("end"));
-
-        $event->setDateEvent($dateD);
-        $event->setDateEventFin($dateF);
-        $event->setNomEvent($request->get("title"));
-        $em->persist($event);
-        $em->flush();
-        return $this->render('@Evenement/Back/indexB.html.twig');
-      }
     public function ParticiperEvAction($idev)
     {
         $em=$this->getDoctrine()->getManager();
@@ -223,35 +211,8 @@ class EvenementController extends Controller
     {
         return $this->render('@Evenement/calendar.html.twig');
     }
-    public function newAction(Request $request)
-    {
-            $Event = new Evennement();
-            $form = $this->createForm('EvenementBundle\Form\EvennementType', $Event);
-            $form->handleRequest($request);
-            if ($form->isSubmitted() && $form->isValid()) {
-                $em = $this->getDoctrine()->getManager();
-                $em->persist($Event);
-                $em->flush();
-                return $this->redirectToRoute('Event_Back');
-            }
-            return $this->render('@Evenement/Back/new.html.twig', array(
-                'form' => $form->createView(),
-            ));
-    }
-    public function updateAction(Request $request)
-    {
-        $Event = new Evennement();
-        $form = $this->createForm('EvenementBundle\Form\EvennementType', $Event);
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $em->persist($Event);
-            $em->flush();
-            return $this->redirectToRoute('Event_Back');
-        }
-        return $this->render('@Evenement/Back/new.html.twig', array(
-            'form' => $form->createView(),
-        ));
+
+
     public function archiverAction(Request $request, $id){
 
         $em= $this->getDoctrine()->getManager();

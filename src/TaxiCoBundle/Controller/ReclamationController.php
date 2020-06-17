@@ -20,6 +20,7 @@ class ReclamationController extends Controller
 {
     public function ajouterReclamationAction(Request $request)
     {
+        $us=$this->getUser();
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $reclamation = new Reclamation();
         $find = $this->getDoctrine()->getRepository(User::class)->findOneBy(array('id'=> $usrId));
@@ -35,11 +36,14 @@ class ReclamationController extends Controller
             $em->flush();
             return $this->redirectToRoute("taxi_co_listRec");
         }
-        return $this->render("@TaxiCo/ReclamationViews/contact.html.twig", array('form' => $form->createView()));
+        return $this->render("@TaxiCo/ReclamationViews/contact.html.twig", array('form' => $form->createView(),
+            'user'=>$us
+        ));
     }
 
     public function afficherReclamationAction()
     {
+        $us=$this->getUser();
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
 //        $reclamation = $em->getRepository("TaxiCoBundle:Reclamation")->findBy(array(
@@ -48,7 +52,8 @@ class ReclamationController extends Controller
         $reclamation = $em->getRepository("TaxiCoBundle:typereclamation")->findDQLAll($usrId);
         $userRec = $em->getRepository("TaxiCoBundle:User")->find($usrId);
         return $this->render("@TaxiCo/ReclamationViews/listReclamation.html.twig", array('tabs' => $reclamation,
-            'user'=>$userRec));
+            'user'=>$userRec,
+            'us'=>$us));
     }
 
     public function supprimerReclamationAction($id)
@@ -349,6 +354,8 @@ class ReclamationController extends Controller
 
     public function recAction(Request $request){
 
-        return $this->render('@TaxiCo/ReclamationViews/rec.html.twig');
+        $us=$this->getUser();
+        return $this->render('@TaxiCo/ReclamationViews/rec.html.twig',array('user'=>$us)
+        );
     }
 }

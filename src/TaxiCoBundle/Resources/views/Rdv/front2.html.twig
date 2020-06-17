@@ -1,9 +1,17 @@
 {% extends "//layout.html.twig" %}
 {% block title %} Acceuil {% endblock %}
-{% block head %}
-    {{ parent() }}
+ {% block cnx %}
 
-{% endblock %}
+     {% if (user != null ) %}
+
+         <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-user-circle"></i>LOGOUT</a>
+
+         <a href="#"><i class="fa fa-envelope"></i>{{ user.Email }}</a>
+     {% endif %}
+     {% if (user == null)%}
+         <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle"></i>Sign In</a>
+     {% endif %}
+ {% endblock %}
 {% block body %}
     {% block bg %}
         <section class="inner-banner">
@@ -20,103 +28,46 @@
     {% block contents %}
 
 
-        <style type="text/css">
+        <section class="single-blog-details-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8">
+                        <div class="comments-block">
+                            <div class="block-title">
+                                <h2><i class="fa fa-wrench text-success"></i> Vos Rendez-Vous :</h2>
+                            </div><!-- /.block-title -->
+                            {% for s in rdvs %}
+                                <div class="single-comment-one">
+                                    <div class="image-block">
+                                        <div class="inner-block">
+                                            <img src="{{ asset ('TaxiCo/images/background/cle.png') }}"
+                                                 alt="Awesome Image"/>
+                                        </div><!-- /.inner-block -->
+                                    </div><!-- /.image-block -->
+                                    <div class="text-block">
+                                        <h3>
+                                            {{ s.service.name }}
+                                        </h3>
 
-            form {
-                width: 70%;
-            }
+                                        <h5><i class="fa fa-clock-o"> </i><span
+                                                    class="date-line">{{ s.garage.name }}</span>
+                                        </h5>
+                                        <h5><i class="fa fa-clock-o"> </i><span
+                                                    class="date-line">{{ s.dateRdv|date("m/d/Y")}}</span>
+                                        </h5>
+                                        <a href="{{ path('updatedispordv', {'id':s.idRdv}) }}"
+                                           class="reply-btn"><i class="fa fa-trash-o"></i> Annuler</a>
 
-            .form-book, .form-cart {
-                display: inline-block;
-            }
-
-            fieldset {
-                width: 40%;
-                margin-top: 20px;
-                padding: 15px;
-                margin-left: 5%;
-                border-radius: 10px;
-            }
-
-            input[type='submit'] {
-                padding: 10px;
-                font-size: 15px;
-                font-weight: bold;
-                border: none;
-                background-color: yellow;
-            }
-
-            input[type='submit']:hover {
-                color: white;
-            }
-        </style>
-        <center>
-            <section id="slider-area">
-                <!--== slide Item One ==-->
-                <div class="single-slide-item overlay" align="center">
-
-                    <div class="container">
-                        <div class="row">
-
-                            <div class="col-lg-11" style="position: center">
-                                <div class="book-a-car">
-                                    <form action="index.html">
-                                        <center>
-                                            <table class="table table-bordered table-dark">
-                                                <thead>
-                                                <tr>
-
-                                                    <th scope="col">Service</th>
-                                                    <th scope="col">Garage</th>
-                                                    <th scope="col">Date</th>
-                                                    <th scope="col">#</th>
-                                                </tr>
-                                                </thead>
-                                                <tbody>
-                                                {% for s in rdvs %}
-                                                <tr>
-                                                    <td>{{ s.service.name }}</td>
-                                                    <td>{{ s.garage.name }}</td>
-                                                    <td>{{ s.dateRdv|date("m/d/Y") }}</td>
-
-                                                    {#            <td>{{ s.status }}</td>#}
-                                                    {#            <td>{{ s.service.name }}</td>#}
-
-                                                    {#                                                    <td><a href="{{ path('updaterdv',{'id':s.idRdv}) }}">#}
-                                                    {#                                                            <button type="button" class="btn btn-primary">Modifier#}
-                                                    {#                                                            </button>#}
-                                                    {#                                                        </a></td>#}
-                                                    <td><a href="{{ path('updatedispordv',{'id':s.idRdv}) }}">
-                                                            <button type="button" class="btn btn-primary">Annuler Réservation
-                                                            </button>
-                                                        </a></td>
-
-                                                    {% endfor %}
-                                                    {#        <tr>#}
-                                                    {#            <th scope="row">1</th>#}
-                                                    {#            <td>Service 1</td>#}
-                                                    {#            <td>Garage 1</td>#}
-                                                    {#            <td>Date 1</td>#}
-                                                    {#        </tr>#}
-                                                    {#        <tr>#}
-                                                    {#            <th scope="row">2</th>#}
-                                                    {#            <td>Service 2</td>#}
-                                                    {#            <td>Garage 2</td>#}
-                                                    {#            <td>Date 2</td>#}
-                                                    {#        </tr>#}
-
-                                                </tbody>
-                                            </table>
-                                        </center>
-                                    </form>
+                                    </div>
                                 </div>
-                            </div>
-
-                        </div>
-                    </div>
-
+                            {% endfor %}
+                        </div><!-- /.text-block -->
+                    </div><!-- /.single-comment-one -->
                 </div>
-            </section>
-        </center>
+            </div>
+        </section>
+
     {% endblock %}
 {% endblock %}
+
+

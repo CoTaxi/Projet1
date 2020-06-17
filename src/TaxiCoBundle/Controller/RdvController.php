@@ -29,13 +29,13 @@ class RdvController extends Controller
     }
     public function Display2Action()
     {
+        $us=$this->getUser();
         $em = $this->getDoctrine()->getManager();
         $rdv2 = $em->getRepository(Rdv::class)->findrdv();
         dump($rdv2);
         return $this->render('@TaxiCo/Rdv/front2.html.twig', array(
-            'rdvs' => $rdv2
-//            'services' => $service,
-//            'garages' => $garage,
+            'rdvs' => $rdv2,
+            'user'=>$us
         ));
     }
 
@@ -249,11 +249,12 @@ class RdvController extends Controller
     }
     public function listAction(Request $request)
     {
+        $us=$this->getUser();
         $rdv = new Rdv();
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $form = $this->createForm(ReserveType::class, $rdv);
         $em=$this->getDoctrine()->getManager();
-        $find=$this->getDoctrine()->getRepository(Rdv::class)->find(9);
+        $find=$this->getDoctrine()->getRepository(Rdv::class)->find(3);
         $form->handleRequest($request);
 //
         if ($form->isSubmitted() && $form->isValid()) {
@@ -275,6 +276,9 @@ class RdvController extends Controller
             return $this->redirectToRoute("test2");
 
         }
-        return $this->render("@TaxiCo/Rdv/front.html.twig", array('form' => $form->createView()));
+        return $this->render("@TaxiCo/Rdv/front.html.twig", array('form' => $form->createView(),
+            'user'=>$us
+
+        ));
     }
 }

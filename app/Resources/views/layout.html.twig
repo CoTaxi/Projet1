@@ -73,12 +73,12 @@
                         <li><a href="{{ path('ourservices') }}">Nos Services</a></li>
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
-                            <li><a href="{{ path('vehicule_taxi') }}">Vehicules</a></li>
+                            <li><a href="{{ path('vehicule_listVehicule') }}">Vehicules</a></li>
                         {% endif %}
 
                         {% if ((is_granted('ROLE_CHAUFFEUR'))) %}
                             <li>
-                                <a href="{{ path('test5') }}">Maintenance</a>
+                                <a href="{{ path('maint') }}">Maintenance</a>
                                 <ul class="sub-menu">
                                     <li><a href="{{ path('test5') }}">Reserver Rendez vous</a></li>
                                     <li><a href="{{ path('test2') }}">Liste Rendez vous</a></li>
@@ -88,7 +88,7 @@
                             </li>
                         {% endif %}
                         <li>
-                            <a href="#">Reclamation</a>
+                            <a href="{{ path('taxi_co_rec') }}">Reclamation</a>
                         </li>
 
                         {% if ((is_granted('ROLE_CLIENT'))) %}

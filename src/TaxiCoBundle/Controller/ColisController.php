@@ -291,7 +291,8 @@ class ColisController extends Controller
     }
     public function clientfirstpageAction()
     {
-        return $this->render('colis/clientfirstpage.html.twig');
+        $us=$this->getUser();
+        return $this->render('colis/clientfirstpage.html.twig',array('user' => $us));
     }
     public function smsAction ()
     {

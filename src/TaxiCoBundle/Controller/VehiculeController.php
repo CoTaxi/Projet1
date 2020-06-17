@@ -11,6 +11,7 @@ use TaxiCoBundle\Form\VehiculeType;
 class VehiculeController extends Controller
 {
     public function ajoutVehiculeAction(Request $request){
+        $us=$this->getUser();
             $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
             $vehicule = new Vehicule();
         $vehicule->setUser($usrId);
@@ -31,20 +32,24 @@ class VehiculeController extends Controller
             $em->flush();
         }
         return $this->render('Vehicule/Vehicule.html.twig',
-            array('form' => $form->createView()));
+            array('form' => $form->createView(),'user'=>$us));
     }
 
-    public function listVehiculeAction(Request $request){
-
-            return $this->render('Vehicule/listVehicule.html.twig');
+    public function listVehiculeAction(Request $request)
+    {
+        $us=$this->getUser();
+        return $this->render('Vehicule/listVehicule.html.twig',array('user'=>$us));
     }
 
     public function taxiAction(Request $request){
+        $us=$this->getUser();
         $usrId = $this->get('security.token_storage')->getToken()->getUser()->getId();
         $em = $this->getDoctrine()->getManager();
         $vehicule=$em->getRepository('TaxiCoBundle:Vehicule')->findBy(array('user'=>$usrId));
         return $this->render('Vehicule/listTaxi.html.twig',
-            array('vehicule'=>$vehicule));
+            array('vehicule'=>$vehicule,
+                'user'=>$us
+            ));
     }
     public function CovoiturageAction(Request $request){
 

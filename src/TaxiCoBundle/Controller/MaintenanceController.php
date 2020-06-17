@@ -51,7 +51,7 @@ class MaintenanceController extends Controller
     }
 
     public function maintAction(Request $request){
-
-        return $this->render('@TaxiCo/Maintenance/maint.html.twig');
+        $us=$this->getUser();
+        return $this->render('@TaxiCo/Maintenance/maint.html.twig',array('user'=>$us));
     }
 }

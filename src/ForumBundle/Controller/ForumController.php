@@ -27,7 +27,8 @@ class ForumController extends Controller
 
         return $this->render('@Forum/Front/index.html.twig',array(
 
-            'f'=>$f
+            'f'=>$f,
+            'user'=>$us
         ));
         }
         else
@@ -39,45 +40,39 @@ class ForumController extends Controller
 
     public function addForumAction( Request $request )
     {
-        $us=$this->getUser();
-        if($us != null) {
+        $us = $this->getUser();
             $em = $this->getDoctrine()->getManager();
 
-        $forum = new Forum();
-        $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
-        $forum->setIduser($id);
-        $form=$this->createForm('ForumBundle\Form\ForumType',$forum);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
             $forum = new Forum();
             $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
             $forum->setIduser($id);
             $form = $this->createForm('ForumBundle\Form\ForumType', $forum);
             $form->handleRequest($request);
             if ($form->isSubmitted() && $form->isValid()) {
+                $forum = new Forum();
+                $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
+                $forum->setIduser($id);
+                $form = $this->createForm('ForumBundle\Form\ForumType', $forum);
+                $form->handleRequest($request);
+                if ($form->isSubmitted() && $form->isValid()) {
 
-                $forum->setCreated(new \DateTime('now'));
+                    $forum->setCreated(new \DateTime('now'));
 
-                $forum->setModified(new \DateTime('now'));
+                    $forum->setModified(new \DateTime('now'));
 
-                $forum->setEtat(0);
-                $file = $forum->getImage();
-                $fileName = $file->getClientOriginalName();
-                $file->move($this->getParameter('media_directory'), $fileName);
-                $forum->setImage($fileName);
+                    $forum->setEtat(0);
+                    $file = $forum->getImage();
+                    $fileName = $file->getClientOriginalName();
+                    $file->move($this->getParameter('media_directory'), $fileName);
+                    $forum->setImage($fileName);
 
-                $em->persist($forum);
-                $em->flush($forum);
-                return $this->redirectToRoute('forum_homepage');
+                    $em->persist($forum);
+                    $em->flush($forum);
+                    return $this->redirectToRoute('forum_homepage');
+                }
+
             }
-
-
-            return $this->render('@Forum/Front/add.html.twig',array('form'=>$form->createView()));
-        }
-        else
-        {
-            return $this->redirectToRoute('fos_user_security_login');
-        }
+                return $this->render('@Forum/Front/add.html.twig', array('form' => $form->createView(),'user' => $us));
 
     }
     public function removeSelectedAction($id)
@@ -107,7 +102,7 @@ class ForumController extends Controller
     }
     public function editAction(Request $request,$id)
     {
-
+        $us=$this->getUser();
         $em = $this->getDoctrine()->getManager();
         $find = $this->getDoctrine()->getRepository('ForumBundle:Forum')->find($id);
         $form=$this->createForm('ForumBundle\Form\ForumForm',$find);
@@ -121,12 +116,13 @@ class ForumController extends Controller
         }
         return $this->render('@Forum/Front/edit.html.twig', array(
             'form' => $form->createView(),
-            'find'=>$find
+            'find'=>$find,
+            'user'=>$us
         ));
     }
     public function articleAction(Forum $f)
     {
-
+        $us=$this->getUser();
         $em= $this->getDoctrine()->getManager();
 
         $id = $this->get('security.token_storage')->getToken()->getUser()->getId();
@@ -149,7 +145,8 @@ class ForumController extends Controller
             'user'=>$find,
             'f'=>$f,
             'cnxuser'=>$datas,
-            'c'=>$c));
+            'c'=>$c,
+            'user'=>$us));
     }
 
     public function commentAction(Request $request, Forum $f)
@@ -245,8 +242,8 @@ class ForumController extends Controller
 
     }
     public function blgAction(Request $request){
-
-        return $this->render('@Forum/Front/blg.html.twig');
+        $us=$this->getUser();
+        return $this->render('@Forum/Front/blg.html.twig',array('user' => $us));
     }
 
 

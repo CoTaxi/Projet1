@@ -1,5 +1,28 @@
 {% extends 'layout.html.twig' %}
+  {% block cnx %}
 
+      {% if (user != null ) %}
+
+          <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-user-circle"></i>LOGOUT</a>
+
+          <a href="#"><i class="fa fa-envelope"></i>{{ user.Email }}</a>
+      {% endif %}
+      {% if (user == null)%}
+          <a href="{{ path('fos_user_security_login') }}"><i class="fa fa-user-circle"></i>Sign In</a>
+      {% endif %}
+  {% endblock %}
+        {% block bg %}
+            <section class="inner-banner">
+                <div class="container">
+                    <ul class="thm-breadcrumb">
+                        <li><a href="index-2.html">TaxiCo</a></li>
+                        <li><span class="sep">.</span></li>
+                        <li><span class="page-title">Colis</span></li>
+                    </ul><!-- /.thm-breadcrumb -->
+                    <h2>Nos Services.colis</h2>
+                </div><!-- /.container -->
+            </section><!-- /.inner-banner -->
+        {% endblock %}
 {% block contents %}
 
     <section id="pricing-area" class="section-padding overlay">
