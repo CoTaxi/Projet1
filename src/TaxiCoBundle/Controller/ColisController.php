@@ -313,7 +313,9 @@ class ColisController extends Controller
         $find->setetat('2') ;
         $em->persist($find);
         $em->flush();
-        return $this->render('colis/afficheracceptee.html.twig',array( 'colis'=>$find) );
+        return $this->render('colis/afficheracceptee.html.twig',array(
+            'colis'=>$find,
+             'idV'=>$find->getIdKarhba()) );
     }
     public function RefuseeAction($idC)
     {
